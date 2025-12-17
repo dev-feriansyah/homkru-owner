@@ -1,0 +1,141 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:homekru_owner/theme/theme_helper.dart';
+
+class CustomAssignDropdown extends StatelessWidget {
+  final String? selectedValue;
+  final List<String> items;
+  final String? hintText;
+  final void Function(String?) onChanged;
+  final Color? borderColor;
+  final Widget? leading;
+
+  const CustomAssignDropdown({
+    super.key,
+    required this.selectedValue,
+    this.hintText,
+    required this.items,
+    required this.onChanged,
+    this.borderColor,
+    this.leading,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 57.h,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+      decoration: ShapeDecoration(
+        color: appTheme.white,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            width: 1,
+            color: borderColor ?? appTheme.lightBorder,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        shadows: [
+          BoxShadow(
+            color: appTheme.shadowColor,
+            blurRadius: 50,
+            offset: const Offset(10, 20),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          if (leading != null) ...[leading!, SizedBox(width: 12.w)],
+          Expanded(
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                value: selectedValue,
+                isExpanded: true,
+                hint: Text(
+                  hintText ?? 'Select Task',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    color: appTheme.grey,
+                    // fontFamily: "Poppins",
+                  ),
+                ),
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: appTheme.grey,
+                  size: 20,
+                ),
+                // style: GoogleFonts.poppins(
+                //   fontSize: 16.sp,
+                //   fontWeight: FontWeight.w400,
+                //   color: appTheme.grey,
+                //   // fontFamily: "Poppins",
+                // ),
+                dropdownColor: appTheme.white,
+                borderRadius: BorderRadius.circular(12),
+                items:
+                    items
+                        .map(
+                          (task) => DropdownMenuItem<String>(
+                            value: task,
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 30.w,
+                                  height: 30.h,
+                                  decoration: BoxDecoration(
+                                    color: appTheme.blueAccentCustom
+                                        .withOpacity(0.2),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      (() {
+                                        final parts = task.trim().split(
+                                          RegExp(r'\s+'),
+                                        );
+                                        if (parts.isEmpty) return '';
+                                        final first =
+                                            parts.first.isNotEmpty
+                                                ? parts.first[0]
+                                                : '';
+                                        final last =
+                                            parts.length > 1 &&
+                                                    parts.last.isNotEmpty
+                                                ? parts.last[0]
+                                                : '';
+                                        return (first + last).toUpperCase();
+                                      })(),
+                                      style: TextStyle(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600,
+                                        color: appTheme.blueAccentCustom,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 8.w),
+                                Expanded(
+                                  child: Text(
+                                    task,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: appTheme.grey,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                        .toList(),
+                onChanged: onChanged,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

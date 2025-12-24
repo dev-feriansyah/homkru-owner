@@ -5,7 +5,7 @@ import 'package:homekru_owner/presentation/home_screen/provider/home_screen_prov
 import 'package:homekru_owner/presentation/side_drawer/side_drawer.dart';
 
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {

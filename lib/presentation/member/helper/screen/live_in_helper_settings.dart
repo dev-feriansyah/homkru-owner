@@ -9,14 +9,14 @@ import 'package:homekru_owner/core/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/member/provider/add_member_provider.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_app_bar.dart';
-import 'package:homekru_owner/widgets/custom_dropdown_widget.dart';
-import 'package:homekru_owner/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
-import 'package:homekru_owner/widgets/custom_radio_options.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
-import 'package:homekru_owner/widgets/custom_toggle_switch.dart';
-import 'package:homekru_owner/widgets/textfield/custom_text_form_field.dart';
+import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
+import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
+import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_radio_options.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_toggle_switch.dart';
+import 'package:homekru_owner/shared/widgets/textfield/custom_text_form_field.dart';
 import 'package:provider/provider.dart';
 
 class LiveInHelperSettings extends StatefulWidget {

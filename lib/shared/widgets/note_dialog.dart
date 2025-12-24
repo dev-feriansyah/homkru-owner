@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/constants/app_strings.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class NoteDialog extends StatelessWidget {
   const NoteDialog({super.key});

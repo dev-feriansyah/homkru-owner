@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/image_constant.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/bottom_sheets/add_room_bottom_sheet.dart';
-import 'package:homekru_owner/widgets/custom_app_bar.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/bottom_sheets/add_room_bottom_sheet.dart';
+import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class HomeSetupScreen extends StatelessWidget {
   const HomeSetupScreen({super.key});

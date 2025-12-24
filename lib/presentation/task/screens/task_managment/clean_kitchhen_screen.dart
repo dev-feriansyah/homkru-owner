@@ -7,11 +7,11 @@ import 'package:homekru_owner/core/utils/logger.dart';
 import 'package:homekru_owner/presentation/settings/settings_screen.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/presentation/task/provider/task_management_provider.dart';
-import 'package:homekru_owner/widgets/custom_toggle_switch.dart';
-import 'package:homekru_owner/widgets/task_dropdown.dart';
-import 'package:homekru_owner/widgets/textfield/custom_text_form_field.dart';
+import 'package:homekru_owner/shared/widgets/custom_toggle_switch.dart';
+import 'package:homekru_owner/shared/widgets/task_dropdown.dart';
+import 'package:homekru_owner/shared/widgets/textfield/custom_text_form_field.dart';
 import 'package:provider/provider.dart';
 
 class CleanKitchenScreen extends StatefulWidget {

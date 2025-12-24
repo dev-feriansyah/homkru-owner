@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/presentation/attendance_screen/provider/attendance_provider.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 

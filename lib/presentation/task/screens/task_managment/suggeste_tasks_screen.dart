@@ -6,11 +6,11 @@ import 'package:homekru_owner/core/utils/logger.dart';
 import 'package:homekru_owner/presentation/task/widgets/dialogs/frequency_dialog.dart';
 import 'package:homekru_owner/presentation/task/widgets/dialogs/scope_of_work_dialog.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_assign_dropdown.dart';
-import 'package:homekru_owner/widgets/custom_dropdown_widget.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_assign_dropdown.dart';
+import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/presentation/task/provider/task_management_provider.dart';
-import 'package:homekru_owner/widgets/custom_toggle_switch.dart'
+import 'package:homekru_owner/shared/widgets/custom_toggle_switch.dart'
     show CustomToggleSwitch;
 
 class SuggestedTasksScreen extends StatefulWidget {

@@ -5,8 +5,8 @@ import 'package:homekru_owner/core/utils/constants/app_strings.dart';
 import 'package:homekru_owner/core/utils/image_constant.dart';
 import 'package:homekru_owner/presentation/task/widgets/info_item.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class TaskDetailCard extends StatelessWidget {
   final String assignedTo;

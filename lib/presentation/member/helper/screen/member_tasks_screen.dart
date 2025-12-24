@@ -6,9 +6,9 @@ import 'package:homekru_owner/presentation/member/widget/member_task_card.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/routes/app_routes.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/bottom_sheets/sort_by_filter_bottom_sheet.dart';
-import 'package:homekru_owner/widgets/custom_app_bar.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/bottom_sheets/sort_by_filter_bottom_sheet.dart';
+import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class MemberTasksScreen extends StatelessWidget {
   MemberTasksScreen({super.key});

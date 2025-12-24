@@ -4,22 +4,23 @@ import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/constants/app_strings.dart';
 import 'package:homekru_owner/core/utils/size_utils.dart' show SizeUtils;
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/widgets/custom_radio_options.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/bottom_sheets/helper_detail_bottom_sheet.dart';
+import 'package:homekru_owner/shared/widgets/bottom_sheets/invite_email_bottom_sheet.dart';
+import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
+import 'package:homekru_owner/shared/widgets/custom_radio_options.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
-enum FilterType { time, status }
+enum InviteRole { coOwner, helper }
 
-class SortByFilterBottomSheet extends StatefulWidget {
-  const SortByFilterBottomSheet({super.key});
+class InviteBottomSheet extends StatefulWidget {
+  const InviteBottomSheet({super.key});
 
   @override
-  State<SortByFilterBottomSheet> createState() =>
-      _SortByFilterBottomSheetState();
+  State<InviteBottomSheet> createState() => _InviteBottomSheetState();
 }
 
-class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
-  FilterType? _selectedRole = FilterType.time;
+class _InviteBottomSheetState extends State<InviteBottomSheet> {
+  InviteRole? _selectedRole = InviteRole.coOwner;
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +50,13 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
             ),
           ),
         ),
-        vGap(14.h),
+        vGap(20.h),
 
         /// Title
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
           child: CText(
-            AppStrings.sortBy,
+            AppStrings.wouldYouLikeToInvite,
             size: 20.sp,
             weight: FontWeight.w600,
             textAlign: TextAlign.center,
@@ -64,35 +65,35 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
         ),
         vGap(20.h),
 
-        /// Time option
+        /// Co-owner option
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-          child: CustomRadioOption<FilterType>(
-            value: FilterType.time,
+          child: CustomRadioOption<InviteRole>(
+            value: InviteRole.coOwner,
             groupValue: _selectedRole,
             onChanged: (value) {
               setState(() {
                 _selectedRole = value;
               });
             },
-            label: AppStrings.time,
+            label: AppStrings.coOwner,
             width: double.infinity,
           ),
         ),
         vGap(12.h),
 
-        /// Status option
+        /// Helper option
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-          child: CustomRadioOption<FilterType>(
-            value: FilterType.status,
+          child: CustomRadioOption<InviteRole>(
+            value: InviteRole.helper,
             groupValue: _selectedRole,
             onChanged: (value) {
               setState(() {
                 _selectedRole = value;
               });
             },
-            label: AppStrings.status,
+            label: AppStrings.helper,
             width: double.infinity,
           ),
         ),
@@ -102,29 +103,21 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
           child: CustomElevatedButton(
-            text: AppStrings.filter,
+            text: AppStrings.continueText,
             height: 50.h,
             width: double.infinity,
-            onPressed: () {},
+            onPressed: () {
+              if (_selectedRole == InviteRole.coOwner) {
+                // AppNavigator.pushNamed(AppRoutes.coOwner);
+                Navigator.pop(context);
+                showInviteEmailBottomSheet(context);
+              } else {
+                Navigator.pop(context);
+                showHelperDetailsBottomSheet(context);
+              }
+            },
           ),
         ),
-        SizedBox(height: 12.h),
-
-        // Clear action
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              _selectedRole = null;
-            });
-          },
-          child: CText(
-            "Clear",
-            color: appTheme.primaryColor,
-            weight: FontWeight.w500,
-            size: 14.sp,
-          ),
-        ),
-        SizedBox(height: 8.h),
         vGap(20.h),
       ],
     );
@@ -132,7 +125,7 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
 }
 
 /// Call this function from anywhere
-void showSortByFilterBottomSheet(BuildContext context) {
+void showInviteBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -140,6 +133,6 @@ void showSortByFilterBottomSheet(BuildContext context) {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
     ),
-    builder: (context) => const SortByFilterBottomSheet(),
+    builder: (context) => const InviteBottomSheet(),
   );
 }

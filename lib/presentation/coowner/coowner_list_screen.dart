@@ -6,8 +6,8 @@ import 'package:homekru_owner/core/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/overtime_tracker/provider/overtime_tracker_provider.dart';
 
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_app_bar.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/routes/app_routes.dart';

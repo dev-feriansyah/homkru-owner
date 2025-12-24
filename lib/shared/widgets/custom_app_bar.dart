@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/utils/image_constant.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class CustomCommonAppBar extends StatelessWidget
     implements PreferredSizeWidget {

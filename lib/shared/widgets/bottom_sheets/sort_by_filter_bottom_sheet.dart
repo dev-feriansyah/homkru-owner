@@ -4,23 +4,22 @@ import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/constants/app_strings.dart';
 import 'package:homekru_owner/core/utils/size_utils.dart' show SizeUtils;
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/bottom_sheets/helper_detail_bottom_sheet.dart';
-import 'package:homekru_owner/widgets/bottom_sheets/invite_email_bottom_sheet.dart';
-import 'package:homekru_owner/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/widgets/custom_radio_options.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
+import 'package:homekru_owner/shared/widgets/custom_radio_options.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
-enum InviteRole { coOwner, helper }
+enum FilterType { time, status }
 
-class InviteBottomSheet extends StatefulWidget {
-  const InviteBottomSheet({super.key});
+class SortByFilterBottomSheet extends StatefulWidget {
+  const SortByFilterBottomSheet({super.key});
 
   @override
-  State<InviteBottomSheet> createState() => _InviteBottomSheetState();
+  State<SortByFilterBottomSheet> createState() =>
+      _SortByFilterBottomSheetState();
 }
 
-class _InviteBottomSheetState extends State<InviteBottomSheet> {
-  InviteRole? _selectedRole = InviteRole.coOwner;
+class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
+  FilterType? _selectedRole = FilterType.time;
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +49,13 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
             ),
           ),
         ),
-        vGap(20.h),
+        vGap(14.h),
 
         /// Title
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
           child: CText(
-            AppStrings.wouldYouLikeToInvite,
+            AppStrings.sortBy,
             size: 20.sp,
             weight: FontWeight.w600,
             textAlign: TextAlign.center,
@@ -65,35 +64,35 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
         ),
         vGap(20.h),
 
-        /// Co-owner option
+        /// Time option
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-          child: CustomRadioOption<InviteRole>(
-            value: InviteRole.coOwner,
+          child: CustomRadioOption<FilterType>(
+            value: FilterType.time,
             groupValue: _selectedRole,
             onChanged: (value) {
               setState(() {
                 _selectedRole = value;
               });
             },
-            label: AppStrings.coOwner,
+            label: AppStrings.time,
             width: double.infinity,
           ),
         ),
         vGap(12.h),
 
-        /// Helper option
+        /// Status option
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-          child: CustomRadioOption<InviteRole>(
-            value: InviteRole.helper,
+          child: CustomRadioOption<FilterType>(
+            value: FilterType.status,
             groupValue: _selectedRole,
             onChanged: (value) {
               setState(() {
                 _selectedRole = value;
               });
             },
-            label: AppStrings.helper,
+            label: AppStrings.status,
             width: double.infinity,
           ),
         ),
@@ -103,21 +102,29 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
           child: CustomElevatedButton(
-            text: AppStrings.continueText,
+            text: AppStrings.filter,
             height: 50.h,
             width: double.infinity,
-            onPressed: () {
-              if (_selectedRole == InviteRole.coOwner) {
-                // AppNavigator.pushNamed(AppRoutes.coOwner);
-                Navigator.pop(context);
-                showInviteEmailBottomSheet(context);
-              } else {
-                Navigator.pop(context);
-                showHelperDetailsBottomSheet(context);
-              }
-            },
+            onPressed: () {},
           ),
         ),
+        SizedBox(height: 12.h),
+
+        // Clear action
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _selectedRole = null;
+            });
+          },
+          child: CText(
+            "Clear",
+            color: appTheme.primaryColor,
+            weight: FontWeight.w500,
+            size: 14.sp,
+          ),
+        ),
+        SizedBox(height: 8.h),
         vGap(20.h),
       ],
     );
@@ -125,7 +132,7 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
 }
 
 /// Call this function from anywhere
-void showInviteBottomSheet(BuildContext context) {
+void showSortByFilterBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -133,6 +140,6 @@ void showInviteBottomSheet(BuildContext context) {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
     ),
-    builder: (context) => const InviteBottomSheet(),
+    builder: (context) => const SortByFilterBottomSheet(),
   );
 }

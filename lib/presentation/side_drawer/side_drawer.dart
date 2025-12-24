@@ -11,8 +11,8 @@ import 'package:provider/provider.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/routes/app_routes.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class Sidebar extends StatelessWidget {
   Sidebar({super.key});

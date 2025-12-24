@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/utils/image_constant.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'dart:math' as math;
 
 class HouseholdStatsDashboard extends StatelessWidget {

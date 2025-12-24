@@ -5,9 +5,9 @@ import 'package:homekru_owner/core/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/overtime_tracker/provider/overtime_tracker_provider.dart';
 
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_app_bar.dart';
-import 'package:homekru_owner/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
+import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class OvertimeDetailedScreen extends StatefulWidget {

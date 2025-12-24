@@ -7,9 +7,9 @@ import 'package:homekru_owner/presentation/profile_scren/provider/profile_provid
 import 'package:homekru_owner/routes/app_navigator.dart';
 
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatefulWidget {

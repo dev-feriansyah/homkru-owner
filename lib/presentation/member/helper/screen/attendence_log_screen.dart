@@ -4,8 +4,8 @@ import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/constants/app_strings.dart';
 import 'package:homekru_owner/core/utils/size_utils.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_app_bar.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class AttendenceLogScreen extends StatelessWidget {
   const AttendenceLogScreen({super.key});

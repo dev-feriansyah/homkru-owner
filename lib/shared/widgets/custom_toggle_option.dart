@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/utils/size_utils.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
-import 'package:homekru_owner/widgets/custom_toggle_switch.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_toggle_switch.dart';
 
 class CustomToggleOption<T> extends StatelessWidget {
   final bool value;

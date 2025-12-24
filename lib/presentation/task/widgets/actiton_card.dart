@@ -4,7 +4,7 @@ import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/image_constant.dart';
 import 'package:homekru_owner/presentation/task/widgets/action_item.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 
 class ActitonCard extends StatelessWidget {
   final String resourceType;

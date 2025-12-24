@@ -4,7 +4,7 @@ import 'package:homekru_owner/core/utils/size_utils.dart';
 
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/routes/app_routes.dart';
-import 'package:homekru_owner/widgets/custom_image_view.dart';
+import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

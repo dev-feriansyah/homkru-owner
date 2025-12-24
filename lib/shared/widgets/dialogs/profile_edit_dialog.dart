@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/utils/constants/app_strings.dart';
 import 'package:homekru_owner/core/utils/logger.dart';
 import 'package:homekru_owner/theme/theme_helper.dart';
-import 'package:homekru_owner/widgets/custom_dropdown_widget.dart';
-import 'package:homekru_owner/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
-import 'package:homekru_owner/widgets/textfield/custom_text_form_field.dart';
+import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
+import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/textfield/custom_text_form_field.dart';
 
 void showEditDialog(BuildContext context) {
   showDialog(

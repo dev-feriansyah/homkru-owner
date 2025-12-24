@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/presentation/subscription/widgets/subscription_card.dart';
-import 'package:homekru_owner/widgets/custom_text.dart';
+import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({super.key});

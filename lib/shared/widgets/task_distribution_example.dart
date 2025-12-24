@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/widgets/task_distribution_chart.dart';
+import 'package:homekru_owner/shared/widgets/task_distribution_chart.dart';
 
 /// Example usage of the TaskDistributionChart widget
 class TaskDistributionExample extends StatelessWidget {

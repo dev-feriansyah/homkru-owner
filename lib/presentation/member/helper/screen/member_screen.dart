@@ -5,7 +5,7 @@ import 'package:homekru_owner/core/utils/image_constant.dart';
 import 'package:homekru_owner/presentation/member/widget/member_card.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/routes/app_routes.dart';
-import 'package:homekru_owner/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class MemberScreen extends StatelessWidget {

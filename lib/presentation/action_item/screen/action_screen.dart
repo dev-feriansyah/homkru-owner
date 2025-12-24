@@ -5,7 +5,7 @@ import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/constants/app_strings.dart';
 import 'package:homekru_owner/presentation/action_item/widgets/redo_parameters_dialog.dart';
 import 'package:homekru_owner/presentation/task/widgets/action_task_card.dart';
-import 'package:homekru_owner/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/routes/app_routes.dart';

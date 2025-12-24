@@ -8,7 +8,7 @@ import 'package:homekru_owner/presentation/home_screen/provider/home_screen_prov
 
 import 'package:homekru_owner/routes/app_navigator.dart';
 import 'package:homekru_owner/routes/app_routes.dart';
-import 'package:homekru_owner/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/invite_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';

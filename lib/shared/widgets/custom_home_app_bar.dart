@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/core/utils/image_constant.dart';
-import 'package:homekru_owner/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {

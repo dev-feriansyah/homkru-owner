@@ -5,7 +5,7 @@ import 'package:homekru_owner/core/utils/image_constant.dart';
 import 'package:homekru_owner/core/utils/logger.dart';
 import 'package:homekru_owner/presentation/task/widgets/dialogs/frequency_dialog.dart';
 import 'package:homekru_owner/presentation/task/widgets/dialogs/scope_of_work_dialog.dart';
-import 'package:homekru_owner/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/custom_assign_dropdown.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';

@@ -4,7 +4,7 @@ import 'package:homekru_owner/core/utils/common_utils.dart';
 import 'package:homekru_owner/core/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/action_item/widgets/redo_parameters_dialog.dart';
 import 'package:homekru_owner/routes/app_navigator.dart';
-import 'package:homekru_owner/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class MemberCard extends StatelessWidget {

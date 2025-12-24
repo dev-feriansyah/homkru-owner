@@ -17,7 +17,7 @@ import 'package:homekru_owner/presentation/splash_screens/provider/splash_provid
 import 'package:homekru_owner/presentation/task/provider/task_management_provider.dart';
 import 'package:homekru_owner/presentation/task/provider/task_provider.dart';
 import 'package:homekru_owner/routes/app_routes.dart';
-import 'package:homekru_owner/theme/provider/theme_provider.dart';
+import 'package:homekru_owner/core/theme/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/utils/common_fab.dart';
+import 'package:homekru_owner/shared/widgets/add_fab.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/presentation/task/widgets/task_card.dart';
@@ -124,7 +124,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
         controller: _tabController,
         children: [_buildTaskTab(), _buildUpcomingTab(), _buildCompletedTab()],
       ),
-      floatingActionButton: CommonFab(
+      floatingActionButton: AddFab(
         onPressed: () {
           AppNavigator.pushNamed(AppRoutes.taskManagement);
         },

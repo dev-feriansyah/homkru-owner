@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/core/theme/theme_helper.dart';
 
-class CommonFab extends StatelessWidget {
+class AddFab extends StatelessWidget {
   final void Function()? onPressed;
 
-  const CommonFab({super.key, required this.onPressed});
+  const AddFab({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

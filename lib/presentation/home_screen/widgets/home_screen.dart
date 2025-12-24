@@ -12,7 +12,7 @@ import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/invite_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
-import 'package:homekru_owner/shared/widgets/household_stats_dashboard.dart';
+import 'package:homekru_owner/presentation/home_screen/widgets/household_stats_dashboard.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

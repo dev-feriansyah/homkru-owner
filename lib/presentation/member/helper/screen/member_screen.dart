@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/utils/common_fab.dart';
+import 'package:homekru_owner/shared/widgets/add_fab.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/presentation/member/widget/member_card.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
@@ -127,7 +127,7 @@ class MemberScreen extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: CommonFab(
+      floatingActionButton: AddFab(
         onPressed: () {
           AppNavigator.push(AppRoutes.addMember);
         },

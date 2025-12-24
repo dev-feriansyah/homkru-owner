@@ -1,7 +1,7 @@
 import 'package:awesome_drawer_bar/awesome_drawer_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/presentation/home_screen/home_screen.dart';
+import 'package:homekru_owner/presentation/home_screen/widgets/home_screen.dart';
 import 'package:homekru_owner/presentation/settings/settings_screen.dart';
 import 'package:homekru_owner/presentation/member/helper/screen/member_screen.dart';
 import 'package:homekru_owner/presentation/side_drawer/side_drawer.dart';

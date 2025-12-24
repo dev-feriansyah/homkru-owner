@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:homekru_owner/core/utils/common_utils.dart';
+import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/utils/size_utils.dart';
+import 'package:homekru_owner/shared/utils/size_utils.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';

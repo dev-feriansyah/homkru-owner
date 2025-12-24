@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/utils/common_utils.dart';
-import 'package:homekru_owner/core/utils/size_utils.dart';
+import 'package:homekru_owner/shared/utils/common_utils.dart';
+import 'package:homekru_owner/shared/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/overtime_tracker/provider/overtime_tracker_provider.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';

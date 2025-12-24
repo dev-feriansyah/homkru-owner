@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/utils/size_utils.dart';
+import 'package:homekru_owner/shared/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/onBoarding/provider/onBoarding_provider.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';

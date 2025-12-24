@@ -3,60 +3,52 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/theme/theme_helper.dart';
-import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/textfield/custom_text_form_field.dart';
 
 final formKey = GlobalKey<FormState>();
-void redoParametersPopup(context) {
-  String? selectedFrequency;
-
+void addSubTaskPopup(context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
+      final TextEditingController subTaskController = TextEditingController();
       return Dialog(
-        insetPadding: EdgeInsets.symmetric(horizontal: 24),
-
         child: StatefulBuilder(
           builder: (context, setState) {
-            // Create controller and set its text if we have a selected time
-            final TextEditingController reasonController =
-                TextEditingController();
-
             return Container(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: appTheme.white,
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Spacer(),
-                      CText(
-                        "Define Redo Parameters",
-                        size: 18.sp,
-                        weight: FontWeight.w600,
-                        color: appTheme.textPrimary,
+                      hGap(32),
+                      Expanded(
+                        child: CText(
+                          "Sub Tasks",
+                          textAlign: TextAlign.start,
+                          size: 18.sp,
+                          weight: FontWeight.bold,
+                        ),
                       ),
-                      Spacer(),
                       GestureDetector(
                         onTap: () {
                           // NavigatorService.goBack();
                           AppNavigator.pop();
                         },
                         child: CircleAvatar(
-                          radius: 12.5,
+                          radius: 16,
                           backgroundColor: appTheme.lightBlue,
                           child: Icon(
                             Icons.close,
                             color: appTheme.primaryColor,
-                            size: 18,
                           ),
                         ),
                       ),
@@ -66,33 +58,15 @@ void redoParametersPopup(context) {
 
                   Form(
                     key: formKey,
-                    child: Column(
-                      children: [
-                        CustomDropdownWidget(
-                          items: ["Daily", "Weekly", "Monthly"],
-                          hintText: "Select frequency",
-                          selectedValue: selectedFrequency,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedFrequency = value;
-                            });
-                          },
-                        ),
-                        vGap(15),
-
-                        CustomTextFormField(
-                          controller: reasonController,
-                          hintText: "Reason for redo/Description for helper",
-                          maxLines: 4,
-                          minLines: 4,
-                        ),
-                      ],
+                    child: CustomTextFormField(
+                      controller: subTaskController,
+                      hintText: "Enter your task",
                     ),
                   ),
 
                   vGap(15),
                   CustomElevatedButton(
-                    text: "Submit",
+                    text: "+ Add Task",
                     onPressed: () {
                       AppNavigator.pop();
                     },

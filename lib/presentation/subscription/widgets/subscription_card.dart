@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homekru_owner/core/utils/size_utils.dart';
+import 'package:homekru_owner/shared/utils/size_utils.dart';
 
 class SubscriptionCard extends StatelessWidget {
   const SubscriptionCard({super.key});

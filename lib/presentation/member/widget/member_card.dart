@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/utils/common_utils.dart';
-import 'package:homekru_owner/core/utils/size_utils.dart';
+import 'package:homekru_owner/shared/utils/common_utils.dart';
+import 'package:homekru_owner/shared/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/action_item/widgets/redo_parameters_dialog.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/theme/theme_helper.dart';

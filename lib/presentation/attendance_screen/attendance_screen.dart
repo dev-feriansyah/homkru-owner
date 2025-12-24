@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homekru_owner/core/utils/common_utils.dart';
+import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/presentation/attendance_screen/provider/attendance_provider.dart';
 
 import 'package:homekru_owner/presentation/attendance_screen/widgets/history_attendance_screen.dart';

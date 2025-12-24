@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homekru_owner/core/utils/size_utils.dart';
+import 'package:homekru_owner/shared/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/bottom_navigation_bar/provider/dashboard_provider.dart';
 import 'package:homekru_owner/presentation/home_screen/provider/home_screen_provider.dart';
 import 'package:homekru_owner/presentation/side_drawer/side_drawer.dart';

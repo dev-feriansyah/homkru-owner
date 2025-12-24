@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/utils/size_utils.dart';
+import 'package:homekru_owner/shared/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/auth/provider/create_household_provider.dart';
 import 'package:homekru_owner/presentation/auth/provider/login_provider.dart';
 import 'package:homekru_owner/presentation/home_screen/provider/home_screen_provider.dart';

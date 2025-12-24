@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/utils/pref_utils.dart';
 import 'package:homekru_owner/core/utils/size_utils.dart';
 import 'package:homekru_owner/presentation/auth/provider/create_household_provider.dart';
 import 'package:homekru_owner/presentation/auth/provider/login_provider.dart';
@@ -70,10 +69,7 @@ class MyApp extends StatelessWidget {
             ),
             ChangeNotifierProvider(create: (context) => TaskProvider()),
             ChangeNotifierProvider(
-              create:
-                  (context) => ThemeProvider(
-                    isDark: PrefUtils().getThemeData() == 'dark',
-                  ),
+              create: (context) => ThemeProvider(isDark: false),
             ),
             ChangeNotifierProvider(create: (context) => HomeScreenProvider()),
             ChangeNotifierProvider(

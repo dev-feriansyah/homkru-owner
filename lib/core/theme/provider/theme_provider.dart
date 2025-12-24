@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homekru_owner/core/utils/pref_utils.dart';
 import 'package:homekru_owner/core/theme/theme_helper.dart';
-
 
 class ThemeProvider extends ChangeNotifier {
   bool _isDark;
@@ -16,7 +14,6 @@ class ThemeProvider extends ChangeNotifier {
 
   void setTheme(String themeType) {
     _isDark = themeType == 'dark';
-    PrefUtils().setThemeData(themeType);
     notifyListeners();
   }
 }

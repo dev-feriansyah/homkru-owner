@@ -56,7 +56,7 @@ class _NotificationScreenState extends State<NotificationScreen>
           // ),
           Consumer<NotificationProvider>(
             builder: (context, provider, child) {
-              return Container(
+              return SizedBox(
                 height: SizeUtils.height,
                 child: Column(
                   children: [

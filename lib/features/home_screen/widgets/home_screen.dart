@@ -38,11 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
           // AppNavigator.pushNamed(AppRoutes.addMember);
         },
         backgroundColor: appTheme.primaryColor,
-        child: Icon(Icons.person_add, color: Colors.white, size: 28.sp),
         elevation: 6,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
         ),
+        child: Icon(Icons.person_add, color: Colors.white, size: 28.sp),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: Container(
@@ -310,7 +310,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(height: 20),
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0),
-                      child: Container(
+                      child: SizedBox(
                         height: SizeUtils.height * 0.14,
                         child: ListView.builder(
                           itemCount: 5,

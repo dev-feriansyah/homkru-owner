@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class CreateHouseholdProvider extends ChangeNotifier{
 
-  List<String> _houseHoldType = ["abc", "xyz", "pqr"];
+  final List<String> _houseHoldType = ["abc", "xyz", "pqr"];
   List<String> get houseHoldType => _houseHoldType;
 
-   List<String> _noOfResidentsList = ["1","2","3","4","5"];
+   final List<String> _noOfResidentsList = ["1","2","3","4","5"];
   List<String> get noOfResidentsList => _noOfResidentsList;
 
    String _houseHoldTypeValue = "";
@@ -14,10 +14,10 @@ class CreateHouseholdProvider extends ChangeNotifier{
   String _noOfResidentsValue = "";
   String get noOfResidentsValue => _noOfResidentsValue;
 
-  bool _createNewHousehold = true;
+  final bool _createNewHousehold = true;
   bool get createNewHousehold => _createNewHousehold;
 
-  bool _createCoOwner = false;
+  final bool _createCoOwner = false;
   bool get createCoOwner => _createCoOwner;
 
 

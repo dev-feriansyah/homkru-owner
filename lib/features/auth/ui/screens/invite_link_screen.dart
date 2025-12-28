@@ -87,7 +87,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                   context: context,
                                   barrierDismissible: true,
                                   builder: (BuildContext context) {
-                                    final _formKey = GlobalKey<FormState>();
+                                    final formKey = GlobalKey<FormState>();
                                     return Dialog(
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(25),
@@ -95,8 +95,8 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                       insetPadding: EdgeInsets.all(20),
                                       backgroundColor: Colors.white,
                                       child: Form(
-                                        key: _formKey,
-                                        child: Container(
+                                        key: formKey,
+                                        child: SizedBox(
                                           width: SizeUtils.width * 0.7,
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
@@ -207,7 +207,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                   child: ElevatedButton(
                                                     onPressed: () {
                                                       // Your logic
-                                                      if (_formKey.currentState!
+                                                      if (formKey.currentState!
                                                           .validate()) {
                                                         AppNavigator.goNamed(
                                                           AppRoutes.login,
@@ -251,7 +251,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
+                                backgroundColor: WidgetStateProperty.all(
                                   appTheme.primaryColor,
                                 ),
                               ),
@@ -270,11 +270,11 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
+                                backgroundColor: WidgetStateProperty.all(
                                   appTheme.white,
                                 ),
 
-                                side: MaterialStateProperty.all(
+                                side: WidgetStateProperty.all(
                                   BorderSide(color: appTheme.primaryColor),
                                 ),
                               ),

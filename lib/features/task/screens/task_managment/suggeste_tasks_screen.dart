@@ -199,7 +199,7 @@ class _SuggestedTasksScreenState extends State<SuggestedTasksScreen> {
           final index = entry.key;
           final task = entry.value;
           return _buildSuggestedTaskItem(provider, index, task);
-        }).toList(),
+        }),
         vGap(16.h),
         _buildSelectFrequencyRow(provider),
       ],
@@ -441,7 +441,7 @@ class _SuggestedTasksScreenState extends State<SuggestedTasksScreen> {
                         },
                       ),
                     )
-                    .toList(),
+                    ,
               ],
             ),
           ),

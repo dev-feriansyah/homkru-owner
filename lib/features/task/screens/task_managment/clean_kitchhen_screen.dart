@@ -477,7 +477,7 @@ class _CleanKitchenScreenState extends State<CleanKitchenScreen> {
                         },
                       ),
                     )
-                    .toList(),
+                    ,
               ],
             ),
           ),

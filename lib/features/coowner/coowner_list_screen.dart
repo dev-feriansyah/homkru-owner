@@ -41,7 +41,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
           // ),
           Consumer<OvertimeTrackerProvider>(
             builder: (context, provider, child) {
-              return Container(
+              return SizedBox(
                 // color: appTheme.lightBlue,
                 height: SizeUtils.height,
                 child: Padding(

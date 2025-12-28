@@ -47,7 +47,7 @@ class _AddHelperScreenState extends State<AddHelperScreen> {
           //     height: 200,
           //   ),
           // ),
-          Container(
+          SizedBox(
             // color: appTheme.lightBlue,
             height: SizeUtils.height,
             child: Padding(
@@ -90,8 +90,9 @@ class _AddHelperScreenState extends State<AddHelperScreen> {
                           final emailRegex = RegExp(
                             r'^[^@\s]+@[^@\s]+\.[^@\s]+$',
                           );
-                          if (!emailRegex.hasMatch(value.trim()))
+                          if (!emailRegex.hasMatch(value.trim())) {
                             return 'Enter valid email';
+                          }
                           return null;
                         },
                       ),

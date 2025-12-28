@@ -20,7 +20,7 @@ import 'package:homekru_owner/shared/widgets/textfield/custom_text_form_field.da
 import 'package:provider/provider.dart';
 
 class LiveInHelperSettings extends StatefulWidget {
-  LiveInHelperSettings({super.key});
+  const LiveInHelperSettings({super.key});
 
   @override
   State<LiveInHelperSettings> createState() => _LiveInHelperSettingsState();

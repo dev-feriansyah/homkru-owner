@@ -31,7 +31,7 @@ class _OvertimeTrackerDetailedScreenState
           bottomWaveWidget(),
           Consumer<OvertimeTrackerProvider>(
             builder: (context, provider, child) {
-              return Container(
+              return SizedBox(
                 height: SizeUtils.height,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(

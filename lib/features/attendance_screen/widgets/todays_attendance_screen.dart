@@ -719,7 +719,7 @@ class _TodayAttendanceWidgetState extends State<TodayAttendanceWidget> {
                                 children: [
                                   OutlinedButton(
                                     style: ButtonStyle(
-                                      side: MaterialStateProperty.all(
+                                      side: WidgetStateProperty.all(
                                         BorderSide(
                                           color: appTheme.primaryColor,
                                         ),
@@ -743,7 +743,7 @@ class _TodayAttendanceWidgetState extends State<TodayAttendanceWidget> {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                       backgroundColor:
-                                          MaterialStateProperty.all(
+                                          WidgetStateProperty.all(
                                             appTheme.primaryColor,
                                           ),
                                     ),

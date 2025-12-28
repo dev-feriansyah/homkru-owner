@@ -40,7 +40,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
           // ),
           Consumer<OvertimeTrackerProvider>(
             builder: (context, provider, child) {
-              return Container(
+              return SizedBox(
                 // color: appTheme.lightBlue,
                 height: SizeUtils.height,
                 child: Padding(

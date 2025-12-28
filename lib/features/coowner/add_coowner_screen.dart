@@ -51,7 +51,7 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
           //     height: 200,
           //   ),
           // ),
-          Container(
+          SizedBox(
             // color: appTheme.lightBlue,
             height: SizeUtils.height,
             child: Padding(
@@ -87,8 +87,9 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
                           final emailRegex = RegExp(
                             r'^[^@\s]+@[^@\s]+\.[^@\s]+$',
                           );
-                          if (!emailRegex.hasMatch(value.trim()))
+                          if (!emailRegex.hasMatch(value.trim())) {
                             return 'Enter valid email';
+                          }
                           return null;
                         },
                       ),

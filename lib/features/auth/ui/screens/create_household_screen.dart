@@ -3,7 +3,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/shared/utils/size_utils.dart';
-import 'package:homekru_owner/features/auth/ui/providers/create_household_provider.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
@@ -19,7 +18,12 @@ class CreateHouseholdScreen extends HookWidget {
   const CreateHouseholdScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final List<String> houseHoldType = ["abc", "xyz", "pqr"];
+    final List<String> noOfResidentsList = ["1", "2", "3", "4", "5"];
+
     final householdController = useTextEditingController();
+    final houseHoldTypeController = useState('');
+    final noOfResidentsController = useState('');
 
     return Scaffold(
       body: Container(
@@ -110,25 +114,18 @@ class CreateHouseholdScreen extends HookWidget {
                               size: 16,
                             ),
                             SizedBox(height: 5),
-                            Consumer<CreateHouseholdProvider>(
-                              builder: (
-                                BuildContext context,
-                                value,
-                                Widget? child,
-                              ) {
-                                return CustomDropdownField(
-                                  items: value.houseHoldType,
-                                  selectedItem:
-                                      value.houseHoldType.contains(
-                                            value.houseHoldTypeValue,
-                                          )
-                                          ? value.houseHoldTypeValue
-                                          : null,
-                                  onChanged:
-                                      (val) => value.selectHouseHoldType(val),
-                                  hintText: "Select type",
-                                );
-                              },
+                            CustomDropdownField(
+                              items: houseHoldType,
+                              selectedItem:
+                                  houseHoldType.contains(
+                                        houseHoldTypeController.value,
+                                      )
+                                      ? houseHoldTypeController.value
+                                      : null,
+                              onChanged:
+                                  (val) =>
+                                      houseHoldTypeController.value = val ?? '',
+                              hintText: "Select type",
                             ),
                             SizedBox(height: 20),
                             CText(
@@ -138,25 +135,18 @@ class CreateHouseholdScreen extends HookWidget {
                               size: 16,
                             ),
                             SizedBox(height: 5),
-                            Consumer<CreateHouseholdProvider>(
-                              builder: (
-                                BuildContext context,
-                                value,
-                                Widget? child,
-                              ) {
-                                return CustomDropdownField(
-                                  items: value.noOfResidentsList,
-                                  selectedItem:
-                                      value.houseHoldType.contains(
-                                            value.noOfResidentsValue,
-                                          )
-                                          ? value.noOfResidentsValue
-                                          : null,
-                                  onChanged:
-                                      (val) => value.selectnoOfResidents(val),
-                                  hintText: "Select number",
-                                );
-                              },
+                            CustomDropdownField(
+                              items: noOfResidentsList,
+                              selectedItem:
+                                  houseHoldType.contains(
+                                        noOfResidentsController.value,
+                                      )
+                                      ? noOfResidentsController.value
+                                      : null,
+                              onChanged:
+                                  (val) =>
+                                      noOfResidentsController.value = val ?? '',
+                              hintText: "Select number",
                             ),
 
                             SizedBox(height: 30),

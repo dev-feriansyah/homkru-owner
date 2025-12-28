@@ -24,7 +24,7 @@ import 'package:homekru_owner/features/auth/ui/screens/forget_password_screen.da
 import 'package:homekru_owner/features/auth/ui/screens/invite_link_screen.dart'
     show InviteLinkScreen;
 import 'package:homekru_owner/features/auth/ui/screens/login_screen.dart';
-import 'package:homekru_owner/features/auth/ui/providers/create_household_provider.dart';
+
 import 'package:homekru_owner/features/auth/ui/screens/signup_screen.dart';
 import 'package:homekru_owner/features/auth/ui/screens/verify_otp.dart';
 import 'package:homekru_owner/features/auth/ui/screens/would_you_like_screen.dart';
@@ -156,11 +156,7 @@ class AppRoutes {
       GoRoute(
         name: createHousehold,
         path: createHousehold,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => CreateHouseholdProvider(),
-              child: const CreateHouseholdScreen(),
-            ),
+        builder: (context, state) => const CreateHouseholdScreen(),
       ),
 
       GoRoute(

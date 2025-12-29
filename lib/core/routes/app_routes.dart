@@ -41,7 +41,6 @@ import 'package:homekru_owner/features/overtime_detailed_screen/screens/overtime
 import 'package:homekru_owner/features/overtime_tracker/screens/overtime_tracker_screen.dart';
 import 'package:homekru_owner/features/overtime_tracker/screens/overtime_tracker_detailed_screen.dart';
 import 'package:homekru_owner/features/profile_scren/screens/profile_screen.dart';
-import 'package:homekru_owner/features/settings/provider/settings_provider.dart';
 import 'package:homekru_owner/features/settings/settings_screen.dart';
 import 'package:homekru_owner/features/subscription/screens/manage_subscription_screen.dart';
 import 'package:homekru_owner/features/home_setup/home_setup_screen.dart';
@@ -108,7 +107,7 @@ class AppRoutes {
 
   static GoRouter router = GoRouter(
     navigatorKey: navigationKey,
-    initialLocation: kDebugMode ? deduction : initialRoute,
+    initialLocation: kDebugMode ? dashboard : initialRoute,
     // initialLocation: onBoarding,
     routes: [
       GoRoute(
@@ -242,11 +241,7 @@ class AppRoutes {
       GoRoute(
         name: settings,
         path: settings,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => SettingsProvider(),
-              child: const SettingsScreen(),
-            ),
+        builder: (context, state) => const SettingsScreen(),
       ),
       GoRoute(
         name: manageSubscription,

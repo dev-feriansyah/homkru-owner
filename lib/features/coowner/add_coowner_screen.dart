@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/shared/utils/size_utils.dart';
-import 'package:homekru_owner/features/settings/provider/settings_provider.dart';
 import 'package:homekru_owner/features/settings/settings_screen.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
-import 'package:homekru_owner/shared/widgets/task_dropdown.dart';
-import 'package:provider/provider.dart';
 
 class AddCoOwnerScreen extends StatefulWidget {
   const AddCoOwnerScreen({super.key});

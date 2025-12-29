@@ -5,7 +5,6 @@ import 'package:homekru_owner/shared/utils/size_utils.dart';
 import 'package:homekru_owner/features/home_screen/provider/home_screen_provider.dart';
 import 'package:homekru_owner/features/member/provider/add_member_provider.dart';
 import 'package:homekru_owner/features/member/provider/day_off_eligibility_provider.dart';
-import 'package:homekru_owner/features/member/provider/member_provider.dart';
 import 'package:homekru_owner/features/task/provider/task_management_provider.dart';
 import 'package:homekru_owner/features/task/provider/task_provider.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
@@ -45,7 +44,6 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return MultiProvider(
           providers: [
-            ChangeNotifierProvider(create: (context) => MemberProvider()),
             ChangeNotifierProvider(create: (context) => AddMemberProvider()),
             ChangeNotifierProvider(
               create: (context) => DayOffEligibilityProvider(),

@@ -33,8 +33,7 @@ import 'package:homekru_owner/features/bottom_navigation_bar/dashboard.dart';
 import 'package:homekru_owner/features/bottom_navigation_bar/provider/dashboard_provider.dart';
 import 'package:homekru_owner/features/coowner/coowner_list_screen.dart';
 import 'package:homekru_owner/features/coowner/add_coowner_screen.dart';
-import 'package:homekru_owner/features/deduction/deduction_screen.dart';
-import 'package:homekru_owner/features/deduction/provider/deduction_provider.dart';
+import 'package:homekru_owner/features/deduction/screens/deduction_screen.dart';
 import 'package:homekru_owner/features/notification/notification.dart';
 import 'package:homekru_owner/features/notification/provider/notification_provider.dart';
 import 'package:homekru_owner/features/onboarding/views/onboarding_screen.dart';
@@ -109,7 +108,7 @@ class AppRoutes {
 
   static GoRouter router = GoRouter(
     navigatorKey: navigationKey,
-    initialLocation: kDebugMode ? dashboard : initialRoute,
+    initialLocation: kDebugMode ? deduction : initialRoute,
     // initialLocation: onBoarding,
     routes: [
       GoRoute(
@@ -237,11 +236,7 @@ class AppRoutes {
       GoRoute(
         name: deduction,
         path: deduction,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => DeductionProvider(),
-              child: const DeductionScreen(),
-            ),
+        builder: (context, state) => const DeductionScreen(),
       ),
 
       GoRoute(

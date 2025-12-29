@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/features/helper/add_helper_screen.dart';
 import 'package:homekru_owner/features/helper/helper_list_screen.dart';
@@ -40,7 +41,6 @@ import 'package:homekru_owner/features/onboarding/views/onboarding_screen.dart';
 import 'package:homekru_owner/features/overtime_detailed_screen/overtime_detailed_screen.dart';
 import 'package:homekru_owner/features/overtime_tracker/overtime_tracker_screen.dart';
 import 'package:homekru_owner/features/overtime_tracker/overtime_tracker_detailed_screen.dart';
-import 'package:homekru_owner/features/overtime_tracker/provider/overtime_tracker_provider.dart';
 import 'package:homekru_owner/features/profile_scren/profile_screen.dart';
 import 'package:homekru_owner/features/profile_scren/provider/profile_provider.dart';
 import 'package:homekru_owner/features/settings/provider/settings_provider.dart';
@@ -110,8 +110,8 @@ class AppRoutes {
 
   static GoRouter router = GoRouter(
     navigatorKey: navigationKey,
-    // initialLocation: kDebugMode ? dashboard : initialRoute,
-    initialLocation: onBoarding,
+    initialLocation: kDebugMode ? dashboard : initialRoute,
+    // initialLocation: onBoarding,
     routes: [
       GoRoute(
         name: initialRoute,
@@ -189,11 +189,7 @@ class AppRoutes {
       GoRoute(
         name: overtimeTrackerDetailed,
         path: overtimeTrackerDetailed,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => OvertimeTrackerProvider(),
-              child: const OvertimeTrackerDetailedScreen(),
-            ),
+        builder: (context, state) => const OvertimeTrackerDetailedScreen(),
       ),
       GoRoute(
         name: verifyOtp,
@@ -203,29 +199,17 @@ class AppRoutes {
       GoRoute(
         name: overtimeDetailed,
         path: overtimeDetailed,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => OvertimeTrackerProvider(),
-              child: const OvertimeDetailedScreen(),
-            ),
+        builder: (context, state) => const OvertimeDetailedScreen(),
       ),
       GoRoute(
         name: coownerList,
         path: coownerList,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => OvertimeTrackerProvider(),
-              child: const CoownerListScreen(),
-            ),
+        builder: (context, state) => const CoownerListScreen(),
       ),
       GoRoute(
         name: helperList,
         path: helperList,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => OvertimeTrackerProvider(),
-              child: const HelperListScreen(),
-            ),
+        builder: (context, state) => const HelperListScreen(),
       ),
       GoRoute(
         name: addCoOwner,

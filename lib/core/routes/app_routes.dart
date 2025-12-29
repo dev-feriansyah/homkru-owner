@@ -38,11 +38,10 @@ import 'package:homekru_owner/features/deduction/provider/deduction_provider.dar
 import 'package:homekru_owner/features/notification/notification.dart';
 import 'package:homekru_owner/features/notification/provider/notification_provider.dart';
 import 'package:homekru_owner/features/onboarding/views/onboarding_screen.dart';
-import 'package:homekru_owner/features/overtime_detailed_screen/overtime_detailed_screen.dart';
-import 'package:homekru_owner/features/overtime_tracker/overtime_tracker_screen.dart';
-import 'package:homekru_owner/features/overtime_tracker/overtime_tracker_detailed_screen.dart';
-import 'package:homekru_owner/features/profile_scren/profile_screen.dart';
-import 'package:homekru_owner/features/profile_scren/provider/profile_provider.dart';
+import 'package:homekru_owner/features/overtime_detailed_screen/screens/overtime_detailed_screen.dart';
+import 'package:homekru_owner/features/overtime_tracker/screens/overtime_tracker_screen.dart';
+import 'package:homekru_owner/features/overtime_tracker/screens/overtime_tracker_detailed_screen.dart';
+import 'package:homekru_owner/features/profile_scren/screens/profile_screen.dart';
 import 'package:homekru_owner/features/settings/provider/settings_provider.dart';
 import 'package:homekru_owner/features/settings/settings_screen.dart';
 import 'package:homekru_owner/features/subscription/screens/manage_subscription_screen.dart';
@@ -233,11 +232,7 @@ class AppRoutes {
       GoRoute(
         name: profile,
         path: profile,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => ProfileProvider(),
-              child: const ProfileScreen(),
-            ),
+        builder: (context, state) => const ProfileScreen(),
       ),
       GoRoute(
         name: deduction,

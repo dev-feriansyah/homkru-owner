@@ -1,27 +1,52 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/shared/utils/size_utils.dart';
-import 'package:homekru_owner/features/profile_scren/provider/profile_provider.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 
 import 'package:homekru_owner/core/theme/theme_helper.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
-import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends HookWidget {
   const ProfileScreen({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
-  @override
   Widget build(BuildContext context) {
+    final selectedImage = useState<File?>(null);
+
+    final emailController = useTextEditingController(
+      text: 'sarah.johnson@example.com',
+    );
+    final phoneController = useTextEditingController(text: '+1 (555) 123-4567');
+    final addressController = useTextEditingController(
+      text: '123 Main Street Anytown, ST 12345',
+    );
+    final householdController = useTextEditingController(
+      text: 'Household Name',
+    );
+    final planController = useTextEditingController(text: 'Premium Plan');
+
+    final imagePicker = useMemoized(() => ImagePicker());
+    Future<void> pickImage(ImageSource source) async {
+      final XFile? image = await imagePicker.pickImage(
+        source: source,
+        maxWidth: 1024,
+        maxHeight: 1024,
+        imageQuality: 80,
+      );
+
+      if (image != null) {
+        selectedImage.value = File(image.path);
+      }
+    }
+
     return Scaffold(
       backgroundColor: appTheme.lightBlue,
       body: Stack(
@@ -35,160 +60,152 @@ class _ProfileScreenState extends State<ProfileScreen> {
           //     height: 200,
           //   ),
           // ),
-          Consumer<ProfileProvider>(
-            builder: (context, provider, child) {
-              return SizedBox(
-                height: SizeUtils.height,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0,
-                          vertical: 40,
-                        ),
-                        width: SizeUtils.width,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(ImageConstant.profileBackground),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: Column(
+          SizedBox(
+            height: SizeUtils.height,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 40,
+                    ),
+                    width: SizeUtils.width,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(ImageConstant.profileBackground),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    AppNavigator.pop();
-                                  },
-                                  child: Icon(
-                                    Icons.arrow_back_ios_new,
-                                    color: appTheme.white,
-                                    size: 20,
-                                  ),
-                                ),
-                                CText(
-                                  "Profile",
-                                  size: 18,
-                                  color: appTheme.white,
-                                  weight: FontWeight.bold,
-                                  fontFamily: "PoppinsMedium",
-                                ),
-                                SizedBox(width: 30),
-                              ],
+                            InkWell(
+                              onTap: () {
+                                AppNavigator.pop();
+                              },
+                              child: Icon(
+                                Icons.arrow_back_ios_new,
+                                color: appTheme.white,
+                                size: 20,
+                              ),
                             ),
-                            SizedBox(height: 20),
-                            Stack(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  // _showImagePickerBottomSheet(context),
-                                  child: Container(
-                                    height: SizeUtils.width * 0.3,
-                                    width: SizeUtils.width * 0.3,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image:
-                                            provider.selectedImage != null
-                                                ? FileImage(
-                                                  provider.selectedImage!,
-                                                )
-                                                : AssetImage(
-                                                      ImageConstant.profile,
-                                                    )
-                                                    as ImageProvider,
-                                        fit: BoxFit.cover,
-                                      ),
-                                      shape: BoxShape.circle,
-                                      border: Border.all(color: appTheme.white),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  right: -7.2,
-                                  bottom: 0,
-                                  // left: 0,
-                                  // top: 0,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      _showImagePickerBottomSheet(context);
-                                    },
-                                    icon: CustomImageView(
-                                      imagePath: ImageConstant.editIcon,
-                                      height: 32,
-                                      width: 32,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10),
                             CText(
-                              "Maria Johnson",
-                              size: 16,
+                              "Profile",
+                              size: 18,
                               color: appTheme.white,
                               weight: FontWeight.bold,
                               fontFamily: "PoppinsMedium",
                             ),
-                            SizedBox(height: 5),
-                            CText(
-                              "Homeowner",
-                              size: 14,
-                              color: appTheme.offWhite,
-                              weight: FontWeight.bold,
-                            ),
+                            SizedBox(width: 30),
                           ],
                         ),
-                      ),
-                      // SizedBox(height: 20,),
-                      Container(
-                        padding: EdgeInsets.all(20),
-                        child: Column(
+                        SizedBox(height: 20),
+                        Stack(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                CText(
-                                  "Personal Details",
-                                  size: 18,
-                                  weight: FontWeight.bold,
-                                  // fontFamily: "PoppinsMedium",
+                            GestureDetector(
+                              onTap: () {},
+                              // _showImagePickerBottomSheet(context),
+                              child: Container(
+                                height: SizeUtils.width * 0.3,
+                                width: SizeUtils.width * 0.3,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        selectedImage.value != null
+                                            ? FileImage(selectedImage.value!)
+                                            : AssetImage(ImageConstant.profile)
+                                                as ImageProvider,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: appTheme.white),
                                 ),
-                              ],
+                              ),
                             ),
-                            SizedBox(height: 20),
-                            buildTextField("email", provider.emailController),
-                            SizedBox(height: 20),
-                            buildTextField("phone", provider.phoneController),
-                            SizedBox(height: 20),
-                            buildTextField(
-                              "address",
-                              provider.addressController,
-                            ),
-                            SizedBox(height: 20),
-                            buildTextField(
-                              "houseHoldName",
-                              provider.householdController,
-                            ),
-                            SizedBox(height: 20),
-                            buildTextField("plan", provider.planController),
-                            vGap(35.h),
-                            CustomElevatedButton(
-                              text: 'Updates Profile',
-                              onPressed: () {},
+                            Positioned(
+                              right: -7.2,
+                              bottom: 0,
+                              // left: 0,
+                              // top: 0,
+                              child: IconButton(
+                                onPressed: () {
+                                  _showImagePickerBottomSheet(
+                                    context: context,
+                                    onPickCamera:
+                                        () => pickImage(ImageSource.camera),
+                                    onPickGallery:
+                                        () => pickImage(ImageSource.gallery),
+                                  );
+                                },
+                                icon: CustomImageView(
+                                  imagePath: ImageConstant.editIcon,
+                                  height: 32,
+                                  width: 32,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 10),
+                        CText(
+                          "Maria Johnson",
+                          size: 16,
+                          color: appTheme.white,
+                          weight: FontWeight.bold,
+                          fontFamily: "PoppinsMedium",
+                        ),
+                        SizedBox(height: 5),
+                        CText(
+                          "Homeowner",
+                          size: 14,
+                          color: appTheme.offWhite,
+                          weight: FontWeight.bold,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
+                  // SizedBox(height: 20,),
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            CText(
+                              "Personal Details",
+                              size: 18,
+                              weight: FontWeight.bold,
+                              // fontFamily: "PoppinsMedium",
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        buildTextField("email", emailController),
+                        SizedBox(height: 20),
+                        buildTextField("phone", phoneController),
+                        SizedBox(height: 20),
+                        buildTextField("address", addressController),
+                        SizedBox(height: 20),
+                        buildTextField("houseHoldName", householdController),
+                        SizedBox(height: 20),
+                        buildTextField("plan", planController),
+                        vGap(35.h),
+                        CustomElevatedButton(
+                          text: 'Updates Profile',
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
           const SizedBox(height: 16),
         ],
@@ -225,7 +242,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void _showImagePickerBottomSheet(BuildContext context) {
+  void _showImagePickerBottomSheet({
+    required BuildContext context,
+    required VoidCallback onPickCamera,
+    required VoidCallback onPickGallery,
+  }) {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
@@ -271,10 +292,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       subtitle: "Use camera to take a new photo",
                       onTap: () async {
                         Navigator.pop(context);
-                        await Provider.of<ProfileProvider>(
-                          context,
-                          listen: false,
-                        ).pickImageFromCamera();
+                        onPickCamera();
                       },
                     ),
 
@@ -287,10 +305,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       subtitle: "Select photo from your gallery",
                       onTap: () async {
                         Navigator.pop(context);
-                        await Provider.of<ProfileProvider>(
-                          context,
-                          listen: false,
-                        ).pickImageFromGallery();
+                        onPickGallery();
                       },
                     ),
 

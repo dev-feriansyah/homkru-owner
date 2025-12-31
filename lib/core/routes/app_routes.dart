@@ -104,7 +104,7 @@ class AppRoutes {
 
   static GoRouter router = GoRouter(
     navigatorKey: navigationKey,
-    initialLocation: kDebugMode ? taskManagement : initialRoute,
+    initialLocation: kDebugMode ? dashboard : initialRoute,
     // initialLocation: onBoarding,
     routes: [
       GoRoute(

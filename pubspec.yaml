@@ -13,10 +13,8 @@ dependencies:
   intl: ^0.20.2
   flutter_svg: ^2.2.0
   cached_network_image: ^3.4.1
-  provider: ^6.1.5
   smooth_page_indicator: ^1.2.1
   flutter_screenutil: ^5.9.3
-  awesome_drawer_bar: ^1.2.1
   flutter_otp_text_field: ^1.1.1
   ionicons: ^0.2.1
   dropdown_search: ^6.0.2

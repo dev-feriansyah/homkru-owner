@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'add_member_form_provider.dart';
+part of 'dashboard_index.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,52 +9,52 @@ part of 'add_member_form_provider.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(AddMemberForm)
-const addMemberFormProvider = AddMemberFormProvider._();
+@ProviderFor(DashboardIndex)
+const dashboardIndexProvider = DashboardIndexProvider._();
 
-final class AddMemberFormProvider
-    extends $NotifierProvider<AddMemberForm, AddMemberFormState> {
-  const AddMemberFormProvider._()
+final class DashboardIndexProvider
+    extends $NotifierProvider<DashboardIndex, int> {
+  const DashboardIndexProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'addMemberFormProvider',
+        name: r'dashboardIndexProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$addMemberFormHash();
+  String debugGetCreateSourceHash() => _$dashboardIndexHash();
 
   @$internal
   @override
-  AddMemberForm create() => AddMemberForm();
+  DashboardIndex create() => DashboardIndex();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(AddMemberFormState value) {
+  Override overrideWithValue(int value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<AddMemberFormState>(value),
+      providerOverride: $SyncValueProvider<int>(value),
     );
   }
 }
 
-String _$addMemberFormHash() => r'7d8577e59ed55c19920b3e6d23e005c5f61e843a';
+String _$dashboardIndexHash() => r'40afc5132614e624ce0751523e1edf03eb440cec';
 
-abstract class _$AddMemberForm extends $Notifier<AddMemberFormState> {
-  AddMemberFormState build();
+abstract class _$DashboardIndex extends $Notifier<int> {
+  int build();
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build();
-    final ref = this.ref as $Ref<AddMemberFormState, AddMemberFormState>;
+    final ref = this.ref as $Ref<int, int>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AddMemberFormState, AddMemberFormState>,
-              AddMemberFormState,
+              AnyNotifier<int, int>,
+              int,
               Object?,
               Object?
             >;

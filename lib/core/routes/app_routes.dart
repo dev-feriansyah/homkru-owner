@@ -26,8 +26,7 @@ import 'package:homekru_owner/features/auth/ui/screens/login_screen.dart';
 import 'package:homekru_owner/features/auth/ui/screens/signup_screen.dart';
 import 'package:homekru_owner/features/auth/ui/screens/verify_otp.dart';
 import 'package:homekru_owner/features/auth/ui/screens/would_you_like_screen.dart';
-import 'package:homekru_owner/features/bottom_navigation_bar/dashboard.dart';
-import 'package:homekru_owner/features/bottom_navigation_bar/provider/dashboard_provider.dart';
+import 'package:homekru_owner/features/dashboard/ui/screens/dashboard.dart';
 import 'package:homekru_owner/features/coowner/coowner_list_screen.dart';
 import 'package:homekru_owner/features/coowner/add_coowner_screen.dart';
 import 'package:homekru_owner/features/deduction/screens/deduction_screen.dart';
@@ -156,11 +155,7 @@ class AppRoutes {
       GoRoute(
         name: dashboard,
         path: dashboard,
-        builder:
-            (context, state) => ChangeNotifierProvider(
-              create: (context) => DashboardProvider(),
-              child: const Dashboard(),
-            ),
+        builder: (context, state) => const Dashboard(),
       ),
       GoRoute(
         name: attendance,

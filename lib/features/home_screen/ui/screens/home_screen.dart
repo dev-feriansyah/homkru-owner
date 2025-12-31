@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:homekru_owner/features/dashboard/ui/providers/dashboard_index.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/shared/utils/size_utils.dart';
-import 'package:homekru_owner/features/bottom_navigation_bar/provider/dashboard_provider.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
@@ -12,7 +12,7 @@ import 'package:homekru_owner/shared/widgets/bottom_sheets/invite_bottom_sheet.d
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/features/home_screen/ui/widgets/household_stats_dashboard.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final List<Map<String, dynamic>> actionItemLists = [
   {
@@ -37,18 +37,12 @@ final List<Map<String, dynamic>> actionItemLists = [
   },
 ];
 
-class HomeScreen extends StatefulWidget {
-  final Function? toggle;
-  const HomeScreen({super.key, required this.toggle});
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final dashboardIndexNotifier = ref.read(dashboardIndexProvider.notifier);
 
-class _HomeScreenState extends State<HomeScreen> {
-  // Scaffold ke liye GlobalKey
-  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       // key: _scaffoldKey,
       // drawer: Sidebar(),
@@ -101,9 +95,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           GestureDetector(
                             onTap: () async {
-                              // Call the toggle function - state management is handled in provider
-                              // await widget.toggle?.call();
-
                               Scaffold.of(context).openDrawer();
                             },
                             child: Container(
@@ -264,30 +255,24 @@ class _HomeScreenState extends State<HomeScreen> {
                             weight: FontWeight.w600,
                             color: appTheme.textPrimary,
                           ),
-                          Consumer<DashboardProvider>(
-                            builder: (context, provider, child) {
-                              return GestureDetector(
-                                onTap: () {
-                                  // provider.onItemTapped(1);
-                                  AppNavigator.pushNamed(
-                                    AppRoutes.taskManagement,
-                                  );
-                                  // showAddRoomBottomSheet(context);
-                                  // showInviteBottomSheet(context);
-                                  // showDialog(
-                                  //   context: context,
-                                  //   builder: (context) => const NoteDialog(),
-                                  // );
+                          GestureDetector(
+                            onTap: () {
+                              // provider.onItemTapped(1);
+                              AppNavigator.pushNamed(AppRoutes.taskManagement);
+                              // showAddRoomBottomSheet(context);
+                              // showInviteBottomSheet(context);
+                              // showDialog(
+                              //   context: context,
+                              //   builder: (context) => const NoteDialog(),
+                              // );
 
-                                  // showHelperDetailsBottomSheet(context);
-                                },
-                                child: Icon(
-                                  Icons.add_circle,
-                                  color: appTheme.primaryColor,
-                                  size: 30.sp,
-                                ),
-                              );
+                              // showHelperDetailsBottomSheet(context);
                             },
+                            child: Icon(
+                              Icons.add_circle,
+                              color: appTheme.primaryColor,
+                              size: 30.sp,
+                            ),
                           ),
                         ],
                       ),
@@ -300,7 +285,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           _buildUserList(),
                           SizedBox(width: 10.w),
-                          Expanded(child: _buildTaskList()),
+                          Expanded(
+                            child: _buildTaskList(
+                              onViewAllTap: () {
+                                dashboardIndexNotifier.set(1);
+                              },
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -499,13 +490,15 @@ class _HomeScreenState extends State<HomeScreen> {
           // border: Border.all(color: Colors.black12),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: appTheme.blueAccentCustom.withOpacity(0.5), // Border color
+            color: appTheme.blueAccentCustom.withValues(
+              alpha: 0.5,
+            ), // Border color
             width: 1,
           ),
           boxShadow: [
             BoxShadow(
-              color: appTheme.blueAccentCustom.withOpacity(
-                0.03,
+              color: appTheme.blueAccentCustom.withValues(
+                alpha: 0.03,
               ), // Shadow color
               offset: const Offset(12, 25), // X, Y
               blurRadius: 50, // Blur
@@ -536,7 +529,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildTaskList() {
+  Widget _buildTaskList({Function? onViewAllTap}) {
     return Container(
       padding: const EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 0),
       decoration: BoxDecoration(
@@ -558,7 +551,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //       Container(
           //         padding: EdgeInsets.all(6),
           //         decoration: BoxDecoration(
-          //           color: appTheme.grey.withOpacity(0.2),
+          //           color: appTheme.grey.withValues(alpha: .2),
           //           shape: BoxShape.circle
           //         ),
           //         child: Icon(Icons.error_outline, color: appTheme.grey, size: 18)),
@@ -601,27 +594,22 @@ class _HomeScreenState extends State<HomeScreen> {
             "Vina",
             "12 AM",
           ),
-          Consumer<DashboardProvider>(
-            builder: (context, provider, child) {
-              return Align(
-                alignment: Alignment.centerRight,
-                // child: TextButton(
-                //   onPressed: () {},
-                child: GestureDetector(
-                  onTap: () {
-                    provider.onItemTapped(1);
-                    // AppNavigator.pushNamed(AppRoutes.memberTasks);
-                  },
-                  child: CText(
-                    "View All >",
-                    size: 12,
-                    color: appTheme.primaryColor,
-                    weight: FontWeight.bold,
-                  ),
-                ),
-                // ),
-              );
-            },
+          Align(
+            alignment: Alignment.centerRight,
+            child: GestureDetector(
+              onTap: () {
+                if (onViewAllTap != null) {
+                  onViewAllTap();
+                }
+              },
+              child: CText(
+                "View All >",
+                size: 12,
+                color: appTheme.primaryColor,
+                weight: FontWeight.bold,
+              ),
+            ),
+            // ),
           ),
           vGap(8.h),
         ],

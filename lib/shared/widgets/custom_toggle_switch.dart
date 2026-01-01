@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class CustomToggleSwitch extends StatefulWidget {
   final bool initialValue;
@@ -82,7 +82,7 @@ class _CustomToggleSwitchState extends State<CustomToggleSwitch>
               decoration: ShapeDecoration(
                 color:
                     _isToggled
-                        ? appTheme.lightBlueThree
+                        ? appColors.lightBlueThree
                         : const Color(0xFFE0E0E0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50.r),

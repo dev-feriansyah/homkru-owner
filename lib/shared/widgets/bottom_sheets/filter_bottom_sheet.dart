@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_radio_options.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -66,7 +66,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             height: 40.h,
             width: 1.sw,
             decoration: BoxDecoration(
-              color: appTheme.silver2,
+              color: appColors.silver2,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.r),
                 topRight: Radius.circular(20.r),
@@ -94,7 +94,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 // Title
                 CText(
                   "Filter Tasks",
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   weight: FontWeight.w600,
                   size: 16.sp,
                 ),
@@ -104,7 +104,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 if (selectedFilterType == null) ...[
                   CText(
                     "Filter by:",
-                    color: appTheme.textSecondary,
+                    color: appColors.textSecondary,
                     size: 14.sp,
                     weight: FontWeight.w500,
                   ),
@@ -180,12 +180,12 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                             Icon(
                               Icons.arrow_back_ios,
                               size: 16.sp,
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                             ),
                             SizedBox(width: 4.w),
                             CText(
                               "Back",
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                               size: 14.sp,
                               weight: FontWeight.w500,
                             ),
@@ -199,7 +199,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   // Sub-options title
                   CText(
                     "Select ${_getFilterTypeName(selectedFilterType!)}:",
-                    color: appTheme.textSecondary,
+                    color: appColors.textSecondary,
                     size: 14.sp,
                     weight: FontWeight.w500,
                   ),
@@ -251,7 +251,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   },
                   child: CText(
                     "Clear All",
-                    color: appTheme.primaryColor,
+                    color: appColors.primaryColor,
                     weight: FontWeight.w500,
                     size: 14.sp,
                   ),

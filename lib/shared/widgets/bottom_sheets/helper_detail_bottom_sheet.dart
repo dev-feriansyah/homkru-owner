@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_radio_options.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -36,7 +36,7 @@ class _HelperDetailsBottomSheetState extends State<HelperDetailsBottomSheet> {
             height: 40.h,
             width: 1.sw,
             decoration: BoxDecoration(
-              color: appTheme.silver2,
+              color: appColors.silver2,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.r),
                 topRight: Radius.circular(20.r),
@@ -74,7 +74,7 @@ class _HelperDetailsBottomSheetState extends State<HelperDetailsBottomSheet> {
                     size: 20.sp,
                     weight: FontWeight.w600,
                     textAlign: TextAlign.center,
-                    color: appTheme.textPrimary,
+                    color: appColors.textPrimary,
                   ),
                 ),
                 vGap(30.h),
@@ -123,7 +123,7 @@ class _HelperDetailsBottomSheetState extends State<HelperDetailsBottomSheet> {
                   AppStrings.liveInStatus,
                   size: 16.sp,
                   weight: FontWeight.w500,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                 ),
                 vGap(12.h),
                 CustomRadioOption<LiveInStatus>(
@@ -148,7 +148,7 @@ class _HelperDetailsBottomSheetState extends State<HelperDetailsBottomSheet> {
                     AppStrings.wouldYouLikeToSetupHelperProfile,
                     size: 16.sp,
                     weight: FontWeight.w500,
-                    color: appTheme.textPrimary,
+                    color: appColors.textPrimary,
                   ),
                 ),
                 vGap(12.h),
@@ -221,7 +221,7 @@ Widget buildLabelTextField(
     controller: controller,
     readOnly: false,
     style: TextStyle(
-      color: appTheme.grey,
+      color: appColors.grey,
       fontSize: 14.sp,
       fontFamily: "Poppins",
     ),
@@ -233,30 +233,30 @@ Widget buildLabelTextField(
       hintStyle: TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.w400,
-        color: appTheme.grey,
+        color: appColors.grey,
         // fontFamily: "Poppins",
       ),
       labelText: labelText,
       labelStyle: TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.w400,
-        color: appTheme.black,
+        color: appColors.black,
         fontFamily: "PoppinsMedium",
       ),
 
       filled: true,
-      fillColor: appTheme.white,
+      fillColor: appColors.white,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: appTheme.offWhite, width: 2),
+        borderSide: BorderSide(color: appColors.offWhite, width: 2),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: appTheme.offWhite, width: 2),
+        borderSide: BorderSide(color: appColors.offWhite, width: 2),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: appTheme.offWhite, width: 2),
+        borderSide: BorderSide(color: appColors.offWhite, width: 2),
       ),
     ),
     validator: validator,

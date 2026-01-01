@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/features/task/ui/screens/task_managment/create_from_scratch_screen.dart';
 import 'package:homekru_owner/features/task/ui/screens/task_managment/suggeste_tasks_screen.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 
 class TaskManagementScreen extends HookWidget {
@@ -14,24 +14,24 @@ class TaskManagementScreen extends HookWidget {
     final TabController tabController = useTabController(initialLength: 2);
 
     return Scaffold(
-      backgroundColor: appTheme.white,
+      backgroundColor: appColors.white,
       appBar: CustomCommonAppBar(
         title: 'Task Management',
-        backgroundColor: appTheme.white,
+        backgroundColor: appColors.white,
       ),
       body:
       // provider.isLoading
       //     ? const Center(child: CircularProgressIndicator())
       //     :
       Container(
-        color: appTheme.lightBlue,
+        color: appColors.lightBlue,
         child: Column(
           children: [
             Container(
               height: 30.h,
               // margin: EdgeInsets.all(16.w),
               decoration: BoxDecoration(
-                color: appTheme.white,
+                color: appColors.white,
                 // borderRadius: BorderRadius.circular(8.r),
               ),
               child: TabBar(
@@ -39,15 +39,15 @@ class TaskManagementScreen extends HookWidget {
                 indicator: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: appTheme.blueAccentCustom,
+                      color: appColors.blueAccentCustom,
                       width: 1.0,
                     ),
                   ),
                 ),
                 indicatorSize: TabBarIndicatorSize.tab,
                 dividerColor: Colors.transparent,
-                labelColor: appTheme.blueAccentCustom,
-                unselectedLabelColor: appTheme.greyAA,
+                labelColor: appColors.blueAccentCustom,
+                unselectedLabelColor: appColors.greyAA,
                 labelStyle: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.bold,

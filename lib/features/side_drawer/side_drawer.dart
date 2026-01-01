@@ -7,7 +7,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -37,7 +37,7 @@ class Sidebar extends ConsumerWidget {
     return Container(
       width: 1.sw * 0.8,
       decoration: BoxDecoration(
-        color: appTheme.primaryColor,
+        color: appColors.primaryColor,
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(30),
           bottomRight: Radius.circular(30),
@@ -63,13 +63,13 @@ class Sidebar extends ConsumerWidget {
                         // margin: EdgeInsets.only(right: 10),
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: appTheme.white,
+                          color: appColors.white,
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
                           Icons.close,
                           size: 15,
-                          color: appTheme.primaryColor,
+                          color: appColors.primaryColor,
                         ),
                       ),
                     ),
@@ -100,13 +100,13 @@ class Sidebar extends ConsumerWidget {
                         children: [
                           CText(
                             "Maria Johnson",
-                            color: appTheme.white,
+                            color: appColors.white,
                             size: 16,
                             weight: FontWeight.bold,
                           ),
                           CText(
                             "Homeowner",
-                            color: appTheme.white.withValues(alpha: 0.8),
+                            color: appColors.white.withValues(alpha: 0.8),
                             size: 13,
                             weight: FontWeight.w500,
                           ),
@@ -121,7 +121,7 @@ class Sidebar extends ConsumerWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: CText(
                   "Main Navigation",
-                  color: appTheme.white,
+                  color: appColors.white,
                   weight: FontWeight.bold,
                   fontFamily: "PoppinsMedium",
                 ),
@@ -136,7 +136,7 @@ class Sidebar extends ConsumerWidget {
                 child: CText(
                   "About Us",
                   // "CMS Pages",
-                  color: appTheme.white,
+                  color: appColors.white,
                   weight: FontWeight.bold,
                   fontFamily: "PoppinsMedium",
                 ),
@@ -165,7 +165,7 @@ class Sidebar extends ConsumerWidget {
                         "Logout",
                         size: 16.sp,
                         weight: FontWeight.w600,
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                       ),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 14),
@@ -203,7 +203,7 @@ class Sidebar extends ConsumerWidget {
         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         title: CText(
           title,
-          color: appTheme.white,
+          color: appColors.white,
           size: 14,
           weight: FontWeight.bold,
         ),

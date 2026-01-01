@@ -6,7 +6,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/features/task/ui/widgets/task_card.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/filter_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_home_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -69,7 +69,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
       SnackBar(
         content: Text(filterMessage),
         duration: Duration(seconds: 2),
-        backgroundColor: appTheme.primaryColor,
+        backgroundColor: appColors.primaryColor,
       ),
     );
   }
@@ -78,7 +78,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomAppBar(
         title: 'All Task',
         toolbarHeight: 130.h,
@@ -89,20 +89,20 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
             height: 40.h,
             margin: EdgeInsets.only(bottom: 16.h),
             decoration: BoxDecoration(
-              color: appTheme.blueAccentCustom,
+              color: appColors.blueAccentCustom,
               // borderRadius: BorderRadius.circular(8.r),
             ),
             child: TabBar(
               controller: _tabController,
               indicator: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: appTheme.white, width: 1.0),
+                  bottom: BorderSide(color: appColors.white, width: 1.0),
                 ),
               ),
               indicatorSize: TabBarIndicatorSize.tab,
               dividerColor: Colors.transparent,
-              labelColor: appTheme.white,
-              unselectedLabelColor: appTheme.mintGreen,
+              labelColor: appColors.white,
+              unselectedLabelColor: appColors.mintGreen,
               labelStyle: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
@@ -144,7 +144,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                 'All Tasks',
                 size: 18.sp,
                 weight: FontWeight.w600,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
               ),
               const Spacer(),
               InkWell(
@@ -153,11 +153,11 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                   width: 80.w,
                   padding: EdgeInsets.symmetric(vertical: 4.sp),
                   decoration: ShapeDecoration(
-                    color: appTheme.white.withValues(alpha: 0.10),
+                    color: appColors.white.withValues(alpha: 0.10),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         width: 1.w,
-                        color: appTheme.primaryColor.withValues(alpha: 0.5),
+                        color: appColors.primaryColor.withValues(alpha: 0.5),
                       ),
                       borderRadius: BorderRadius.circular(9.r),
                     ),
@@ -169,14 +169,14 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                     children: [
                       Icon(
                         Icons.filter_list,
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                         size: 14.sp,
                       ),
                       CText(
                         'Filter',
                         size: 14.sp,
                         weight: FontWeight.w500,
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                       ),
                     ],
                   ),
@@ -219,7 +219,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                 'Upcoming Tasks',
                 size: 18.sp,
                 weight: FontWeight.w600,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
               ),
               const Spacer(),
               InkWell(
@@ -228,11 +228,11 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                   width: 80.w,
                   padding: EdgeInsets.symmetric(vertical: 4.sp),
                   decoration: ShapeDecoration(
-                    color: appTheme.white.withValues(alpha: 0.10),
+                    color: appColors.white.withValues(alpha: 0.10),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         width: 1.w,
-                        color: appTheme.primaryColor.withValues(alpha: 0.5),
+                        color: appColors.primaryColor.withValues(alpha: 0.5),
                       ),
                       borderRadius: BorderRadius.circular(9.r),
                     ),
@@ -244,14 +244,14 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                     children: [
                       Icon(
                         Icons.filter_list,
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                         size: 14.sp,
                       ),
                       CText(
                         'Filter',
                         size: 14.sp,
                         weight: FontWeight.w500,
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                       ),
                     ],
                   ),
@@ -291,7 +291,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                 'Completed Tasks',
                 size: 18.sp,
                 weight: FontWeight.w600,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
               ),
               const Spacer(),
               InkWell(
@@ -300,11 +300,11 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                   width: 80.w,
                   padding: EdgeInsets.symmetric(vertical: 4.sp),
                   decoration: ShapeDecoration(
-                    color: appTheme.white.withValues(alpha: 0.10),
+                    color: appColors.white.withValues(alpha: 0.10),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         width: 1.w,
-                        color: appTheme.primaryColor.withValues(alpha: 0.5),
+                        color: appColors.primaryColor.withValues(alpha: 0.5),
                       ),
                       borderRadius: BorderRadius.circular(9.r),
                     ),
@@ -316,14 +316,14 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                     children: [
                       Icon(
                         Icons.filter_list,
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                         size: 14.sp,
                       ),
                       CText(
                         'Filter',
                         size: 14.sp,
                         weight: FontWeight.w500,
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                       ),
                     ],
                   ),

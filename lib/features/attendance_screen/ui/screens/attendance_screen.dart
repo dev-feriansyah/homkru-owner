@@ -4,7 +4,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 
 import 'package:homekru_owner/features/attendance_screen/ui/widgets/history_attendance_tab.dart';
 import 'package:homekru_owner/features/attendance_screen/ui/widgets/todays_attendance_tab.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -16,7 +16,7 @@ class AttendanceScreen extends HookWidget {
     final selectedIndex = useState(0);
 
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Attendance & Time"),
       body: Stack(
         children: [
@@ -53,7 +53,7 @@ class AttendanceScreen extends HookWidget {
                             decoration: BoxDecoration(
                               color:
                                   selectedIndex.value == 0
-                                      ? appTheme.primaryColor
+                                      ? appColors.primaryColor
                                       : Colors.transparent,
                               borderRadius:
                                   selectedIndex.value == 0
@@ -68,7 +68,7 @@ class AttendanceScreen extends HookWidget {
                                   color:
                                       selectedIndex.value == 0
                                           ? Colors.transparent
-                                          : appTheme.grey,
+                                          : appColors.grey,
                                 ),
                               ),
                             ),
@@ -78,8 +78,8 @@ class AttendanceScreen extends HookWidget {
                               size: 13,
                               color:
                                   selectedIndex.value == 0
-                                      ? appTheme.white
-                                      : appTheme.grey,
+                                      ? appColors.white
+                                      : appColors.grey,
                               weight: FontWeight.w500,
                             ),
                           ),
@@ -98,7 +98,7 @@ class AttendanceScreen extends HookWidget {
                             decoration: BoxDecoration(
                               color:
                                   selectedIndex.value == 1
-                                      ? appTheme.primaryColor
+                                      ? appColors.primaryColor
                                       : Colors.transparent,
                               borderRadius:
                                   selectedIndex.value == 1
@@ -113,7 +113,7 @@ class AttendanceScreen extends HookWidget {
                                   color:
                                       selectedIndex.value == 1
                                           ? Colors.transparent
-                                          : appTheme.grey,
+                                          : appColors.grey,
                                 ),
                               ),
                             ),
@@ -123,8 +123,8 @@ class AttendanceScreen extends HookWidget {
                               size: 13,
                               color:
                                   selectedIndex.value == 1
-                                      ? appTheme.white
-                                      : appTheme.grey,
+                                      ? appColors.white
+                                      : appColors.grey,
                               weight: FontWeight.w500,
                             ),
                           ),

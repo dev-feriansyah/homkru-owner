@@ -4,7 +4,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/shared/utils/date_time_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -32,7 +32,7 @@ void addFrequencyPopup(context) {
             return Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: appTheme.white,
+                color: appColors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
@@ -49,7 +49,7 @@ void addFrequencyPopup(context) {
                           textAlign: TextAlign.start,
                           size: 18.sp,
                           weight: FontWeight.w600,
-                          color: appTheme.textPrimary,
+                          color: appColors.textPrimary,
                         ),
                       ),
                       GestureDetector(
@@ -59,10 +59,10 @@ void addFrequencyPopup(context) {
                         },
                         child: CircleAvatar(
                           radius: 16,
-                          backgroundColor: appTheme.lightBlue,
+                          backgroundColor: appColors.lightBlue,
                           child: Icon(
                             Icons.close,
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                           ),
                         ),
                       ),
@@ -105,7 +105,7 @@ void addFrequencyPopup(context) {
                           },
                           suffixIcon: Icon(
                             Icons.access_time,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                           ),
                         ),
                         vGap(15),

@@ -6,7 +6,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/invite_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -51,7 +51,7 @@ class HomeScreen extends ConsumerWidget {
           showInviteBottomSheet(context);
           // AppNavigator.pushNamed(AppRoutes.addMember);
         },
-        backgroundColor: appTheme.primaryColor,
+        backgroundColor: appColors.primaryColor,
         elevation: 6,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
@@ -63,7 +63,7 @@ class HomeScreen extends ConsumerWidget {
         height: 1.sh,
         width: 1.sw,
         decoration: BoxDecoration(
-          color: appTheme.lightBlue,
+          color: appColors.lightBlue,
           borderRadius: BorderRadius.circular(10),
         ),
 
@@ -101,7 +101,7 @@ class HomeScreen extends ConsumerWidget {
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                  color: appTheme.lightBlue,
+                                  color: appColors.lightBlue,
                                   width: 2,
                                 ),
                                 // image: DecorationImage(image: AssetImage())
@@ -120,14 +120,14 @@ class HomeScreen extends ConsumerWidget {
                                   "Hello",
                                   size: 24,
                                   weight: FontWeight.bold,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                   fontFamily: "PoppinsMedium",
                                 ),
                                 CText(
                                   "Maria Johnson",
                                   size: 18.sp,
                                   weight: FontWeight.w500,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                 ),
                               ],
                             ),
@@ -139,7 +139,7 @@ class HomeScreen extends ConsumerWidget {
                             child: Container(
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                color: appTheme.primaryColor.withValues(
+                                color: appColors.primaryColor.withValues(
                                   alpha: 0.4,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
@@ -163,7 +163,7 @@ class HomeScreen extends ConsumerWidget {
                             child: CText(
                               "Action Items",
                               size: 18,
-                              color: appTheme.white,
+                              color: appColors.white,
                               weight: FontWeight.bold,
                             ),
                           ),
@@ -178,14 +178,14 @@ class HomeScreen extends ConsumerWidget {
                               // "Invite",
                               "View All",
                               size: 15,
-                              color: appTheme.white,
+                              color: appColors.white,
                               weight: FontWeight.w400,
                             ),
                           ),
                           SizedBox(width: 7),
                           Icon(
                             Icons.arrow_forward_ios_sharp,
-                            color: appTheme.white,
+                            color: appColors.white,
                             size: 15,
                           ),
                         ],
@@ -200,7 +200,7 @@ class HomeScreen extends ConsumerWidget {
                         vertical: 10,
                       ),
                       decoration: BoxDecoration(
-                        color: appTheme.white,
+                        color: appColors.white,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: ListView.builder(
@@ -214,7 +214,7 @@ class HomeScreen extends ConsumerWidget {
                             contentPadding: EdgeInsets.all(0),
                             leading: CircleAvatar(
                               radius: 18,
-                              backgroundColor: appTheme.veryLightGrey,
+                              backgroundColor: appColors.veryLightGrey,
                               child: CustomImageView(
                                 imagePath: item["icon"],
                                 //  ImageConstant.camera,
@@ -231,7 +231,7 @@ class HomeScreen extends ConsumerWidget {
                               // "Verify Kitchen Cleaning Proof",
                               weight: FontWeight.w500,
                               size: 10,
-                              color: appTheme.grey,
+                              color: appColors.grey,
                             ),
                             trailing: Icon(
                               Icons.arrow_forward_ios_rounded,
@@ -252,7 +252,7 @@ class HomeScreen extends ConsumerWidget {
                             "Today's tasks",
                             size: 16.sp,
                             weight: FontWeight.w600,
-                            color: appTheme.textPrimary,
+                            color: appColors.textPrimary,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -269,7 +269,7 @@ class HomeScreen extends ConsumerWidget {
                             },
                             child: Icon(
                               Icons.add_circle,
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                               size: 30.sp,
                             ),
                           ),
@@ -304,7 +304,7 @@ class HomeScreen extends ConsumerWidget {
                           "Current Live Status",
                           size: 16.sp,
                           weight: FontWeight.w600,
-                          color: appTheme.textPrimary,
+                          color: appColors.textPrimary,
                           // fontFamily: "PoppinsMedium",
                         ),
                       ),
@@ -375,7 +375,7 @@ class HomeScreen extends ConsumerWidget {
                                             'Rina',
                                             size: 14,
                                             weight: FontWeight.w600,
-                                            color: appTheme.textPrimary,
+                                            color: appColors.textPrimary,
                                           ),
                                           SizedBox(height: 2),
                                           Row(
@@ -390,7 +390,7 @@ class HomeScreen extends ConsumerWidget {
                                                 '2h 15m today',
                                                 size: 12,
                                                 weight: FontWeight.w500,
-                                                color: appTheme.grey,
+                                                color: appColors.grey,
                                               ),
                                             ],
                                           ),
@@ -401,7 +401,7 @@ class HomeScreen extends ConsumerWidget {
                                               vertical: 6,
                                             ),
                                             decoration: BoxDecoration(
-                                              color: appTheme.bgGreen,
+                                              color: appColors.bgGreen,
                                               borderRadius:
                                                   BorderRadius.circular(8.r),
                                             ),
@@ -489,14 +489,14 @@ class HomeScreen extends ConsumerWidget {
           // border: Border.all(color: Colors.black12),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: appTheme.blueAccentCustom.withValues(
+            color: appColors.blueAccentCustom.withValues(
               alpha: 0.5,
             ), // Border color
             width: 1,
           ),
           boxShadow: [
             BoxShadow(
-              color: appTheme.blueAccentCustom.withValues(
+              color: appColors.blueAccentCustom.withValues(
                 alpha: 0.03,
               ), // Shadow color
               offset: const Offset(12, 25), // X, Y
@@ -516,10 +516,10 @@ class HomeScreen extends ConsumerWidget {
                   name,
                   size: 14,
                   weight: FontWeight.w600,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                 ),
                 // CText(name, weight: FontWeight.bold, size: 14),
-                CText(task, size: 10, color: appTheme.grey),
+                CText(task, size: 10, color: appColors.grey),
               ],
             ),
           ],
@@ -604,7 +604,7 @@ class HomeScreen extends ConsumerWidget {
               child: CText(
                 "View All >",
                 size: 12,
-                color: appTheme.primaryColor,
+                color: appColors.primaryColor,
                 weight: FontWeight.bold,
               ),
             ),
@@ -645,7 +645,7 @@ class HomeScreen extends ConsumerWidget {
                   title,
                   weight: FontWeight.w500,
                   size: 12.sp,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                 ),
                 Row(
                   children: [
@@ -660,7 +660,7 @@ class HomeScreen extends ConsumerWidget {
                       "Due $time",
                       size: 10.sp,
                       weight: FontWeight.w500,
-                      color: appTheme.grey,
+                      color: appColors.grey,
                     ),
                   ],
                 ),

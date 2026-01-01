@@ -6,7 +6,7 @@ import 'package:homekru_owner/shared/domain/value_objects/notification_setting.d
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_home_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -28,7 +28,7 @@ class SettingsScreen extends HookWidget {
         //   AppNavigator.pop();
         // },
       ),
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       body: Stack(
         children: [
           bottomWaveWidget(),
@@ -178,7 +178,7 @@ class _SectionHeader extends StatelessWidget {
           title,
           size: 18.sp,
           weight: FontWeight.w500,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
       ],
     );
@@ -200,7 +200,7 @@ class _TrailingArrowTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.r),
           boxShadow: [
             BoxShadow(
-              color: appTheme.shadowColor,
+              color: appColors.shadowColor,
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -213,7 +213,7 @@ class _TrailingArrowTile extends StatelessWidget {
               label,
               size: 16,
               weight: FontWeight.w400,
-              color: appTheme.grey,
+              color: appColors.grey,
             ),
             const Icon(Icons.chevron_right),
           ],
@@ -235,7 +235,7 @@ Widget buildTextField(
     decoration: BoxDecoration(
       boxShadow: [
         BoxShadow(
-          color: appTheme.shadowColor,
+          color: appColors.shadowColor,
           blurRadius: 8,
           offset: const Offset(0, 2),
         ),
@@ -247,7 +247,7 @@ Widget buildTextField(
       controller: controller,
       readOnly: false,
       style: TextStyle(
-        color: appTheme.grey,
+        color: appColors.grey,
         fontSize: 14.sp,
         fontFamily: "Poppins",
       ),
@@ -259,26 +259,26 @@ Widget buildTextField(
         hintStyle: TextStyle(
           fontSize: 16.sp,
           fontWeight: FontWeight.w400,
-          color: appTheme.grey,
+          color: appColors.grey,
           // fontFamily: "Poppins",
         ),
         filled: true,
-        fillColor: appTheme.white,
+        fillColor: appColors.white,
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(color: Colors.red, width: 0),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.offWhite, width: 0),
+          borderSide: BorderSide(color: appColors.offWhite, width: 0),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.offWhite, width: 0),
+          borderSide: BorderSide(color: appColors.offWhite, width: 0),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.offWhite, width: 0),
+          borderSide: BorderSide(color: appColors.offWhite, width: 0),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),

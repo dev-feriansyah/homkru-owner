@@ -7,7 +7,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
 
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
@@ -24,7 +24,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Deductions"),
 
       body: Stack(
@@ -59,10 +59,12 @@ class _DeductionScreenState extends State<DeductionScreen> {
                           vertical: 0,
                         ),
                         decoration: BoxDecoration(
-                          color: appTheme.white,
+                          color: appColors.white,
                           borderRadius: BorderRadius.circular(15),
                           border: Border.all(
-                            color: appTheme.primaryColor.withValues(alpha: 0.3),
+                            color: appColors.primaryColor.withValues(
+                              alpha: 0.3,
+                            ),
                             width: 2,
                           ),
                         ),
@@ -71,10 +73,10 @@ class _DeductionScreenState extends State<DeductionScreen> {
                             value: DateRange.thisMonth.label,
                             icon: Icon(
                               Icons.arrow_drop_down,
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                             ),
                             style: TextStyle(
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                               fontWeight: FontWeight.w500,
                             ),
                             items:
@@ -99,10 +101,10 @@ class _DeductionScreenState extends State<DeductionScreen> {
                     width: 1.sw,
                     // padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: appTheme.white,
+                      color: appColors.white,
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(
-                        color: appTheme.primaryColor.withValues(alpha: 0.3),
+                        color: appColors.primaryColor.withValues(alpha: 0.3),
                       ),
                     ),
                     child: Stack(
@@ -136,7 +138,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                               CText(
                                 "Period: April 1-30, 2025",
                                 size: 15,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                               ),
                               SizedBox(height: 6.h),
                               Row(
@@ -146,7 +148,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                     "IDR 2,600,000",
                                     style: GoogleFonts.karla(
                                       fontSize: 24.sp,
-                                      color: appTheme.primaryColor,
+                                      color: appColors.primaryColor,
                                       fontWeight: FontWeight.w700,
                                     ),
                                   ),
@@ -178,17 +180,17 @@ class _DeductionScreenState extends State<DeductionScreen> {
                               height: 24.w,
                               width: 24.w,
                               child: Checkbox(
-                                activeColor: appTheme.primaryColor,
+                                activeColor: appColors.primaryColor,
                                 value: false,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(3),
                                   side: BorderSide(
-                                    color: appTheme.silver.withValues(
+                                    color: appColors.silver.withValues(
                                       alpha: 0.2,
                                     ),
                                   ),
                                 ),
-                                side: BorderSide(color: appTheme.grey),
+                                side: BorderSide(color: appColors.grey),
                                 onChanged: (bool? newValue) {},
                               ),
                             ),
@@ -197,7 +199,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                               child: CText(
                                 "Mark all as deducted",
                                 size: 14,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w500,
                               ),
                             ),
@@ -256,7 +258,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                     width: 1.sw,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: appTheme.white,
+                      color: appColors.white,
                     ),
                     child: Column(
                       children: [
@@ -267,7 +269,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                           ),
                           width: 1.sw,
                           decoration: BoxDecoration(
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30),
@@ -281,7 +283,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   "Helper",
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                 ),
                               ),
                               Expanded(
@@ -291,7 +293,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   textAlign: TextAlign.center,
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                 ),
                               ),
                               Expanded(
@@ -301,7 +303,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   textAlign: TextAlign.end,
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                 ),
                               ),
                             ],
@@ -315,7 +317,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                               (context, index) => Container(
                                 height: 1,
                                 width: 1.sw,
-                                color: appTheme.veryLightGrey,
+                                color: appColors.veryLightGrey,
                               ),
                           itemBuilder: (context, index) {
                             return GestureDetector(
@@ -331,7 +333,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   vertical: 15,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                   borderRadius:
                                       (index != 4)
                                           ? null
@@ -356,7 +358,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                           CText(
                                             "Maid",
                                             size: 12,
-                                            color: appTheme.grey,
+                                            color: appColors.grey,
                                           ),
                                         ],
                                       ),
@@ -369,7 +371,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                         "3",
                                         textAlign: TextAlign.center,
                                         size: 12,
-                                        color: appTheme.grey,
+                                        color: appColors.grey,
                                         weight: FontWeight.w700,
                                       ),
                                     ),
@@ -383,7 +385,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                           CText(
                                             "IDR 150,000",
                                             weight: FontWeight.w700,
-                                            color: appTheme.grey,
+                                            color: appColors.grey,
                                             size: 12,
                                           ),
                                           SizedBox(width: 4.w),
@@ -415,13 +417,13 @@ class _DeductionScreenState extends State<DeductionScreen> {
                     onPressed: () {},
                     text: "Export Detailed Report",
                     buttonTextStyle: TextStyle(
-                      color: appTheme.white,
+                      color: appColors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                     buttonStyle: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
-                        appTheme.primaryColor,
+                        appColors.primaryColor,
                       ),
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
@@ -454,7 +456,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: ColorScheme.light(
-              primary: appTheme.primaryColor,
+              primary: appColors.primaryColor,
               onPrimary: Colors.white,
               surface: Colors.white,
               onSurface: Colors.black,

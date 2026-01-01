@@ -6,7 +6,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/shared/utils/logger.dart';
 import 'package:homekru_owner/features/task/ui/widgets/dialogs/frequency_dialog.dart';
 import 'package:homekru_owner/features/task/ui/widgets/dialogs/scope_of_work_dialog.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_assign_dropdown.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -44,7 +44,7 @@ class SuggestedTasksScreen extends HookWidget {
               _buildAssignToSection(),
               vGap(16.h),
               CustomDropdownWidget(
-                borderColor: appTheme.offWhite,
+                borderColor: appColors.offWhite,
                 items: [
                   "Bedroom",
                   "Kitchen",
@@ -80,11 +80,11 @@ class SuggestedTasksScreen extends HookWidget {
           'Helper',
           size: 18.sp,
           weight: FontWeight.w600,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
         vGap(16.h),
         CustomAssignDropdown(
-          borderColor: appTheme.offWhite,
+          borderColor: appColors.offWhite,
           items: assignees,
           hintText: "Select Assignee",
           selectedValue: currentAssignee.value,
@@ -180,12 +180,12 @@ class SuggestedTasksScreen extends HookWidget {
                 width: 44.w,
                 height: 44.h,
                 decoration: BoxDecoration(
-                  color: appTheme.blueAccentCustom,
+                  color: appColors.blueAccentCustom,
                   borderRadius: BorderRadius.circular(15.r),
                 ),
                 child: Icon(
                   Icons.add_rounded,
-                  color: appTheme.white,
+                  color: appColors.white,
                   size: 24.sp,
                 ),
               ),
@@ -215,7 +215,7 @@ class SuggestedTasksScreen extends HookWidget {
                 task['title'],
                 size: 16.sp,
                 weight: FontWeight.w500,
-                color: appTheme.grey,
+                color: appColors.grey,
               ),
             ),
             GestureDetector(
@@ -231,7 +231,7 @@ class SuggestedTasksScreen extends HookWidget {
                   border: Border.all(
                     color:
                         task['isSelected']
-                            ? appTheme.blueAccentCustom
+                            ? appColors.blueAccentCustom
                             : Colors.grey[400]!,
                     width: 1,
                   ),
@@ -303,7 +303,7 @@ class SuggestedTasksScreen extends HookWidget {
           'Require Photo',
           size: 15.sp,
           weight: FontWeight.w600,
-          color: appTheme.grey,
+          color: appColors.grey,
         ),
         hGap(10.w),
         const Spacer(),
@@ -331,14 +331,14 @@ class SuggestedTasksScreen extends HookWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15.r),
-              border: Border.all(color: appTheme.blueAccentCustom),
+              border: Border.all(color: appColors.blueAccentCustom),
             ),
             child: Center(
               child: CText(
                 'Assign Task',
                 size: 18.sp,
                 weight: FontWeight.w600,
-                color: appTheme.blueAccentCustom,
+                color: appColors.blueAccentCustom,
               ),
             ),
           ),
@@ -352,7 +352,7 @@ class SuggestedTasksScreen extends HookWidget {
             height: 50.h,
             // padding: EdgeInsets.symmetric(vertical: 12.h),
             decoration: BoxDecoration(
-              color: appTheme.blueAccentCustom,
+              color: appColors.blueAccentCustom,
               borderRadius: BorderRadius.circular(15.r),
             ),
             child: Row(

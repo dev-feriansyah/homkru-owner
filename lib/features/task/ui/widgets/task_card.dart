@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/features/task/ui/widgets/status_chip.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class TaskCard extends StatelessWidget {
@@ -27,7 +27,7 @@ class TaskCard extends StatelessWidget {
       width: 1.sw,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(color: const Color(0x333B70B9), width: 1.w),
         boxShadow: [
@@ -49,7 +49,7 @@ class TaskCard extends StatelessWidget {
                 width: 1.sw * 0.5,
                 child: CText(
                   title,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   size: 14.sp,
                   weight: FontWeight.w600,
                   overflow: TextOverflow.ellipsis,
@@ -61,7 +61,7 @@ class TaskCard extends StatelessWidget {
                 width: 1.sw * 0.5,
                 child: CText(
                   description,
-                  color: appTheme.grey,
+                  color: appColors.grey,
                   size: 14.sp,
                   weight: FontWeight.w500,
                   overflow: TextOverflow.ellipsis,
@@ -79,14 +79,14 @@ class TaskCard extends StatelessWidget {
             children: [
               CText(
                 assignedTo,
-                color: appTheme.textSecondary,
+                color: appColors.textSecondary,
                 size: 12.sp,
                 weight: FontWeight.w600,
               ),
               SizedBox(height: 5.sp),
               CText(
                 time,
-                color: appTheme.primaryColor,
+                color: appColors.primaryColor,
                 size: 12.sp,
                 weight: FontWeight.w600,
               ),

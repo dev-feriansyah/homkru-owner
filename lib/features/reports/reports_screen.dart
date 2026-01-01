@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -24,7 +24,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: const CustomCommonAppBar(title: "Reports"),
       body: Stack(
         children: [
@@ -64,7 +64,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Period:",
                         size: 16.sp,
                         weight: FontWeight.w600,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                       ),
                       DropdownButton<String>(
                         value: _selectedPeriod,
@@ -76,7 +76,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                                 child: CText(
                                   period,
                                   size: 14.sp,
-                                  color: appTheme.textPrimary,
+                                  color: appColors.textPrimary,
                                 ),
                               );
                             }).toList(),
@@ -99,7 +99,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Total Tasks",
                         "156",
                         Icons.task_alt,
-                        appTheme.primaryColor,
+                        appColors.primaryColor,
                       ),
                     ),
                     SizedBox(width: 12.w),
@@ -108,7 +108,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Completed",
                         "142",
                         Icons.check_circle,
-                        appTheme.brightGreen,
+                        appColors.brightGreen,
                       ),
                     ),
                   ],
@@ -121,7 +121,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Pending",
                         "14",
                         Icons.pending,
-                        appTheme.orange,
+                        appColors.orange,
                       ),
                     ),
                     SizedBox(width: 12.w),
@@ -130,7 +130,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Hours Worked",
                         "89.5",
                         Icons.access_time,
-                        appTheme.amber,
+                        appColors.amber,
                       ),
                     ),
                   ],
@@ -199,13 +199,13 @@ class _ReportsScreenState extends State<ReportsScreen> {
             value,
             size: 24.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 4.h),
           CText(
             title,
             size: 12.sp,
-            color: appTheme.grey,
+            color: appColors.grey,
             weight: FontWeight.w500,
           ),
         ],
@@ -235,7 +235,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
             "Performance Overview",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           SizedBox(
@@ -244,7 +244,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
               child: CText(
                 "Chart Placeholder\n(Integrate with charts_flutter or similar)",
                 size: 14.sp,
-                color: appTheme.grey,
+                color: appColors.grey,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -262,7 +262,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
           "Detailed Reports",
           size: 18.sp,
           weight: FontWeight.bold,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
         SizedBox(height: 16.h),
         _buildReportItem(
@@ -296,17 +296,17 @@ class _ReportsScreenState extends State<ReportsScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: appTheme.veryLightGrey),
+        border: Border.all(color: appColors.veryLightGrey),
       ),
       child: Row(
         children: [
           Container(
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
-              color: appTheme.primaryColor.withOpacity(0.1),
+              color: appColors.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8.r),
             ),
-            child: Icon(icon, color: appTheme.primaryColor, size: 20.sp),
+            child: Icon(icon, color: appColors.primaryColor, size: 20.sp),
           ),
           SizedBox(width: 12.w),
           Expanded(
@@ -317,14 +317,14 @@ class _ReportsScreenState extends State<ReportsScreen> {
                   title,
                   size: 14.sp,
                   weight: FontWeight.w600,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                 ),
                 SizedBox(height: 4.h),
-                CText(subtitle, size: 12.sp, color: appTheme.grey),
+                CText(subtitle, size: 12.sp, color: appColors.grey),
               ],
             ),
           ),
-          Icon(Icons.arrow_forward_ios, size: 16.sp, color: appTheme.grey),
+          Icon(Icons.arrow_forward_ios, size: 16.sp, color: appColors.grey),
         ],
       ),
     );

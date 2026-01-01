@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class PasswordTextField extends HookWidget {
   const PasswordTextField({
@@ -19,13 +19,13 @@ class PasswordTextField extends HookWidget {
     final isVisible = useState(false);
 
     return TextFormField(
-      cursorColor: appTheme.lightGrey,
+      cursorColor: appColors.lightGrey,
       controller: controller,
       obscureText: !isVisible.value,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(
-          color: appTheme.lightGrey,
+          color: appColors.lightGrey,
           fontSize: 14,
           fontWeight: FontWeight.w400,
         ),
@@ -36,15 +36,15 @@ class PasswordTextField extends HookWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.veryLightGrey),
+          borderSide: BorderSide(color: appColors.veryLightGrey),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.veryLightGrey),
+          borderSide: BorderSide(color: appColors.veryLightGrey),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.veryLightGrey),
+          borderSide: BorderSide(color: appColors.veryLightGrey),
         ),
         suffixIcon: IconButton(
           onPressed: () {
@@ -54,7 +54,7 @@ class PasswordTextField extends HookWidget {
             isVisible.value
                 ? Icons.visibility_off_outlined
                 : Icons.visibility_outlined,
-            color: appTheme.lightGrey,
+            color: appColors.lightGrey,
             size: 20,
           ),
         ),

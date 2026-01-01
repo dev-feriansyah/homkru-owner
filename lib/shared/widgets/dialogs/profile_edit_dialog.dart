@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/shared/utils/logger.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -14,7 +14,7 @@ void showEditDialog(BuildContext context) {
     barrierDismissible: false,
     builder: (context) {
       return Dialog(
-        backgroundColor: appTheme.white,
+        backgroundColor: appColors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         insetPadding: const EdgeInsets.symmetric(horizontal: 24),
         child: Padding(
@@ -30,7 +30,7 @@ void showEditDialog(BuildContext context) {
                   const Spacer(), // pushes "Edit" to the center
                   CText(
                     "Edit",
-                    color: appTheme.textPrimary,
+                    color: appColors.textPrimary,
                     size: 18.sp,
                     weight: FontWeight.w600,
                   ),
@@ -41,13 +41,13 @@ void showEditDialog(BuildContext context) {
                       height: 25.w,
                       width: 25.w,
                       decoration: BoxDecoration(
-                        color: appTheme.lightBlueTwo,
+                        color: appColors.lightBlueTwo,
                         shape: BoxShape.circle,
                       ),
                       child: Center(
                         child: Icon(
                           Icons.close,
-                          color: appTheme.primaryColor,
+                          color: appColors.primaryColor,
                           size: 18,
                         ),
                       ),
@@ -65,14 +65,14 @@ void showEditDialog(BuildContext context) {
                   vertical: 0,
                 ),
                 decoration: ShapeDecoration(
-                  color: appTheme.white,
+                  color: appColors.white,
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: appTheme.offWhite),
+                    side: BorderSide(width: 1, color: appColors.offWhite),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   shadows: [
                     BoxShadow(
-                      color: appTheme.shadowColor,
+                      color: appColors.shadowColor,
                       blurRadius: 50,
                       offset: const Offset(10, 20),
                       spreadRadius: 0,
@@ -84,14 +84,14 @@ void showEditDialog(BuildContext context) {
                   children: [
                     CText(
                       "Image upload",
-                      color: appTheme.grey,
+                      color: appColors.grey,
                       size: 16.sp,
                       weight: FontWeight.w500,
                     ),
                     const Spacer(),
                     Icon(
                       Icons.cloud_upload_outlined,
-                      color: appTheme.lightGrey,
+                      color: appColors.lightGrey,
                     ),
                   ],
                 ),
@@ -111,7 +111,7 @@ void showEditDialog(BuildContext context) {
                 selectedValue: "Live-in",
                 hintText: "Live-in",
                 items: ["Live-in", "Non Live-in"],
-                borderColor: appTheme.offWhite,
+                borderColor: appColors.offWhite,
                 onChanged: (val) {
                   Log.d(val);
                 },

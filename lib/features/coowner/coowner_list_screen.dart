@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:ionicons/ionicons.dart';
@@ -21,7 +21,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Co-owners"),
 
       body: Stack(
@@ -73,7 +73,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                           margin: EdgeInsets.only(bottom: 20.h),
                           width: 1.sw,
                           decoration: BoxDecoration(
-                            color: appTheme.white,
+                            color: appColors.white,
                             borderRadius: BorderRadius.circular(15.r),
                             // border: Border.all(
                             //   color: appTheme.offWhite,
@@ -81,7 +81,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                             // ),
                             boxShadow: [
                               BoxShadow(
-                                color: appTheme.shadowColor,
+                                color: appColors.shadowColor,
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
                               ),
@@ -93,7 +93,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                               CText(
                                 "Co-owner Name ${index + 1}",
                                 size: 16.sp,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w400,
                               ),
                               GestureDetector(
@@ -105,7 +105,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                                 child: Icon(
                                   Ionicons.settings_outline,
                                   size: 24.sp,
-                                  color: appTheme.textPrimary,
+                                  color: appColors.textPrimary,
                                 ),
                               ),
                             ],
@@ -122,7 +122,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                           style: GoogleFonts.karla(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                           ),
                         ),
 
@@ -135,11 +135,11 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                             padding: EdgeInsets.all(12.w),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15.r),
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                             ),
                             child: Icon(
                               Icons.add,
-                              color: appTheme.white,
+                              color: appColors.white,
                               size: 25.sp,
                             ),
                           ),
@@ -174,7 +174,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                     "Co-owner Settings",
                     size: 18.sp,
                     weight: FontWeight.w600,
-                    color: appTheme.textPrimary,
+                    color: appColors.textPrimary,
                   ),
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -184,7 +184,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                         "Access given for",
                         size: 16.sp,
                         weight: FontWeight.w500,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                       ),
                       SizedBox(height: 12.h),
                       _buildCheckbox(
@@ -223,7 +223,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                       onPressed: () => Navigator.of(context).pop(),
                       child: CText(
                         "Cancel",
-                        color: appTheme.grey,
+                        color: appColors.grey,
                         weight: FontWeight.w600,
                       ),
                     ),
@@ -236,13 +236,13 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                               "Co-owner settings updated successfully!",
                               color: Colors.white,
                             ),
-                            backgroundColor: appTheme.primaryColor,
+                            backgroundColor: appColors.primaryColor,
                           ),
                         );
                       },
                       child: CText(
                         "Save",
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                         weight: FontWeight.w600,
                       ),
                     ),
@@ -266,13 +266,13 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
             height: 24.w,
             width: 24.w,
             child: Checkbox(
-              checkColor: appTheme.white,
-              activeColor: appTheme.primaryColor,
+              checkColor: appColors.white,
+              activeColor: appColors.primaryColor,
               value: value,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4.r),
               ),
-              side: BorderSide(color: appTheme.lightGrey),
+              side: BorderSide(color: appColors.lightGrey),
               onChanged: onChanged,
             ),
           ),
@@ -281,7 +281,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
             child: CText(
               text,
               size: 14.sp,
-              color: appTheme.grey,
+              color: appColors.grey,
               weight: FontWeight.w400,
             ),
           ),

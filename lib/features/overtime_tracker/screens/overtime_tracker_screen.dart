@@ -6,7 +6,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
@@ -20,7 +20,7 @@ class OvertimeTrackerScreen extends HookWidget {
     final selectedDateRange = useState(DateRange.today.label);
 
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Overtime Tracker"),
 
       body: Stack(
@@ -54,10 +54,12 @@ class OvertimeTrackerScreen extends HookWidget {
                           vertical: 0,
                         ),
                         decoration: BoxDecoration(
-                          color: appTheme.white,
+                          color: appColors.white,
                           borderRadius: BorderRadius.circular(15),
                           border: Border.all(
-                            color: appTheme.primaryColor.withValues(alpha: 0.3),
+                            color: appColors.primaryColor.withValues(
+                              alpha: 0.3,
+                            ),
                             width: 2,
                           ),
                         ),
@@ -66,10 +68,10 @@ class OvertimeTrackerScreen extends HookWidget {
                             value: selectedDateRange.value,
                             icon: Icon(
                               Icons.arrow_drop_down,
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                             ),
                             style: TextStyle(
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                               fontWeight: FontWeight.w500,
                             ),
                             items:
@@ -99,10 +101,10 @@ class OvertimeTrackerScreen extends HookWidget {
                     width: 1.sw,
                     // padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: appTheme.white,
+                      color: appColors.white,
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(
-                        color: appTheme.primaryColor.withValues(alpha: 0.3),
+                        color: appColors.primaryColor.withValues(alpha: 0.3),
                       ),
                     ),
                     child: Stack(
@@ -130,7 +132,7 @@ class OvertimeTrackerScreen extends HookWidget {
                               CText(
                                 "Period: April 1-30, 2025",
                                 size: 15,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                               ),
                               const SizedBox(height: 8),
                               CText(
@@ -144,7 +146,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                 "Total outstanding overtime: IDR 1,200,000",
                                 weight: FontWeight.bold,
                                 size: 17,
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                                 fontFamily: "PoppinsMedium",
                               ),
                             ],
@@ -165,21 +167,21 @@ class OvertimeTrackerScreen extends HookWidget {
                       Row(
                         children: [
                           Checkbox(
-                            activeColor: appTheme.primaryColor,
+                            activeColor: appColors.primaryColor,
                             value: false,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(3),
                               side: BorderSide(
-                                color: appTheme.silver.withValues(alpha: 0.2),
+                                color: appColors.silver.withValues(alpha: 0.2),
                               ),
                             ),
-                            side: BorderSide(color: appTheme.grey),
+                            side: BorderSide(color: appColors.grey),
                             onChanged: (bool? newValue) {},
                           ),
                           CText(
                             "Mark all as paid",
                             size: 14,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                             weight: FontWeight.w600,
                           ),
                         ],
@@ -192,7 +194,7 @@ class OvertimeTrackerScreen extends HookWidget {
                     width: 1.sw,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: appTheme.white,
+                      color: appColors.white,
                     ),
                     child: Column(
                       children: [
@@ -203,7 +205,7 @@ class OvertimeTrackerScreen extends HookWidget {
                           ),
                           width: 1.sw,
                           decoration: BoxDecoration(
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30),
@@ -217,7 +219,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                   "Helper",
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                 ),
                               ),
                               Expanded(
@@ -227,7 +229,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                   textAlign: TextAlign.center,
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                 ),
                               ),
                               Expanded(
@@ -237,7 +239,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                   textAlign: TextAlign.end,
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                 ),
                               ),
                             ],
@@ -251,7 +253,7 @@ class OvertimeTrackerScreen extends HookWidget {
                               (context, index) => Container(
                                 height: 1,
                                 width: 1.sw,
-                                color: appTheme.veryLightGrey,
+                                color: appColors.veryLightGrey,
                               ),
                           itemBuilder: (context, index) {
                             return GestureDetector(
@@ -266,7 +268,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                   vertical: 15,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                   borderRadius:
                                       (index != 4)
                                           ? null
@@ -291,7 +293,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                           CText(
                                             "Maid",
                                             size: 12,
-                                            color: appTheme.grey,
+                                            color: appColors.grey,
                                           ),
                                         ],
                                       ),
@@ -304,7 +306,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                         "10.5 hrs",
                                         textAlign: TextAlign.center,
                                         size: 12,
-                                        color: appTheme.grey,
+                                        color: appColors.grey,
                                         weight: FontWeight.w700,
                                       ),
                                     ),
@@ -328,8 +330,8 @@ class OvertimeTrackerScreen extends HookWidget {
                                                 decoration: BoxDecoration(
                                                   color:
                                                       (index % 2 == 0)
-                                                          ? appTheme.mintGreen
-                                                          : appTheme
+                                                          ? appColors.mintGreen
+                                                          : appColors
                                                               .lightYellow,
                                                   borderRadius:
                                                       BorderRadius.circular(5),
@@ -341,8 +343,9 @@ class OvertimeTrackerScreen extends HookWidget {
 
                                                   color:
                                                       (index % 2 == 0)
-                                                          ? appTheme.brightGreen
-                                                          : appTheme.amber,
+                                                          ? appColors
+                                                              .brightGreen
+                                                          : appColors.amber,
                                                   size: 12,
                                                   weight: FontWeight.bold,
                                                 ),
@@ -351,7 +354,7 @@ class OvertimeTrackerScreen extends HookWidget {
                                               CText(
                                                 "\$189.49",
                                                 weight: FontWeight.w700,
-                                                color: appTheme.grey,
+                                                color: appColors.grey,
                                                 size: 12,
                                               ),
                                             ],
@@ -427,7 +430,7 @@ class OvertimeTrackerScreen extends HookWidget {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: ColorScheme.light(
-              primary: appTheme.primaryColor,
+              primary: appColors.primaryColor,
               onPrimary: Colors.white,
               surface: Colors.white,
               onSurface: Colors.black,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class TaskDropdown extends StatelessWidget {
@@ -24,15 +24,15 @@ class TaskDropdown extends StatelessWidget {
       // height: 57.h,
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 3.h),
       decoration: ShapeDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 0, color: appTheme.white),
+          side: BorderSide(width: 0, color: appColors.white),
           borderRadius: BorderRadius.circular(15),
         ),
 
         shadows: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -53,20 +53,20 @@ class TaskDropdown extends StatelessWidget {
             hintText ?? 'Select Task',
             size: 16,
             weight: FontWeight.w400,
-            color: appTheme.grey,
+            color: appColors.grey,
             // style:
           ),
           icon: Icon(
             Icons.keyboard_arrow_down,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             // size: 20,
           ),
           style: TextStyle(
             fontSize: 14.sp,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             fontFamily: 'Poppins',
           ),
-          dropdownColor: appTheme.white,
+          dropdownColor: appColors.white,
           borderRadius: BorderRadius.circular(15),
           items:
               tasks
@@ -77,7 +77,7 @@ class TaskDropdown extends StatelessWidget {
                         task,
                         style: TextStyle(
                           fontSize: 14.sp,
-                          color: appTheme.textPrimary,
+                          color: appColors.textPrimary,
                         ),
                       ),
                     ),

@@ -2,7 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'dart:math' as math;
@@ -21,7 +21,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
             "Household Stats",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
 
@@ -114,13 +114,13 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               "320",
                               size: 22.sp,
                               weight: FontWeight.w600,
-                              color: appTheme.textPrimary,
+                              color: appColors.textPrimary,
                             ),
                             SizedBox(height: 4.h),
                             CText(
                               "Tasks completed",
                               size: 16.sp,
-                              color: appTheme.textPrimary,
+                              color: appColors.textPrimary,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -130,14 +130,14 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         options: CircularDottedBorderOptions(
                           dashPattern: [8, 5],
                           strokeWidth: 2,
-                          color: appTheme.primaryColor,
+                          color: appColors.primaryColor,
                           padding: EdgeInsets.all(0),
                         ),
                         child: Container(
                           width: 50.w,
                           height: 50.h,
                           decoration: BoxDecoration(
-                            color: appTheme.lightBlueTwo,
+                            color: appColors.lightBlueTwo,
                             shape: BoxShape.circle,
                             // border: Border.all(
                             //   color: appTheme.primaryColor.withOpacity(0.3),
@@ -165,13 +165,13 @@ class HouseholdStatsDashboard extends StatelessWidget {
                       CText(
                         "100% Complete",
                         size: 10.sp,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                         weight: FontWeight.w500,
                       ),
                       CText(
                         "320 Tasks",
                         size: 10.sp,
-                        color: appTheme.grey,
+                        color: appColors.grey,
                         weight: FontWeight.w400,
                       ),
                     ],
@@ -180,7 +180,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                   Container(
                     height: 8.h,
                     decoration: BoxDecoration(
-                      color: appTheme.veryLightGrey,
+                      color: appColors.veryLightGrey,
                       borderRadius: BorderRadius.circular(4.r),
                     ),
                     child: FractionallySizedBox(
@@ -188,7 +188,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                       widthFactor: 1.0,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: appTheme.primaryColor,
+                          color: appColors.primaryColor,
                           borderRadius: BorderRadius.circular(4.r),
                         ),
                       ),
@@ -231,7 +231,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
             width: 4.w,
             height: 50.h,
             decoration: BoxDecoration(
-              color: appTheme.mediumYellow,
+              color: appColors.mediumYellow,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(16.r),
                 bottomRight: Radius.circular(16.r),
@@ -256,7 +256,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               height: 60.h,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: appTheme.veryLightGrey,
+                                color: appColors.veryLightGrey,
                               ),
                             ),
                             // Progress arc
@@ -264,7 +264,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               size: Size(60.w, 60.h),
                               painter: CircularProgressPainter(
                                 progress: progress,
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                                 strokeWidth: 6,
                               ),
                             ),
@@ -273,7 +273,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               child: CText(
                                 "100%",
                                 size: 10.sp,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w500,
                               ),
                             ),
@@ -289,7 +289,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               percentage,
                               size: 24.sp,
                               weight: FontWeight.bold,
-                              color: appTheme.textPrimary,
+                              color: appColors.textPrimary,
                             ),
                             SizedBox(height: 4.h),
                           ],
@@ -306,7 +306,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         title,
                         size: 14.sp,
                         weight: FontWeight.bold,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                       ),
                     ],
                   ),
@@ -343,7 +343,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
             width: 4.w,
             height: 50.h,
             decoration: BoxDecoration(
-              color: appTheme.mediumYellow,
+              color: appColors.mediumYellow,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(16.r),
                 bottomRight: Radius.circular(16.r),
@@ -369,7 +369,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               height: 60.h,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: appTheme.veryLightGrey,
+                                color: appColors.veryLightGrey,
                               ),
                             ),
                             // Donut chart with multiple segments
@@ -379,12 +379,12 @@ class HouseholdStatsDashboard extends StatelessWidget {
                                 segments: [
                                   {
                                     'value': 0.6,
-                                    'color': appTheme.primaryColor,
+                                    'color': appColors.primaryColor,
                                   },
-                                  {'value': 0.25, 'color': appTheme.grey},
+                                  {'value': 0.25, 'color': appColors.grey},
                                   {
                                     'value': 0.15,
-                                    'color': appTheme.veryLightGrey,
+                                    'color': appColors.veryLightGrey,
                                   },
                                 ],
                                 strokeWidth: 8,
@@ -395,7 +395,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               child: CText(
                                 "60%\nRina",
                                 size: 8.sp,
-                                color: appTheme.textPrimary,
+                                color: appColors.textPrimary,
                                 weight: FontWeight.w600,
                                 textAlign: TextAlign.center,
                               ),
@@ -408,9 +408,9 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            _buildLegendItem("Rina", appTheme.primaryColor),
-                            _buildLegendItem("Budi", appTheme.grey),
-                            _buildLegendItem("Siti", appTheme.veryLightGrey),
+                            _buildLegendItem("Rina", appColors.primaryColor),
+                            _buildLegendItem("Budi", appColors.grey),
+                            _buildLegendItem("Siti", appColors.veryLightGrey),
                           ],
                         ),
                       ),
@@ -425,13 +425,13 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         "Task Distribution",
                         size: 14.sp,
                         weight: FontWeight.bold,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                       ),
                       SizedBox(height: 4.h),
                       CText(
                         "Completed By Helper",
                         size: 12.sp,
-                        color: appTheme.grey,
+                        color: appColors.grey,
                         weight: FontWeight.w500,
                       ),
                     ],
@@ -459,7 +459,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
           CText(
             name,
             size: 10.sp,
-            color: appTheme.grey,
+            color: appColors.grey,
             weight: FontWeight.w500,
           ),
         ],

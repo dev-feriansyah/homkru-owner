@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -33,7 +33,7 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
           height: 40.h,
           width: 1.sw,
           decoration: BoxDecoration(
-            color: appTheme.silver2,
+            color: appColors.silver2,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.r),
               topRight: Radius.circular(20.r),
@@ -65,7 +65,7 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
               CText(
                 "Give access for",
                 size: 20.sp,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
                 weight: FontWeight.w600,
                 textAlign: TextAlign.center,
               ),
@@ -81,7 +81,7 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
                         width: 24.w,
                         child: Checkbox(
                           value: entry.value,
-                          activeColor: appTheme.primaryColor,
+                          activeColor: appColors.primaryColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4.r),
                           ),
@@ -98,7 +98,7 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
                           entry.key,
                           size: 16.sp,
                           weight: FontWeight.w400,
-                          color: appTheme.grey,
+                          color: appColors.grey,
                         ),
                       ),
                     ],

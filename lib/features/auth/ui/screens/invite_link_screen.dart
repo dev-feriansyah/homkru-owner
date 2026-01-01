@@ -4,7 +4,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -74,7 +74,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                               child: CText(
                                 "Helper accounts require an invitation\nfrom a homeowner to sign up.",
                                 textAlign: TextAlign.center,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w300,
                                 size: 16,
                               ),
@@ -130,7 +130,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                         ),
                                                         decoration: BoxDecoration(
                                                           color:
-                                                              appTheme
+                                                              appColors
                                                                   .lightBlueTwo,
                                                           shape:
                                                               BoxShape.circle,
@@ -156,7 +156,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     border: OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            appTheme
+                                                            appColors
                                                                 .veryLightGrey,
                                                       ),
                                                       borderRadius:
@@ -167,7 +167,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     enabledBorder: OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            appTheme
+                                                            appColors
                                                                 .veryLightGrey,
                                                       ),
                                                       borderRadius:
@@ -178,7 +178,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     focusedBorder: OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            appTheme
+                                                            appColors
                                                                 .veryLightGrey,
                                                       ),
                                                       borderRadius:
@@ -216,7 +216,8 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     },
                                                     style: ElevatedButton.styleFrom(
                                                       backgroundColor:
-                                                          appTheme.primaryColor,
+                                                          appColors
+                                                              .primaryColor,
                                                       shape: RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.circular(
@@ -231,7 +232,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     child: CText(
                                                       "Continue",
                                                       size: 16,
-                                                      color: appTheme.white,
+                                                      color: appColors.white,
                                                     ),
                                                   ),
                                                 ),
@@ -246,13 +247,13 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                               },
                               text: "Yes, I have an invite",
                               buttonTextStyle: TextStyle(
-                                color: appTheme.white,
+                                color: appColors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appTheme.primaryColor,
+                                  appColors.primaryColor,
                                 ),
                               ),
                             ),
@@ -265,17 +266,17 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                               },
                               text: "Yes, I have an invite",
                               buttonTextStyle: TextStyle(
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appTheme.white,
+                                  appColors.white,
                                 ),
 
                                 side: WidgetStateProperty.all(
-                                  BorderSide(color: appTheme.primaryColor),
+                                  BorderSide(color: appColors.primaryColor),
                                 ),
                               ),
                             ),

@@ -5,7 +5,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/features/action_item/widgets/redo_parameters_dialog.dart';
 import 'package:homekru_owner/features/task/ui/widgets/action_task_card.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
@@ -127,7 +127,7 @@ class _ActionScreenState extends State<ActionScreen>
     ];
 
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: AppStrings.actionitems),
       body: Stack(
         children: [
@@ -136,13 +136,12 @@ class _ActionScreenState extends State<ActionScreen>
             children: [
               // Tab Bar
               Container(
-                color: appTheme.white,
+                color: appColors.white,
                 child: TabBar(
-
                   controller: _tabController,
-                  indicatorColor: appTheme.primaryColor,
-                  labelColor: appTheme.primaryColor,
-                  unselectedLabelColor: appTheme.grey,
+                  indicatorColor: appColors.primaryColor,
+                  labelColor: appColors.primaryColor,
+                  unselectedLabelColor: appColors.grey,
                   labelStyle: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w600,
@@ -250,11 +249,11 @@ class _ActionScreenState extends State<ActionScreen>
       SnackBar(
         content: CText(
           '${task.title} approved successfully!',
-          color: appTheme.darkGreen,
+          color: appColors.darkGreen,
           size: 14.sp,
           weight: FontWeight.w600,
         ),
-        backgroundColor: appTheme.mintGreen,
+        backgroundColor: appColors.mintGreen,
         behavior: SnackBarBehavior.floating,
       ),
     );
@@ -286,7 +285,7 @@ class _ActionScreenState extends State<ActionScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('All selected items approved successfully!'),
-          backgroundColor: appTheme.mintGreen,
+          backgroundColor: appColors.mintGreen,
           behavior: SnackBarBehavior.floating,
         ),
       );
@@ -294,7 +293,7 @@ class _ActionScreenState extends State<ActionScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Please select items to approve'),
-          backgroundColor: appTheme.darkRed,
+          backgroundColor: appColors.darkRed,
           behavior: SnackBarBehavior.floating,
         ),
       );

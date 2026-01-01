@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
@@ -38,7 +38,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: const CustomCommonAppBar(title: "Feedback"),
       body: Stack(
         children: [
@@ -115,7 +115,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             "How would you rate your experience?",
             size: 16.sp,
             weight: FontWeight.w600,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           Row(
@@ -130,7 +130,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 child: Icon(
                   index < _selectedRating ? Icons.star : Icons.star_border,
                   size: 32.sp,
-                  color: appTheme.amber,
+                  color: appColors.amber,
                 ),
               );
             }),
@@ -140,7 +140,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             child: CText(
               _getRatingText(_selectedRating),
               size: 14.sp,
-              color: appTheme.grey,
+              color: appColors.grey,
               weight: FontWeight.w500,
             ),
           ),
@@ -171,7 +171,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             "Category",
             size: 16.sp,
             weight: FontWeight.w600,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 12.h),
           DropdownButtonFormField<String>(
@@ -179,15 +179,15 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appTheme.veryLightGrey),
+                borderSide: BorderSide(color: appColors.veryLightGrey),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appTheme.veryLightGrey),
+                borderSide: BorderSide(color: appColors.veryLightGrey),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appTheme.primaryColor),
+                borderSide: BorderSide(color: appColors.primaryColor),
               ),
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 12.w,
@@ -201,7 +201,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                     child: CText(
                       category,
                       size: 14.sp,
-                      color: appTheme.textPrimary,
+                      color: appColors.textPrimary,
                     ),
                   );
                 }).toList(),
@@ -238,7 +238,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             "Tell us more about your experience",
             size: 16.sp,
             weight: FontWeight.w600,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 12.h),
           TextFormField(
@@ -247,18 +247,18 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             decoration: InputDecoration(
               hintText:
                   "Please share your thoughts, suggestions, or report any issues...",
-              hintStyle: TextStyle(color: appTheme.grey, fontSize: 14.sp),
+              hintStyle: TextStyle(color: appColors.grey, fontSize: 14.sp),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appTheme.veryLightGrey),
+                borderSide: BorderSide(color: appColors.veryLightGrey),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appTheme.veryLightGrey),
+                borderSide: BorderSide(color: appColors.veryLightGrey),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appTheme.primaryColor),
+                borderSide: BorderSide(color: appColors.primaryColor),
               ),
               contentPadding: EdgeInsets.all(12.w),
             ),
@@ -301,14 +301,14 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 _isAnonymous = value ?? false;
               });
             },
-            activeColor: appTheme.primaryColor,
+            activeColor: appColors.primaryColor,
           ),
           SizedBox(width: 8.w),
           Expanded(
             child: CText(
               "Submit feedback anonymously",
               size: 14.sp,
-              color: appTheme.textPrimary,
+              color: appColors.textPrimary,
             ),
           ),
         ],
@@ -338,26 +338,26 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             "Recent Feedback",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           _buildFeedbackItem(
             "Great service! The helper was very professional.",
             "5 stars",
             "2 days ago",
-            appTheme.brightGreen,
+            appColors.brightGreen,
           ),
           _buildFeedbackItem(
             "App could be more user-friendly.",
             "3 stars",
             "1 week ago",
-            appTheme.amber,
+            appColors.amber,
           ),
           _buildFeedbackItem(
             "Excellent cleaning service, highly recommended!",
             "5 stars",
             "2 weeks ago",
-            appTheme.brightGreen,
+            appColors.brightGreen,
           ),
         ],
       ),
@@ -374,7 +374,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       margin: EdgeInsets.only(bottom: 12.h),
       padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
-        color: appTheme.veryLightGrey.withOpacity(0.3),
+        color: appColors.veryLightGrey.withOpacity(0.3),
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Column(
@@ -389,11 +389,11 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 color: ratingColor,
                 weight: FontWeight.w600,
               ),
-              CText(date, size: 12.sp, color: appTheme.grey),
+              CText(date, size: 12.sp, color: appColors.grey),
             ],
           ),
           SizedBox(height: 8.h),
-          CText(feedback, size: 14.sp, color: appTheme.textPrimary),
+          CText(feedback, size: 14.sp, color: appColors.textPrimary),
         ],
       ),
     );
@@ -430,12 +430,12 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               "Thank You!",
               size: 18.sp,
               weight: FontWeight.bold,
-              color: appTheme.textPrimary,
+              color: appColors.textPrimary,
             ),
             content: CText(
               "Your feedback has been submitted successfully. We appreciate your input!",
               size: 14.sp,
-              color: appTheme.textPrimary,
+              color: appColors.textPrimary,
             ),
             actions: [
               TextButton(
@@ -452,7 +452,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 child: CText(
                   "OK",
                   size: 14.sp,
-                  color: appTheme.primaryColor,
+                  color: appColors.primaryColor,
                   weight: FontWeight.w600,
                 ),
               ),

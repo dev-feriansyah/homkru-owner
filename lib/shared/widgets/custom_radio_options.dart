@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class CustomRadioOption<T> extends StatelessWidget {
@@ -28,14 +28,14 @@ class CustomRadioOption<T> extends StatelessWidget {
         width: width ?? 1.sw,
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 15.h),
         decoration: ShapeDecoration(
-          color: appTheme.white,
+          color: appColors.white,
           shape: RoundedRectangleBorder(
-            side: BorderSide(width: 1.w, color: appTheme.offWhite),
+            side: BorderSide(width: 1.w, color: appColors.offWhite),
             borderRadius: BorderRadius.circular(15.r),
           ),
           shadows: [
             BoxShadow(
-              color: appTheme.offWhite,
+              color: appColors.offWhite,
               blurRadius: 10.r,
               offset: const Offset(0, 1),
             ),
@@ -46,7 +46,7 @@ class CustomRadioOption<T> extends StatelessWidget {
           children: [
             CText(
               label.toString(),
-              color: appTheme.grey,
+              color: appColors.grey,
               size: 16.sp,
               weight: FontWeight.w400,
             ),
@@ -57,7 +57,7 @@ class CustomRadioOption<T> extends StatelessWidget {
                 value: value,
                 groupValue: groupValue,
                 onChanged: onChanged,
-                activeColor: appTheme.primaryColor,
+                activeColor: appColors.primaryColor,
               ),
             ),
           ],

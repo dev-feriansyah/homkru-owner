@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/add_room_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -14,7 +14,7 @@ class HomeSetupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomCommonAppBar(title: 'Home Setup'),
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 16.h),
         children: [
@@ -28,7 +28,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appTheme.primaryColor,
+                    backgroundColor: appColors.primaryColor,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -55,7 +55,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appTheme.primaryColor,
+                    backgroundColor: appColors.primaryColor,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -82,7 +82,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appTheme.primaryColor,
+                    backgroundColor: appColors.primaryColor,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -110,7 +110,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appTheme.primaryColor,
+                    backgroundColor: appColors.primaryColor,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -156,7 +156,7 @@ class _Section extends StatelessWidget {
                   title,
                   size: 18.sp,
                   weight: FontWeight.w500,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                 ),
               ),
               InkWell(
@@ -165,7 +165,7 @@ class _Section extends StatelessWidget {
                   width: 28,
                   height: 28,
                   decoration: BoxDecoration(
-                    color: appTheme.primaryColor,
+                    color: appColors.primaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.add, color: Colors.white, size: 18),
@@ -239,7 +239,7 @@ class _RoomItem extends StatelessWidget {
             title,
             size: 14.sp,
             weight: FontWeight.w500,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
         ),
         vGap(2.h),
@@ -248,7 +248,7 @@ class _RoomItem extends StatelessWidget {
           child: CText(
             'Lorem ipsum is a dummy or placeholder text.',
             size: 10.sp,
-            color: appTheme.mediumGrey,
+            color: appColors.mediumGrey,
             weight: FontWeight.w400,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,

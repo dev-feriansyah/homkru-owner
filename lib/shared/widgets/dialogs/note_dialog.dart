@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -38,7 +38,7 @@ class NoteDialog extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: appTheme.lightBlue,
+                      color: appColors.lightBlue,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(Icons.close, size: 18),
@@ -53,7 +53,7 @@ class NoteDialog extends StatelessWidget {
               AppStrings.helperProfileSetupLaterNote,
               textAlign: TextAlign.center,
               size: 14.sp,
-              color: appTheme.grey,
+              color: appColors.grey,
               weight: FontWeight.w400,
             ),
             vGap(24.h),

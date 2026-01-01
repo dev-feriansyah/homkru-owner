@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/features/settings/settings_screen.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
@@ -34,7 +34,7 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: const CustomCommonAppBar(title: "Add Co-owner"),
       body: Stack(
         children: [
@@ -107,7 +107,7 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
                         'Access given for',
                         size: 18.sp,
                         weight: FontWeight.w500,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                       ),
                       vGap(6.h),
                       _buildCheckbox(
@@ -169,13 +169,13 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
             height: 24.w,
             width: 24.w,
             child: Checkbox(
-              checkColor: appTheme.white,
-              activeColor: appTheme.primaryColor,
+              checkColor: appColors.white,
+              activeColor: appColors.primaryColor,
               value: value,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4.r),
               ),
-              side: BorderSide(color: appTheme.lightGrey),
+              side: BorderSide(color: appColors.lightGrey),
               onChanged: onChanged,
             ),
           ),
@@ -185,7 +185,7 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
             child: CText(
               text,
               size: 16.sp,
-              color: appTheme.grey,
+              color: appColors.grey,
               weight: FontWeight.w400,
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final appTheme = LightCodeColors();
+final appColors = LightCodeColors();
 
 class LightCodeColors {
   LightCodeColors();

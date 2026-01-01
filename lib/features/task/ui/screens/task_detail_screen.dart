@@ -4,7 +4,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/features/task/ui/widgets/actiton_card.dart';
 import 'package:homekru_owner/features/task/ui/widgets/task_detail_card.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_home_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
@@ -38,7 +38,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
               CText(
                 AppStrings.taskDetail,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
                 size: 18.sp,
                 weight: FontWeight.w500,
               ),
@@ -59,7 +59,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
               CText(
                 AppStrings.action,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
                 size: 18.sp,
                 weight: FontWeight.w500,
               ),
@@ -91,7 +91,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
-          color: appTheme.primaryColor.withValues(alpha: 0.2),
+          color: appColors.primaryColor.withValues(alpha: 0.2),
           width: 1,
         ),
       ),
@@ -100,14 +100,14 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
         children: [
           CText(
             "Task Completion Approval",
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             size: 16.sp,
             weight: FontWeight.w600,
           ),
           SizedBox(height: 8.h),
           CText(
             "This task has been completed and requires your approval.",
-            color: appTheme.textSecondary,
+            color: appColors.textSecondary,
             size: 14.sp,
           ),
           SizedBox(height: 16.h),
@@ -153,13 +153,13 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
           (context) => AlertDialog(
             title: CText(
               "Approve Task",
-              color: appTheme.textPrimary,
+              color: appColors.textPrimary,
               size: 18.sp,
               weight: FontWeight.w600,
             ),
             content: CText(
               "Are you sure you want to approve this task completion?",
-              color: appTheme.textSecondary,
+              color: appColors.textSecondary,
               size: 14.sp,
             ),
             actions: [
@@ -167,7 +167,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 onPressed: () => Navigator.pop(context),
                 child: CText(
                   "Cancel",
-                  color: appTheme.textSecondary,
+                  color: appColors.textSecondary,
                   size: 14.sp,
                 ),
               ),
@@ -201,13 +201,13 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
           (context) => AlertDialog(
             title: CText(
               "Reject Task",
-              color: appTheme.textPrimary,
+              color: appColors.textPrimary,
               size: 18.sp,
               weight: FontWeight.w600,
             ),
             content: CText(
               "Are you sure you want to reject this task completion?",
-              color: appTheme.textSecondary,
+              color: appColors.textSecondary,
               size: 14.sp,
             ),
             actions: [
@@ -215,7 +215,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 onPressed: () => Navigator.pop(context),
                 child: CText(
                   "Cancel",
-                  color: appTheme.textSecondary,
+                  color: appColors.textSecondary,
                   size: 14.sp,
                 ),
               ),
@@ -248,7 +248,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
         border: Border.all(
-          color: appTheme.grey.withValues(alpha: 0.3),
+          color: appColors.grey.withValues(alpha: 0.3),
           width: 1,
         ),
       ),
@@ -259,7 +259,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
           Container(
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
-              color: appTheme.lightBlue.withValues(alpha: 0.1),
+              color: appColors.lightBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(8.r),
                 topRight: Radius.circular(8.r),
@@ -267,18 +267,18 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
             ),
             child: Row(
               children: [
-                Icon(Icons.image, color: appTheme.primaryColor, size: 20.sp),
+                Icon(Icons.image, color: appColors.primaryColor, size: 20.sp),
                 SizedBox(width: 8.w),
                 CText(
                   "Task Proof Image",
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   size: 14.sp,
                   weight: FontWeight.w600,
                 ),
                 Spacer(),
                 CText(
                   "Tap to view full size",
-                  color: appTheme.textSecondary,
+                  color: appColors.textSecondary,
                   size: 12.sp,
                 ),
               ],

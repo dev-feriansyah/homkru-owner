@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -12,7 +12,7 @@ class AttendenceLogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: AppStrings.attendanceTime),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,7 +21,7 @@ class AttendenceLogScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: CText(
               'Maria Johnson',
-              color: appTheme.textPrimary,
+              color: appColors.textPrimary,
               size: 18.sp,
               weight: FontWeight.w600,
               height: 1.56,
@@ -60,12 +60,12 @@ class AttendenceLogWidget extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: appTheme.primaryColor.withValues(alpha: 0.2),
+          color: appColors.primaryColor.withValues(alpha: 0.2),
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 50,
             offset: Offset(10, 20),
           ),
@@ -86,7 +86,7 @@ class AttendenceLogWidget extends StatelessWidget {
                   children: [
                     CText(
                       'Check-in: 8:15 AM',
-                      color: appTheme.grey,
+                      color: appColors.grey,
                       size: 14.sp,
                       weight: FontWeight.w500,
                       height: 1.29,
@@ -102,7 +102,7 @@ class AttendenceLogWidget extends StatelessWidget {
                       ),
                       child: CText(
                         "12/03/2025",
-                        color: appTheme.primaryColor,
+                        color: appColors.primaryColor,
                         size: 12.sp,
                         weight: FontWeight.w600,
                         height: 1.5,
@@ -114,7 +114,7 @@ class AttendenceLogWidget extends StatelessWidget {
                 // Expected check-out
                 CText(
                   'Expected check-out: 5:00 PM',
-                  color: appTheme.grey,
+                  color: appColors.grey,
                   size: 14.sp,
                   weight: FontWeight.w500,
                   height: 1.29,
@@ -136,11 +136,11 @@ class AttendenceLogWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             child: Row(
               children: [
-                Icon(Icons.location_on, size: 20.sp, color: appTheme.grey),
+                Icon(Icons.location_on, size: 20.sp, color: appColors.grey),
                 hGap(10.w),
                 CText(
                   '123 Main St (within geo-fence)',
-                  color: appTheme.grey,
+                  color: appColors.grey,
                   size: 14.sp,
                   weight: FontWeight.w400,
                   height: 1.29,

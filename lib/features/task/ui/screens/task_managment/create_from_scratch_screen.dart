@@ -6,7 +6,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/shared/utils/date_time_utils.dart';
 import 'package:homekru_owner/features/settings/settings_screen.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_assign_dropdown.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -72,12 +72,12 @@ class CreateFromScratchScreen extends HookWidget {
           'Assign To',
           size: 18.sp,
           weight: FontWeight.w600,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
         vGap(16.h),
 
         CustomAssignDropdown(
-          borderColor: appTheme.offWhite,
+          borderColor: appColors.offWhite,
           items: assignees,
           hintText: "Select Assignee",
           selectedValue: currentAssignee.value,
@@ -92,12 +92,12 @@ class CreateFromScratchScreen extends HookWidget {
           'Assigned For',
           size: 18.sp,
           weight: FontWeight.w600,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
         vGap(16.h),
 
         CustomDropdownWidget(
-          borderColor: appTheme.offWhite,
+          borderColor: appColors.offWhite,
           items: [
             "Bedroom 1",
             "Bedroom 2",
@@ -156,7 +156,7 @@ class CreateFromScratchScreen extends HookWidget {
           'Tasks Details',
           size: 18.sp,
           weight: FontWeight.w600,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
         vGap(16.h),
         buildTextField(
@@ -208,7 +208,7 @@ class CreateFromScratchScreen extends HookWidget {
           'Sub Tasks',
           size: 18.sp,
           weight: FontWeight.w600,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
         vGap(16.h),
 
@@ -238,7 +238,7 @@ class CreateFromScratchScreen extends HookWidget {
             width: double.infinity,
             padding: EdgeInsets.symmetric(vertical: 15.h),
             decoration: BoxDecoration(
-              color: appTheme.blueAccentCustom,
+              color: appColors.blueAccentCustom,
               borderRadius: BorderRadius.circular(10.r),
             ),
             child: Row(
@@ -250,7 +250,7 @@ class CreateFromScratchScreen extends HookWidget {
                   'Add More Sub Tasks',
                   size: 18.sp,
                   weight: FontWeight.w600,
-                  color: appTheme.white,
+                  color: appColors.white,
                 ),
               ],
             ),
@@ -269,7 +269,7 @@ class CreateFromScratchScreen extends HookWidget {
           'Require Photo',
           size: 18.sp,
           weight: FontWeight.w600,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
         ),
         hGap(5.w),
         Spacer(),
@@ -294,7 +294,7 @@ class CreateFromScratchScreen extends HookWidget {
           'Recurrence Settings',
           size: 16.sp,
           weight: FontWeight.w400,
-          color: appTheme.grey,
+          color: appColors.grey,
         ),
         vGap(16.h),
 
@@ -320,7 +320,7 @@ class CreateFromScratchScreen extends HookWidget {
               );
             }
           },
-          suffixIcon: Icon(Icons.access_time, color: appTheme.grey),
+          suffixIcon: Icon(Icons.access_time, color: appColors.grey),
         ),
         vGap(16.h),
         TaskDropdown(
@@ -349,14 +349,14 @@ class CreateFromScratchScreen extends HookWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15.r),
-              border: Border.all(color: appTheme.blueAccentCustom),
+              border: Border.all(color: appColors.blueAccentCustom),
             ),
             child: Center(
               child: CText(
                 'Assign Task',
                 size: 18.sp,
                 weight: FontWeight.w600,
-                color: appTheme.blueAccentCustom,
+                color: appColors.blueAccentCustom,
               ),
             ),
           ),
@@ -369,7 +369,7 @@ class CreateFromScratchScreen extends HookWidget {
             width: double.infinity,
             // padding: EdgeInsets.symmetric(vertical: 12.h),
             decoration: BoxDecoration(
-              color: appTheme.blueAccentCustom,
+              color: appColors.blueAccentCustom,
               borderRadius: BorderRadius.circular(15.r),
             ),
             child: Row(
@@ -401,7 +401,7 @@ class CreateFromScratchScreen extends HookWidget {
           'Form cleared. Ready to add another task!',
           color: Colors.white,
         ),
-        backgroundColor: appTheme.blueAccentCustom,
+        backgroundColor: appColors.blueAccentCustom,
       ),
     );
   }

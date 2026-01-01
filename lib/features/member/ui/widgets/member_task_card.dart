@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class MemberTaskCard extends StatelessWidget {
@@ -28,14 +28,14 @@ class MemberTaskCard extends StatelessWidget {
       width: 1.sw,
       padding: EdgeInsets.symmetric(horizontal: 19.w, vertical: 15.h),
       decoration: ShapeDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: appTheme.offWhite),
+          side: BorderSide(width: 1, color: appColors.offWhite),
           borderRadius: BorderRadius.circular(15),
         ),
         shadows: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -50,7 +50,7 @@ class MemberTaskCard extends StatelessWidget {
             children: [
               CText(
                 title,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
                 size: 16.sp,
                 weight: FontWeight.w600,
               ),
@@ -80,7 +80,7 @@ class MemberTaskCard extends StatelessWidget {
           // Time
           CText(
             timeRange,
-            color: appTheme.grey,
+            color: appColors.grey,
             size: 16.sp,
             weight: FontWeight.w500,
           ),
@@ -92,11 +92,11 @@ class MemberTaskCard extends StatelessWidget {
               onTap: onRemind,
               child: CText(
                 'Remind >',
-                color: appTheme.primaryColor,
+                color: appColors.primaryColor,
                 size: 14.sp,
                 weight: FontWeight.w500,
                 decoration: TextDecoration.underline,
-                decorationColor: appTheme.primaryColor,
+                decorationColor: appColors.primaryColor,
               ),
             ),
         ],

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:ionicons/ionicons.dart';
@@ -21,7 +21,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Helper"),
 
       body: Stack(
@@ -72,7 +72,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                           margin: EdgeInsets.only(bottom: 20.h),
                           width: 1.sw,
                           decoration: BoxDecoration(
-                            color: appTheme.white,
+                            color: appColors.white,
                             borderRadius: BorderRadius.circular(15.r),
                             // border: Border.all(
                             //   color: appTheme.offWhite,
@@ -80,7 +80,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                             // ),
                             boxShadow: [
                               BoxShadow(
-                                color: appTheme.shadowColor,
+                                color: appColors.shadowColor,
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
                               ),
@@ -98,7 +98,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               CText(
                                 "Helper Name ${index + 1}",
                                 size: 16.sp,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w400,
                               ),
                               GestureDetector(
@@ -110,7 +110,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 child: Icon(
                                   Ionicons.settings_outline,
                                   size: 24.sp,
-                                  color: appTheme.textPrimary,
+                                  color: appColors.textPrimary,
                                 ),
                               ),
                             ],
@@ -127,7 +127,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                           style: GoogleFonts.karla(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                           ),
                         ),
                         hGap(10.w),
@@ -139,11 +139,11 @@ class _HelperListScreenState extends State<HelperListScreen> {
                             padding: EdgeInsets.all(12.w),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15.r),
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                             ),
                             child: Icon(
                               Icons.add,
-                              color: appTheme.white,
+                              color: appColors.white,
                               size: 25.sp,
                             ),
                           ),
@@ -189,7 +189,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: appTheme.shadowColor,
+                        color: appColors.shadowColor,
                         blurRadius: 20,
                         offset: const Offset(0, -5),
                       ),
@@ -213,7 +213,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 height: 4.h,
                                 margin: EdgeInsets.only(bottom: 20.h),
                                 decoration: BoxDecoration(
-                                  color: appTheme.lightGrey,
+                                  color: appColors.lightGrey,
                                   borderRadius: BorderRadius.circular(2.r),
                                 ),
                               ),
@@ -227,14 +227,14 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                   "Helper Settings",
                                   size: 20.sp,
                                   weight: FontWeight.w600,
-                                  color: appTheme.textPrimary,
+                                  color: appColors.textPrimary,
                                 ),
                                 GestureDetector(
                                   onTap: () => Navigator.of(context).pop(),
                                   child: Container(
                                     padding: EdgeInsets.all(8.w),
                                     decoration: BoxDecoration(
-                                      color: appTheme.lightGrey.withValues(
+                                      color: appColors.lightGrey.withValues(
                                         alpha: 0.3,
                                       ),
                                       borderRadius: BorderRadius.circular(8.r),
@@ -242,7 +242,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                     child: Icon(
                                       Icons.close,
                                       size: 20.sp,
-                                      color: appTheme.grey,
+                                      color: appColors.grey,
                                     ),
                                   ),
                                 ),
@@ -255,17 +255,17 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Helper Name",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appTheme.textPrimary,
+                              color: appColors.textPrimary,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appTheme.white,
+                                color: appColors.white,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appTheme.offWhite),
+                                border: Border.all(color: appColors.offWhite),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appTheme.shadowColor,
+                                    color: appColors.shadowColor,
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -275,13 +275,13 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 controller: nameController,
                                 style: TextStyle(
                                   fontSize: 16.sp,
-                                  color: appTheme.textPrimary,
+                                  color: appColors.textPrimary,
                                   fontWeight: FontWeight.w400,
                                 ),
                                 decoration: InputDecoration(
                                   hintText: "Enter helper's full name",
                                   hintStyle: TextStyle(
-                                    color: appTheme.grey,
+                                    color: appColors.grey,
                                     fontSize: 16.sp,
                                   ),
                                   border: InputBorder.none,
@@ -299,17 +299,17 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Phone Number",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appTheme.textPrimary,
+                              color: appColors.textPrimary,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appTheme.white,
+                                color: appColors.white,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appTheme.offWhite),
+                                border: Border.all(color: appColors.offWhite),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appTheme.shadowColor,
+                                    color: appColors.shadowColor,
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -320,13 +320,13 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 keyboardType: TextInputType.phone,
                                 style: TextStyle(
                                   fontSize: 16.sp,
-                                  color: appTheme.textPrimary,
+                                  color: appColors.textPrimary,
                                   fontWeight: FontWeight.w400,
                                 ),
                                 decoration: InputDecoration(
                                   hintText: "Enter helper's phone number",
                                   hintStyle: TextStyle(
-                                    color: appTheme.grey,
+                                    color: appColors.grey,
                                     fontSize: 16.sp,
                                   ),
                                   border: InputBorder.none,
@@ -344,17 +344,17 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Role",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appTheme.textPrimary,
+                              color: appColors.textPrimary,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appTheme.white,
+                                color: appColors.white,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appTheme.offWhite),
+                                border: Border.all(color: appColors.offWhite),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appTheme.shadowColor,
+                                    color: appColors.shadowColor,
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -365,7 +365,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 decoration: InputDecoration(
                                   hintText: "Select role",
                                   hintStyle: TextStyle(
-                                    color: appTheme.grey,
+                                    color: appColors.grey,
                                     fontSize: 16.sp,
                                   ),
                                   border: InputBorder.none,
@@ -382,7 +382,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                             child: CText(
                                               role,
                                               size: 16.sp,
-                                              color: appTheme.textPrimary,
+                                              color: appColors.textPrimary,
                                             ),
                                           ),
                                         )
@@ -399,17 +399,17 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Live-in Status",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appTheme.textPrimary,
+                              color: appColors.textPrimary,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appTheme.white,
+                                color: appColors.white,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appTheme.offWhite),
+                                border: Border.all(color: appColors.offWhite),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appTheme.shadowColor,
+                                    color: appColors.shadowColor,
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -420,7 +420,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 decoration: InputDecoration(
                                   hintText: "Select live-in status",
                                   hintStyle: TextStyle(
-                                    color: appTheme.grey,
+                                    color: appColors.grey,
                                     fontSize: 16.sp,
                                   ),
                                   border: InputBorder.none,
@@ -437,7 +437,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                             child: CText(
                                               status,
                                               size: 16.sp,
-                                              color: appTheme.textPrimary,
+                                              color: appColors.textPrimary,
                                             ),
                                           ),
                                         )
@@ -453,7 +453,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                             Container(
                               padding: EdgeInsets.all(12.w),
                               decoration: BoxDecoration(
-                                color: appTheme.lightBlue.withValues(
+                                color: appColors.lightBlue.withValues(
                                   alpha: 0.3,
                                 ),
                                 borderRadius: BorderRadius.circular(8.r),
@@ -461,7 +461,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               child: CText(
                                 "Settings: All fields that the user set up when initially adding the helper profile",
                                 size: 12.sp,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w400,
                               ),
                             ),
@@ -478,7 +478,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                       padding: EdgeInsets.symmetric(
                                         vertical: 12.h,
                                       ),
-                                      side: BorderSide(color: appTheme.grey),
+                                      side: BorderSide(color: appColors.grey),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(
                                           12.r,
@@ -487,7 +487,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                     ),
                                     child: CText(
                                       "Cancel",
-                                      color: appTheme.grey,
+                                      color: appColors.grey,
                                       size: 16.sp,
                                       weight: FontWeight.w600,
                                     ),
@@ -508,7 +508,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                             size: 14.sp,
                                           ),
                                           backgroundColor:
-                                              appTheme.primaryColor,
+                                              appColors.primaryColor,
                                           behavior: SnackBarBehavior.floating,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(
@@ -519,7 +519,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: appTheme.primaryColor,
+                                      backgroundColor: appColors.primaryColor,
                                       padding: EdgeInsets.symmetric(
                                         vertical: 12.h,
                                       ),

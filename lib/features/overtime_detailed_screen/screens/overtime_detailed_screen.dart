@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/domain/value_objects/date_range.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -19,7 +19,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Maria Johnson"),
 
       body: Stack(
@@ -58,10 +58,10 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                             vertical: 0,
                           ),
                           decoration: BoxDecoration(
-                            color: appTheme.white,
+                            color: appColors.white,
                             borderRadius: BorderRadius.circular(15),
                             border: Border.all(
-                              color: appTheme.primaryColor.withValues(
+                              color: appColors.primaryColor.withValues(
                                 alpha: 0.3,
                               ),
                               width: 2,
@@ -72,10 +72,10 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                               value: null,
                               icon: Icon(
                                 Icons.arrow_drop_down,
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                               ),
                               style: TextStyle(
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                                 fontWeight: FontWeight.w500,
                               ),
                               items:
@@ -97,7 +97,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                       width: 1.sw,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: appTheme.white,
+                        color: appColors.white,
                       ),
                       child: Column(
                         children: [
@@ -108,7 +108,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                             ),
                             width: 1.sw,
                             decoration: BoxDecoration(
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(30),
                                 topRight: Radius.circular(30),
@@ -121,7 +121,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                     "Date",
                                     size: 10,
                                     weight: FontWeight.bold,
-                                    color: appTheme.white,
+                                    color: appColors.white,
                                   ),
                                 ),
                                 Expanded(
@@ -130,7 +130,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                     size: 10,
                                     weight: FontWeight.bold,
                                     textAlign: TextAlign.center,
-                                    color: appTheme.white,
+                                    color: appColors.white,
                                   ),
                                 ),
                                 Expanded(
@@ -139,7 +139,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                     size: 10,
                                     textAlign: TextAlign.center,
                                     weight: FontWeight.bold,
-                                    color: appTheme.white,
+                                    color: appColors.white,
                                   ),
                                 ),
                                 Expanded(
@@ -148,7 +148,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                     size: 10,
                                     weight: FontWeight.bold,
                                     textAlign: TextAlign.center,
-                                    color: appTheme.white,
+                                    color: appColors.white,
                                   ),
                                 ),
                                 Expanded(
@@ -157,7 +157,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                     size: 10,
                                     weight: FontWeight.bold,
                                     textAlign: TextAlign.center,
-                                    color: appTheme.white,
+                                    color: appColors.white,
                                   ),
                                 ),
                                 Expanded(
@@ -166,7 +166,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                     size: 10,
                                     weight: FontWeight.bold,
                                     textAlign: TextAlign.end,
-                                    color: appTheme.white,
+                                    color: appColors.white,
                                   ),
                                 ),
                               ],
@@ -180,7 +180,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                 (context, index) => Container(
                                   height: 1,
                                   width: 1.sw,
-                                  color: appTheme.veryLightGrey,
+                                  color: appColors.veryLightGrey,
                                 ),
                             itemBuilder: (context, index) {
                               return GestureDetector(
@@ -195,7 +195,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                     vertical: 15,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: appTheme.white,
+                                    color: appColors.white,
                                   ),
                                   child: Row(
                                     children: [
@@ -203,7 +203,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                         child: CText(
                                           "15-05-25",
                                           weight: FontWeight.w700,
-                                          color: appTheme.grey,
+                                          color: appColors.grey,
                                           size: 10,
                                         ),
                                       ),
@@ -212,7 +212,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                           "9:00",
                                           weight: FontWeight.w700,
                                           textAlign: TextAlign.center,
-                                          color: appTheme.grey,
+                                          color: appColors.grey,
                                           size: 10,
                                         ),
                                       ),
@@ -223,7 +223,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                           "12:00",
                                           textAlign: TextAlign.center,
                                           size: 10,
-                                          color: appTheme.grey,
+                                          color: appColors.grey,
                                           weight: FontWeight.w700,
                                         ),
                                       ),
@@ -232,7 +232,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                           "5 hrs",
                                           textAlign: TextAlign.center,
                                           weight: FontWeight.w700,
-                                          color: appTheme.grey,
+                                          color: appColors.grey,
                                           size: 10,
                                         ),
                                       ),
@@ -242,7 +242,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                           "\$189.49",
                                           weight: FontWeight.w700,
                                           textAlign: TextAlign.center,
-                                          color: appTheme.grey,
+                                          color: appColors.grey,
                                           size: 10,
                                         ),
                                       ),
@@ -256,8 +256,8 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                           decoration: BoxDecoration(
                                             color:
                                                 (index % 2 == 0)
-                                                    ? appTheme.mintGreen
-                                                    : appTheme.lightYellow,
+                                                    ? appColors.mintGreen
+                                                    : appColors.lightYellow,
                                             borderRadius: BorderRadius.circular(
                                               5,
                                             ),
@@ -269,8 +269,8 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
 
                                             color:
                                                 (index % 2 == 0)
-                                                    ? appTheme.darkGreen
-                                                    : appTheme.amber,
+                                                    ? appColors.darkGreen
+                                                    : appColors.amber,
                                             size: 9,
                                             weight: FontWeight.bold,
                                             textAlign: TextAlign.center,
@@ -287,7 +287,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                           Container(
                             height: 1,
                             width: 1.sw,
-                            color: appTheme.veryLightGrey,
+                            color: appColors.veryLightGrey,
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(
@@ -308,7 +308,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                   size: 14,
                                   weight: FontWeight.bold,
                                   fontFamily: "PoppimsMedium",
-                                  color: appTheme.grey,
+                                  color: appColors.grey,
                                 ),
                                 const SizedBox(width: 8),
                                 CText(
@@ -316,7 +316,7 @@ class _OvertimeDetailedScreenState extends State<OvertimeDetailedScreen> {
                                   size: 14,
                                   fontFamily: "PoppimsMedium",
                                   weight: FontWeight.bold,
-                                  color: appTheme.primaryColor,
+                                  color: appColors.primaryColor,
                                 ),
                               ],
                             ),

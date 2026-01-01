@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -30,7 +30,7 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
 
     return Scaffold(
       appBar: const CustomCommonAppBar(title: 'Manage Subscription'),
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -43,7 +43,7 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
                   CText(
                     'Choose a plan',
                     textAlign: TextAlign.center,
-                    color: appTheme.textPrimary,
+                    color: appColors.textPrimary,
                     size: 28.sp,
                     weight: FontWeight.w600,
                   ),
@@ -51,7 +51,7 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
                   CText(
                     'Pick the right plan for you',
                     textAlign: TextAlign.center,
-                    color: appTheme.grey,
+                    color: appColors.grey,
                     size: 15.sp,
                     weight: FontWeight.w400,
                   ),
@@ -120,7 +120,7 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
                   vGap(20.h),
                   CustomElevatedButton(
                     buttonTextStyle: TextStyle(
-                      color: appTheme.primaryColor,
+                      color: appColors.primaryColor,
                       fontWeight: FontWeight.w600,
                       fontSize: 18.sp,
                     ),
@@ -128,12 +128,12 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
                     buttonStyle: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(Colors.white),
                       foregroundColor: WidgetStateProperty.all(
-                        appTheme.primaryColor,
+                        appColors.primaryColor,
                       ),
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                           side: BorderSide(
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(15),
@@ -186,7 +186,8 @@ class _PlanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color borderColor = selected ? appTheme.primaryColor : appTheme.grey;
+    final Color borderColor =
+        selected ? appColors.primaryColor : appColors.grey;
     final bool isGradient = gradient != null;
 
     return GestureDetector(
@@ -216,7 +217,7 @@ class _PlanCard extends StatelessWidget {
                   title,
                   size: 18.sp,
                   weight: FontWeight.w600,
-                  color: isGradient ? appTheme.white : appTheme.textPrimary,
+                  color: isGradient ? appColors.white : appColors.textPrimary,
                 ),
                 hGap(8),
                 // Save percentage badge
@@ -225,7 +226,7 @@ class _PlanCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color:
                         isGradient
-                            ? appTheme.lightYellow
+                            ? appColors.lightYellow
                             : const Color(0x26BDBDBD).withOpacity(0.15),
                     borderRadius: BorderRadius.circular(12.r),
                   ),
@@ -234,7 +235,7 @@ class _PlanCard extends StatelessWidget {
                     savePercentage,
                     size: 10.sp,
                     weight: FontWeight.w500,
-                    color: isGradient ? appTheme.amber : appTheme.grey,
+                    color: isGradient ? appColors.amber : appColors.grey,
                   ),
                 ),
                 Spacer(),
@@ -304,14 +305,14 @@ class _PlanCard extends StatelessWidget {
                   priceText,
                   size: 28.sp,
                   weight: FontWeight.w600,
-                  color: isGradient ? appTheme.white : appTheme.textPrimary,
+                  color: isGradient ? appColors.white : appColors.textPrimary,
                 ),
                 SizedBox(width: 6.w),
                 CText(
                   durationText,
                   size: 18.sp,
                   weight: FontWeight.w500,
-                  color: isGradient ? appTheme.white : appTheme.textSecondary,
+                  color: isGradient ? appColors.white : appColors.textSecondary,
                 ),
               ],
             ),
@@ -344,7 +345,7 @@ class _Chip extends StatelessWidget {
         decoration: BoxDecoration(
           color:
               isSelected
-                  ? (isGradient ? Colors.white : appTheme.primaryColor)
+                  ? (isGradient ? Colors.white : appColors.primaryColor)
                   : (isGradient
                       ? Color(0xFFBDBDBD).withOpacity(0.40)
                       : Color(0xFFBDBDBD).withOpacity(0.40)),
@@ -352,7 +353,7 @@ class _Chip extends StatelessWidget {
           border: Border.all(
             color:
                 isSelected
-                    ? (isGradient ? Colors.white : appTheme.primaryColor)
+                    ? (isGradient ? Colors.white : appColors.primaryColor)
                     : (isGradient ? Colors.white : Color(0xFFBDBDBD)),
           ),
         ),
@@ -361,7 +362,7 @@ class _Chip extends StatelessWidget {
           size: 12.sp,
           color:
               isSelected
-                  ? (isGradient ? appTheme.primaryColor : Colors.white)
+                  ? (isGradient ? appColors.primaryColor : Colors.white)
                   : (isGradient ? Colors.white : const Color(0xFF616161)),
           weight: FontWeight.w500,
         ),

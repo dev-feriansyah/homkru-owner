@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class StatusStyle {
@@ -15,16 +15,16 @@ class StatusChip extends StatelessWidget {
 
   static final _statusColors = <String, StatusStyle>{
     'complete': StatusStyle(
-      appTheme.brightGreen.withValues(alpha: 0.1),
-      appTheme.brightGreen,
+      appColors.brightGreen.withValues(alpha: 0.1),
+      appColors.brightGreen,
     ),
     'in progress': StatusStyle(
-      appTheme.primaryColor.withValues(alpha: 0.1),
-      appTheme.primaryColor,
+      appColors.primaryColor.withValues(alpha: 0.1),
+      appColors.primaryColor,
     ),
     'pending': StatusStyle(
-      appTheme.amber.withValues(alpha: 0.1),
-      appTheme.amber,
+      appColors.amber.withValues(alpha: 0.1),
+      appColors.amber,
     ),
   };
 

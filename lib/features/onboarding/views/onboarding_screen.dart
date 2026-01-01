@@ -4,7 +4,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -23,7 +23,7 @@ class OnboardingScreen extends HookWidget {
         image: ImageConstant.into1Logo,
         title: "Easily manage your house\nstaff in one place.",
         subtitle: "Easily manage your house staff\nin one place.",
-        color: appTheme.intro1,
+        color: appColors.intro1,
       ),
       OnboardingPage(
         backgroundImage: ImageConstant.intro2,
@@ -31,7 +31,7 @@ class OnboardingScreen extends HookWidget {
         title: "Never miss a task, shift, or\nsalary date.",
         subtitle:
             "Plan routines, assign duties, and set\nreminders with just a few taps.",
-        color: appTheme.intro2,
+        color: appColors.intro2,
       ),
       OnboardingPage(
         backgroundImage: ImageConstant.intro3,
@@ -39,7 +39,7 @@ class OnboardingScreen extends HookWidget {
         title: "Track attendance and\nperformance with clarity.",
         subtitle:
             "Keep communication clear and build\nbetter working relationships.",
-        color: appTheme.intro3,
+        color: appColors.intro3,
       ),
     ];
 
@@ -93,7 +93,7 @@ class OnboardingScreen extends HookWidget {
           CText(
             page.subtitle,
             size: 14,
-            color: appTheme.grey,
+            color: appColors.grey,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 1.sh * 0.1),

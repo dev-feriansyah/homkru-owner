@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class ActionTaskCard extends StatelessWidget {
@@ -28,12 +28,12 @@ class ActionTaskCard extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 16.h),
       width: 1.sw,
       decoration: BoxDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         borderRadius: BorderRadius.circular(15.r),
-        border: Border.all(color: appTheme.offWhite),
+        border: Border.all(color: appColors.offWhite),
         boxShadow: [
           BoxShadow(
-            color: appTheme.primaryColor.withValues(alpha: 0.08),
+            color: appColors.primaryColor.withValues(alpha: 0.08),
             blurRadius: 50.r,
             offset: Offset(10.w, 20.h),
           ),
@@ -52,12 +52,12 @@ class ActionTaskCard extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(8.r),
                   decoration: BoxDecoration(
-                    color: appTheme.lightBlueTwo,
+                    color: appColors.lightBlueTwo,
                     shape: BoxShape.circle,
                   ),
                   child: CText(
                     task.initials,
-                    color: appTheme.primaryColor,
+                    color: appColors.primaryColor,
                     size: 11.sp,
                     weight: FontWeight.w700,
                   ),
@@ -71,7 +71,7 @@ class ActionTaskCard extends StatelessWidget {
                     children: [
                       CText(
                         task.title,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                         size: 16.sp,
                         weight: FontWeight.w500,
                         height: 1.38,
@@ -79,7 +79,7 @@ class ActionTaskCard extends StatelessWidget {
                       vGap(4),
                       CText(
                         task.subtitle,
-                        color: appTheme.grey,
+                        color: appColors.grey,
                         size: 14.sp,
                         weight: FontWeight.w400,
                         height: 1.29,
@@ -87,7 +87,7 @@ class ActionTaskCard extends StatelessWidget {
                       vGap(4),
                       CText(
                         task.time,
-                        color: appTheme.grey,
+                        color: appColors.grey,
                         size: 14.sp,
                         weight: FontWeight.w400,
                         height: 1.29,
@@ -97,7 +97,7 @@ class ActionTaskCard extends StatelessWidget {
                       if (hasExtraInfo) ...[
                         vGap(16.h),
 
-                        Divider(color: appTheme.veryLightGrey, height: 1.h),
+                        Divider(color: appColors.veryLightGrey, height: 1.h),
                         Padding(
                           padding: EdgeInsets.only(
                             left: 14.w,
@@ -126,7 +126,7 @@ class ActionTaskCard extends StatelessWidget {
             height: 48.h,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: appTheme.silver.withValues(alpha: 0.15),
+              color: appColors.silver.withValues(alpha: 0.15),
               borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(15.r),
               ),
@@ -150,7 +150,7 @@ class ActionTaskCard extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           style: TextStyle(
-            color: appTheme.grey,
+            color: appColors.grey,
             fontSize: 14.sp,
             fontFamily: 'Poppins',
             height: 1.29,
@@ -160,14 +160,14 @@ class ActionTaskCard extends StatelessWidget {
               text: "$label: ",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: appTheme.grey,
+                color: appColors.grey,
               ),
             ),
             TextSpan(
               text: value,
               style: TextStyle(
                 fontWeight: FontWeight.w400,
-                color: appTheme.grey,
+                color: appColors.grey,
               ),
             ),
           ],
@@ -184,22 +184,22 @@ class ActionTaskCard extends StatelessWidget {
         buttons.addAll([
           _buildActionChip(
             "Mark as approved",
-            appTheme.mintGreen,
-            appTheme.darkGreen,
+            appColors.mintGreen,
+            appColors.darkGreen,
             onTap: onApprove,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.reject,
-            appTheme.lightPink.withValues(alpha: 0.3),
-            appTheme.darkRed,
+            appColors.lightPink.withValues(alpha: 0.3),
+            appColors.darkRed,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appTheme.lightBlue.withValues(alpha: 0.6),
-            appTheme.primaryColor,
+            appColors.lightBlue.withValues(alpha: 0.6),
+            appColors.primaryColor,
             width: 108.w,
             onTap: onViewDetails,
           ),
@@ -210,22 +210,22 @@ class ActionTaskCard extends StatelessWidget {
         buttons.addAll([
           _buildActionChip(
             "Mark as approved",
-            appTheme.mintGreen,
-            appTheme.darkGreen,
+            appColors.mintGreen,
+            appColors.darkGreen,
             onTap: onApprove,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.reject,
-            appTheme.lightPink.withValues(alpha: 0.3),
-            appTheme.darkRed,
+            appColors.lightPink.withValues(alpha: 0.3),
+            appColors.darkRed,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appTheme.lightBlue.withValues(alpha: 0.6),
-            appTheme.primaryColor,
+            appColors.lightBlue.withValues(alpha: 0.6),
+            appColors.primaryColor,
             width: 108.w,
             onTap: onViewDetails,
           ),
@@ -236,22 +236,22 @@ class ActionTaskCard extends StatelessWidget {
         buttons.addAll([
           _buildActionChip(
             "Mark as approved",
-            appTheme.mintGreen,
-            appTheme.darkGreen,
+            appColors.mintGreen,
+            appColors.darkGreen,
             onTap: onApprove,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.reject,
-            appTheme.lightPink.withValues(alpha: 0.3),
-            appTheme.darkRed,
+            appColors.lightPink.withValues(alpha: 0.3),
+            appColors.darkRed,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appTheme.lightBlue.withValues(alpha: 0.6),
-            appTheme.primaryColor,
+            appColors.lightBlue.withValues(alpha: 0.6),
+            appColors.primaryColor,
             width: 108.w,
             onTap: onViewDetails,
           ),
@@ -262,22 +262,22 @@ class ActionTaskCard extends StatelessWidget {
         buttons.addAll([
           _buildActionChip(
             "Mark as done",
-            appTheme.mintGreen,
-            appTheme.darkGreen,
+            appColors.mintGreen,
+            appColors.darkGreen,
             onTap: onApprove,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.reject,
-            appTheme.lightPink.withValues(alpha: 0.3),
-            appTheme.darkRed,
+            appColors.lightPink.withValues(alpha: 0.3),
+            appColors.darkRed,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appTheme.lightBlue.withValues(alpha: 0.6),
-            appTheme.primaryColor,
+            appColors.lightBlue.withValues(alpha: 0.6),
+            appColors.primaryColor,
             width: 108.w,
             onTap: onViewDetails,
           ),

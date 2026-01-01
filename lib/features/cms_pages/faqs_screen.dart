@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -79,7 +79,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Frequently Asked Questions"),
       body: Stack(
         children: [
@@ -88,7 +88,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
             padding: EdgeInsets.all(20.w),
             child: Container(
               decoration: BoxDecoration(
-                color: appTheme.white,
+                color: appColors.white,
                 borderRadius: BorderRadius.circular(20.r),
                 boxShadow: [
                   BoxShadow(
@@ -107,13 +107,13 @@ class _FAQsScreenState extends State<FAQsScreen> {
                       "Frequently Asked Questions",
                       size: 24.sp,
                       weight: FontWeight.bold,
-                      color: appTheme.primaryColor,
+                      color: appColors.primaryColor,
                     ),
                     SizedBox(height: 8.h),
                     CText(
                       "Find answers to common questions about HomeKru Owner",
                       size: 14.sp,
-                      color: appTheme.grey,
+                      color: appColors.grey,
                     ),
                     SizedBox(height: 24.h),
 
@@ -130,7 +130,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
                     Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(
-                        color: appTheme.lightBlue.withOpacity(0.3),
+                        color: appColors.lightBlue.withOpacity(0.3),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: Column(
@@ -140,13 +140,13 @@ class _FAQsScreenState extends State<FAQsScreen> {
                             "Still have questions?",
                             size: 16.sp,
                             weight: FontWeight.bold,
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                           ),
                           SizedBox(height: 8.h),
                           CText(
                             "If you can't find the answer you're looking for, our support team is here to help!",
                             size: 14.sp,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                           ),
                           SizedBox(height: 12.h),
                           Row(
@@ -157,7 +157,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
                                     // Navigate to contact support
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: appTheme.primaryColor,
+                                    backgroundColor: appColors.primaryColor,
                                     foregroundColor: Colors.white,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.r),
@@ -177,9 +177,9 @@ class _FAQsScreenState extends State<FAQsScreen> {
                                     // Navigate to help center
                                   },
                                   style: OutlinedButton.styleFrom(
-                                    foregroundColor: appTheme.primaryColor,
+                                    foregroundColor: appColors.primaryColor,
                                     side: BorderSide(
-                                      color: appTheme.primaryColor,
+                                      color: appColors.primaryColor,
                                     ),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.r),
@@ -211,7 +211,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
     return Container(
       margin: EdgeInsets.only(bottom: 12.h),
       decoration: BoxDecoration(
-        border: Border.all(color: appTheme.grey.withOpacity(0.2)),
+        border: Border.all(color: appColors.grey.withOpacity(0.2)),
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Theme(
@@ -223,10 +223,10 @@ class _FAQsScreenState extends State<FAQsScreen> {
             faq.question,
             size: 16.sp,
             weight: FontWeight.w600,
-            color: appTheme.primaryColor,
+            color: appColors.primaryColor,
           ),
           children: [
-            CText(faq.answer, size: 14.sp, color: appTheme.grey, height: 1.5),
+            CText(faq.answer, size: 14.sp, color: appColors.grey, height: 1.5),
           ],
         ),
       ),

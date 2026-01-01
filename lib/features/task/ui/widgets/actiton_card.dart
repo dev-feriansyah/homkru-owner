@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/features/task/ui/widgets/action_item.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 
 class ActitonCard extends StatelessWidget {
@@ -21,14 +21,14 @@ class ActitonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: appTheme.white,
+      color: appColors.white,
       elevation: 0.1,
-      shadowColor: appTheme.offWhite,
+      shadowColor: appColors.offWhite,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25.r),
-          color: appTheme.white,
+          color: appColors.white,
         ),
         // padding: EdgeInsets.all(14.r),
         padding: EdgeInsets.only(left: 14.w, bottom: 14.h),

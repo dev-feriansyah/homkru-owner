@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/helper_detail_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/invite_email_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
@@ -31,7 +31,7 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
           height: 40.h,
           width: 1.sw,
           decoration: BoxDecoration(
-            color: appTheme.silver2,
+            color: appColors.silver2,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.r),
               topRight: Radius.circular(20.r),
@@ -59,7 +59,7 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
             size: 20.sp,
             weight: FontWeight.w600,
             textAlign: TextAlign.center,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
         ),
         vGap(20.h),

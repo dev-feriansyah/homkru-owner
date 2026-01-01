@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class CustomAssignDropdown extends StatelessWidget {
   final String? selectedValue;
@@ -28,17 +28,17 @@ class CustomAssignDropdown extends StatelessWidget {
       height: 57.h,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
       decoration: ShapeDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         shape: RoundedRectangleBorder(
           side: BorderSide(
             width: 1,
-            color: borderColor ?? appTheme.lightBorder,
+            color: borderColor ?? appColors.lightBorder,
           ),
           borderRadius: BorderRadius.circular(15),
         ),
         shadows: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -57,13 +57,13 @@ class CustomAssignDropdown extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
-                    color: appTheme.grey,
+                    color: appColors.grey,
                     // fontFamily: "Poppins",
                   ),
                 ),
                 icon: Icon(
                   Icons.keyboard_arrow_down,
-                  color: appTheme.grey,
+                  color: appColors.grey,
                   size: 20,
                 ),
                 // style: GoogleFonts.poppins(
@@ -72,7 +72,7 @@ class CustomAssignDropdown extends StatelessWidget {
                 //   color: appTheme.grey,
                 //   // fontFamily: "Poppins",
                 // ),
-                dropdownColor: appTheme.white,
+                dropdownColor: appColors.white,
                 borderRadius: BorderRadius.circular(12),
                 items:
                     items
@@ -85,7 +85,7 @@ class CustomAssignDropdown extends StatelessWidget {
                                   width: 30.w,
                                   height: 30.h,
                                   decoration: BoxDecoration(
-                                    color: appTheme.blueAccentCustom
+                                    color: appColors.blueAccentCustom
                                         .withOpacity(0.2),
                                     shape: BoxShape.circle,
                                   ),
@@ -110,7 +110,7 @@ class CustomAssignDropdown extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w600,
-                                        color: appTheme.blueAccentCustom,
+                                        color: appColors.blueAccentCustom,
                                       ),
                                     ),
                                   ),
@@ -121,7 +121,7 @@ class CustomAssignDropdown extends StatelessWidget {
                                     task,
                                     style: TextStyle(
                                       fontSize: 14.sp,
-                                      color: appTheme.grey,
+                                      color: appColors.grey,
                                     ),
                                   ),
                                 ),

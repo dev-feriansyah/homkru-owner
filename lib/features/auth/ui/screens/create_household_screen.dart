@@ -6,7 +6,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -87,7 +87,7 @@ class CreateHouseholdScreen extends HookWidget {
                               child: CText(
                                 "Let's set up your household details",
                                 textAlign: TextAlign.center,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w300,
                                 size: 16,
                               ),
@@ -155,13 +155,13 @@ class CreateHouseholdScreen extends HookWidget {
                               },
                               text: "Continue",
                               buttonTextStyle: TextStyle(
-                                color: appTheme.white,
+                                color: appColors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appTheme.primaryColor,
+                                  appColors.primaryColor,
                                 ),
                                 shape: WidgetStateProperty.all(
                                   RoundedRectangleBorder(
@@ -214,27 +214,27 @@ class CustomDropdownField extends StatelessWidget {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: appTheme.veryLightGrey),
+          borderSide: BorderSide(color: appColors.veryLightGrey),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: appTheme.veryLightGrey),
+          borderSide: BorderSide(color: appColors.veryLightGrey),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: appTheme.veryLightGrey),
+          borderSide: BorderSide(color: appColors.veryLightGrey),
         ),
       ),
-      icon: Icon(Icons.keyboard_arrow_down, color: appTheme.lightGrey),
-      style: TextStyle(color: appTheme.lightGrey, fontSize: 14),
-      hint: CText(hintText, size: 14, color: appTheme.lightGrey),
+      icon: Icon(Icons.keyboard_arrow_down, color: appColors.lightGrey),
+      style: TextStyle(color: appColors.lightGrey, fontSize: 14),
+      hint: CText(hintText, size: 14, color: appColors.lightGrey),
       items:
           items.map((item) {
             return DropdownMenuItem<String>(
               value: item,
               child: CText(
                 item,
-                color: appTheme.lightGrey,
+                color: appColors.lightGrey,
                 size: 15,
                 weight: FontWeight.w400,
               ),

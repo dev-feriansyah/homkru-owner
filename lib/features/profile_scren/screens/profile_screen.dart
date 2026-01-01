@@ -7,7 +7,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -47,7 +47,7 @@ class ProfileScreen extends HookWidget {
     }
 
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       body: Stack(
         children: [
           bottomWaveWidget(),
@@ -88,14 +88,14 @@ class ProfileScreen extends HookWidget {
                               },
                               child: Icon(
                                 Icons.arrow_back_ios_new,
-                                color: appTheme.white,
+                                color: appColors.white,
                                 size: 20,
                               ),
                             ),
                             CText(
                               "Profile",
                               size: 18,
-                              color: appTheme.white,
+                              color: appColors.white,
                               weight: FontWeight.bold,
                               fontFamily: "PoppinsMedium",
                             ),
@@ -121,7 +121,7 @@ class ProfileScreen extends HookWidget {
                                     fit: BoxFit.cover,
                                   ),
                                   shape: BoxShape.circle,
-                                  border: Border.all(color: appTheme.white),
+                                  border: Border.all(color: appColors.white),
                                 ),
                               ),
                             ),
@@ -154,7 +154,7 @@ class ProfileScreen extends HookWidget {
                         CText(
                           "Maria Johnson",
                           size: 16,
-                          color: appTheme.white,
+                          color: appColors.white,
                           weight: FontWeight.bold,
                           fontFamily: "PoppinsMedium",
                         ),
@@ -162,7 +162,7 @@ class ProfileScreen extends HookWidget {
                         CText(
                           "Homeowner",
                           size: 14,
-                          color: appTheme.offWhite,
+                          color: appColors.offWhite,
                           weight: FontWeight.bold,
                         ),
                       ],
@@ -217,25 +217,25 @@ class ProfileScreen extends HookWidget {
       controller: controller,
       readOnly: false,
       style: TextStyle(
-        color: appTheme.grey,
+        color: appColors.grey,
         fontSize: 14,
         fontFamily: "Poppins",
       ),
       decoration: InputDecoration(
         // label  label,
         filled: true,
-        fillColor: appTheme.white,
+        fillColor: appColors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.offWhite),
+          borderSide: BorderSide(color: appColors.offWhite),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.offWhite),
+          borderSide: BorderSide(color: appColors.offWhite),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appTheme.offWhite),
+          borderSide: BorderSide(color: appColors.offWhite),
         ),
       ),
     );
@@ -267,7 +267,7 @@ class ProfileScreen extends HookWidget {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: appTheme.grey.withValues(alpha: 0.3),
+                  color: appColors.grey.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -280,7 +280,7 @@ class ProfileScreen extends HookWidget {
                       "Select Profile Photo",
                       size: 18,
                       weight: FontWeight.bold,
-                      color: appTheme.textPrimary,
+                      color: appColors.textPrimary,
                     ),
                     SizedBox(height: 20),
 
@@ -351,23 +351,23 @@ class ProfileScreen extends HookWidget {
       child: Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: appTheme.veryLightGrey.withValues(alpha: 0.3),
+          color: appColors.veryLightGrey.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: appTheme.veryLightGrey),
+          border: Border.all(color: appColors.veryLightGrey),
         ),
         child: Row(
           children: [
             Container(
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: (iconColor ?? appTheme.primaryColor).withValues(
+                color: (iconColor ?? appColors.primaryColor).withValues(
                   alpha: 0.1,
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
                 icon,
-                color: iconColor ?? appTheme.primaryColor,
+                color: iconColor ?? appColors.primaryColor,
                 size: 24,
               ),
             ),
@@ -380,14 +380,14 @@ class ProfileScreen extends HookWidget {
                     title,
                     size: 16,
                     weight: FontWeight.w600,
-                    color: appTheme.textPrimary,
+                    color: appColors.textPrimary,
                   ),
                   SizedBox(height: 4),
-                  CText(subtitle, size: 12, color: appTheme.grey),
+                  CText(subtitle, size: 12, color: appColors.grey),
                 ],
               ),
             ),
-            Icon(Icons.arrow_forward_ios, size: 16, color: appTheme.grey),
+            Icon(Icons.arrow_forward_ios, size: 16, color: appColors.grey),
           ],
         ),
       ),

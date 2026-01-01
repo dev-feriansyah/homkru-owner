@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'base_button.dart';
 
 class CustomElevatedButton extends BaseButton {
@@ -49,12 +49,12 @@ class CustomElevatedButton extends BaseButton {
           buttonStyle ??
           ButtonStyle(
             backgroundColor: WidgetStateProperty.all(
-              isOutline ? Colors.white : appTheme.primaryColor,
+              isOutline ? Colors.white : appColors.primaryColor,
             ),
             shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.r),
-                side: BorderSide(color: appTheme.primaryColor),
+                side: BorderSide(color: appColors.primaryColor),
               ),
             ),
           ),
@@ -67,7 +67,7 @@ class CustomElevatedButton extends BaseButton {
                 width: 20.w,
                 child: CircularProgressIndicator(
                   strokeWidth: 2.w,
-                  valueColor: AlwaysStoppedAnimation<Color>(appTheme.white),
+                  valueColor: AlwaysStoppedAnimation<Color>(appColors.white),
                 ),
               )
               : Row(
@@ -84,8 +84,8 @@ class CustomElevatedButton extends BaseButton {
                           fontWeight: FontWeight.w700,
                           color:
                               isOutline
-                                  ? appTheme.primaryColor
-                                  : appTheme.white,
+                                  ? appColors.primaryColor
+                                  : appColors.white,
                         ),
                   ),
                   rightIcon ?? const SizedBox.shrink(),

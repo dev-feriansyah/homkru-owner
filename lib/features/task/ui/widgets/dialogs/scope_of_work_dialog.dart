@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/textfield/custom_text_form_field.dart';
@@ -24,7 +24,7 @@ void scopeOfWorkPopup(context) {
             return Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: appTheme.white,
+                color: appColors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
@@ -41,7 +41,7 @@ void scopeOfWorkPopup(context) {
                           textAlign: TextAlign.start,
                           size: 18.sp,
                           weight: FontWeight.w600,
-                          color: appTheme.textPrimary,
+                          color: appColors.textPrimary,
                         ),
                       ),
                       GestureDetector(
@@ -51,10 +51,10 @@ void scopeOfWorkPopup(context) {
                         },
                         child: CircleAvatar(
                           radius: 16,
-                          backgroundColor: appTheme.lightBlueTwo,
+                          backgroundColor: appColors.lightBlueTwo,
                           child: Icon(
                             Icons.close,
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                           ),
                         ),
                       ),
@@ -82,7 +82,7 @@ void scopeOfWorkPopup(context) {
                           textAlign: TextAlign.start,
                           size: 14.sp,
                           weight: FontWeight.w600,
-                          color: appTheme.textPrimary,
+                          color: appColors.textPrimary,
                         ),
                         TaskChips(
                           tasks: [
@@ -180,21 +180,21 @@ class TaskChips extends StatelessWidget {
               .map(
                 (task) => Chip(
                   padding: EdgeInsets.all(0),
-                  backgroundColor: appTheme.white,
+                  backgroundColor: appColors.white,
                   label: CText(
                     task,
                     size: 16.sp,
-                    color: appTheme.primaryColor,
+                    color: appColors.primaryColor,
                     weight: FontWeight.w500,
                   ),
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(color: appTheme.primaryColor, width: 1),
+                    side: BorderSide(color: appColors.primaryColor, width: 1),
                     borderRadius: BorderRadius.circular(9.r),
                   ),
                   deleteIcon: Icon(
                     Icons.close,
                     size: 18.sp,
-                    color: appTheme.primaryColor,
+                    color: appColors.primaryColor,
                   ),
                   onDeleted: () {
                     // handle delete action here

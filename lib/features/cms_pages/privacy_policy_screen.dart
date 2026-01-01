@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -11,7 +11,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Privacy Policy"),
       body: Stack(
         children: [
@@ -20,7 +20,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
             padding: EdgeInsets.all(20.w),
             child: Container(
               decoration: BoxDecoration(
-                color: appTheme.white,
+                color: appColors.white,
                 borderRadius: BorderRadius.circular(20.r),
                 boxShadow: [
                   BoxShadow(
@@ -39,13 +39,13 @@ class PrivacyPolicyScreen extends StatelessWidget {
                       "Privacy Policy",
                       size: 24.sp,
                       weight: FontWeight.bold,
-                      color: appTheme.primaryColor,
+                      color: appColors.primaryColor,
                     ),
                     SizedBox(height: 8.h),
                     CText(
                       "Last updated: January 1, 2024",
                       size: 14.sp,
-                      color: appTheme.grey,
+                      color: appColors.grey,
                     ),
                     SizedBox(height: 24.h),
 
@@ -98,7 +98,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(
-                        color: appTheme.lightBlue.withOpacity(0.3),
+                        color: appColors.lightBlue.withOpacity(0.3),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: Column(
@@ -108,19 +108,19 @@ class PrivacyPolicyScreen extends StatelessWidget {
                             "Contact Us",
                             size: 16.sp,
                             weight: FontWeight.bold,
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                           ),
                           SizedBox(height: 8.h),
                           CText(
                             "If you have any questions about this Privacy Policy, please contact us at:",
                             size: 14.sp,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                           ),
                           SizedBox(height: 8.h),
                           CText(
                             "Email: privacy@homekru.com\nPhone: +62 21 1234 5678\nAddress: Jakarta, Indonesia",
                             size: 14.sp,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                           ),
                         ],
                       ),
@@ -145,10 +145,10 @@ class PrivacyPolicyScreen extends StatelessWidget {
             title,
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.primaryColor,
+            color: appColors.primaryColor,
           ),
           SizedBox(height: 8.h),
-          CText(content, size: 14.sp, color: appTheme.grey, height: 1.5),
+          CText(content, size: 14.sp, color: appColors.grey, height: 1.5),
         ],
       ),
     );

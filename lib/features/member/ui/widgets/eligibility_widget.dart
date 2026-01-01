@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class EligibilityWidget extends StatelessWidget {
@@ -17,12 +17,12 @@ class EligibilityWidget extends StatelessWidget {
       width: 1.sw,
       padding: EdgeInsets.symmetric(horizontal: 19.w, vertical: 14.h),
       decoration: BoxDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: appTheme.offWhite, width: 1),
+        border: Border.all(color: appColors.offWhite, width: 1),
         boxShadow: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 50,
             offset: Offset(10, 20),
           ),
@@ -33,14 +33,14 @@ class EligibilityWidget extends StatelessWidget {
         children: [
           CText(
             title,
-            color: appTheme.textPrimary.withValues(alpha: 0.8),
+            color: appColors.textPrimary.withValues(alpha: 0.8),
             size: 16.sp,
             weight: FontWeight.w600,
           ),
           CText(
             value,
             textAlign: TextAlign.right,
-            color: appTheme.grey.withValues(alpha: 0.8),
+            color: appColors.grey.withValues(alpha: 0.8),
             size: 16.sp,
             weight: FontWeight.w500,
           ),

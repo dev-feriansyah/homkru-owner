@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -27,7 +27,7 @@ void redoParametersPopup(context) {
             return Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
               decoration: BoxDecoration(
-                color: appTheme.white,
+                color: appColors.white,
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Column(
@@ -42,7 +42,7 @@ void redoParametersPopup(context) {
                         "Define Redo Parameters",
                         size: 18.sp,
                         weight: FontWeight.w600,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                       ),
                       Spacer(),
                       GestureDetector(
@@ -52,10 +52,10 @@ void redoParametersPopup(context) {
                         },
                         child: CircleAvatar(
                           radius: 12.5,
-                          backgroundColor: appTheme.lightBlue,
+                          backgroundColor: appColors.lightBlue,
                           child: Icon(
                             Icons.close,
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                             size: 18,
                           ),
                         ),

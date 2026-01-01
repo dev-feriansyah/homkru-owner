@@ -6,7 +6,7 @@ import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/shared/utils/logger.dart';
 import 'package:homekru_owner/features/member/ui/providers/add_member_form_provider.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
@@ -26,7 +26,7 @@ class LiveInHelperSettings extends ConsumerWidget {
     final notifier = ref.read(addMemberFormProvider.notifier);
 
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: AppStrings.liveInHelperSettings),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -40,7 +40,7 @@ class LiveInHelperSettings extends ConsumerWidget {
               border: Border.all(color: const Color(0x333B70B9), width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: appTheme.shadowColor,
+                  color: appColors.shadowColor,
                   blurRadius: 50,
                   offset: Offset(10, 20),
                 ),
@@ -73,7 +73,7 @@ class LiveInHelperSettings extends ConsumerWidget {
                         decoration: ShapeDecoration(
                           shape: CircleBorder(
                             side: BorderSide(
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                               width: 1,
                             ),
                           ),
@@ -102,7 +102,7 @@ class LiveInHelperSettings extends ConsumerWidget {
                               opacity: 0.8,
                               child: CText(
                                 "James Miller",
-                                color: appTheme.textPrimary,
+                                color: appColors.textPrimary,
                                 size: 16.sp,
                                 fontFamily: "Poppins",
                                 weight: FontWeight.w600,
@@ -112,7 +112,7 @@ class LiveInHelperSettings extends ConsumerWidget {
                             const SizedBox(height: 6),
                             CText(
                               AppStrings.maidNonLiveIn,
-                              color: appTheme.grey,
+                              color: appColors.grey,
                               size: 12.sp,
                               weight: FontWeight.w500,
                               height: 1.50,
@@ -129,7 +129,7 @@ class LiveInHelperSettings extends ConsumerWidget {
 
           CText(
             AppStrings.workingHours,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             size: 18.sp,
             weight: FontWeight.w500,
           ),
@@ -147,28 +147,28 @@ class LiveInHelperSettings extends ConsumerWidget {
                     data: Theme.of(context).copyWith(
                       timePickerTheme: TimePickerThemeData(
                         backgroundColor: Colors.white,
-                        hourMinuteTextColor: appTheme.primaryColor,
-                        hourMinuteColor: appTheme.primaryColor.withValues(
+                        hourMinuteTextColor: appColors.primaryColor,
+                        hourMinuteColor: appColors.primaryColor.withValues(
                           alpha: 0.2,
                         ),
-                        dayPeriodTextColor: appTheme.primaryColor,
-                        dayPeriodColor: appTheme.primaryColor.withValues(
+                        dayPeriodTextColor: appColors.primaryColor,
+                        dayPeriodColor: appColors.primaryColor.withValues(
                           alpha: 0.2,
                         ),
-                        dialHandColor: appTheme.primaryColor,
-                        dialBackgroundColor: appTheme.primaryColor.withValues(
+                        dialHandColor: appColors.primaryColor,
+                        dialBackgroundColor: appColors.primaryColor.withValues(
                           alpha: 0.2,
                         ),
-                        entryModeIconColor: appTheme.primaryColor,
+                        entryModeIconColor: appColors.primaryColor,
                       ),
                       textButtonTheme: TextButtonThemeData(
                         style: TextButton.styleFrom(
                           foregroundColor:
-                              appTheme.primaryColor, // Cancel/OK button color
+                              appColors.primaryColor, // Cancel/OK button color
                         ),
                       ),
                       colorScheme: ColorScheme.light(
-                        primary: appTheme.primaryColor, // Active dial
+                        primary: appColors.primaryColor, // Active dial
                         onPrimary: Colors.white,
                         onSurface: Colors.black, // Numbers
                       ),
@@ -182,7 +182,7 @@ class LiveInHelperSettings extends ConsumerWidget {
                 // set start time with time.format(context)
               }
             },
-            suffixIcon: Icon(Icons.access_time, color: appTheme.grey),
+            suffixIcon: Icon(Icons.access_time, color: appColors.grey),
           ),
           SizedBox(height: 15.h),
           CustomTextFormField(
@@ -198,28 +198,28 @@ class LiveInHelperSettings extends ConsumerWidget {
                     data: Theme.of(context).copyWith(
                       timePickerTheme: TimePickerThemeData(
                         backgroundColor: Colors.white,
-                        hourMinuteTextColor: appTheme.primaryColor,
-                        hourMinuteColor: appTheme.primaryColor.withValues(
+                        hourMinuteTextColor: appColors.primaryColor,
+                        hourMinuteColor: appColors.primaryColor.withValues(
                           alpha: 0.2,
                         ),
-                        dayPeriodTextColor: appTheme.primaryColor,
-                        dayPeriodColor: appTheme.primaryColor.withValues(
+                        dayPeriodTextColor: appColors.primaryColor,
+                        dayPeriodColor: appColors.primaryColor.withValues(
                           alpha: 0.2,
                         ),
-                        dialHandColor: appTheme.primaryColor,
-                        dialBackgroundColor: appTheme.primaryColor.withValues(
+                        dialHandColor: appColors.primaryColor,
+                        dialBackgroundColor: appColors.primaryColor.withValues(
                           alpha: 0.2,
                         ),
-                        entryModeIconColor: appTheme.primaryColor,
+                        entryModeIconColor: appColors.primaryColor,
                       ),
                       textButtonTheme: TextButtonThemeData(
                         style: TextButton.styleFrom(
                           foregroundColor:
-                              appTheme.primaryColor, // Cancel/OK button color
+                              appColors.primaryColor, // Cancel/OK button color
                         ),
                       ),
                       colorScheme: ColorScheme.light(
-                        primary: appTheme.primaryColor, // Active dial
+                        primary: appColors.primaryColor, // Active dial
                         onPrimary: Colors.white,
                         onSurface: Colors.black, // Numbers
                       ),
@@ -243,7 +243,7 @@ class LiveInHelperSettings extends ConsumerWidget {
             //     );
             //   }
             // },
-            suffixIcon: Icon(Icons.access_time, color: appTheme.grey),
+            suffixIcon: Icon(Icons.access_time, color: appColors.grey),
           ),
 
           // * Check-in/Check-out Frequency
@@ -254,7 +254,7 @@ class LiveInHelperSettings extends ConsumerWidget {
             children: [
               CText(
                 AppStrings.noEndTime,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
                 size: 18.sp,
                 weight: FontWeight.w500,
               ),
@@ -273,7 +273,7 @@ class LiveInHelperSettings extends ConsumerWidget {
             children: [
               CText(
                 AppStrings.entitledForDayOff,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
                 size: 18.sp,
                 weight: FontWeight.w500,
               ),
@@ -336,7 +336,7 @@ class LiveInHelperSettings extends ConsumerWidget {
                     'Helper added successfully!',
                     color: Colors.white,
                   ),
-                  backgroundColor: appTheme.primaryColor,
+                  backgroundColor: appColors.primaryColor,
                   duration: Duration(seconds: 2),
                 ),
               );

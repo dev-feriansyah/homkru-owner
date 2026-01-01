@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -82,7 +82,7 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
                               child: CText(
                                 "Book a helper now or explore more\nservices?",
                                 textAlign: TextAlign.center,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                                 weight: FontWeight.w300,
                                 size: 16,
                               ),
@@ -101,13 +101,13 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
                               },
                               text: "Continue",
                               buttonTextStyle: TextStyle(
-                                color: appTheme.white,
+                                color: appColors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appTheme.primaryColor,
+                                  appColors.primaryColor,
                                 ),
                                 shape: WidgetStateProperty.all(
                                   RoundedRectangleBorder(
@@ -123,13 +123,13 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
                               },
                               text: "Back",
                               buttonTextStyle: TextStyle(
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appTheme.white,
+                                  appColors.white,
                                 ),
                                 shape: WidgetStateProperty.all(
                                   RoundedRectangleBorder(
@@ -137,7 +137,7 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
                                   ),
                                 ),
                                 side: WidgetStateProperty.all(
-                                  BorderSide(color: appTheme.primaryColor),
+                                  BorderSide(color: appColors.primaryColor),
                                 ),
                               ),
                             ),
@@ -163,7 +163,8 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
         padding: EdgeInsets.all(13),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: (label == "owner") ? appTheme.paleGreen : appTheme.paleOrange,
+          color:
+              (label == "owner") ? appColors.paleGreen : appColors.paleOrange,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -176,12 +177,12 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
                 shape: BoxShape.circle,
                 color:
                     (label == "owner")
-                        ? appTheme.lightGreen
-                        : appTheme.lightOrange,
+                        ? appColors.lightGreen
+                        : appColors.lightOrange,
               ),
               child: CustomImageView(
                 imagePath: ImageConstant.add,
-                color: (label == "owner") ? appTheme.brightGreen : null,
+                color: (label == "owner") ? appColors.brightGreen : null,
               ),
             ),
             SizedBox(width: 10),
@@ -201,7 +202,7 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
                       "Primary account owner",
                       size: 14,
                       weight: FontWeight.w400,
-                      color: appTheme.grey,
+                      color: appColors.grey,
                     ),
                   ],
                 ),
@@ -215,12 +216,12 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
               padding: EdgeInsets.all(2),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: appTheme.white,
+                color: appColors.white,
                 border: Border.all(
                   color:
                       (label == "owner")
-                          ? appTheme.brightGreen
-                          : appTheme.orange,
+                          ? appColors.brightGreen
+                          : appColors.orange,
                   width: 2,
                 ),
               ),
@@ -228,8 +229,8 @@ class _WouldYouLikeScreenState extends State<WouldYouLikeScreen> {
                 decoration: BoxDecoration(
                   color:
                       (label == 'owner'
-                          ? appTheme.brightGreen
-                          : appTheme.orange),
+                          ? appColors.brightGreen
+                          : appColors.orange),
                   shape: BoxShape.circle,
                 ),
               ),

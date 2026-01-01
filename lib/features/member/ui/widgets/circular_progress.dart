@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class CircularProgress extends StatefulWidget {
@@ -99,7 +99,7 @@ class _CircularProgressState extends State<CircularProgress>
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: appTheme.primaryColor.withValues(alpha: 0.15),
+                  color: appColors.primaryColor.withValues(alpha: 0.15),
                   blurRadius: 50.r,
                   offset: Offset(20.w, 10.h),
                 ),
@@ -112,7 +112,7 @@ class _CircularProgressState extends State<CircularProgress>
                   width: 1.sw * 0.22.w,
                   height: 1.sw * 0.22.w,
                   decoration: BoxDecoration(
-                    color: appTheme.lightBackground,
+                    color: appColors.lightBackground,
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -123,7 +123,7 @@ class _CircularProgressState extends State<CircularProgress>
                   child: CircularProgressIndicator(
                     value: 1.0,
                     strokeWidth: widget.strokeWidth,
-                    color: appTheme.lightBackground,
+                    color: appColors.lightBackground,
                     strokeCap: StrokeCap.round,
                   ),
                 ),
@@ -136,7 +136,7 @@ class _CircularProgressState extends State<CircularProgress>
                     strokeWidth: widget.strokeWidth,
                     backgroundColor: Colors.transparent,
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      appTheme.primaryColor,
+                      appColors.primaryColor,
                     ),
                     strokeCap: StrokeCap.round,
                   ),
@@ -153,14 +153,14 @@ class _CircularProgressState extends State<CircularProgress>
                       children: [
                         CText(
                           '${value.round()}%',
-                          color: appTheme.primaryColor,
+                          color: appColors.primaryColor,
                           weight: FontWeight.w600,
                           size: 18.sp,
                         ),
                         if (widget.label != null)
                           CText(
                             widget.label!,
-                            color: appTheme.grey,
+                            color: appColors.grey,
                             weight: FontWeight.w600,
                             size: 12.sp,
                           ),

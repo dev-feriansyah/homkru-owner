@@ -5,7 +5,7 @@ import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/features/member/ui/widgets/member_task_card.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/sort_by_filter_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -18,90 +18,90 @@ class MemberTasksScreen extends StatelessWidget {
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Pending",
       "statusColor": Colors.amber,
-      "statusBgColor": appTheme.lightYellow,
+      "statusBgColor": appColors.lightYellow,
     },
     {
       "title": "Kitchen Cleaning",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Done",
-      "statusColor": appTheme.darkGreen,
-      "statusBgColor": appTheme.mintGreen,
+      "statusColor": appColors.darkGreen,
+      "statusBgColor": appColors.mintGreen,
     },
     {
       "title": "Laundry",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Pending",
       "statusColor": Colors.amber,
-      "statusBgColor": appTheme.lightYellow,
+      "statusBgColor": appColors.lightYellow,
     },
     {
       "title": "Kitchen Cleaning",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Done",
-      "statusColor": appTheme.darkGreen,
-      "statusBgColor": appTheme.mintGreen,
+      "statusColor": appColors.darkGreen,
+      "statusBgColor": appColors.mintGreen,
     },
     {
       "title": "Laundry",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Pending",
       "statusColor": Colors.amber,
-      "statusBgColor": appTheme.lightYellow,
+      "statusBgColor": appColors.lightYellow,
     },
     {
       "title": "Kitchen Cleaning",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Done",
-      "statusColor": appTheme.darkGreen,
-      "statusBgColor": appTheme.mintGreen,
+      "statusColor": appColors.darkGreen,
+      "statusBgColor": appColors.mintGreen,
     },
     {
       "title": "Laundry",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Pending",
       "statusColor": Colors.amber,
-      "statusBgColor": appTheme.lightYellow,
+      "statusBgColor": appColors.lightYellow,
     },
     {
       "title": "Kitchen Cleaning",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Done",
-      "statusColor": appTheme.darkGreen,
-      "statusBgColor": appTheme.mintGreen,
+      "statusColor": appColors.darkGreen,
+      "statusBgColor": appColors.mintGreen,
     },
     {
       "title": "Laundry",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Pending",
       "statusColor": Colors.amber,
-      "statusBgColor": appTheme.lightYellow,
+      "statusBgColor": appColors.lightYellow,
     },
     {
       "title": "Kitchen Cleaning",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Done",
-      "statusColor": appTheme.darkGreen,
-      "statusBgColor": appTheme.mintGreen,
+      "statusColor": appColors.darkGreen,
+      "statusBgColor": appColors.mintGreen,
     },
     {
       "title": "Laundry",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Pending",
       "statusColor": Colors.amber,
-      "statusBgColor": appTheme.lightYellow,
+      "statusBgColor": appColors.lightYellow,
     },
     {
       "title": "Kitchen Cleaning",
       "timeRange": "10:00 AM - 3:00 PM",
       "status": "Done",
-      "statusColor": appTheme.darkGreen,
-      "statusBgColor": appTheme.mintGreen,
+      "statusColor": appColors.darkGreen,
+      "statusBgColor": appColors.mintGreen,
     },
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: AppStrings.memberTasks),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -117,7 +117,7 @@ class MemberTasksScreen extends StatelessWidget {
                       AppStrings.allTasks,
                       size: 18.sp,
                       weight: FontWeight.w600,
-                      color: appTheme.textPrimary,
+                      color: appColors.textPrimary,
                     ),
                     Spacer(),
                     InkWell(
@@ -128,11 +128,11 @@ class MemberTasksScreen extends StatelessWidget {
                         width: 80.w,
                         padding: EdgeInsets.symmetric(vertical: 4.sp),
                         decoration: ShapeDecoration(
-                          color: appTheme.white.withValues(alpha: 0.10),
+                          color: appColors.white.withValues(alpha: 0.10),
                           shape: RoundedRectangleBorder(
                             side: BorderSide(
                               width: 1.w,
-                              color: appTheme.primaryColor.withValues(
+                              color: appColors.primaryColor.withValues(
                                 alpha: 0.5,
                               ),
                             ),
@@ -147,7 +147,7 @@ class MemberTasksScreen extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.filter_list,
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                               size: 14.sp,
                             ),
                             CText(
@@ -155,7 +155,7 @@ class MemberTasksScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                               size: 14.sp,
                               weight: FontWeight.w500,
-                              color: appTheme.primaryColor,
+                              color: appColors.primaryColor,
                             ),
                           ],
                         ),

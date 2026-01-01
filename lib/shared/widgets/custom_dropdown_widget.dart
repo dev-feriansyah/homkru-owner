@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class CustomDropdownWidget extends StatelessWidget {
   final String? selectedValue;
@@ -26,17 +26,17 @@ class CustomDropdownWidget extends StatelessWidget {
       height: 57.h,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
       decoration: ShapeDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         shape: RoundedRectangleBorder(
           side: BorderSide(
             width: 1,
-            color: borderColor ?? appTheme.lightBorder,
+            color: borderColor ?? appColors.lightBorder,
           ),
           borderRadius: BorderRadius.circular(15),
         ),
         shadows: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -51,18 +51,22 @@ class CustomDropdownWidget extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 16.sp,
               fontWeight: FontWeight.w400,
-              color: appTheme.grey,
+              color: appColors.grey,
               // fontFamily: "Poppins",
             ),
           ),
-          icon: Icon(Icons.keyboard_arrow_down, color: appTheme.grey, size: 20),
+          icon: Icon(
+            Icons.keyboard_arrow_down,
+            color: appColors.grey,
+            size: 20,
+          ),
           // style: GoogleFonts.poppins(
           //   fontSize: 16.sp,
           //   fontWeight: FontWeight.w400,
           //   color: appTheme.grey,
           //   // fontFamily: "Poppins",
           // ),
-          dropdownColor: appTheme.white,
+          dropdownColor: appColors.white,
           borderRadius: BorderRadius.circular(12),
           items:
               items
@@ -71,7 +75,10 @@ class CustomDropdownWidget extends StatelessWidget {
                       value: task,
                       child: Text(
                         task,
-                        style: TextStyle(fontSize: 14.sp, color: appTheme.grey),
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          color: appColors.grey,
+                        ),
                       ),
                     ),
                   )

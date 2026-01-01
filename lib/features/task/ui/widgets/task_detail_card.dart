@@ -4,7 +4,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/features/task/ui/widgets/info_item.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -33,14 +33,14 @@ class TaskDetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: appTheme.white,
+      color: appColors.white,
       elevation: 0.1,
-      shadowColor: appTheme.offWhite,
+      shadowColor: appColors.offWhite,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25.r),
-          color: appTheme.white,
+          color: appColors.white,
         ),
         padding: EdgeInsets.only(left: 14.w, bottom: 14.h),
         child: Stack(
@@ -64,7 +64,7 @@ class TaskDetailCard extends StatelessWidget {
                 vGap(14),
                 CText(
                   AppStrings.assignedTo,
-                  color: appTheme.primaryColor,
+                  color: appColors.primaryColor,
                   size: 18.sp,
                   weight: FontWeight.w600,
                 ),
@@ -74,13 +74,13 @@ class TaskDetailCard extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(6.r),
                       decoration: BoxDecoration(
-                        color: appTheme.lightBlueTwo,
+                        color: appColors.lightBlueTwo,
                         shape: BoxShape.circle,
                       ),
                       child: Center(
                         child: CText(
                           assignedInitials,
-                          color: appTheme.primaryColor,
+                          color: appColors.primaryColor,
                           size: 16.sp,
                           fontFamily: 'Karla',
                           weight: FontWeight.w700,
@@ -91,7 +91,7 @@ class TaskDetailCard extends StatelessWidget {
                     hGap(6.w),
                     CText(
                       assignedTo,
-                      color: appTheme.grey,
+                      color: appColors.grey,
                       size: 15.sp,
                       weight: FontWeight.w500,
                       height: 1.47,
@@ -103,14 +103,14 @@ class TaskDetailCard extends StatelessWidget {
                 vGap(23.h),
                 CText(
                   AppStrings.roomZone,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   size: 14.sp,
                   weight: FontWeight.w600,
                 ),
                 vGap(5.h),
                 CText(
                   roomZone,
-                  color: appTheme.grey,
+                  color: appColors.grey,
                   size: 14.sp,
                   weight: FontWeight.w400,
                 ),
@@ -119,7 +119,7 @@ class TaskDetailCard extends StatelessWidget {
                 vGap(15.h),
                 CText(
                   AppStrings.description,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   size: 14.sp,
                   weight: FontWeight.w600,
                 ),
@@ -128,7 +128,7 @@ class TaskDetailCard extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8.0),
                   child: CText(
                     description,
-                    color: appTheme.grey,
+                    color: appColors.grey,
                     size: 12.sp,
                     weight: FontWeight.w400,
                     height: 1.83,
@@ -139,14 +139,14 @@ class TaskDetailCard extends StatelessWidget {
                 vGap(15.h),
                 CText(
                   AppStrings.subTask,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   size: 14.sp,
                   weight: FontWeight.w600,
                 ),
                 vGap(5.h),
                 CText(
                   subTask,
-                  color: appTheme.grey,
+                  color: appColors.grey,
                   size: 12.sp,
                   weight: FontWeight.w400,
                   height: 1.83,
@@ -156,7 +156,7 @@ class TaskDetailCard extends StatelessWidget {
                 vGap(15.h),
                 CText(
                   AppStrings.recurrenceSettings,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   size: 14.sp,
                   weight: FontWeight.w600,
                 ),

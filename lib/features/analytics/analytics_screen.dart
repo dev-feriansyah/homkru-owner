@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'dart:math' as math;
@@ -33,7 +33,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: const CustomCommonAppBar(title: "Analytics"),
       body: Stack(
         children: [
@@ -59,7 +59,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                       "Timeframe:",
                       size: 16.sp,
                       weight: FontWeight.w600,
-                      color: appTheme.textPrimary,
+                      color: appColors.textPrimary,
                     ),
                     DropdownButton<String>(
                       value: _selectedTimeframe,
@@ -73,7 +73,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                               child: CText(
                                 timeframe,
                                 size: 14.sp,
-                                color: appTheme.textPrimary,
+                                color: appColors.textPrimary,
                               ),
                             );
                           }).toList(),
@@ -92,10 +92,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 color: Colors.white,
                 child: TabBar(
                   controller: _tabController,
-                  indicatorColor: appTheme.primaryColor,
+                  indicatorColor: appColors.primaryColor,
                   indicatorWeight: 3,
-                  labelColor: appTheme.primaryColor,
-                  unselectedLabelColor: appTheme.grey,
+                  labelColor: appColors.primaryColor,
+                  unselectedLabelColor: appColors.grey,
                   labelStyle: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w600,
@@ -144,7 +144,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   "Total Tasks",
                   "1,247",
                   "+15%",
-                  appTheme.primaryColor,
+                  appColors.primaryColor,
                 ),
               ),
               SizedBox(width: 12.w),
@@ -153,7 +153,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   "Completion Rate",
                   "94%",
                   "+3%",
-                  appTheme.brightGreen,
+                  appColors.brightGreen,
                 ),
               ),
             ],
@@ -166,7 +166,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   "Avg. Time",
                   "2.3h",
                   "-0.2h",
-                  appTheme.amber,
+                  appColors.amber,
                 ),
               ),
               SizedBox(width: 12.w),
@@ -175,7 +175,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   "Efficiency",
                   "87%",
                   "+5%",
-                  appTheme.orange,
+                  appColors.orange,
                 ),
               ),
             ],
@@ -261,7 +261,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           CText(
             title,
             size: 12.sp,
-            color: appTheme.grey,
+            color: appColors.grey,
             weight: FontWeight.w500,
           ),
           SizedBox(height: 8.h),
@@ -269,7 +269,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             value,
             size: 24.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 4.h),
           Row(
@@ -281,8 +281,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 size: 16.sp,
                 color:
                     change.startsWith('+')
-                        ? appTheme.brightGreen
-                        : appTheme.darkRed,
+                        ? appColors.brightGreen
+                        : appColors.darkRed,
               ),
               SizedBox(width: 4.w),
               CText(
@@ -290,8 +290,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 size: 12.sp,
                 color:
                     change.startsWith('+')
-                        ? appTheme.brightGreen
-                        : appTheme.darkRed,
+                        ? appColors.brightGreen
+                        : appColors.darkRed,
                 weight: FontWeight.w600,
               ),
             ],
@@ -323,7 +323,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Performance Trend",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           SizedBox(
@@ -360,23 +360,23 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Trend Analysis",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           _buildTrendItem(
             "Task completion rate is improving",
             Icons.trending_up,
-            appTheme.brightGreen,
+            appColors.brightGreen,
           ),
           _buildTrendItem(
             "Average task time is decreasing",
             Icons.trending_down,
-            appTheme.primaryColor,
+            appColors.primaryColor,
           ),
           _buildTrendItem(
             "Helper satisfaction is stable",
             Icons.trending_flat,
-            appTheme.amber,
+            appColors.amber,
           ),
         ],
       ),
@@ -391,7 +391,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           Icon(icon, color: color, size: 20.sp),
           SizedBox(width: 12.w),
           Expanded(
-            child: CText(text, size: 14.sp, color: appTheme.textPrimary),
+            child: CText(text, size: 14.sp, color: appColors.textPrimary),
           ),
         ],
       ),
@@ -420,7 +420,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Task Categories",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           SizedBox(
@@ -454,7 +454,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Task Completion Timeline",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           SizedBox(
@@ -488,7 +488,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Top Performing Tasks",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           _buildTaskItem("Kitchen Cleaning", "98%", "2.1h avg"),
@@ -509,7 +509,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           CText(
             task,
             size: 14.sp,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             weight: FontWeight.w500,
           ),
           Row(
@@ -517,11 +517,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
               CText(
                 completion,
                 size: 12.sp,
-                color: appTheme.brightGreen,
+                color: appColors.brightGreen,
                 weight: FontWeight.w600,
               ),
               SizedBox(width: 16.w),
-              CText(time, size: 12.sp, color: appTheme.grey),
+              CText(time, size: 12.sp, color: appColors.grey),
             ],
           ),
         ],
@@ -551,7 +551,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Helper Performance",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           _buildHelperItem("Maria Johnson", "4.8", "156 tasks"),
@@ -570,11 +570,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
         children: [
           CircleAvatar(
             radius: 20.r,
-            backgroundColor: appTheme.primaryColor.withOpacity(0.1),
+            backgroundColor: appColors.primaryColor.withOpacity(0.1),
             child: CText(
               name[0],
               size: 16.sp,
-              color: appTheme.primaryColor,
+              color: appColors.primaryColor,
               weight: FontWeight.bold,
             ),
           ),
@@ -586,21 +586,21 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 CText(
                   name,
                   size: 14.sp,
-                  color: appTheme.textPrimary,
+                  color: appColors.textPrimary,
                   weight: FontWeight.w600,
                 ),
-                CText(tasks, size: 12.sp, color: appTheme.grey),
+                CText(tasks, size: 12.sp, color: appColors.grey),
               ],
             ),
           ),
           Row(
             children: [
-              Icon(Icons.star, color: appTheme.amber, size: 16.sp),
+              Icon(Icons.star, color: appColors.amber, size: 16.sp),
               SizedBox(width: 4.w),
               CText(
                 rating,
                 size: 14.sp,
-                color: appTheme.textPrimary,
+                color: appColors.textPrimary,
                 weight: FontWeight.w600,
               ),
             ],
@@ -632,7 +632,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Helper Distribution",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
           SizedBox(
@@ -669,14 +669,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Helper Ratings",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
           ),
           SizedBox(height: 16.h),
-          _buildRatingBar("5 Stars", 85, appTheme.brightGreen),
-          _buildRatingBar("4 Stars", 12, appTheme.primaryColor),
-          _buildRatingBar("3 Stars", 2, appTheme.amber),
-          _buildRatingBar("2 Stars", 1, appTheme.orange),
-          _buildRatingBar("1 Star", 0, appTheme.darkRed),
+          _buildRatingBar("5 Stars", 85, appColors.brightGreen),
+          _buildRatingBar("4 Stars", 12, appColors.primaryColor),
+          _buildRatingBar("3 Stars", 2, appColors.amber),
+          _buildRatingBar("2 Stars", 1, appColors.orange),
+          _buildRatingBar("1 Star", 0, appColors.darkRed),
         ],
       ),
     );
@@ -689,14 +689,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
         children: [
           SizedBox(
             width: 60.w,
-            child: CText(label, size: 12.sp, color: appTheme.textPrimary),
+            child: CText(label, size: 12.sp, color: appColors.textPrimary),
           ),
           SizedBox(width: 8.w),
           Expanded(
             child: Container(
               height: 8.h,
               decoration: BoxDecoration(
-                color: appTheme.veryLightGrey,
+                color: appColors.veryLightGrey,
                 borderRadius: BorderRadius.circular(4.r),
               ),
               child: FractionallySizedBox(
@@ -715,7 +715,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           CText(
             "$percentage%",
             size: 12.sp,
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             weight: FontWeight.w600,
           ),
         ],

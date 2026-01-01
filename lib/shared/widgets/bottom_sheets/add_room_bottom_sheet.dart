@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -45,7 +45,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                 height: 40.h,
                 width: 1.sw,
                 decoration: BoxDecoration(
-                  color: appTheme.silver2,
+                  color: appColors.silver2,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20.r),
                     topRight: Radius.circular(20.r),
@@ -78,7 +78,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                         "Add Room",
                         size: 20.sp,
                         weight: FontWeight.w600,
-                        color: appTheme.textPrimary,
+                        color: appColors.textPrimary,
                       ),
                     ),
                     SizedBox(height: 20.h),
@@ -88,14 +88,14 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                       "Room name",
                       size: 18.sp,
                       weight: FontWeight.w600,
-                      color: appTheme.textPrimary,
+                      color: appColors.textPrimary,
                     ),
                     vGap(2.h),
 
                     CText(
                       "You can select room type or enter a custom room type to add.",
                       size: 16.sp,
-                      color: appTheme.grey,
+                      color: appColors.grey,
                       weight: FontWeight.w400,
                       // height: 1.4,
                     ),
@@ -108,12 +108,12 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                         vertical: 12.h,
                       ),
                       decoration: BoxDecoration(
-                        color: appTheme.white,
+                        color: appColors.white,
                         borderRadius: BorderRadius.circular(15.r),
-                        border: Border.all(color: appTheme.offWhite),
+                        border: Border.all(color: appColors.offWhite),
                         boxShadow: [
                           BoxShadow(
-                            color: appTheme.offWhite,
+                            color: appColors.offWhite,
                             blurRadius: 10.r,
                             offset: const Offset(0, 1),
                           ),
@@ -124,7 +124,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                         decoration: InputDecoration(
                           hintText: selectedRoomType,
                           hintStyle: TextStyle(
-                            color: appTheme.grey,
+                            color: appColors.grey,
                             fontSize: 16.sp,
                             fontFamily: "Poppins",
                           ),
@@ -135,7 +135,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: "Poppins",
-                          color: appTheme.grey,
+                          color: appColors.grey,
                         ),
                       ),
                     ),
@@ -163,14 +163,14 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                                 decoration: BoxDecoration(
                                   color:
                                       isSelected
-                                          ? appTheme.blueAccentCustom
+                                          ? appColors.blueAccentCustom
                                           : Colors.transparent,
                                   borderRadius: BorderRadius.circular(9.r),
                                   border: Border.all(
                                     color:
                                         isSelected
-                                            ? appTheme.blueAccentCustom
-                                            : appTheme.blueAccentCustom,
+                                            ? appColors.blueAccentCustom
+                                            : appColors.blueAccentCustom,
                                     width: 1.0,
                                   ),
                                 ),
@@ -179,8 +179,8 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                                   size: 14.sp,
                                   color:
                                       isSelected
-                                          ? appTheme.white
-                                          : appTheme.blueAccentCustom,
+                                          ? appColors.white
+                                          : appColors.blueAccentCustom,
                                   weight: FontWeight.w500,
                                 ),
                               ),

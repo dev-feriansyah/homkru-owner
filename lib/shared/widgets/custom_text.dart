@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class CText extends StatelessWidget {
   final String text;
@@ -51,7 +51,7 @@ class CText extends StatelessWidget {
           style ??
           TextStyle(
             fontSize: size ?? 16.sp,
-            color: color ?? appTheme.black,
+            color: color ?? appColors.black,
             fontWeight: weight ?? FontWeight.normal,
             fontFamily: fontFamily ?? "Poppins",
             decoration: decoration,

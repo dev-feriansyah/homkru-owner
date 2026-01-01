@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
@@ -77,14 +77,14 @@ class CustomTextFormField extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.zero,
       decoration: ShapeDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: appTheme.offWhite),
+          side: BorderSide(width: 1, color: appColors.offWhite),
           borderRadius: BorderRadius.circular(15),
         ),
         shadows: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -109,7 +109,7 @@ class CustomTextFormField extends StatelessWidget {
         onTap: onTap,
         readOnly: readOnly,
         enableIMEPersonalizedLearning: false,
-        cursorColor: appTheme.primaryColor,
+        cursorColor: appColors.primaryColor,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
             horizontal: 16.w,
@@ -120,31 +120,31 @@ class CustomTextFormField extends StatelessWidget {
           hintStyle: GoogleFonts.poppins(
             fontSize: 16.sp,
             fontWeight: FontWeight.w400,
-            color: appTheme.grey,
+            color: appColors.grey,
             // fontFamily: "Poppins",
           ),
           suffixIcon: suffixIcon,
           filled: true,
-          fillColor: appTheme.white,
+          fillColor: appColors.white,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appTheme.red, width: 1),
+            borderSide: BorderSide(color: appColors.red, width: 1),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appTheme.red, width: 1),
+            borderSide: BorderSide(color: appColors.red, width: 1),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appTheme.offWhite, width: 1),
+            borderSide: BorderSide(color: appColors.offWhite, width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appTheme.offWhite, width: 1),
+            borderSide: BorderSide(color: appColors.offWhite, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appTheme.primaryColor, width: 1),
+            borderSide: BorderSide(color: appColors.primaryColor, width: 1),
           ),
         ),
         validator: validator,

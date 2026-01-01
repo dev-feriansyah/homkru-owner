@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -89,7 +89,7 @@ class SignupScreen extends HookWidget {
                               Center(
                                 child: CText(
                                   "Enter your details to get started",
-                                  color: appTheme.grey,
+                                  color: appColors.grey,
                                   weight: FontWeight.w300,
                                   size: 14,
                                 ),
@@ -184,13 +184,13 @@ class SignupScreen extends HookWidget {
                                 },
                                 text: "Sign Up",
                                 buttonTextStyle: TextStyle(
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appTheme.primaryColor,
+                                    appColors.primaryColor,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(
@@ -206,7 +206,7 @@ class SignupScreen extends HookWidget {
                                   Container(
                                     height: 1.3,
                                     width: 85,
-                                    color: appTheme.veryLightGrey,
+                                    color: appColors.veryLightGrey,
                                   ),
                                   SizedBox(width: 10),
                                   CText(
@@ -218,7 +218,7 @@ class SignupScreen extends HookWidget {
                                   Container(
                                     height: 1.3,
                                     width: 85,
-                                    color: appTheme.veryLightGrey,
+                                    color: appColors.veryLightGrey,
                                   ),
                                 ],
                               ),
@@ -249,7 +249,7 @@ class SignupScreen extends HookWidget {
                                   CText(
                                     "Already have an account? ",
                                     size: 15,
-                                    color: appTheme.grey,
+                                    color: appColors.grey,
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -258,7 +258,7 @@ class SignupScreen extends HookWidget {
                                     child: CText(
                                       "Sign In",
                                       size: 15,
-                                      color: appTheme.primaryColor,
+                                      color: appColors.primaryColor,
                                       weight: FontWeight.w900,
                                     ),
                                   ),

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -31,17 +31,17 @@ class HelperProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        color: appTheme.white,
+        color: appColors.white,
         shape: RoundedRectangleBorder(
           side: BorderSide(
             width: 1,
-            color: appTheme.primaryColor.withValues(alpha: 0.3),
+            color: appColors.primaryColor.withValues(alpha: 0.3),
           ),
           borderRadius: BorderRadius.circular(25),
         ),
         shadows: [
           BoxShadow(
-            color: appTheme.shadowColor,
+            color: appColors.shadowColor,
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -70,7 +70,7 @@ class HelperProfileCard extends StatelessWidget {
                   height: 60,
                   decoration: ShapeDecoration(
                     shape: CircleBorder(
-                      side: BorderSide(color: appTheme.primaryColor, width: 1),
+                      side: BorderSide(color: appColors.primaryColor, width: 1),
                     ),
                   ),
                   child: ClipRRect(
@@ -92,14 +92,14 @@ class HelperProfileCard extends StatelessWidget {
                     children: [
                       CText(
                         name,
-                        color: appTheme.textPrimary.withValues(alpha: 0.8),
+                        color: appColors.textPrimary.withValues(alpha: 0.8),
                         size: 16.sp,
                         weight: FontWeight.w600,
                       ),
                       vGap(5),
                       CText(
                         role,
-                        color: appTheme.grey,
+                        color: appColors.grey,
                         size: 12.sp,
                         weight: FontWeight.w500,
                         height: 1.50,
@@ -107,7 +107,7 @@ class HelperProfileCard extends StatelessWidget {
                       vGap(5),
                       CText(
                         "${AppStrings.score}: $score",
-                        color: appTheme.grey,
+                        color: appColors.grey,
                         size: 12.sp,
                         weight: FontWeight.w500,
                         height: 1.50,
@@ -124,7 +124,7 @@ class HelperProfileCard extends StatelessWidget {
                                 vertical: 6,
                               ),
                               decoration: ShapeDecoration(
-                                color: appTheme.lightBlue,
+                                color: appColors.lightBlue,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(9),
                                 ),
@@ -132,7 +132,7 @@ class HelperProfileCard extends StatelessWidget {
                               child: CText(
                                 statusText,
                                 textAlign: TextAlign.center,
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                                 size: 14,
                                 weight: FontWeight.w700,
                                 height: 1.29,
@@ -149,7 +149,7 @@ class HelperProfileCard extends StatelessWidget {
                                 vertical: 5,
                               ),
                               decoration: ShapeDecoration(
-                                color: appTheme.primaryColor,
+                                color: appColors.primaryColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -157,7 +157,7 @@ class HelperProfileCard extends StatelessWidget {
                               child: CText(
                                 AppStrings.edit,
                                 textAlign: TextAlign.center,
-                                color: appTheme.white,
+                                color: appColors.white,
                                 size: 14,
                                 weight: FontWeight.w600,
                               ),

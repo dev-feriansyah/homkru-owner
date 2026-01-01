@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -87,7 +87,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                 child: CText(
                                   "Enter 6 digits verification code we have send to homekru12@gmail.com",
                                   textAlign: TextAlign.center,
-                                  color: appTheme.grey,
+                                  color: appColors.grey,
                                   weight: FontWeight.w300,
                                   size: 16,
                                 ),
@@ -100,8 +100,8 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                 children: [
                                   OtpTextField(
                                     numberOfFields: 6,
-                                    borderColor: appTheme.grey,
-                                    focusedBorderColor: appTheme.primaryColor,
+                                    borderColor: appColors.grey,
+                                    focusedBorderColor: appColors.primaryColor,
                                     fieldWidth: 50,
                                     borderRadius: BorderRadius.circular(15),
                                     showFieldAsBox: true,
@@ -134,13 +134,13 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                 },
                                 text: "Verify OTP",
                                 buttonTextStyle: TextStyle(
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appTheme.primaryColor,
+                                    appColors.primaryColor,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(
@@ -155,7 +155,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                   text: TextSpan(
                                     text: "Didn't Receive Code? ",
                                     style: TextStyle(
-                                      color: appTheme.grey,
+                                      color: appColors.grey,
                                       fontFamily: "Poppins",
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -164,7 +164,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                       TextSpan(
                                         text: "Resend Now",
                                         style: TextStyle(
-                                          color: appTheme.primaryColor,
+                                          color: appColors.primaryColor,
                                           fontFamily: "PoppinsMedium",
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,

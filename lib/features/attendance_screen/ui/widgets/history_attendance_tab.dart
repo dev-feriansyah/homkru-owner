@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:intl/intl.dart';
 
@@ -71,7 +71,7 @@ class HistoryAttendanceTab extends HookWidget {
                       return Theme(
                         data: Theme.of(context).copyWith(
                           colorScheme: ColorScheme.light(
-                            primary: appTheme.primaryColor,
+                            primary: appColors.primaryColor,
                             onPrimary: Colors.white,
                             onSurface: Colors.black,
                           ),
@@ -87,7 +87,7 @@ class HistoryAttendanceTab extends HookWidget {
                 },
                 child: Icon(
                   Icons.calendar_month_rounded,
-                  color: appTheme.primaryColor,
+                  color: appColors.primaryColor,
                   size: 25,
                 ),
               ),
@@ -107,10 +107,10 @@ class HistoryAttendanceTab extends HookWidget {
                   vertical: 20,
                 ),
                 decoration: BoxDecoration(
-                  color: appTheme.white,
+                  color: appColors.white,
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(
-                    color: appTheme.primaryColor.withValues(alpha: 0.3),
+                    color: appColors.primaryColor.withValues(alpha: 0.3),
                     width: 1.5,
                   ),
                   // boxShadow: [BoxShadow(blurRadius: 6, color: appTheme.main.withValues(alpha: 0.3))],
@@ -123,11 +123,11 @@ class HistoryAttendanceTab extends HookWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CircleAvatar(
-                          backgroundColor: appTheme.lightBlueTwo,
+                          backgroundColor: appColors.lightBlueTwo,
                           radius: 18,
                           child: CText(
                             convertNameToInitials(item['name']!),
-                            color: appTheme.primaryColor,
+                            color: appColors.primaryColor,
                             size: 11,
                             weight: FontWeight.bold,
                           ),
@@ -146,13 +146,13 @@ class HistoryAttendanceTab extends HookWidget {
                               CText(
                                 'Check-in: ${item['checkIn']}',
                                 size: 14,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                               ),
                               SizedBox(height: 5),
                               CText(
                                 'Expected check-out: ${item['checkOut']}',
                                 size: 14,
-                                color: appTheme.grey,
+                                color: appColors.grey,
                               ),
                             ],
                           ),
@@ -160,14 +160,14 @@ class HistoryAttendanceTab extends HookWidget {
                         if (item['status'] == 'Day Off')
                           _buildTag(
                             'Day Off',
-                            appTheme.lightPink.withValues(alpha: 0.6),
-                            appTheme.darkRed,
+                            appColors.lightPink.withValues(alpha: 0.6),
+                            appColors.darkRed,
                           )
                         else
                           _buildTag(
                             item['status']!,
-                            appTheme.lightYellow,
-                            appTheme.amber,
+                            appColors.lightYellow,
+                            appColors.amber,
                           ),
                       ],
                     ),

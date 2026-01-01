@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -85,7 +85,7 @@ class ForgetPasswordScreen extends HookWidget {
                                 child: CText(
                                   "Enter your email to reset your\n password.",
                                   textAlign: TextAlign.center,
-                                  color: appTheme.grey,
+                                  color: appColors.grey,
                                   weight: FontWeight.w300,
                                   size: 16,
                                 ),
@@ -132,13 +132,13 @@ class ForgetPasswordScreen extends HookWidget {
                                 },
                                 text: "Send OTP",
                                 buttonTextStyle: TextStyle(
-                                  color: appTheme.white,
+                                  color: appColors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appTheme.primaryColor,
+                                    appColors.primaryColor,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(

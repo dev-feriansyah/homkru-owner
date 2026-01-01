@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class InfoItem extends StatelessWidget {
@@ -16,14 +16,14 @@ class InfoItem extends StatelessWidget {
       children: [
         CText(
           label,
-          color: appTheme.textPrimary,
+          color: appColors.textPrimary,
           size: 14.sp,
           weight: FontWeight.w600,
         ),
         SizedBox(height: 4.sp),
         CText(
           value,
-          color: appTheme.mediumGrey,
+          color: appColors.mediumGrey,
           size: 14.sp,
           weight: FontWeight.w400,
           fontFamily: 'Inter',

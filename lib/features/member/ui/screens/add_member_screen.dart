@@ -4,7 +4,7 @@ import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/features/member/ui/providers/add_member_form_provider.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/theme_helper.dart';
+import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_radio_options.dart';
@@ -21,7 +21,7 @@ class AddMemberScreen extends ConsumerWidget {
     final notifier = ref.read(addMemberFormProvider.notifier);
 
     return Scaffold(
-      backgroundColor: appTheme.lightBlue,
+      backgroundColor: appColors.lightBlue,
       appBar: CustomCommonAppBar(title: "Add Helper"),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -31,7 +31,7 @@ class AddMemberScreen extends ConsumerWidget {
           /// Helper Profile Setup
           CText(
             'Helper Profile Setup',
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             size: 18.sp,
             weight: FontWeight.w500,
           ),
@@ -64,7 +64,7 @@ class AddMemberScreen extends ConsumerWidget {
           /// Live-in status
           CText(
             'Live-in status',
-            color: appTheme.textPrimary,
+            color: appColors.textPrimary,
             size: 18.sp,
             weight: FontWeight.w500,
           ),

@@ -6,7 +6,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -17,6 +17,9 @@ class CreateHouseholdScreen extends HookWidget {
   const CreateHouseholdScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     final List<String> houseHoldType = ["abc", "xyz", "pqr"];
     final List<String> noOfResidentsList = ["1", "2", "3", "4", "5"];
 
@@ -155,13 +158,13 @@ class CreateHouseholdScreen extends HookWidget {
                               },
                               text: "Continue",
                               buttonTextStyle: TextStyle(
-                                color: appColors.white,
+                                color: colorScheme.surface,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appColors.primaryColor,
+                                  colorScheme.primary,
                                 ),
                                 shape: WidgetStateProperty.all(
                                   RoundedRectangleBorder(
@@ -202,6 +205,8 @@ class CustomDropdownField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return DropdownButtonFormField<String>(
       initialValue: items.contains(selectedItem) ? selectedItem : null,
 
@@ -214,27 +219,27 @@ class CustomDropdownField extends StatelessWidget {
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
       ),
-      icon: Icon(Icons.keyboard_arrow_down, color: appColors.lightGrey),
-      style: TextStyle(color: appColors.lightGrey, fontSize: 14),
-      hint: CText(hintText, size: 14, color: appColors.lightGrey),
+      icon: Icon(Icons.keyboard_arrow_down, color: colorScheme.outline),
+      style: TextStyle(color: colorScheme.outline, fontSize: 14),
+      hint: CText(hintText, size: 14, color: colorScheme.outline),
       items:
           items.map((item) {
             return DropdownMenuItem<String>(
               value: item,
               child: CText(
                 item,
-                color: appColors.lightGrey,
+                color: colorScheme.outline,
                 size: 15,
                 weight: FontWeight.w400,
               ),

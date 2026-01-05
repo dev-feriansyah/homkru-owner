@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -18,6 +18,9 @@ class ForgetPasswordScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     final formKey = useMemoized(() => GlobalKey<FormState>());
     final emailController = useTextEditingController();
 
@@ -132,13 +135,13 @@ class ForgetPasswordScreen extends HookWidget {
                                 },
                                 text: "Send OTP",
                                 buttonTextStyle: TextStyle(
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appColors.primaryColor,
+                                    colorScheme.primary,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(

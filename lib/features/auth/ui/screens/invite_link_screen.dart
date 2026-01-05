@@ -4,7 +4,7 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -19,6 +19,9 @@ class InviteLinkScreen extends StatefulWidget {
 class _InviteLinkScreenState extends State<InviteLinkScreen> {
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     return Scaffold(
       body: Container(
         width: 1.sw,
@@ -130,8 +133,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                         ),
                                                         decoration: BoxDecoration(
                                                           color:
-                                                              appColors
-                                                                  .lightBlueTwo,
+                                                              colorScheme.secondaryContainer,
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
@@ -156,8 +158,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     border: OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            appColors
-                                                                .veryLightGrey,
+                                                            colorScheme.outlineVariant,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -167,8 +168,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     enabledBorder: OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            appColors
-                                                                .veryLightGrey,
+                                                            colorScheme.outlineVariant,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -178,8 +178,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     focusedBorder: OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            appColors
-                                                                .veryLightGrey,
+                                                            colorScheme.outlineVariant,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -216,8 +215,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     },
                                                     style: ElevatedButton.styleFrom(
                                                       backgroundColor:
-                                                          appColors
-                                                              .primaryColor,
+                                                          colorScheme.primary,
                                                       shape: RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.circular(
@@ -232,7 +230,7 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                                                     child: CText(
                                                       "Continue",
                                                       size: 16,
-                                                      color: appColors.white,
+                                                      color: colorScheme.surface,
                                                     ),
                                                   ),
                                                 ),
@@ -247,13 +245,13 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                               },
                               text: "Yes, I have an invite",
                               buttonTextStyle: TextStyle(
-                                color: appColors.white,
+                                color: colorScheme.surface,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appColors.primaryColor,
+                                  colorScheme.primary,
                                 ),
                               ),
                             ),
@@ -266,17 +264,17 @@ class _InviteLinkScreenState extends State<InviteLinkScreen> {
                               },
                               text: "Yes, I have an invite",
                               buttonTextStyle: TextStyle(
-                                color: appColors.primaryColor,
+                                color: colorScheme.primary,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                               buttonStyle: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
-                                  appColors.white,
+                                  colorScheme.surface,
                                 ),
 
                                 side: WidgetStateProperty.all(
-                                  BorderSide(color: appColors.primaryColor),
+                                  BorderSide(color: colorScheme.primary),
                                 ),
                               ),
                             ),

@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -19,6 +19,9 @@ class SignupScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     final formKey = useMemoized(() => GlobalKey<FormState>());
     final fullNameController = useTextEditingController();
     final emailController = useTextEditingController();
@@ -184,13 +187,13 @@ class SignupScreen extends HookWidget {
                                 },
                                 text: "Sign Up",
                                 buttonTextStyle: TextStyle(
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appColors.primaryColor,
+                                    colorScheme.primary,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(
@@ -206,7 +209,7 @@ class SignupScreen extends HookWidget {
                                   Container(
                                     height: 1.3,
                                     width: 85,
-                                    color: appColors.veryLightGrey,
+                                    color: colorScheme.outlineVariant,
                                   ),
                                   SizedBox(width: 10),
                                   CText(
@@ -218,7 +221,7 @@ class SignupScreen extends HookWidget {
                                   Container(
                                     height: 1.3,
                                     width: 85,
-                                    color: appColors.veryLightGrey,
+                                    color: colorScheme.outlineVariant,
                                   ),
                                 ],
                               ),
@@ -258,7 +261,7 @@ class SignupScreen extends HookWidget {
                                     child: CText(
                                       "Sign In",
                                       size: 15,
-                                      color: appColors.primaryColor,
+                                      color: colorScheme.primary,
                                       weight: FontWeight.w900,
                                     ),
                                   ),

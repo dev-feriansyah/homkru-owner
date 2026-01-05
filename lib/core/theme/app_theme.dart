@@ -42,7 +42,7 @@ class AppTheme {
     onSurfaceVariant: const Color(0xFF747474),
 
     // Outline colors
-    outline: const Color(0xFFE5E7EB),
+    outline: const Color(0xFF747474),
     outlineVariant: const Color(0xFFE0E0E0),
 
     // Other Material 3 colors
@@ -64,19 +64,25 @@ class AppTheme {
       colorScheme: _lightColorScheme,
 
       // Custom extensions for app-specific colors
-      extensions: [
-        AppColorExtension.light(),
-      ],
+      extensions: [AppColorExtension.light()],
 
       // Component themes
-      elevatedButtonTheme: ComponentThemes.elevatedButtonTheme(_lightColorScheme),
-      outlinedButtonTheme: ComponentThemes.outlinedButtonTheme(_lightColorScheme),
-      inputDecorationTheme: ComponentThemes.inputDecorationTheme(_lightColorScheme),
+      elevatedButtonTheme: ComponentThemes.elevatedButtonTheme(
+        _lightColorScheme,
+      ),
+      outlinedButtonTheme: ComponentThemes.outlinedButtonTheme(
+        _lightColorScheme,
+      ),
+      inputDecorationTheme: ComponentThemes.inputDecorationTheme(
+        _lightColorScheme,
+      ),
       cardTheme: ComponentThemes.cardTheme(_lightColorScheme),
       floatingActionButtonTheme: ComponentThemes.fabTheme(_lightColorScheme),
       chipTheme: ComponentThemes.chipTheme(_lightColorScheme),
       appBarTheme: ComponentThemes.appBarTheme(_lightColorScheme),
-      bottomNavigationBarTheme: ComponentThemes.bottomNavTheme(_lightColorScheme),
+      bottomNavigationBarTheme: ComponentThemes.bottomNavTheme(
+        _lightColorScheme,
+      ),
 
       // Text theme
       textTheme: ComponentThemes.textTheme(_lightColorScheme),
@@ -100,19 +106,25 @@ class AppTheme {
       colorScheme: _darkColorScheme,
 
       // Custom extensions
-      extensions: [
-        AppColorExtension.dark(),
-      ],
+      extensions: [AppColorExtension.dark()],
 
       // Component themes (using light scheme as placeholder)
-      elevatedButtonTheme: ComponentThemes.elevatedButtonTheme(_darkColorScheme),
-      outlinedButtonTheme: ComponentThemes.outlinedButtonTheme(_darkColorScheme),
-      inputDecorationTheme: ComponentThemes.inputDecorationTheme(_darkColorScheme),
+      elevatedButtonTheme: ComponentThemes.elevatedButtonTheme(
+        _darkColorScheme,
+      ),
+      outlinedButtonTheme: ComponentThemes.outlinedButtonTheme(
+        _darkColorScheme,
+      ),
+      inputDecorationTheme: ComponentThemes.inputDecorationTheme(
+        _darkColorScheme,
+      ),
       cardTheme: ComponentThemes.cardTheme(_darkColorScheme),
       floatingActionButtonTheme: ComponentThemes.fabTheme(_darkColorScheme),
       chipTheme: ComponentThemes.chipTheme(_darkColorScheme),
       appBarTheme: ComponentThemes.appBarTheme(_darkColorScheme),
-      bottomNavigationBarTheme: ComponentThemes.bottomNavTheme(_darkColorScheme),
+      bottomNavigationBarTheme: ComponentThemes.bottomNavTheme(
+        _darkColorScheme,
+      ),
 
       // Text theme
       textTheme: ComponentThemes.textTheme(_darkColorScheme),

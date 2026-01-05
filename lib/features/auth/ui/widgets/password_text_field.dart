@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class PasswordTextField extends HookWidget {
   const PasswordTextField({
@@ -16,16 +15,18 @@ class PasswordTextField extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     final isVisible = useState(false);
 
     return TextFormField(
-      cursorColor: appColors.lightGrey,
+      cursorColor: colorScheme.outline,
       controller: controller,
       obscureText: !isVisible.value,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(
-          color: appColors.lightGrey,
+          color: colorScheme.outline,
           fontSize: 14,
           fontWeight: FontWeight.w400,
         ),
@@ -36,15 +37,15 @@ class PasswordTextField extends HookWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
         suffixIcon: IconButton(
           onPressed: () {
@@ -54,7 +55,7 @@ class PasswordTextField extends HookWidget {
             isVisible.value
                 ? Icons.visibility_off_outlined
                 : Icons.visibility_outlined,
-            color: appColors.lightGrey,
+            color: colorScheme.outline,
             size: 20,
           ),
         ),

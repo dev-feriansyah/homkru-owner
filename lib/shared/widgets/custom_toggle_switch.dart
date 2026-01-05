@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 
 class CustomToggleSwitch extends StatefulWidget {
   final bool initialValue;
@@ -66,6 +66,9 @@ class _CustomToggleSwitchState extends State<CustomToggleSwitch>
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     return GestureDetector(
       onTap: _handleTap,
       child: Container(
@@ -83,7 +86,7 @@ class _CustomToggleSwitchState extends State<CustomToggleSwitch>
                 color:
                     _isToggled
                         ? appColors.lightBlueThree
-                        : const Color(0xFFE0E0E0),
+                        : colorScheme.outlineVariant,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50.r),
                 ),
@@ -101,8 +104,8 @@ class _CustomToggleSwitchState extends State<CustomToggleSwitch>
                     decoration: ShapeDecoration(
                       color:
                           _isToggled
-                              ? const Color(0xFF3B70B9) // Blue when active
-                              : const Color(0xFF616161), // Gray when inactive
+                              ? colorScheme.primary // Blue when active
+                              : appColors.grey, // Gray when inactive
                       shape: const OvalBorder(),
                       shadows: [
                         BoxShadow(

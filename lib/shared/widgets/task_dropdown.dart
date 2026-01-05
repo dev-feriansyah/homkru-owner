@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class TaskDropdown extends StatelessWidget {
@@ -19,20 +19,23 @@ class TaskDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     return Container(
       width: double.infinity,
       // height: 57.h,
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 3.h),
       decoration: ShapeDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 0, color: appColors.white),
+          side: BorderSide(width: 0, color: colorScheme.surface),
           borderRadius: BorderRadius.circular(15),
         ),
 
         shadows: [
           BoxShadow(
-            color: appColors.shadowColor,
+            color: colorScheme.primary.withValues(alpha: 0.08),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -58,15 +61,15 @@ class TaskDropdown extends StatelessWidget {
           ),
           icon: Icon(
             Icons.keyboard_arrow_down,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
             // size: 20,
           ),
           style: TextStyle(
             fontSize: 14.sp,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
             fontFamily: 'Poppins',
           ),
-          dropdownColor: appColors.white,
+          dropdownColor: colorScheme.surface,
           borderRadius: BorderRadius.circular(15),
           items:
               tasks
@@ -77,7 +80,7 @@ class TaskDropdown extends StatelessWidget {
                         task,
                         style: TextStyle(
                           fontSize: 14.sp,
-                          color: appColors.textPrimary,
+                          color: colorScheme.onSurface,
                         ),
                       ),
                     ),

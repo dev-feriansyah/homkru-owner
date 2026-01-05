@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/access_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -21,6 +21,9 @@ class _InviteEmailBottomSheetState extends State<InviteEmailBottomSheet> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     return SingleChildScrollView(
       child: Form(
         key: _formKey,
@@ -59,7 +62,7 @@ class _InviteEmailBottomSheetState extends State<InviteEmailBottomSheet> {
                 size: 20.sp,
                 weight: FontWeight.w600,
                 textAlign: TextAlign.center,
-                color: appColors.textPrimary,
+                color: colorScheme.onSurface,
               ),
             ),
             vGap(20.h),
@@ -112,10 +115,12 @@ class _InviteEmailBottomSheetState extends State<InviteEmailBottomSheet> {
 
 /// Call this function from anywhere
 void showInviteEmailBottomSheet(BuildContext context) {
+  final colorScheme = Theme.of(context).colorScheme;
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.white,
+    backgroundColor: colorScheme.surface,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
     ),
@@ -135,41 +140,48 @@ Widget buildTextFormField(
   FormFieldValidator<String>? validator,
   TextInputType? keyboardType,
 }) {
-  return TextFormField(
-    controller: controller,
-    readOnly: false,
-    style: TextStyle(
-      color: appColors.grey,
-      fontSize: 14.sp,
-      fontFamily: "Poppins",
-    ),
-    keyboardType: keyboardType,
-    decoration: InputDecoration(
-      contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
-      // label  label,
-      hintText: label,
-      hintStyle: TextStyle(
-        fontSize: 16.sp,
-        fontWeight: FontWeight.w400,
-        color: appColors.grey,
-        // fontFamily: "Poppins",
-      ),
+  return Builder(
+    builder: (context) {
+      final colorScheme = Theme.of(context).colorScheme;
+      final appColors = context.appColorExtension;
 
-      filled: true,
-      fillColor: appColors.white,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: appColors.offWhite, width: 2),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: appColors.offWhite, width: 2),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: appColors.offWhite, width: 2),
-      ),
-    ),
-    validator: validator,
+      return TextFormField(
+        controller: controller,
+        readOnly: false,
+        style: TextStyle(
+          color: appColors.grey,
+          fontSize: 14.sp,
+          fontFamily: "Poppins",
+        ),
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+          // label  label,
+          hintText: label,
+          hintStyle: TextStyle(
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w400,
+            color: appColors.grey,
+            // fontFamily: "Poppins",
+          ),
+
+          filled: true,
+          fillColor: colorScheme.surface,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(color: colorScheme.surfaceVariant, width: 2),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(color: colorScheme.surfaceVariant, width: 2),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(color: colorScheme.surfaceVariant, width: 2),
+          ),
+        ),
+        validator: validator,
+      );
+    },
   );
 }

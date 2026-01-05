@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 
 class CustomDropdownWidget extends StatelessWidget {
   final String? selectedValue;
@@ -21,22 +21,25 @@ class CustomDropdownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     return Container(
       width: double.infinity,
       height: 57.h,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
       decoration: ShapeDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         shape: RoundedRectangleBorder(
           side: BorderSide(
             width: 1,
-            color: borderColor ?? appColors.lightBorder,
+            color: borderColor ?? colorScheme.outline,
           ),
           borderRadius: BorderRadius.circular(15),
         ),
         shadows: [
           BoxShadow(
-            color: appColors.shadowColor,
+            color: colorScheme.primary.withValues(alpha: 0.08),
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -66,7 +69,7 @@ class CustomDropdownWidget extends StatelessWidget {
           //   color: appTheme.grey,
           //   // fontFamily: "Poppins",
           // ),
-          dropdownColor: appColors.white,
+          dropdownColor: colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           items:
               items

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/helper_detail_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/bottom_sheets/invite_email_bottom_sheet.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
@@ -23,6 +23,9 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -59,7 +62,7 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
             size: 20.sp,
             weight: FontWeight.w600,
             textAlign: TextAlign.center,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
         ),
         vGap(20.h),
@@ -125,10 +128,12 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
 
 /// Call this function from anywhere
 void showInviteBottomSheet(BuildContext context) {
+  final colorScheme = Theme.of(context).colorScheme;
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.white,
+    backgroundColor: colorScheme.surface,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
     ),

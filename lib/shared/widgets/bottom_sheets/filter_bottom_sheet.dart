@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_radio_options.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -53,9 +53,12 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
       child: Column(
@@ -94,7 +97,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 // Title
                 CText(
                   "Filter Tasks",
-                  color: appColors.textPrimary,
+                  color: colorScheme.onSurface,
                   weight: FontWeight.w600,
                   size: 16.sp,
                 ),
@@ -180,12 +183,12 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                             Icon(
                               Icons.arrow_back_ios,
                               size: 16.sp,
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                             ),
                             SizedBox(width: 4.w),
                             CText(
                               "Back",
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                               size: 14.sp,
                               weight: FontWeight.w500,
                             ),
@@ -251,7 +254,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   },
                   child: CText(
                     "Clear All",
-                    color: appColors.primaryColor,
+                    color: colorScheme.primary,
                     weight: FontWeight.w500,
                     size: 14.sp,
                   ),

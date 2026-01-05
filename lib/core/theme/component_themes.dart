@@ -98,9 +98,7 @@ class ComponentThemes {
       backgroundColor: colorScheme.primary,
       foregroundColor: colorScheme.onPrimary,
       elevation: 6,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16.r),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
     );
   }
 
@@ -117,9 +115,7 @@ class ComponentThemes {
         fontWeight: FontWeight.w600,
         fontFamily: 'Poppins',
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4.r),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.r)),
     );
   }
 
@@ -135,13 +131,10 @@ class ComponentThemes {
         color: colorScheme.onBackground,
         fontFamily: 'Poppins',
       ),
-      iconTheme: IconThemeData(
-        color: colorScheme.onBackground,
-        size: 24.sp,
-      ),
+      iconTheme: IconThemeData(color: colorScheme.onPrimary, size: 24.sp),
       systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
       ),
     );
   }
@@ -264,18 +257,11 @@ class ComponentThemes {
 
   /// Divider theme
   static DividerThemeData dividerTheme(ColorScheme colorScheme) {
-    return DividerThemeData(
-      color: colorScheme.outline,
-      thickness: 1,
-      space: 1,
-    );
+    return DividerThemeData(color: colorScheme.outline, thickness: 1, space: 1);
   }
 
   /// Icon theme
   static IconThemeData iconTheme(ColorScheme colorScheme) {
-    return IconThemeData(
-      color: colorScheme.onBackground,
-      size: 24.sp,
-    );
+    return IconThemeData(color: colorScheme.onBackground, size: 24.sp);
   }
 }

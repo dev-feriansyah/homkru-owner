@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class CText extends StatelessWidget {
   final String text;
@@ -41,6 +40,9 @@ class CText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final defaultColor = Theme.of(context).textTheme.bodyMedium?.color ??
+        Theme.of(context).colorScheme.onSurface;
+
     return Text(
       text,
       textAlign: textAlign ?? TextAlign.start,
@@ -51,7 +53,7 @@ class CText extends StatelessWidget {
           style ??
           TextStyle(
             fontSize: size ?? 16.sp,
-            color: color ?? appColors.black,
+            color: color ?? defaultColor,
             fontWeight: weight ?? FontWeight.normal,
             fontFamily: fontFamily ?? "Poppins",
             decoration: decoration,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'base_button.dart';
 
 class CustomElevatedButton extends BaseButton {
@@ -39,58 +38,64 @@ class CustomElevatedButton extends BaseButton {
         : buildElevatedButtonWidget;
   }
 
-  Widget get buildElevatedButtonWidget => Container(
-    height: height ?? 50.h,
-    width: width ?? double.maxFinite,
-    margin: margin,
-    decoration: decoration,
-    child: ElevatedButton(
-      style:
-          buttonStyle ??
-          ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(
-              isOutline ? Colors.white : appColors.primaryColor,
-            ),
-            shape: WidgetStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.r),
-                side: BorderSide(color: appColors.primaryColor),
-              ),
-            ),
-          ),
+  Widget get buildElevatedButtonWidget => Builder(
+    builder: (context) {
+      final colorScheme = Theme.of(context).colorScheme;
 
-      onPressed: (isDisabled ?? false) || isLoading ? null : onPressed ?? () {},
-      child:
-          isLoading
-              ? SizedBox(
-                height: 20.h,
-                width: 20.w,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.w,
-                  valueColor: AlwaysStoppedAnimation<Color>(appColors.white),
+      return Container(
+        height: height ?? 50.h,
+        width: width ?? double.maxFinite,
+        margin: margin,
+        decoration: decoration,
+        child: ElevatedButton(
+          style:
+              buttonStyle ??
+              ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(
+                  isOutline ? colorScheme.surface : colorScheme.primary,
                 ),
-              )
-              : Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  leftIcon ?? const SizedBox.shrink(),
-                  Text(
-                    text,
-                    style:
-                        buttonTextStyle ??
-                        GoogleFonts.karla(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w700,
-                          color:
-                              isOutline
-                                  ? appColors.primaryColor
-                                  : appColors.white,
-                        ),
+                shape: WidgetStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.r),
+                    side: BorderSide(color: colorScheme.primary),
                   ),
-                  rightIcon ?? const SizedBox.shrink(),
-                ],
+                ),
               ),
-    ),
+
+          onPressed: (isDisabled ?? false) || isLoading ? null : onPressed ?? () {},
+          child:
+              isLoading
+                  ? SizedBox(
+                    height: 20.h,
+                    width: 20.w,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2.w,
+                      valueColor: AlwaysStoppedAnimation<Color>(colorScheme.onPrimary),
+                    ),
+                  )
+                  : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      leftIcon ?? const SizedBox.shrink(),
+                      Text(
+                        text,
+                        style:
+                            buttonTextStyle ??
+                            GoogleFonts.karla(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w700,
+                              color:
+                                  isOutline
+                                      ? colorScheme.primary
+                                      : colorScheme.onPrimary,
+                            ),
+                      ),
+                      rightIcon ?? const SizedBox.shrink(),
+                    ],
+                  ),
+        ),
+      );
+    },
   );
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
@@ -71,20 +70,21 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final colors = getColorScheme();
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       height: maxLines != null ? null : height ?? 57.h,
       width: double.infinity,
       padding: EdgeInsets.zero,
       decoration: ShapeDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: appColors.offWhite),
+          side: BorderSide(width: 1, color: colorScheme.surfaceVariant),
           borderRadius: BorderRadius.circular(15),
         ),
         shadows: [
           BoxShadow(
-            color: appColors.shadowColor,
+            color: colorScheme.shadow.withValues(alpha: 0.08),
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -109,7 +109,7 @@ class CustomTextFormField extends StatelessWidget {
         onTap: onTap,
         readOnly: readOnly,
         enableIMEPersonalizedLearning: false,
-        cursorColor: appColors.primaryColor,
+        cursorColor: colorScheme.primary,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
             horizontal: 16.w,
@@ -120,31 +120,31 @@ class CustomTextFormField extends StatelessWidget {
           hintStyle: GoogleFonts.poppins(
             fontSize: 16.sp,
             fontWeight: FontWeight.w400,
-            color: appColors.grey,
+            color: colorScheme.onSurfaceVariant,
             // fontFamily: "Poppins",
           ),
           suffixIcon: suffixIcon,
           filled: true,
-          fillColor: appColors.white,
+          fillColor: colorScheme.surface,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appColors.red, width: 1),
+            borderSide: BorderSide(color: colorScheme.error, width: 1),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appColors.red, width: 1),
+            borderSide: BorderSide(color: colorScheme.error, width: 1),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appColors.offWhite, width: 1),
+            borderSide: BorderSide(color: colorScheme.surfaceVariant, width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appColors.offWhite, width: 1),
+            borderSide: BorderSide(color: colorScheme.surfaceVariant, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: appColors.primaryColor, width: 1),
+            borderSide: BorderSide(color: colorScheme.primary, width: 1),
           ),
         ),
         validator: validator,

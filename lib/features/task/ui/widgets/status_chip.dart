@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class StatusStyle {
@@ -13,25 +13,32 @@ class StatusChip extends StatelessWidget {
   final String status;
   const StatusChip(this.status, {super.key});
 
-  static final _statusColors = <String, StatusStyle>{
-    'complete': StatusStyle(
-      appColors.brightGreen.withValues(alpha: 0.1),
-      appColors.brightGreen,
-    ),
-    'in progress': StatusStyle(
-      appColors.primaryColor.withValues(alpha: 0.1),
-      appColors.primaryColor,
-    ),
-    'pending': StatusStyle(
-      appColors.amber.withValues(alpha: 0.1),
-      appColors.amber,
-    ),
-  };
+  // Convert from static field to method to access theme colors via BuildContext
+  Map<String, StatusStyle> _getStatusColors(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColorExtension;
+
+    return {
+      'complete': StatusStyle(
+        appColors.successColor.withValues(alpha: 0.1),
+        appColors.successColor,
+      ),
+      'in progress': StatusStyle(
+        colorScheme.primary.withValues(alpha: 0.1),
+        colorScheme.primary,
+      ),
+      'pending': StatusStyle(
+        appColors.warningColor.withValues(alpha: 0.1),
+        appColors.warningColor,
+      ),
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
+    final statusColors = _getStatusColors(context);
     final style =
-        _statusColors[status.toLowerCase()] ?? _statusColors['pending']!;
+        statusColors[status.toLowerCase()] ?? statusColors['pending']!;
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.sp),

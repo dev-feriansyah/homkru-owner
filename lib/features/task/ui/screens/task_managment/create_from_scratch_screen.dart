@@ -6,7 +6,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/shared/utils/date_time_utils.dart';
 import 'package:homekru_owner/features/settings/settings_screen.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_assign_dropdown.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -65,82 +65,87 @@ class CreateFromScratchScreen extends HookWidget {
     final TextEditingController customRoomController =
         useTextEditingController();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CText(
-          'Assign To',
-          size: 18.sp,
-          weight: FontWeight.w600,
-          color: appColors.textPrimary,
-        ),
-        vGap(16.h),
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CText(
+              'Assign To',
+              size: 18.sp,
+              weight: FontWeight.w600,
+              color: colorScheme.onSurface,
+            ),
+            vGap(16.h),
 
-        CustomAssignDropdown(
-          borderColor: appColors.offWhite,
-          items: assignees,
-          hintText: "Select Assignee",
-          selectedValue: currentAssignee.value,
-          onChanged: (value) {
-            if (value != null) {
-              currentAssignee.value = value;
-            }
-          },
-        ),
-        vGap(24.h),
-        CText(
-          'Assigned For',
-          size: 18.sp,
-          weight: FontWeight.w600,
-          color: appColors.textPrimary,
-        ),
-        vGap(16.h),
+            CustomAssignDropdown(
+              borderColor: colorScheme.surfaceContainerHighest,
+              items: assignees,
+              hintText: "Select Assignee",
+              selectedValue: currentAssignee.value,
+              onChanged: (value) {
+                if (value != null) {
+                  currentAssignee.value = value;
+                }
+              },
+            ),
+            vGap(24.h),
+            CText(
+              'Assigned For',
+              size: 18.sp,
+              weight: FontWeight.w600,
+              color: colorScheme.onSurface,
+            ),
+            vGap(16.h),
 
-        CustomDropdownWidget(
-          borderColor: appColors.offWhite,
-          items: [
-            "Bedroom 1",
-            "Bedroom 2",
-            "Kitchen",
-            "Guest Bathroom 1",
-            "Guest Bathroom 2",
-            "Living Room",
-            "Dining Room",
-            "Custom Room",
+            CustomDropdownWidget(
+              borderColor: colorScheme.surfaceContainerHighest,
+              items: [
+                "Bedroom 1",
+                "Bedroom 2",
+                "Kitchen",
+                "Guest Bathroom 1",
+                "Guest Bathroom 2",
+                "Living Room",
+                "Dining Room",
+                "Custom Room",
+              ],
+              hintText: "Select room/zone",
+              selectedValue: selectedRoom.value,
+              onChanged: (value) {
+                selectedRoom.value = value ?? "";
+
+                if (value == "Custom Room") {
+                  showCustomRoomField.value = true;
+                } else {
+                  showCustomRoomField.value = false;
+                  customRoomController.clear();
+                }
+              },
+            ),
+
+            // Custom Room Field
+            if (showCustomRoomField.value) ...[
+              SizedBox(height: 16.h),
+              buildTextField(
+                "Enter custom room name",
+                customRoomController,
+                validator: (value) {
+                  if (showCustomRoomField.value &&
+                      (value == null || value.trim().isEmpty)) {
+                    return 'Please enter custom room name';
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.text,
+                minLines: 1,
+                maxLines: 1,
+              ),
+            ],
           ],
-          hintText: "Select room/zone",
-          selectedValue: selectedRoom.value,
-          onChanged: (value) {
-            selectedRoom.value = value ?? "";
-
-            if (value == "Custom Room") {
-              showCustomRoomField.value = true;
-            } else {
-              showCustomRoomField.value = false;
-              customRoomController.clear();
-            }
-          },
-        ),
-
-        // Custom Room Field
-        if (showCustomRoomField.value) ...[
-          SizedBox(height: 16.h),
-          buildTextField(
-            "Enter custom room name",
-            customRoomController,
-            validator: (value) {
-              if (showCustomRoomField.value &&
-                  (value == null || value.trim().isEmpty)) {
-                return 'Please enter custom room name';
-              }
-              return null;
-            },
-            keyboardType: TextInputType.text,
-            minLines: 1,
-            maxLines: 1,
-          ),
-        ],
-      ],
+        );
+      },
     );
   }
 
@@ -149,48 +154,53 @@ class CreateFromScratchScreen extends HookWidget {
     final TextEditingController taskDescriptionController =
         useTextEditingController();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CText(
-          'Tasks Details',
-          size: 18.sp,
-          weight: FontWeight.w600,
-          color: appColors.textPrimary,
-        ),
-        vGap(16.h),
-        buildTextField(
-          "Enter Task Name",
-          taskNameController,
-          validator:
-              (value) =>
-                  value == null || value.trim().isEmpty
-                      ? 'Please enter task name'
-                      : null,
-          keyboardType: TextInputType.text,
-          minLines: 1,
-          maxLines: 1,
-        ),
-        vGap(14.h),
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CText(
+              'Tasks Details',
+              size: 18.sp,
+              weight: FontWeight.w600,
+              color: colorScheme.onSurface,
+            ),
+            vGap(16.h),
+            buildTextField(
+              "Enter Task Name",
+              taskNameController,
+              validator:
+                  (value) =>
+                      value == null || value.trim().isEmpty
+                          ? 'Please enter task name'
+                          : null,
+              keyboardType: TextInputType.text,
+              minLines: 1,
+              maxLines: 1,
+            ),
+            vGap(14.h),
 
-        buildTextField(
-          "Add Task Description",
-          taskDescriptionController,
-          validator:
-              (value) =>
-                  value == null || value.trim().isEmpty
-                      ? 'Please enter task description'
-                      : null,
-          keyboardType: TextInputType.text,
-          minLines: 5,
-          // maxLines: 1,
-        ),
+            buildTextField(
+              "Add Task Description",
+              taskDescriptionController,
+              validator:
+                  (value) =>
+                      value == null || value.trim().isEmpty
+                          ? 'Please enter task description'
+                          : null,
+              keyboardType: TextInputType.text,
+              minLines: 5,
+              // maxLines: 1,
+            ),
 
-        // _buildTextAreaField(
-        //   controller: provider.taskDescriptionController,
-        //   hintText: 'Add Task description',
-        // ),
-      ],
+            // _buildTextAreaField(
+            //   controller: provider.taskDescriptionController,
+            //   hintText: 'Add Task description',
+            // ),
+          ],
+        );
+      },
     );
   }
 
@@ -201,92 +211,103 @@ class CreateFromScratchScreen extends HookWidget {
       useTextEditingController(),
     ];
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CText(
-          'Sub Tasks',
-          size: 18.sp,
-          weight: FontWeight.w600,
-          color: appColors.textPrimary,
-        ),
-        vGap(16.h),
-
-        // Default 3 sub-task fields
-        ...List.generate(subTaskControllers.length, (index) {
-          return Column(
-            children: [
-              buildTextField(
-                "Sub Task ${index + 1}",
-                subTaskControllers[index],
-                validator: null, // Sub tasks are optional
-                keyboardType: TextInputType.text,
-                minLines: 1,
-                maxLines: 1,
-              ),
-              if (index < subTaskControllers.length - 1) vGap(12.h),
-            ],
-          );
-        }),
-
-        vGap(16.h),
-
-        // Add More Sub Tasks Button
-        GestureDetector(
-          onTap: () => {subTaskControllers.add(TextEditingController())},
-          child: Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 15.h),
-            decoration: BoxDecoration(
-              color: appColors.blueAccentCustom,
-              borderRadius: BorderRadius.circular(10.r),
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CText(
+              'Sub Tasks',
+              size: 18.sp,
+              weight: FontWeight.w600,
+              color: colorScheme.onSurface,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.add, color: Colors.white, size: 20.sp),
-                hGap(5.w),
-                CText(
-                  'Add More Sub Tasks',
-                  size: 18.sp,
-                  weight: FontWeight.w600,
-                  color: appColors.white,
+            vGap(16.h),
+
+            // Default 3 sub-task fields
+            ...List.generate(subTaskControllers.length, (index) {
+              return Column(
+                children: [
+                  buildTextField(
+                    "Sub Task ${index + 1}",
+                    subTaskControllers[index],
+                    validator: null, // Sub tasks are optional
+                    keyboardType: TextInputType.text,
+                    minLines: 1,
+                    maxLines: 1,
+                  ),
+                  if (index < subTaskControllers.length - 1) vGap(12.h),
+                ],
+              );
+            }),
+
+            vGap(16.h),
+
+            // Add More Sub Tasks Button
+            GestureDetector(
+              onTap: () => {subTaskControllers.add(TextEditingController())},
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 15.h),
+                decoration: BoxDecoration(
+                  color: colorScheme.secondary,
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
-              ],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.add, color: Colors.white, size: 20.sp),
+                    hGap(5.w),
+                    CText(
+                      'Add More Sub Tasks',
+                      size: 18.sp,
+                      weight: FontWeight.w600,
+                      color: colorScheme.surface,
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 
   Widget _buildRequirePhotoSection() {
     final requirePhoto = useState<bool>(false);
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CText(
-          'Require Photo',
-          size: 18.sp,
-          weight: FontWeight.w600,
-          color: appColors.textPrimary,
-        ),
-        hGap(5.w),
-        Spacer(),
-        CustomToggleSwitch(
-          initialValue: requirePhoto.value,
-          onChanged: (val) {
-            requirePhoto.value = val;
-          },
-        ),
-        hGap(5.w),
-      ],
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CText(
+              'Require Photo',
+              size: 18.sp,
+              weight: FontWeight.w600,
+              color: colorScheme.onSurface,
+            ),
+            hGap(5.w),
+            Spacer(),
+            CustomToggleSwitch(
+              initialValue: requirePhoto.value,
+              onChanged: (val) {
+                requirePhoto.value = val;
+              },
+            ),
+            hGap(5.w),
+          ],
+        );
+      },
     );
   }
 
   Widget _buildRecurrenceSettingsSection(BuildContext context) {
     final TextEditingController startTimeController =
         useTextEditingController();
+    final appColors = context.appColorExtension;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -334,6 +355,7 @@ class CreateFromScratchScreen extends HookWidget {
   }
 
   Widget _buildActionButtons(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
         GestureDetector(
@@ -349,14 +371,14 @@ class CreateFromScratchScreen extends HookWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15.r),
-              border: Border.all(color: appColors.blueAccentCustom),
+              border: Border.all(color: colorScheme.secondary),
             ),
             child: Center(
               child: CText(
                 'Assign Task',
                 size: 18.sp,
                 weight: FontWeight.w600,
-                color: appColors.blueAccentCustom,
+                color: colorScheme.secondary,
               ),
             ),
           ),
@@ -369,7 +391,7 @@ class CreateFromScratchScreen extends HookWidget {
             width: double.infinity,
             // padding: EdgeInsets.symmetric(vertical: 12.h),
             decoration: BoxDecoration(
-              color: appColors.blueAccentCustom,
+              color: colorScheme.secondary,
               borderRadius: BorderRadius.circular(15.r),
             ),
             child: Row(
@@ -395,13 +417,14 @@ class CreateFromScratchScreen extends HookWidget {
 
   void _addMoreTask(BuildContext context) {
     // provider.clearForm();
+    final colorScheme = Theme.of(context).colorScheme;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: CText(
           'Form cleared. Ready to add another task!',
           color: Colors.white,
         ),
-        backgroundColor: appColors.blueAccentCustom,
+        backgroundColor: colorScheme.secondary,
       ),
     );
   }

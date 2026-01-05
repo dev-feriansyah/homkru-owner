@@ -4,7 +4,7 @@ import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/shared/utils/date_time_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
+import 'package:homekru_owner/core/theme/app_color_extension.dart';
 import 'package:homekru_owner/shared/widgets/custom_dropdown_widget.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
@@ -20,6 +20,8 @@ void addFrequencyPopup(context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
+      final colorScheme = Theme.of(context).colorScheme;
+      final appColors = context.appColorExtension;
       return Dialog(
         child: StatefulBuilder(
           builder: (context, setState) {
@@ -32,7 +34,7 @@ void addFrequencyPopup(context) {
             return Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: appColors.white,
+                color: colorScheme.surface,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
@@ -49,7 +51,7 @@ void addFrequencyPopup(context) {
                           textAlign: TextAlign.start,
                           size: 18.sp,
                           weight: FontWeight.w600,
-                          color: appColors.textPrimary,
+                          color: colorScheme.onSurface,
                         ),
                       ),
                       GestureDetector(
@@ -59,11 +61,8 @@ void addFrequencyPopup(context) {
                         },
                         child: CircleAvatar(
                           radius: 16,
-                          backgroundColor: appColors.lightBlue,
-                          child: Icon(
-                            Icons.close,
-                            color: appColors.primaryColor,
-                          ),
+                          backgroundColor: colorScheme.primaryContainer,
+                          child: Icon(Icons.close, color: colorScheme.primary),
                         ),
                       ),
                     ],

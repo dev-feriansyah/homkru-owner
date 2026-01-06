@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/shared/domain/value_objects/app_language.dart';
 import 'package:homekru_owner/shared/domain/value_objects/notification_setting.dart';
+import 'package:homekru_owner/shared/providers/locale_provider.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
@@ -11,14 +11,16 @@ import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
 import 'package:homekru_owner/shared/widgets/custom_home_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/task_dropdown.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SettingsScreen extends HookWidget {
+class SettingsScreen extends HookConsumerWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final localeNotifier = ref.read(localeProvider.notifier);
 
+    final colorScheme = Theme.of(context).colorScheme;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final TextEditingController phoneController = TextEditingController();
     final TextEditingController changePassController = TextEditingController();
@@ -106,9 +108,17 @@ class SettingsScreen extends HookWidget {
                 /// 🔹 Language Dropdown
                 TaskDropdown(
                   hintText: "Select Language",
-                  selectedTask: null,
+                  selectedTask: localeNotifier.currentLanguage().label,
                   tasks: AppLanguage.values.map((e) => e.label).toList(),
-                  onChanged: (value) => {},
+                  onChanged: (value) {
+                    // Find the AppLanguage matching the selected label
+                    final selectedLanguage = AppLanguage.values.firstWhere(
+                      (lang) => lang.label == value,
+                      orElse: () => AppLanguage.english,
+                    );
+                    // Update locale using the AppLanguage
+                    localeNotifier.setLanguage(selectedLanguage);
+                  },
                 ),
                 vGap(14.h),
 

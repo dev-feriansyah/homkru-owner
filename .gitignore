@@ -33,6 +33,10 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Localization generated files
+lib/core/l10n/generated/
+*.g.dart
+
 # Symbolication related
 app.*.symbols
 

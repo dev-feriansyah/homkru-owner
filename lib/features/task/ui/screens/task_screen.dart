@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:homekru_owner/core/l10n/l10n_helper.dart';
 import 'package:homekru_owner/shared/widgets/add_fab.dart';
-import 'package:homekru_owner/core/constants/app_strings.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/features/task/ui/widgets/task_card.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
@@ -280,7 +280,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                       description: "This is an upcoming task description",
                       assignedTo: "John Doe",
                       time: "2:00 PM",
-                      status: AppStrings.pending,
+                      status: context.l10n.pending,
                     );
                   },
                 ),
@@ -357,7 +357,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
                       description: "This task has been completed successfully",
                       assignedTo: "Jane Smith",
                       time: "9:00 AM",
-                      status: AppStrings.complete,
+                      status: context.l10n.complete,
                     );
                   },
                 ),
@@ -371,11 +371,11 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
 
   String _getTaskStatus(int index) {
     final statuses = [
-      AppStrings.complete,
-      AppStrings.pending,
-      AppStrings.inProgress,
-      AppStrings.complete,
-      AppStrings.pending,
+      context.l10n.complete,
+      context.l10n.pending,
+      context.l10n.inProgress,
+      context.l10n.complete,
+      context.l10n.pending,
     ];
     return statuses[index % statuses.length];
   }

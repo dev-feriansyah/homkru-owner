@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:homekru_owner/core/l10n/l10n_helper.dart';
 import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -19,15 +20,15 @@ class StatusChip extends StatelessWidget {
     final appColors = context.appColors;
 
     return {
-      'complete': StatusStyle(
+      context.l10n.complete: StatusStyle(
         appColors.successColor.withValues(alpha: 0.1),
         appColors.successColor,
       ),
-      'in progress': StatusStyle(
+      context.l10n.inProgress: StatusStyle(
         colorScheme.primary.withValues(alpha: 0.1),
         colorScheme.primary,
       ),
-      'pending': StatusStyle(
+      context.l10n.pending: StatusStyle(
         appColors.warningColor.withValues(alpha: 0.1),
         appColors.warningColor,
       ),
@@ -37,8 +38,7 @@ class StatusChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final statusColors = _getStatusColors(context);
-    final style =
-        statusColors[status.toLowerCase()] ?? statusColors['pending']!;
+    final style = statusColors[status] ?? statusColors[context.l10n.pending]!;
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.sp),

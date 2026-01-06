@@ -1,0 +1,144 @@
+{
+  "@@locale": "en",
+
+  "pending": "Pending",
+  "complete": "Complete",
+  "inProgress": "In Progress",
+  "all": "All",
+  "takeAction": "Take Action",
+  "markAllAsApproved": "Mark all as Approved",
+
+  "assignedTo": "Assigned to",
+  "roomZone": "Room/Zone",
+  "description": "Description",
+  "subTask": "Sub Task",
+  "recurrenceSettings": "Recurrence Settings",
+  "frequency": "Frequency",
+  "time": "Time",
+  "duration": "Duration",
+
+  "action": "Action",
+  "actionitems": "Action Items",
+  "approve": "Approve",
+  "reject": "Reject",
+  "viewDetails": "View Details",
+  "type": "Type",
+  "items": "Items",
+  "urgency": "Urgency",
+  "taskProofApprovals": "Task Proof Approvals",
+  "leaveRequests": "Leave Requests",
+
+  "homeowner": "Homeowner",
+  "mainNavigation": "Main Navigation",
+  "aboutUs": "About Us",
+  "actionItems": "Action Items",
+  "attendance": "Attendance",
+  "deduction": "Deduction",
+  "overtime": "Overtime",
+  "manageSubscription": "Manage Subscription",
+  "settings": "Settings",
+  "termsAndConditions": "Terms and Conditions",
+  "privacyPolicy": "Privacy Policy",
+  "blog": "Blog",
+  "faqs": "FAQs",
+  "logout": "Logout",
+
+  "wouldYouLikeToInvite": "Would you like to invite",
+  "enterYourEmail": "Enter your email",
+  "pleaseEnterEmail": "Please enter email",
+  "coOwner": "Co-owner",
+  "helper": "Helper",
+  "continueText": "Continue",
+  "proceedText": "Proceed",
+  "enterValidEmail": "Enter valid email",
+
+  "helperDetails": "Helper Details",
+  "roleOfHelper": "Role of helper",
+  "enterYourRole": "Enter your role",
+  "pleaseEnterRole": "Please enter role",
+  "enterValidRole": "Enter valid role",
+  "phoneNumber": "Phone number",
+  "enterYourPhoneNumber": "Enter your phone number",
+  "liveInStatus": "Live-in status",
+  "liveInHelper": "Live-in Helper",
+  "nonLiveInHelper": "Non Live-in Helper",
+  "wouldYouLikeToSetupHelperProfile": "Would you like to setup the helper profile now?",
+  "yes": "Yes",
+  "noSkipForLater": "No, skip for later",
+  "inviteViaCode": "Invite via code",
+  "pleaseEnterPhoneNumber": "Please enter phone number",
+  "enterValidPhoneNumber": "Enter valid phone number",
+
+  "note": "Note",
+  "helperProfileSetupLaterNote": "You have chosen to set up helper profile later. You can configure the helper details in the helper management section.",
+
+  "helperOverview": "Helper Overview",
+  "todaysTasks": "Today's Tasks",
+  "dayOffEligibility": "Day off Eligibility",
+  "resourceRequests": "Resource Requests",
+  "viewAllTasks": "View All Tasks",
+  "viewAttendanceLog": "View Attendance Log",
+  "allocatedLeaves": "Allocated Leaves",
+  "weekly": "Weekly",
+  "daily": "Daily",
+  "monthly": "Monthly",
+
+  "done": "Done",
+  "completed": "Completed",
+
+  "todayTimeFormat": "Today - {time}",
+  "@todayTimeFormat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "timeRangeFormat": "{start} - {end}",
+  "@timeRangeFormat": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "helperName": "Helper Name",
+  "attendanceTime": "Attendance & Time",
+
+  "nonLiveInHelperSettings": "Non-Live-In Helper Settings",
+  "gpsBasedCheckInOut": "GPS-based Check-in/out",
+  "startTime": "Start Time",
+  "endTime": "End Time",
+  "downtimePreference": "Downtime Preference",
+  "defaultCheckInTime": "Default Check-in Time",
+  "checkInCheckOutFrequency": "Check-in/Check-out Frequency",
+  "custom": "Custom",
+  "overtimeSettings": "Overtime Settings",
+  "deductionSettings": "Deduction Settings",
+  "eligibleForOvertime": "Eligible for overtime",
+  "trackOvertimeBasedOnCheckout": "Would you like us to keep track of Maria's overtime based on check-out time?",
+  "overtimeRatePerHour": "Overtime rate (per hour)",
+  "enterYourDeductionRate": "Enter your deduction rate",
+  "liveInHelperSettings": "Live-In Helper Settings",
+  "workingHours": "Working Hours",
+  "noEndTime": "No End Time",
+  "entitledForDayOff": "Entitled for day off",
+  "numberOfDays": "Number off Days",
+  "maidNonLiveIn": "Maid Non live-in",
+
+  "sortBy": "Sort By",
+  "status": "Status",
+  "filter": "Filter",
+  "memberTasks": "Member Tasks",
+  "tasks": "Tasks",
+  "allTasks": "All Tasks",
+
+  "edit": "Edit",
+  "checkedIn": "Checked-In",
+  "score": "Score",
+  "punctuality": "Punctuality",
+  "taskDetail": "Task Details"
+}

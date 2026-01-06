@@ -110,6 +110,105 @@ lib/
 
 For detailed architecture documentation, see [ARCHITECTURE.md.](./ARCHITECTURE.md)
 
+## 🌍 Localization Migration
+
+### Status
+
+We are gradually migrating from `AppStrings` constants to proper localization using `context.l10n`.
+
+**Current state:**
+
+- ✅ Localization infrastructure set up (Phase 1 complete)
+- ⏳ AppStrings usage being replaced opportunistically
+- 📋 ~19 files still use AppStrings
+
+### When Working on Features
+
+**If you encounter `AppStrings.xxx` usage:**
+
+1. Replace it with `context.l10n.xxx`
+2. Ensure BuildContext is available
+3. Add import: `import 'package:homekru_owner/core/l10n/l10n_helper.dart';`
+4. Remove old import: `import 'package:homekru_owner/core/constants/app_strings.dart';`
+5. Test in both English and Indonesian
+
+### Migration Patterns
+
+#### ✅ Simple Replacement (Most Common)
+
+```dart
+// Before:
+Text(AppStrings.helperOverview)
+
+// After:
+Text(context.l10n.helperOverview)
+```
+
+#### ⚠️ Form Validators (Special Case)
+
+If you encounter validators using AppStrings:
+
+```dart
+// Before:
+validator: (value) {
+  if (value?.isEmpty ?? true) {
+    return AppStrings.pleaseEnterEmail;  // ❌ No BuildContext
+  }
+  return null;
+}
+
+// After - Capture context before validator:
+Widget build(BuildContext context) {
+  final l10n = context.l10n;
+
+  return TextFormField(
+    validator: (value) {
+      if (value?.isEmpty ?? true) {
+        return l10n.pleaseEnterEmail;  // ✅ Uses captured context
+      }
+      return null;
+    },
+  );
+}
+```
+
+#### ℹ️ Const Parameters (Rare Case)
+
+If you see const default parameters with AppStrings:
+
+```dart
+// Before:
+const MyWidget({
+  this.title = AppStrings.defaultTitle,  // ❌ Compile-time constant required
+})
+
+// After - Make nullable, set default in build():
+const MyWidget({
+  this.title,  // ✅ Nullable
+})
+
+@override
+Widget build(BuildContext context) {
+  final displayTitle = title ?? context.l10n.defaultTitle;
+  // use displayTitle
+}
+```
+
+### Guidelines
+
+**Don't:**
+
+- ❌ Remove `AppStrings` class yet (other files still use it)
+- ❌ Mass-replace without testing
+- ❌ Forget to test in both languages
+
+**Do:**
+
+- ✅ Migrate files as you work on them
+- ✅ Test language switching
+- ✅ Ask questions if you hit edge cases
+- ✅ Update this README when AppStrings is fully removed
+
 ## ✨ Main Features
 
 ### 🏠 Household Management

@@ -1,0 +1,144 @@
+{
+  "@@locale": "id",
+
+  "pending": "Tertunda",
+  "complete": "Selesai",
+  "inProgress": "Sedang Berlangsung",
+  "all": "Semua",
+  "takeAction": "Ambil Tindakan",
+  "markAllAsApproved": "Tandai semua sebagai Disetujui",
+
+  "assignedTo": "Ditugaskan kepada",
+  "roomZone": "Ruangan/Zona",
+  "description": "Deskripsi",
+  "subTask": "Sub Tugas",
+  "recurrenceSettings": "Pengaturan Pengulangan",
+  "frequency": "Frekuensi",
+  "time": "Waktu",
+  "duration": "Durasi",
+
+  "action": "Tindakan",
+  "actionitems": "Item Tindakan",
+  "approve": "Setujui",
+  "reject": "Tolak",
+  "viewDetails": "Lihat Detail",
+  "type": "Tipe",
+  "items": "Item",
+  "urgency": "Urgensi",
+  "taskProofApprovals": "Persetujuan Bukti Tugas",
+  "leaveRequests": "Permintaan Cuti",
+
+  "homeowner": "Pemilik Rumah",
+  "mainNavigation": "Navigasi Utama",
+  "aboutUs": "Tentang Kami",
+  "actionItems": "Item Tindakan",
+  "attendance": "Kehadiran",
+  "deduction": "Potongan",
+  "overtime": "Lembur",
+  "manageSubscription": "Kelola Langganan",
+  "settings": "Pengaturan",
+  "termsAndConditions": "Syarat dan Ketentuan",
+  "privacyPolicy": "Kebijakan Privasi",
+  "blog": "Blog",
+  "faqs": "FAQ",
+  "logout": "Keluar",
+
+  "wouldYouLikeToInvite": "Apakah Anda ingin mengundang",
+  "enterYourEmail": "Masukkan email Anda",
+  "pleaseEnterEmail": "Silakan masukkan email",
+  "coOwner": "Pemilik Bersama",
+  "helper": "Pembantu",
+  "continueText": "Lanjutkan",
+  "proceedText": "Lanjutkan",
+  "enterValidEmail": "Masukkan email yang valid",
+
+  "helperDetails": "Detail Pembantu",
+  "roleOfHelper": "Peran pembantu",
+  "enterYourRole": "Masukkan peran Anda",
+  "pleaseEnterRole": "Silakan masukkan peran",
+  "enterValidRole": "Masukkan peran yang valid",
+  "phoneNumber": "Nomor telepon",
+  "enterYourPhoneNumber": "Masukkan nomor telepon Anda",
+  "liveInStatus": "Status tinggal di tempat",
+  "liveInHelper": "Pembantu Tinggal di Tempat",
+  "nonLiveInHelper": "Pembantu Tidak Tinggal di Tempat",
+  "wouldYouLikeToSetupHelperProfile": "Apakah Anda ingin mengatur profil pembantu sekarang?",
+  "yes": "Ya",
+  "noSkipForLater": "Tidak, lewati untuk nanti",
+  "inviteViaCode": "Undang melalui kode",
+  "pleaseEnterPhoneNumber": "Silakan masukkan nomor telepon",
+  "enterValidPhoneNumber": "Masukkan nomor telepon yang valid",
+
+  "note": "Catatan",
+  "helperProfileSetupLaterNote": "Anda telah memilih untuk mengatur profil pembantu nanti. Anda dapat mengonfigurasi detail pembantu di bagian manajemen pembantu.",
+
+  "helperOverview": "Ringkasan Pembantu",
+  "todaysTasks": "Tugas Hari Ini",
+  "dayOffEligibility": "Kelayakan Hari Libur",
+  "resourceRequests": "Permintaan Sumber Daya",
+  "viewAllTasks": "Lihat Semua Tugas",
+  "viewAttendanceLog": "Lihat Log Kehadiran",
+  "allocatedLeaves": "Cuti yang Dialokasikan",
+  "weekly": "Mingguan",
+  "daily": "Harian",
+  "monthly": "Bulanan",
+
+  "done": "Selesai",
+  "completed": "Selesai",
+
+  "todayTimeFormat": "Hari ini - {time}",
+  "@todayTimeFormat": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "timeRangeFormat": "{start} - {end}",
+  "@timeRangeFormat": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "helperName": "Nama Pembantu",
+  "attendanceTime": "Kehadiran & Waktu",
+
+  "nonLiveInHelperSettings": "Pengaturan Pembantu Tidak Tinggal di Tempat",
+  "gpsBasedCheckInOut": "Check-in/out berbasis GPS",
+  "startTime": "Waktu Mulai",
+  "endTime": "Waktu Selesai",
+  "downtimePreference": "Preferensi Waktu Istirahat",
+  "defaultCheckInTime": "Waktu Check-in Default",
+  "checkInCheckOutFrequency": "Frekuensi Check-in/Check-out",
+  "custom": "Kustom",
+  "overtimeSettings": "Pengaturan Lembur",
+  "deductionSettings": "Pengaturan Potongan",
+  "eligibleForOvertime": "Memenuhi syarat untuk lembur",
+  "trackOvertimeBasedOnCheckout": "Apakah Anda ingin kami melacak lembur Maria berdasarkan waktu check-out?",
+  "overtimeRatePerHour": "Tarif lembur (per jam)",
+  "enterYourDeductionRate": "Masukkan tarif potongan Anda",
+  "liveInHelperSettings": "Pengaturan Pembantu Tinggal di Tempat",
+  "workingHours": "Jam Kerja",
+  "noEndTime": "Tidak Ada Waktu Selesai",
+  "entitledForDayOff": "Berhak atas hari libur",
+  "numberOfDays": "Jumlah Hari",
+  "maidNonLiveIn": "Pembantu Tidak Tinggal di Tempat",
+
+  "sortBy": "Urutkan Berdasarkan",
+  "status": "Status",
+  "filter": "Filter",
+  "memberTasks": "Tugas Anggota",
+  "tasks": "Tugas",
+  "allTasks": "Semua Tugas",
+
+  "edit": "Edit",
+  "checkedIn": "Sudah Check-In",
+  "score": "Skor",
+  "punctuality": "Ketepatan Waktu",
+  "taskDetail": "Detail Tugas"
+}

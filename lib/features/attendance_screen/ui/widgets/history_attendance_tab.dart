@@ -9,6 +9,9 @@ class HistoryAttendanceTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final selectedDate = useState<DateTime>(
       DateTime.now().subtract(Duration(days: 1)),
     );
@@ -71,7 +74,7 @@ class HistoryAttendanceTab extends HookWidget {
                       return Theme(
                         data: Theme.of(context).copyWith(
                           colorScheme: ColorScheme.light(
-                            primary: appColors.primaryColor,
+                            primary: colorScheme.primary,
                             onPrimary: Colors.white,
                             onSurface: Colors.black,
                           ),
@@ -87,7 +90,7 @@ class HistoryAttendanceTab extends HookWidget {
                 },
                 child: Icon(
                   Icons.calendar_month_rounded,
-                  color: appColors.primaryColor,
+                  color: colorScheme.primary,
                   size: 25,
                 ),
               ),
@@ -107,10 +110,10 @@ class HistoryAttendanceTab extends HookWidget {
                   vertical: 20,
                 ),
                 decoration: BoxDecoration(
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(
-                    color: appColors.primaryColor.withValues(alpha: 0.3),
+                    color: colorScheme.primary.withValues(alpha: 0.3),
                     width: 1.5,
                   ),
                   // boxShadow: [BoxShadow(blurRadius: 6, color: appTheme.main.withValues(alpha: 0.3))],
@@ -123,11 +126,11 @@ class HistoryAttendanceTab extends HookWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CircleAvatar(
-                          backgroundColor: appColors.lightBlueTwo,
+                          backgroundColor: colorScheme.secondaryContainer,
                           radius: 18,
                           child: CText(
                             convertNameToInitials(item['name']!),
-                            color: appColors.primaryColor,
+                            color: colorScheme.primary,
                             size: 11,
                             weight: FontWeight.bold,
                           ),
@@ -161,7 +164,7 @@ class HistoryAttendanceTab extends HookWidget {
                           _buildTag(
                             'Day Off',
                             appColors.lightPink.withValues(alpha: 0.6),
-                            appColors.darkRed,
+                            colorScheme.error,
                           )
                         else
                           _buildTag(

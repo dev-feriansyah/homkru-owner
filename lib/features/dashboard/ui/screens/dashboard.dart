@@ -7,7 +7,6 @@ import 'package:homekru_owner/features/task/ui/screens/task_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/features/side_drawer/side_drawer.dart';
 
-import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -25,6 +24,8 @@ class Dashboard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     final dashboardIndex = ref.watch(dashboardIndexProvider);
     final notifier = ref.read(dashboardIndexProvider.notifier);
 
@@ -91,7 +92,7 @@ class Dashboard extends ConsumerWidget {
                       width: isSelected ? 1.sw / 4 : 0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: appColors.primaryColor,
+                        color: colorScheme.primary,
                       ),
                     ),
 
@@ -108,7 +109,7 @@ class Dashboard extends ConsumerWidget {
                                   imagePath: icons[i],
                                   color:
                                       isSelected
-                                          ? appColors.primaryColor
+                                          ? colorScheme.primary
                                           : Colors.grey.shade700,
                                   height: 25,
                                 ),
@@ -124,7 +125,7 @@ class Dashboard extends ConsumerWidget {
                                             : FontWeight.w600,
                                     color:
                                         isSelected
-                                            ? appColors.black
+                                            ? colorScheme.onSurface
                                             : Colors.grey.shade700,
                                   ),
                                 ),

@@ -11,27 +11,30 @@ class TaskManagementScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final TabController tabController = useTabController(initialLength: 2);
 
     return Scaffold(
-      backgroundColor: appColors.white,
+      backgroundColor: colorScheme.surface,
       appBar: CustomCommonAppBar(
         title: 'Task Management',
-        backgroundColor: appColors.white,
+        backgroundColor: colorScheme.surface,
       ),
       body:
       // provider.isLoading
       //     ? const Center(child: CircularProgressIndicator())
       //     :
       Container(
-        color: appColors.lightBlue,
+        color: colorScheme.primaryContainer,
         child: Column(
           children: [
             Container(
               height: 30.h,
               // margin: EdgeInsets.all(16.w),
               decoration: BoxDecoration(
-                color: appColors.white,
+                color: colorScheme.surface,
                 // borderRadius: BorderRadius.circular(8.r),
               ),
               child: TabBar(
@@ -39,14 +42,14 @@ class TaskManagementScreen extends HookWidget {
                 indicator: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: appColors.blueAccentCustom,
+                      color: colorScheme.secondary,
                       width: 1.0,
                     ),
                   ),
                 ),
                 indicatorSize: TabBarIndicatorSize.tab,
                 dividerColor: Colors.transparent,
-                labelColor: appColors.blueAccentCustom,
+                labelColor: colorScheme.secondary,
                 unselectedLabelColor: appColors.greyAA,
                 labelStyle: TextStyle(
                   fontSize: 14.sp,

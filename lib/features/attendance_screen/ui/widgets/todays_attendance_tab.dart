@@ -39,12 +39,17 @@ class TodayAttendanceTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final formKey = GlobalKey<FormState>();
     final selectedDate = useState<DateTime>(
       DateTime.now().subtract(Duration(days: 1)),
     );
 
     void reminderPopup(context) {
+      final colorScheme = Theme.of(context).colorScheme;
+      final appColors = context.appColorExtension;
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -54,7 +59,7 @@ class TodayAttendanceTab extends HookWidget {
                 return Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: appColors.white,
+                    color: colorScheme.surface,
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Column(
@@ -80,10 +85,10 @@ class TodayAttendanceTab extends HookWidget {
                             },
                             child: CircleAvatar(
                               radius: 16,
-                              backgroundColor: appColors.lightBlueTwo,
+                              backgroundColor: colorScheme.secondaryContainer,
                               child: Icon(
                                 Icons.close,
-                                color: appColors.primaryColor,
+                                color: colorScheme.primary,
                               ),
                             ),
                           ),
@@ -128,7 +133,7 @@ class TodayAttendanceTab extends HookWidget {
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide(
-                                      color: appColors.primaryColor,
+                                      color: colorScheme.primary,
                                     ),
                                   ),
                                 ),
@@ -179,7 +184,7 @@ class TodayAttendanceTab extends HookWidget {
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide(
-                                      color: appColors.primaryColor,
+                                      color: colorScheme.primary,
                                     ),
                                   ),
                                 ),
@@ -214,14 +219,14 @@ class TodayAttendanceTab extends HookWidget {
                           width: 1.sw,
                           padding: EdgeInsets.symmetric(vertical: 15),
                           decoration: BoxDecoration(
-                            color: appColors.primaryColor,
+                            color: colorScheme.primary,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: CText(
                             'Save',
                             textAlign: TextAlign.center,
                             size: 16,
-                            color: appColors.white,
+                            color: colorScheme.surface,
                             weight: FontWeight.bold,
                           ),
                         ),
@@ -319,7 +324,7 @@ class TodayAttendanceTab extends HookWidget {
                       return Theme(
                         data: Theme.of(context).copyWith(
                           colorScheme: ColorScheme.light(
-                            primary: appColors.primaryColor,
+                            primary: colorScheme.primary,
                             onPrimary: Colors.white,
                             onSurface: Colors.black,
                           ),
@@ -335,7 +340,7 @@ class TodayAttendanceTab extends HookWidget {
                 },
                 child: Icon(
                   Icons.calendar_month_rounded,
-                  color: appColors.primaryColor,
+                  color: colorScheme.primary,
                   size: 25,
                 ),
               ),
@@ -353,10 +358,10 @@ class TodayAttendanceTab extends HookWidget {
                 margin: const EdgeInsets.only(bottom: 20),
                 padding: const EdgeInsets.only(top: 15),
                 decoration: BoxDecoration(
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(
-                    color: appColors.primaryColor.withValues(alpha: 0.3),
+                    color: colorScheme.primary.withValues(alpha: 0.3),
                     width: 1.5,
                   ),
                   // boxShadow: [BoxShadow(blurRadius: 6, color: appTheme.main.withValues(alpha: 0.3))],
@@ -371,11 +376,11 @@ class TodayAttendanceTab extends HookWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CircleAvatar(
-                            backgroundColor: appColors.lightBlueTwo,
+                            backgroundColor: colorScheme.secondaryContainer,
                             radius: 18,
                             child: CText(
                               convertNameToInitials(item['name']!),
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                               size: 11,
                               weight: FontWeight.bold,
                             ),
@@ -444,7 +449,7 @@ class TodayAttendanceTab extends HookWidget {
                                             child: Container(
                                               padding: EdgeInsets.all(20),
                                               decoration: BoxDecoration(
-                                                color: appColors.white,
+                                                color: colorScheme.surface,
                                                 borderRadius:
                                                     BorderRadius.circular(25),
                                               ),
@@ -475,13 +480,13 @@ class TodayAttendanceTab extends HookWidget {
                                                         child: CircleAvatar(
                                                           radius: 16,
                                                           backgroundColor:
-                                                              appColors
-                                                                  .lightBlueTwo,
+                                                              colorScheme
+                                                                  .secondaryContainer,
                                                           child: Icon(
                                                             Icons.close,
                                                             color:
-                                                                appColors
-                                                                    .primaryColor,
+                                                                colorScheme
+                                                                    .primary,
                                                           ),
                                                         ),
                                                       ),
@@ -517,8 +522,8 @@ class TodayAttendanceTab extends HookWidget {
                                                                 side: WidgetStateProperty.all(
                                                                   BorderSide(
                                                                     color:
-                                                                        appColors
-                                                                            .primaryColor,
+                                                                        colorScheme
+                                                                            .primary,
                                                                   ),
                                                                 ),
                                                               ),
@@ -541,8 +546,8 @@ class TodayAttendanceTab extends HookWidget {
                                                                   "Default",
                                                                   size: 14,
                                                                   color:
-                                                                      appColors
-                                                                          .primaryColor,
+                                                                      colorScheme
+                                                                          .primary,
                                                                   weight:
                                                                       FontWeight
                                                                           .bold,
@@ -572,8 +577,8 @@ class TodayAttendanceTab extends HookWidget {
                                                               ),
                                                               backgroundColor:
                                                                   WidgetStateProperty.all(
-                                                                    appColors
-                                                                        .primaryColor,
+                                                                    colorScheme
+                                                                        .primary,
                                                                   ),
                                                             ),
                                                             onPressed: () {
@@ -593,8 +598,8 @@ class TodayAttendanceTab extends HookWidget {
                                                               child: CText(
                                                                 "Custom",
                                                                 color:
-                                                                    appColors
-                                                                        .white,
+                                                                    colorScheme
+                                                                        .surface,
                                                                 size: 14,
                                                                 weight:
                                                                     FontWeight
@@ -629,7 +634,7 @@ class TodayAttendanceTab extends HookWidget {
                                       ),
                                       child: CText(
                                         item['tag']!,
-                                        color: appColors.darkRed,
+                                        color: colorScheme.error,
                                         size: 14,
                                         weight: FontWeight.w500,
                                       ),
@@ -642,7 +647,7 @@ class TodayAttendanceTab extends HookWidget {
                             _buildTag(
                               'Day Off',
                               appColors.lightPink.withValues(alpha: 0.6),
-                              appColors.darkRed,
+                              colorScheme.error,
                             )
                           else
                             _buildTag(
@@ -700,9 +705,9 @@ class TodayAttendanceTab extends HookWidget {
                 margin: const EdgeInsets.only(bottom: 16),
                 // padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: appColors.primaryColor),
+                  border: Border.all(color: colorScheme.primary),
                 ),
                 child: Stack(
                   children: [
@@ -727,7 +732,7 @@ class TodayAttendanceTab extends HookWidget {
                           CText(
                             item['title']!,
                             weight: FontWeight.bold,
-                            color: appColors.primaryColor,
+                            color: colorScheme.primary,
                             size: 16,
                           ),
                           const SizedBox(height: 8),
@@ -742,7 +747,7 @@ class TodayAttendanceTab extends HookWidget {
                               OutlinedButton(
                                 style: ButtonStyle(
                                   side: WidgetStateProperty.all(
-                                    BorderSide(color: appColors.primaryColor),
+                                    BorderSide(color: colorScheme.primary),
                                   ),
                                 ),
                                 onPressed: () {},
@@ -754,7 +759,7 @@ class TodayAttendanceTab extends HookWidget {
                                   child: CText(
                                     "No",
                                     size: 14,
-                                    color: appColors.primaryColor,
+                                    color: colorScheme.primary,
                                     weight: FontWeight.bold,
                                   ),
                                 ),
@@ -763,7 +768,7 @@ class TodayAttendanceTab extends HookWidget {
                               ElevatedButton(
                                 style: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appColors.primaryColor,
+                                    colorScheme.primary,
                                   ),
                                 ),
                                 onPressed: () {},
@@ -774,7 +779,7 @@ class TodayAttendanceTab extends HookWidget {
                                   ),
                                   child: CText(
                                     "Yes",
-                                    color: appColors.white,
+                                    color: colorScheme.surface,
                                     size: 14,
                                     weight: FontWeight.bold,
                                   ),

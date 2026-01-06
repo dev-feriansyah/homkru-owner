@@ -23,6 +23,9 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
       body: Container(
         width: 1.sw,
@@ -101,7 +104,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                   OtpTextField(
                                     numberOfFields: 6,
                                     borderColor: appColors.grey,
-                                    focusedBorderColor: appColors.primaryColor,
+                                    focusedBorderColor: colorScheme.primary,
                                     fieldWidth: 50,
                                     borderRadius: BorderRadius.circular(15),
                                     showFieldAsBox: true,
@@ -134,13 +137,13 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                 },
                                 text: "Verify OTP",
                                 buttonTextStyle: TextStyle(
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appColors.primaryColor,
+                                    colorScheme.primary,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(
@@ -164,7 +167,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                                       TextSpan(
                                         text: "Resend Now",
                                         style: TextStyle(
-                                          color: appColors.primaryColor,
+                                          color: colorScheme.primary,
                                           fontFamily: "PoppinsMedium",
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,

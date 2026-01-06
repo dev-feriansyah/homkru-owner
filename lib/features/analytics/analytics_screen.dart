@@ -32,8 +32,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: const CustomCommonAppBar(title: "Analytics"),
       body: Stack(
         children: [
@@ -59,7 +62,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                       "Timeframe:",
                       size: 16.sp,
                       weight: FontWeight.w600,
-                      color: appColors.textPrimary,
+                      color: colorScheme.onSurface,
                     ),
                     DropdownButton<String>(
                       value: _selectedTimeframe,
@@ -73,7 +76,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                               child: CText(
                                 timeframe,
                                 size: 14.sp,
-                                color: appColors.textPrimary,
+                                color: colorScheme.onSurface,
                               ),
                             );
                           }).toList(),
@@ -92,9 +95,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 color: Colors.white,
                 child: TabBar(
                   controller: _tabController,
-                  indicatorColor: appColors.primaryColor,
+                  indicatorColor: colorScheme.primary,
                   indicatorWeight: 3,
-                  labelColor: appColors.primaryColor,
+                  labelColor: colorScheme.primary,
                   unselectedLabelColor: appColors.grey,
                   labelStyle: TextStyle(
                     fontSize: 14.sp,
@@ -131,6 +134,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildOverviewTab() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
       child: Column(
@@ -144,7 +149,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   "Total Tasks",
                   "1,247",
                   "+15%",
-                  appColors.primaryColor,
+                  colorScheme.primary,
                 ),
               ),
               SizedBox(width: 12.w),
@@ -153,7 +158,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   "Completion Rate",
                   "94%",
                   "+3%",
-                  appColors.brightGreen,
+                  appColors.successColor,
                 ),
               ),
             ],
@@ -175,7 +180,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   "Efficiency",
                   "87%",
                   "+5%",
-                  appColors.orange,
+                  appColors.orangeDark,
                 ),
               ),
             ],
@@ -241,6 +246,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
     String change,
     Color color,
   ) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
@@ -269,7 +277,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             value,
             size: 24.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 4.h),
           Row(
@@ -281,8 +289,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 size: 16.sp,
                 color:
                     change.startsWith('+')
-                        ? appColors.brightGreen
-                        : appColors.darkRed,
+                        ? appColors.successColor
+                        : colorScheme.error,
               ),
               SizedBox(width: 4.w),
               CText(
@@ -290,8 +298,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 size: 12.sp,
                 color:
                     change.startsWith('+')
-                        ? appColors.brightGreen
-                        : appColors.darkRed,
+                        ? appColors.successColor
+                        : colorScheme.error,
                 weight: FontWeight.w600,
               ),
             ],
@@ -302,6 +310,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildPerformanceChart() {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -323,13 +332,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Performance Trend",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           SizedBox(
             height: 200.h,
             child: CustomPaint(
-              painter: LineChartPainter(),
+              painter: LineChartPainter(primaryColor: colorScheme.primary),
               size: Size.infinite,
             ),
           ),
@@ -339,6 +348,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildTrendAnalysis() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -360,18 +371,18 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Trend Analysis",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           _buildTrendItem(
             "Task completion rate is improving",
             Icons.trending_up,
-            appColors.brightGreen,
+            appColors.successColor,
           ),
           _buildTrendItem(
             "Average task time is decreasing",
             Icons.trending_down,
-            appColors.primaryColor,
+            colorScheme.primary,
           ),
           _buildTrendItem(
             "Helper satisfaction is stable",
@@ -384,6 +395,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildTrendItem(String text, IconData icon, Color color) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Padding(
       padding: EdgeInsets.only(bottom: 12.h),
       child: Row(
@@ -391,7 +403,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           Icon(icon, color: color, size: 20.sp),
           SizedBox(width: 12.w),
           Expanded(
-            child: CText(text, size: 14.sp, color: appColors.textPrimary),
+            child: CText(text, size: 14.sp, color: colorScheme.onSurface),
           ),
         ],
       ),
@@ -399,6 +411,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildTaskCategoryChart() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -420,12 +434,19 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Task Categories",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           SizedBox(
             height: 200.h,
-            child: CustomPaint(painter: PieChartPainter(), size: Size.infinite),
+            child: CustomPaint(
+              painter: PieChartPainter(
+                primaryColor: colorScheme.primary,
+                successColor: appColors.successColor,
+                amberColor: appColors.amber,
+              ),
+              size: Size.infinite,
+            ),
           ),
         ],
       ),
@@ -433,6 +454,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildTaskTimeline() {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -454,12 +476,15 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Task Completion Timeline",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           SizedBox(
             height: 150.h,
-            child: CustomPaint(painter: BarChartPainter(), size: Size.infinite),
+            child: CustomPaint(
+              painter: BarChartPainter(primaryColor: colorScheme.primary),
+              size: Size.infinite,
+            ),
           ),
         ],
       ),
@@ -467,6 +492,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildTopTasks() {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -488,7 +514,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Top Performing Tasks",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           _buildTaskItem("Kitchen Cleaning", "98%", "2.1h avg"),
@@ -501,6 +527,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildTaskItem(String task, String completion, String time) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Padding(
       padding: EdgeInsets.only(bottom: 12.h),
       child: Row(
@@ -509,7 +537,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           CText(
             task,
             size: 14.sp,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
             weight: FontWeight.w500,
           ),
           Row(
@@ -517,7 +545,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
               CText(
                 completion,
                 size: 12.sp,
-                color: appColors.brightGreen,
+                color: appColors.successColor,
                 weight: FontWeight.w600,
               ),
               SizedBox(width: 16.w),
@@ -530,6 +558,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildHelperPerformance() {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -551,7 +580,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Helper Performance",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           _buildHelperItem("Maria Johnson", "4.8", "156 tasks"),
@@ -564,17 +593,19 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildHelperItem(String name, String rating, String tasks) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Padding(
       padding: EdgeInsets.only(bottom: 12.h),
       child: Row(
         children: [
           CircleAvatar(
             radius: 20.r,
-            backgroundColor: appColors.primaryColor.withValues(alpha: 0.1),
+            backgroundColor: colorScheme.primary.withValues(alpha: 0.1),
             child: CText(
               name[0],
               size: 16.sp,
-              color: appColors.primaryColor,
+              color: colorScheme.primary,
               weight: FontWeight.bold,
             ),
           ),
@@ -586,7 +617,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 CText(
                   name,
                   size: 14.sp,
-                  color: appColors.textPrimary,
+                  color: colorScheme.onSurface,
                   weight: FontWeight.w600,
                 ),
                 CText(tasks, size: 12.sp, color: appColors.grey),
@@ -600,7 +631,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
               CText(
                 rating,
                 size: 14.sp,
-                color: appColors.textPrimary,
+                color: colorScheme.onSurface,
                 weight: FontWeight.w600,
               ),
             ],
@@ -611,6 +642,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildHelperDistribution() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -632,13 +665,16 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Helper Distribution",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           SizedBox(
             height: 200.h,
             child: CustomPaint(
-              painter: HelperDistributionPainter(),
+              painter: HelperDistributionPainter(
+                primaryColor: colorScheme.primary,
+                successColor: appColors.successColor,
+              ),
               size: Size.infinite,
             ),
           ),
@@ -648,6 +684,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
   }
 
   Widget _buildHelperRatings() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -669,34 +707,35 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             "Helper Ratings",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
-          _buildRatingBar("5 Stars", 85, appColors.brightGreen),
-          _buildRatingBar("4 Stars", 12, appColors.primaryColor),
+          _buildRatingBar("5 Stars", 85, appColors.successColor),
+          _buildRatingBar("4 Stars", 12, colorScheme.primary),
           _buildRatingBar("3 Stars", 2, appColors.amber),
-          _buildRatingBar("2 Stars", 1, appColors.orange),
-          _buildRatingBar("1 Star", 0, appColors.darkRed),
+          _buildRatingBar("2 Stars", 1, appColors.orangeDark),
+          _buildRatingBar("1 Star", 0, colorScheme.error),
         ],
       ),
     );
   }
 
   Widget _buildRatingBar(String label, int percentage, Color color) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Padding(
       padding: EdgeInsets.only(bottom: 8.h),
       child: Row(
         children: [
           SizedBox(
             width: 60.w,
-            child: CText(label, size: 12.sp, color: appColors.textPrimary),
+            child: CText(label, size: 12.sp, color: colorScheme.onSurface),
           ),
           SizedBox(width: 8.w),
           Expanded(
             child: Container(
               height: 8.h,
               decoration: BoxDecoration(
-                color: appColors.veryLightGrey,
+                color: colorScheme.outlineVariant,
                 borderRadius: BorderRadius.circular(4.r),
               ),
               child: FractionallySizedBox(
@@ -715,7 +754,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           CText(
             "$percentage%",
             size: 12.sp,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
             weight: FontWeight.w600,
           ),
         ],
@@ -726,11 +765,15 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
 
 // Custom Painters for Charts
 class LineChartPainter extends CustomPainter {
+  final Color primaryColor;
+
+  LineChartPainter({required this.primaryColor});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint =
         Paint()
-          ..color = Color(0xFF3B70B9)
+          ..color = primaryColor
           ..strokeWidth = 2
           ..style = PaintingStyle.stroke;
 
@@ -757,6 +800,16 @@ class LineChartPainter extends CustomPainter {
 }
 
 class PieChartPainter extends CustomPainter {
+  final Color primaryColor;
+  final Color successColor;
+  final Color amberColor;
+
+  PieChartPainter({
+    required this.primaryColor,
+    required this.successColor,
+    required this.amberColor,
+  });
+
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
@@ -765,7 +818,7 @@ class PieChartPainter extends CustomPainter {
     final paint = Paint()..style = PaintingStyle.fill;
 
     // Draw pie slices
-    paint.color = Color(0xFF3B70B9);
+    paint.color = primaryColor;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       -math.pi / 2,
@@ -774,7 +827,7 @@ class PieChartPainter extends CustomPainter {
       paint,
     );
 
-    paint.color = Color(0xFF41B607);
+    paint.color = successColor;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       -math.pi / 2 + math.pi * 0.4,
@@ -783,7 +836,7 @@ class PieChartPainter extends CustomPainter {
       paint,
     );
 
-    paint.color = Color(0xFFF9A825);
+    paint.color = amberColor;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       -math.pi / 2 + math.pi * 0.7,
@@ -798,9 +851,13 @@ class PieChartPainter extends CustomPainter {
 }
 
 class BarChartPainter extends CustomPainter {
+  final Color primaryColor;
+
+  BarChartPainter({required this.primaryColor});
+
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Color(0xFF3B70B9);
+    final paint = Paint()..color = primaryColor;
 
     final barWidth = size.width / 7;
     final maxHeight = size.height - 20;
@@ -819,6 +876,14 @@ class BarChartPainter extends CustomPainter {
 }
 
 class HelperDistributionPainter extends CustomPainter {
+  final Color primaryColor;
+  final Color successColor;
+
+  HelperDistributionPainter({
+    required this.primaryColor,
+    required this.successColor,
+  });
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..style = PaintingStyle.fill;
@@ -827,7 +892,7 @@ class HelperDistributionPainter extends CustomPainter {
     final radius = math.min(size.width, size.height) / 2 - 20;
 
     // Draw donut chart
-    paint.color = Color(0xFF3B70B9);
+    paint.color = primaryColor;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       -math.pi / 2,
@@ -836,7 +901,7 @@ class HelperDistributionPainter extends CustomPainter {
       paint,
     );
 
-    paint.color = Color(0xFF41B607);
+    paint.color = successColor;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       -math.pi / 2 + math.pi * 0.6,

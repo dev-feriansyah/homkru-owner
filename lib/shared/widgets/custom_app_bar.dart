@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class CustomCommonAppBar extends StatelessWidget
@@ -22,11 +21,13 @@ class CustomCommonAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return AppBar(
       forceMaterialTransparency: true,
       backgroundColor: backgroundColor ?? Colors.transparent,
       toolbarHeight: 80,
-      foregroundColor: appColors.white,
+      foregroundColor: colorScheme.onPrimary,
       elevation: 0,
       leading: Padding(
         padding: const EdgeInsets.only(bottom: 15.0),
@@ -41,7 +42,7 @@ class CustomCommonAppBar extends StatelessWidget
           title,
           size: 18.sp,
           weight: FontWeight.w600,
-          color: appColors.white,
+          color: colorScheme.onPrimary,
         ),
       ),
       centerTitle: true,

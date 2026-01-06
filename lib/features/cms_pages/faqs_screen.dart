@@ -78,8 +78,11 @@ class _FAQsScreenState extends State<FAQsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: "Frequently Asked Questions"),
       body: Stack(
         children: [
@@ -88,7 +91,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
             padding: EdgeInsets.all(20.w),
             child: Container(
               decoration: BoxDecoration(
-                color: appColors.white,
+                color: colorScheme.surface,
                 borderRadius: BorderRadius.circular(20.r),
                 boxShadow: [
                   BoxShadow(
@@ -107,7 +110,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
                       "Frequently Asked Questions",
                       size: 24.sp,
                       weight: FontWeight.bold,
-                      color: appColors.primaryColor,
+                      color: colorScheme.primary,
                     ),
                     SizedBox(height: 8.h),
                     CText(
@@ -130,7 +133,9 @@ class _FAQsScreenState extends State<FAQsScreen> {
                     Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(
-                        color: appColors.lightBlue.withValues(alpha: 0.3),
+                        color: colorScheme.primaryContainer.withValues(
+                          alpha: 0.3,
+                        ),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: Column(
@@ -140,7 +145,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
                             "Still have questions?",
                             size: 16.sp,
                             weight: FontWeight.bold,
-                            color: appColors.primaryColor,
+                            color: colorScheme.primary,
                           ),
                           SizedBox(height: 8.h),
                           CText(
@@ -157,7 +162,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
                                     // Navigate to contact support
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: appColors.primaryColor,
+                                    backgroundColor: colorScheme.primary,
                                     foregroundColor: Colors.white,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.r),
@@ -177,9 +182,9 @@ class _FAQsScreenState extends State<FAQsScreen> {
                                     // Navigate to help center
                                   },
                                   style: OutlinedButton.styleFrom(
-                                    foregroundColor: appColors.primaryColor,
+                                    foregroundColor: colorScheme.primary,
                                     side: BorderSide(
-                                      color: appColors.primaryColor,
+                                      color: colorScheme.primary,
                                     ),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.r),
@@ -208,6 +213,8 @@ class _FAQsScreenState extends State<FAQsScreen> {
   }
 
   Widget _buildFAQItem(FAQItem faq, int index) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       margin: EdgeInsets.only(bottom: 12.h),
       decoration: BoxDecoration(
@@ -223,7 +230,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
             faq.question,
             size: 16.sp,
             weight: FontWeight.w600,
-            color: appColors.primaryColor,
+            color: colorScheme.primary,
           ),
           children: [
             CText(faq.answer, size: 14.sp, color: appColors.grey, height: 1.5),

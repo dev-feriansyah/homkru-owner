@@ -23,8 +23,11 @@ class DeductionScreen extends StatefulWidget {
 class _DeductionScreenState extends State<DeductionScreen> {
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: "Deductions"),
 
       body: Stack(
@@ -59,12 +62,10 @@ class _DeductionScreenState extends State<DeductionScreen> {
                           vertical: 0,
                         ),
                         decoration: BoxDecoration(
-                          color: appColors.white,
+                          color: colorScheme.surface,
                           borderRadius: BorderRadius.circular(15),
                           border: Border.all(
-                            color: appColors.primaryColor.withValues(
-                              alpha: 0.3,
-                            ),
+                            color: colorScheme.primary.withValues(alpha: 0.3),
                             width: 2,
                           ),
                         ),
@@ -73,10 +74,10 @@ class _DeductionScreenState extends State<DeductionScreen> {
                             value: DateRange.thisMonth.label,
                             icon: Icon(
                               Icons.arrow_drop_down,
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                             ),
                             style: TextStyle(
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                               fontWeight: FontWeight.w500,
                             ),
                             items:
@@ -101,10 +102,10 @@ class _DeductionScreenState extends State<DeductionScreen> {
                     width: 1.sw,
                     // padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: appColors.white,
+                      color: colorScheme.surface,
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(
-                        color: appColors.primaryColor.withValues(alpha: 0.3),
+                        color: colorScheme.primary.withValues(alpha: 0.3),
                       ),
                     ),
                     child: Stack(
@@ -148,7 +149,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                     "IDR 2,600,000",
                                     style: GoogleFonts.karla(
                                       fontSize: 24.sp,
-                                      color: appColors.primaryColor,
+                                      color: colorScheme.primary,
                                       fontWeight: FontWeight.w700,
                                     ),
                                   ),
@@ -180,7 +181,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                               height: 24.w,
                               width: 24.w,
                               child: Checkbox(
-                                activeColor: appColors.primaryColor,
+                                activeColor: colorScheme.primary,
                                 value: false,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(3),
@@ -258,7 +259,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                     width: 1.sw,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: appColors.white,
+                      color: colorScheme.surface,
                     ),
                     child: Column(
                       children: [
@@ -269,7 +270,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                           ),
                           width: 1.sw,
                           decoration: BoxDecoration(
-                            color: appColors.primaryColor,
+                            color: colorScheme.primary,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30),
@@ -283,7 +284,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   "Helper",
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                 ),
                               ),
                               Expanded(
@@ -293,7 +294,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   textAlign: TextAlign.center,
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                 ),
                               ),
                               Expanded(
@@ -303,7 +304,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   textAlign: TextAlign.end,
                                   size: 14,
                                   weight: FontWeight.bold,
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                 ),
                               ),
                             ],
@@ -317,7 +318,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                               (context, index) => Container(
                                 height: 1,
                                 width: 1.sw,
-                                color: appColors.veryLightGrey,
+                                color: colorScheme.outlineVariant,
                               ),
                           itemBuilder: (context, index) {
                             return GestureDetector(
@@ -333,7 +334,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
                                   vertical: 15,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                   borderRadius:
                                       (index != 4)
                                           ? null
@@ -417,13 +418,13 @@ class _DeductionScreenState extends State<DeductionScreen> {
                     onPressed: () {},
                     text: "Export Detailed Report",
                     buttonTextStyle: TextStyle(
-                      color: appColors.white,
+                      color: colorScheme.surface,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                     buttonStyle: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(
-                        appColors.primaryColor,
+                        colorScheme.primary,
                       ),
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
@@ -456,7 +457,7 @@ class _DeductionScreenState extends State<DeductionScreen> {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: ColorScheme.light(
-              primary: appColors.primaryColor,
+              primary: Theme.of(context).colorScheme.primary,
               onPrimary: Colors.white,
               surface: Colors.white,
               onSurface: Colors.black,

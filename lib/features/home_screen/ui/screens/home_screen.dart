@@ -40,6 +40,9 @@ class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final dashboardIndexNotifier = ref.read(dashboardIndexProvider.notifier);
 
     return Scaffold(
@@ -51,7 +54,7 @@ class HomeScreen extends ConsumerWidget {
           showInviteBottomSheet(context);
           // AppNavigator.pushNamed(AppRoutes.addMember);
         },
-        backgroundColor: appColors.primaryColor,
+        backgroundColor: colorScheme.primary,
         elevation: 6,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
@@ -63,7 +66,7 @@ class HomeScreen extends ConsumerWidget {
         height: 1.sh,
         width: 1.sw,
         decoration: BoxDecoration(
-          color: appColors.lightBlue,
+          color: colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(10),
         ),
 
@@ -101,7 +104,7 @@ class HomeScreen extends ConsumerWidget {
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                  color: appColors.lightBlue,
+                                  color: colorScheme.primaryContainer,
                                   width: 2,
                                 ),
                                 // image: DecorationImage(image: AssetImage())
@@ -120,14 +123,14 @@ class HomeScreen extends ConsumerWidget {
                                   "Hello",
                                   size: 24,
                                   weight: FontWeight.bold,
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                   fontFamily: "PoppinsMedium",
                                 ),
                                 CText(
                                   "Maria Johnson",
                                   size: 18.sp,
                                   weight: FontWeight.w500,
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                 ),
                               ],
                             ),
@@ -139,7 +142,7 @@ class HomeScreen extends ConsumerWidget {
                             child: Container(
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                color: appColors.primaryColor.withValues(
+                                color: colorScheme.primary.withValues(
                                   alpha: 0.4,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
@@ -163,7 +166,7 @@ class HomeScreen extends ConsumerWidget {
                             child: CText(
                               "Action Items",
                               size: 18,
-                              color: appColors.white,
+                              color: colorScheme.surface,
                               weight: FontWeight.bold,
                             ),
                           ),
@@ -178,14 +181,14 @@ class HomeScreen extends ConsumerWidget {
                               // "Invite",
                               "View All",
                               size: 15,
-                              color: appColors.white,
+                              color: colorScheme.surface,
                               weight: FontWeight.w400,
                             ),
                           ),
                           SizedBox(width: 7),
                           Icon(
                             Icons.arrow_forward_ios_sharp,
-                            color: appColors.white,
+                            color: colorScheme.surface,
                             size: 15,
                           ),
                         ],
@@ -200,7 +203,7 @@ class HomeScreen extends ConsumerWidget {
                         vertical: 10,
                       ),
                       decoration: BoxDecoration(
-                        color: appColors.white,
+                        color: colorScheme.surface,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: ListView.builder(
@@ -214,7 +217,7 @@ class HomeScreen extends ConsumerWidget {
                             contentPadding: EdgeInsets.all(0),
                             leading: CircleAvatar(
                               radius: 18,
-                              backgroundColor: appColors.veryLightGrey,
+                              backgroundColor: colorScheme.outlineVariant,
                               child: CustomImageView(
                                 imagePath: item["icon"],
                                 //  ImageConstant.camera,
@@ -252,7 +255,7 @@ class HomeScreen extends ConsumerWidget {
                             "Today's tasks",
                             size: 16.sp,
                             weight: FontWeight.w600,
-                            color: appColors.textPrimary,
+                            color: colorScheme.onSurface,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -269,7 +272,7 @@ class HomeScreen extends ConsumerWidget {
                             },
                             child: Icon(
                               Icons.add_circle,
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                               size: 30.sp,
                             ),
                           ),
@@ -304,7 +307,7 @@ class HomeScreen extends ConsumerWidget {
                           "Current Live Status",
                           size: 16.sp,
                           weight: FontWeight.w600,
-                          color: appColors.textPrimary,
+                          color: colorScheme.onSurface,
                           // fontFamily: "PoppinsMedium",
                         ),
                       ),
@@ -345,7 +348,7 @@ class HomeScreen extends ConsumerWidget {
                                       height: 1.sh * 0.08,
                                       width: 4,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF83E888),
+                                        color: appColors.successLight,
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(10),
                                           bottomRight: Radius.circular(10),
@@ -375,7 +378,7 @@ class HomeScreen extends ConsumerWidget {
                                             'Rina',
                                             size: 14,
                                             weight: FontWeight.w600,
-                                            color: appColors.textPrimary,
+                                            color: colorScheme.onSurface,
                                           ),
                                           SizedBox(height: 2),
                                           Row(
@@ -401,7 +404,8 @@ class HomeScreen extends ConsumerWidget {
                                               vertical: 6,
                                             ),
                                             decoration: BoxDecoration(
-                                              color: appColors.bgGreen,
+                                              color:
+                                                  appColors.successBackground,
                                               borderRadius:
                                                   BorderRadius.circular(8.r),
                                             ),
@@ -475,144 +479,160 @@ class HomeScreen extends ConsumerWidget {
     String imageUrl,
     VoidCallback onTap,
   ) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.only(
-          left: 10,
-          top: 10,
-          bottom: 10,
-          right: 20,
-        ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          // border: Border.all(color: Colors.black12),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: appColors.blueAccentCustom.withValues(
-              alpha: 0.5,
-            ), // Border color
-            width: 1,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: appColors.blueAccentCustom.withValues(
-                alpha: 0.03,
-              ), // Shadow color
-              offset: const Offset(12, 25), // X, Y
-              blurRadius: 50, // Blur
-              spreadRadius: 0, // Spread
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        final appColors = context.appColors;
+        return GestureDetector(
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.only(
+              left: 10,
+              top: 10,
+              bottom: 10,
+              right: 20,
             ),
-          ],
-        ),
-        child: Row(
-          children: [
-            CircleAvatar(backgroundImage: AssetImage(imageUrl)),
-            const SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CText(
-                  name,
-                  size: 14,
-                  weight: FontWeight.w600,
-                  color: appColors.textPrimary,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              // border: Border.all(color: Colors.black12),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: colorScheme.secondary.withValues(
+                  alpha: 0.5,
+                ), // Border color
+                width: 1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: colorScheme.secondary.withValues(
+                    alpha: 0.03,
+                  ), // Shadow color
+                  offset: const Offset(12, 25), // X, Y
+                  blurRadius: 50, // Blur
+                  spreadRadius: 0, // Spread
                 ),
-                // CText(name, weight: FontWeight.bold, size: 14),
-                CText(task, size: 10, color: appColors.grey),
               ],
             ),
-          ],
-        ),
-      ),
+            child: Row(
+              children: [
+                CircleAvatar(backgroundImage: AssetImage(imageUrl)),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CText(
+                      name,
+                      size: 14,
+                      weight: FontWeight.w600,
+                      color: colorScheme.onSurface,
+                    ),
+                    // CText(name, weight: FontWeight.bold, size: 14),
+                    CText(task, size: 10, color: appColors.grey),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
   Widget _buildTaskList({Function? onViewAllTap}) {
-    return Container(
-      padding: const EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        children: [
-          //       ListView.builder(
-          //         padding: EdgeInsets.all(0),
-          //         shrinkWrap: true,
-          //         physics: NeverScrollableScrollPhysics(),
-          //         itemCount: 3,
-          //         itemBuilder: (context,index){
-          //           return Padding(
-          //   padding: const EdgeInsets.symmetric(vertical: 6.0),
-          //   child: Row(
-          //     children: [
-          //       Container(
-          //         padding: EdgeInsets.all(6),
-          //         decoration: BoxDecoration(
-          //           color: appTheme.grey.withValues(alpha: .2),
-          //           shape: BoxShape.circle
-          //         ),
-          //         child: Icon(Icons.error_outline, color: appTheme.grey, size: 18)),
-          //       const SizedBox(width: 8),
-          //       Expanded(
-          //         child: Column(
-          //           crossAxisAlignment: CrossAxisAlignment.start,
-          //           children: [
-          //             CustomText(  "Vaccum",
-          //                 weight: FontWeight.bold, size: 12),
-          //             CustomText(  "Vina",
-          //              size: 10, color: appTheme.grey),
-          //           ],
-          //         ),
-          //       ),
-          //       CustomText(  "Due 10AM",
-          //         size: 12, color: appTheme.grey),
-          //     ],
-          //   ),
-          // );
-          //       },),
-          _buildTaskItem(
-            ImageConstant.vacuum,
-            // Colors.red,
-            "Vacuum",
-            "Vina",
-            "10 AM",
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Container(
+          padding: const EdgeInsets.only(
+            left: 12,
+            right: 12,
+            top: 12,
+            bottom: 0,
           ),
-          _buildTaskItem(
-            ImageConstant.feedDog,
-            // Colors.green,
-            "Feed Dog",
-            "Vina",
-            "11 AM",
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
           ),
-          _buildTaskItem(
-            ImageConstant.cleanKitchen,
-            // Colors.grey,
-            "Clean Kitchen",
-            "Vina",
-            "12 AM",
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: GestureDetector(
-              onTap: () {
-                if (onViewAllTap != null) {
-                  onViewAllTap();
-                }
-              },
-              child: CText(
-                "View All >",
-                size: 12,
-                color: appColors.primaryColor,
-                weight: FontWeight.bold,
+          child: Column(
+            children: [
+              //       ListView.builder(
+              //         padding: EdgeInsets.all(0),
+              //         shrinkWrap: true,
+              //         physics: NeverScrollableScrollPhysics(),
+              //         itemCount: 3,
+              //         itemBuilder: (context,index){
+              //           return Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 6.0),
+              //   child: Row(
+              //     children: [
+              //       Container(
+              //         padding: EdgeInsets.all(6),
+              //         decoration: BoxDecoration(
+              //           color: appTheme.grey.withValues(alpha: .2),
+              //           shape: BoxShape.circle
+              //         ),
+              //         child: Icon(Icons.error_outline, color: appTheme.grey, size: 18)),
+              //       const SizedBox(width: 8),
+              //       Expanded(
+              //         child: Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: [
+              //             CustomText(  "Vaccum",
+              //                 weight: FontWeight.bold, size: 12),
+              //             CustomText(  "Vina",
+              //              size: 10, color: appTheme.grey),
+              //           ],
+              //         ),
+              //       ),
+              //       CustomText(  "Due 10AM",
+              //         size: 12, color: appTheme.grey),
+              //     ],
+              //   ),
+              // );
+              //       },),
+              _buildTaskItem(
+                ImageConstant.vacuum,
+                // Colors.red,
+                "Vacuum",
+                "Vina",
+                "10 AM",
               ),
-            ),
-            // ),
+              _buildTaskItem(
+                ImageConstant.feedDog,
+                // Colors.green,
+                "Feed Dog",
+                "Vina",
+                "11 AM",
+              ),
+              _buildTaskItem(
+                ImageConstant.cleanKitchen,
+                // Colors.grey,
+                "Clean Kitchen",
+                "Vina",
+                "12 AM",
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: () {
+                    if (onViewAllTap != null) {
+                      onViewAllTap();
+                    }
+                  },
+                  child: CText(
+                    "View All >",
+                    size: 12,
+                    color: colorScheme.primary,
+                    weight: FontWeight.bold,
+                  ),
+                ),
+                // ),
+              ),
+              vGap(8.h),
+            ],
           ),
-          vGap(8.h),
-        ],
-      ),
+        );
+      },
     );
   }
 
@@ -623,52 +643,58 @@ class HomeScreen extends ConsumerWidget {
     String user,
     String time,
   ) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 3.0.h),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 18,
-            // backgroundColor: ,
-            child: CustomImageView(
-              imagePath: icon,
-              //  ImageConstant.camera,
-            ),
-          ),
-          // Icon(icon, color: iconColor, size: 18..sp),
-          SizedBox(width: 8.w),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CText(
-                  title,
-                  weight: FontWeight.w500,
-                  size: 12.sp,
-                  color: appColors.textPrimary,
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        final appColors = context.appColors;
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: 3.0.h),
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: 18,
+                // backgroundColor: ,
+                child: CustomImageView(
+                  imagePath: icon,
+                  //  ImageConstant.camera,
                 ),
-                Row(
+              ),
+              // Icon(icon, color: iconColor, size: 18..sp),
+              SizedBox(width: 8.w),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // CText(
-                    //   user,
-                    //   size: 10.sp,
-                    //   color: appTheme.grey,
-                    //   weight: FontWeight.w500,
-                    // ),
-                    // hGap(4.w),
                     CText(
-                      "Due $time",
-                      size: 10.sp,
+                      title,
                       weight: FontWeight.w500,
-                      color: appColors.grey,
+                      size: 12.sp,
+                      color: colorScheme.onSurface,
+                    ),
+                    Row(
+                      children: [
+                        // CText(
+                        //   user,
+                        //   size: 10.sp,
+                        //   color: appTheme.grey,
+                        //   weight: FontWeight.w500,
+                        // ),
+                        // hGap(4.w),
+                        CText(
+                          "Due $time",
+                          size: 10.sp,
+                          weight: FontWeight.w500,
+                          color: appColors.grey,
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

@@ -7,7 +7,6 @@ import 'package:homekru_owner/core/constants/image_constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
 import 'package:homekru_owner/core/routes/app_routes.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
@@ -34,10 +33,12 @@ class Sidebar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       width: 1.sw * 0.8,
       decoration: BoxDecoration(
-        color: appColors.primaryColor,
+        color: colorScheme.primary,
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(30),
           bottomRight: Radius.circular(30),
@@ -63,13 +64,13 @@ class Sidebar extends ConsumerWidget {
                         // margin: EdgeInsets.only(right: 10),
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: appColors.white,
+                          color: colorScheme.surface,
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
                           Icons.close,
                           size: 15,
-                          color: appColors.primaryColor,
+                          color: colorScheme.primary,
                         ),
                       ),
                     ),
@@ -100,13 +101,13 @@ class Sidebar extends ConsumerWidget {
                         children: [
                           CText(
                             "Maria Johnson",
-                            color: appColors.white,
+                            color: colorScheme.surface,
                             size: 16,
                             weight: FontWeight.bold,
                           ),
                           CText(
                             "Homeowner",
-                            color: appColors.white.withValues(alpha: 0.8),
+                            color: colorScheme.surface.withValues(alpha: 0.8),
                             size: 13,
                             weight: FontWeight.w500,
                           ),
@@ -121,7 +122,7 @@ class Sidebar extends ConsumerWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: CText(
                   "Main Navigation",
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   weight: FontWeight.bold,
                   fontFamily: "PoppinsMedium",
                 ),
@@ -136,7 +137,7 @@ class Sidebar extends ConsumerWidget {
                 child: CText(
                   "About Us",
                   // "CMS Pages",
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   weight: FontWeight.bold,
                   fontFamily: "PoppinsMedium",
                 ),
@@ -165,7 +166,7 @@ class Sidebar extends ConsumerWidget {
                         "Logout",
                         size: 16.sp,
                         weight: FontWeight.w600,
-                        color: appColors.primaryColor,
+                        color: colorScheme.primary,
                       ),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 14),
@@ -195,6 +196,7 @@ class Sidebar extends ConsumerWidget {
     WidgetRef ref,
     List<Map<String, String>> items,
   ) {
+    final colorScheme = Theme.of(context).colorScheme;
     return items.map((item) {
       String title = item["title"] ?? "";
       String iconPath = item["icon"] ?? "";
@@ -203,7 +205,7 @@ class Sidebar extends ConsumerWidget {
         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         title: CText(
           title,
-          color: appColors.white,
+          color: colorScheme.surface,
           size: 14,
           weight: FontWeight.bold,
         ),

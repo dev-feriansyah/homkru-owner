@@ -45,6 +45,9 @@ class _ActionScreenState extends State<ActionScreen>
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     // Mock data for all action item types
     final List<ActionTask> taskProofItems = [
       ActionTask(
@@ -127,7 +130,7 @@ class _ActionScreenState extends State<ActionScreen>
     ];
 
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: AppStrings.actionitems),
       body: Stack(
         children: [
@@ -136,11 +139,11 @@ class _ActionScreenState extends State<ActionScreen>
             children: [
               // Tab Bar
               Container(
-                color: appColors.white,
+                color: colorScheme.surface,
                 child: TabBar(
                   controller: _tabController,
-                  indicatorColor: appColors.primaryColor,
-                  labelColor: appColors.primaryColor,
+                  indicatorColor: colorScheme.primary,
+                  labelColor: colorScheme.primary,
                   unselectedLabelColor: appColors.grey,
                   labelStyle: TextStyle(
                     fontSize: 14.sp,
@@ -240,6 +243,8 @@ class _ActionScreenState extends State<ActionScreen>
   }
 
   void _handleApprove(ActionTask task, int index, String tabKey) {
+    final appColors = context.appColors;
+
     setState(() {
       // Remove from selected items
       selectedItems[tabKey]!.remove(index);
@@ -268,6 +273,9 @@ class _ActionScreenState extends State<ActionScreen>
   }
 
   void _markAllAsApproved() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final currentTabIndex = _tabController.index;
     final tabKeys = [
       'taskProof',
@@ -293,7 +301,7 @@ class _ActionScreenState extends State<ActionScreen>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Please select items to approve'),
-          backgroundColor: appColors.darkRed,
+          backgroundColor: colorScheme.error,
           behavior: SnackBarBehavior.floating,
         ),
       );

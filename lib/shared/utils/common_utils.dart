@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_image_view.dart';
 
 Widget vGap(double height) {
@@ -13,6 +12,8 @@ Widget hGap(double width) {
 }
 
 Future<TimeOfDay?> showCustomTimePicker(BuildContext context) async {
+  final colorScheme = Theme.of(context).colorScheme;
+
   return showTimePicker(
     context: context,
     initialTime: TimeOfDay.now(),
@@ -21,21 +22,21 @@ Future<TimeOfDay?> showCustomTimePicker(BuildContext context) async {
         data: Theme.of(context).copyWith(
           timePickerTheme: TimePickerThemeData(
             backgroundColor: Colors.white,
-            hourMinuteTextColor: appColors.primaryColor,
-            hourMinuteColor: appColors.primaryColor.withValues(alpha: 0.2),
-            dayPeriodTextColor: appColors.primaryColor,
-            dayPeriodColor: appColors.primaryColor.withValues(alpha: 0.2),
-            dialHandColor: appColors.primaryColor,
-            dialBackgroundColor: appColors.primaryColor.withValues(alpha: 0.2),
-            entryModeIconColor: appColors.primaryColor,
+            hourMinuteTextColor: colorScheme.primary,
+            hourMinuteColor: colorScheme.primary.withValues(alpha: 0.2),
+            dayPeriodTextColor: colorScheme.primary,
+            dayPeriodColor: colorScheme.primary.withValues(alpha: 0.2),
+            dialHandColor: colorScheme.primary,
+            dialBackgroundColor: colorScheme.primary.withValues(alpha: 0.2),
+            entryModeIconColor: colorScheme.primary,
           ),
           textButtonTheme: TextButtonThemeData(
             style: TextButton.styleFrom(
-              foregroundColor: appColors.primaryColor, // Cancel/OK button color
+              foregroundColor: colorScheme.primary, // Cancel/OK button color
             ),
           ),
           colorScheme: ColorScheme.light(
-            primary: appColors.primaryColor, // Active dial
+            primary: colorScheme.primary, // Active dial
             onPrimary: Colors.white,
             onSurface: Colors.black, // Numbers
           ),

@@ -12,12 +12,15 @@ class ActionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CText(
           label,
-          color: appColors.textPrimary,
+          color: colorScheme.onSurface,
           size: 14.sp,
           weight: FontWeight.w600,
         ),

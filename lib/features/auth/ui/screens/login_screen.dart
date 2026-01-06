@@ -20,6 +20,9 @@ class LoginScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final formKey = GlobalKey<FormState>();
     final keepMeLoggedIn = useState(false);
 
@@ -143,7 +146,7 @@ class LoginScreen extends HookWidget {
                                   Row(
                                     children: [
                                       Checkbox(
-                                        activeColor: appColors.primaryColor,
+                                        activeColor: colorScheme.primary,
                                         value: keepMeLoggedIn.value,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
@@ -151,7 +154,7 @@ class LoginScreen extends HookWidget {
                                           ),
                                         ),
                                         side: BorderSide(
-                                          color: appColors.lightGrey,
+                                          color: colorScheme.outline,
                                         ),
                                         onChanged: (bool? newValue) {
                                           keepMeLoggedIn.value = newValue!;
@@ -175,7 +178,7 @@ class LoginScreen extends HookWidget {
                                     child: CText(
                                       "Forgot Password?",
                                       weight: FontWeight.bold,
-                                      color: appColors.primaryColor,
+                                      color: colorScheme.primary,
                                       size: 14,
                                     ),
                                   ),
@@ -194,13 +197,13 @@ class LoginScreen extends HookWidget {
                                 },
                                 text: "Login",
                                 buttonTextStyle: TextStyle(
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appColors.primaryColor,
+                                    colorScheme.primary,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(
@@ -216,7 +219,7 @@ class LoginScreen extends HookWidget {
                                   Container(
                                     height: 1.3,
                                     width: 85,
-                                    color: appColors.veryLightGrey,
+                                    color: colorScheme.outlineVariant,
                                   ),
                                   SizedBox(width: 10),
                                   CText(
@@ -228,7 +231,7 @@ class LoginScreen extends HookWidget {
                                   Container(
                                     height: 1.3,
                                     width: 85,
-                                    color: appColors.veryLightGrey,
+                                    color: colorScheme.outlineVariant,
                                   ),
                                 ],
                               ),
@@ -268,7 +271,7 @@ class LoginScreen extends HookWidget {
                                     child: CText(
                                       "Sign Up",
                                       size: 15,
-                                      color: appColors.primaryColor,
+                                      color: colorScheme.primary,
                                       weight: FontWeight.w900,
                                     ),
                                   ),

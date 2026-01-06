@@ -17,6 +17,8 @@ class SettingsScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final TextEditingController phoneController = TextEditingController();
     final TextEditingController changePassController = TextEditingController();
@@ -28,7 +30,7 @@ class SettingsScreen extends HookWidget {
         //   AppNavigator.pop();
         // },
       ),
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       body: Stack(
         children: [
           bottomWaveWidget(),
@@ -172,13 +174,14 @@ class _SectionHeader extends StatelessWidget {
   const _SectionHeader({required this.title});
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Row(
       children: [
         CText(
           title,
           size: 18.sp,
           weight: FontWeight.w500,
-          color: appColors.textPrimary,
+          color: colorScheme.onSurface,
         ),
       ],
     );
@@ -191,6 +194,8 @@ class _TrailingArrowTile extends StatelessWidget {
   const _TrailingArrowTile({required this.label, required this.onTap});
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -200,7 +205,7 @@ class _TrailingArrowTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.r),
           boxShadow: [
             BoxShadow(
-              color: appColors.shadowColor,
+              color: colorScheme.primary.withValues(alpha: 0.08),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -231,61 +236,79 @@ Widget buildTextField(
   int? minLines,
   int? maxLines,
 }) {
-  return Container(
-    decoration: BoxDecoration(
-      boxShadow: [
-        BoxShadow(
-          color: appColors.shadowColor,
-          blurRadius: 8,
-          offset: const Offset(0, 2),
+  return Builder(
+    builder: (context) {
+      final colorScheme = Theme.of(context).colorScheme;
+      final appColors = context.appColors;
+      return Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: colorScheme.primary.withValues(alpha: 0.08),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-      ],
-    ),
-    child: TextFormField(
-      minLines: minLines,
-      maxLines: maxLines,
-      controller: controller,
-      readOnly: false,
-      style: TextStyle(
-        color: appColors.grey,
-        fontSize: 14.sp,
-        fontFamily: "Poppins",
-      ),
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
-        // label  label,
-        hintText: label,
-        hintStyle: TextStyle(
-          fontSize: 16.sp,
-          fontWeight: FontWeight.w400,
-          color: appColors.grey,
-          // fontFamily: "Poppins",
+        child: TextFormField(
+          minLines: minLines,
+          maxLines: maxLines,
+          controller: controller,
+          readOnly: false,
+          style: TextStyle(
+            color: appColors.grey,
+            fontSize: 14.sp,
+            fontFamily: "Poppins",
+          ),
+          keyboardType: keyboardType,
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 20.w,
+              vertical: 15.h,
+            ),
+            // label  label,
+            hintText: label,
+            hintStyle: TextStyle(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w400,
+              color: appColors.grey,
+              // fontFamily: "Poppins",
+            ),
+            filled: true,
+            fillColor: colorScheme.surface,
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(color: Colors.red, width: 0),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: colorScheme.surfaceContainerHighest,
+                width: 0,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: colorScheme.surfaceContainerHighest,
+                width: 0,
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(
+                color: colorScheme.surfaceContainerHighest,
+                width: 0,
+              ),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(color: Colors.red, width: 0),
+            ),
+          ),
+          validator: validator,
         ),
-        filled: true,
-        fillColor: appColors.white,
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: Colors.red, width: 0),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.offWhite, width: 0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.offWhite, width: 0),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.offWhite, width: 0),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: Colors.red, width: 0),
-        ),
-      ),
-      validator: validator,
-    ),
+      );
+    },
   );
 }

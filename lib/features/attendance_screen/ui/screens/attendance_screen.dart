@@ -13,10 +13,13 @@ class AttendanceScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final selectedIndex = useState(0);
 
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: "Attendance & Time"),
       body: Stack(
         children: [
@@ -53,7 +56,7 @@ class AttendanceScreen extends HookWidget {
                             decoration: BoxDecoration(
                               color:
                                   selectedIndex.value == 0
-                                      ? appColors.primaryColor
+                                      ? colorScheme.primary
                                       : Colors.transparent,
                               borderRadius:
                                   selectedIndex.value == 0
@@ -78,7 +81,7 @@ class AttendanceScreen extends HookWidget {
                               size: 13,
                               color:
                                   selectedIndex.value == 0
-                                      ? appColors.white
+                                      ? colorScheme.surface
                                       : appColors.grey,
                               weight: FontWeight.w500,
                             ),
@@ -98,7 +101,7 @@ class AttendanceScreen extends HookWidget {
                             decoration: BoxDecoration(
                               color:
                                   selectedIndex.value == 1
-                                      ? appColors.primaryColor
+                                      ? colorScheme.primary
                                       : Colors.transparent,
                               borderRadius:
                                   selectedIndex.value == 1
@@ -123,7 +126,7 @@ class AttendanceScreen extends HookWidget {
                               size: 13,
                               color:
                                   selectedIndex.value == 1
-                                      ? appColors.white
+                                      ? colorScheme.surface
                                       : appColors.grey,
                               weight: FontWeight.w500,
                             ),

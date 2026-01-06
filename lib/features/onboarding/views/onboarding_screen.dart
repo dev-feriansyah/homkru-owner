@@ -14,6 +14,8 @@ class OnboardingScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = context.appColors;
+
     final pageController = usePageController();
     final currentPage = useState(0);
 
@@ -70,6 +72,7 @@ class OnboardingScreen extends HookWidget {
     required ValueNotifier<int> currentPage,
     required int totalPages,
   }) {
+    final appColors = context.appColors;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       decoration: BoxDecoration(

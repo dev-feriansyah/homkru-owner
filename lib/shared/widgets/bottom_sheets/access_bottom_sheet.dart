@@ -25,6 +25,9 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -65,7 +68,7 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
               CText(
                 "Give access for",
                 size: 20.sp,
-                color: appColors.textPrimary,
+                color: colorScheme.onSurface,
                 weight: FontWeight.w600,
                 textAlign: TextAlign.center,
               ),
@@ -81,7 +84,7 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
                         width: 24.w,
                         child: Checkbox(
                           value: entry.value,
-                          activeColor: appColors.primaryColor,
+                          activeColor: colorScheme.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4.r),
                           ),
@@ -137,10 +140,12 @@ class _AccessBottomSheetState extends State<AccessBottomSheet> {
 
 /// Function to open the bottom sheet
 void showAccessBottomSheet(BuildContext context) {
+  final colorScheme = Theme.of(context).colorScheme;
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.white,
+    backgroundColor: colorScheme.surface,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
     ),

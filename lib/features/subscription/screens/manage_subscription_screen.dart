@@ -20,6 +20,9 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final mediaQuery = MediaQuery.of(context);
 
     // Height of screen excluding status bar + bottom system insets
@@ -30,7 +33,7 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
 
     return Scaffold(
       appBar: const CustomCommonAppBar(title: 'Manage Subscription'),
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -43,7 +46,7 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
                   CText(
                     'Choose a plan',
                     textAlign: TextAlign.center,
-                    color: appColors.textPrimary,
+                    color: colorScheme.onSurface,
                     size: 28.sp,
                     weight: FontWeight.w600,
                   ),
@@ -120,7 +123,7 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
                   vGap(20.h),
                   CustomElevatedButton(
                     buttonTextStyle: TextStyle(
-                      color: appColors.primaryColor,
+                      color: colorScheme.primary,
                       fontWeight: FontWeight.w600,
                       fontSize: 18.sp,
                     ),
@@ -128,12 +131,12 @@ class _ManageSubscriptionScreenState extends State<ManageSubscriptionScreen> {
                     buttonStyle: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(Colors.white),
                       foregroundColor: WidgetStateProperty.all(
-                        appColors.primaryColor,
+                        colorScheme.primary,
                       ),
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                           side: BorderSide(
-                            color: appColors.primaryColor,
+                            color: colorScheme.primary,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(15),
@@ -186,8 +189,9 @@ class _PlanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color borderColor =
-        selected ? appColors.primaryColor : appColors.grey;
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+    final Color borderColor = selected ? colorScheme.primary : appColors.grey;
     final bool isGradient = gradient != null;
 
     return GestureDetector(
@@ -217,7 +221,8 @@ class _PlanCard extends StatelessWidget {
                   title,
                   size: 18.sp,
                   weight: FontWeight.w600,
-                  color: isGradient ? appColors.white : appColors.textPrimary,
+                  color:
+                      isGradient ? colorScheme.surface : colorScheme.onSurface,
                 ),
                 hGap(8),
                 // Save percentage badge
@@ -305,14 +310,18 @@ class _PlanCard extends StatelessWidget {
                   priceText,
                   size: 28.sp,
                   weight: FontWeight.w600,
-                  color: isGradient ? appColors.white : appColors.textPrimary,
+                  color:
+                      isGradient ? colorScheme.surface : colorScheme.onSurface,
                 ),
                 SizedBox(width: 6.w),
                 CText(
                   durationText,
                   size: 18.sp,
                   weight: FontWeight.w500,
-                  color: isGradient ? appColors.white : appColors.textSecondary,
+                  color:
+                      isGradient
+                          ? colorScheme.surface
+                          : appColors.textSecondary,
                 ),
               ],
             ),
@@ -338,6 +347,7 @@ class _Chip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -345,7 +355,7 @@ class _Chip extends StatelessWidget {
         decoration: BoxDecoration(
           color:
               isSelected
-                  ? (isGradient ? Colors.white : appColors.primaryColor)
+                  ? (isGradient ? Colors.white : colorScheme.primary)
                   : (isGradient
                       ? Color(0xFFBDBDBD).withValues(alpha: 0.40)
                       : Color(0xFFBDBDBD).withValues(alpha: 0.40)),
@@ -353,7 +363,7 @@ class _Chip extends StatelessWidget {
           border: Border.all(
             color:
                 isSelected
-                    ? (isGradient ? Colors.white : appColors.primaryColor)
+                    ? (isGradient ? Colors.white : colorScheme.primary)
                     : (isGradient ? Colors.white : Color(0xFFBDBDBD)),
           ),
         ),
@@ -362,7 +372,7 @@ class _Chip extends StatelessWidget {
           size: 12.sp,
           color:
               isSelected
-                  ? (isGradient ? appColors.primaryColor : Colors.white)
+                  ? (isGradient ? colorScheme.primary : Colors.white)
                   : (isGradient ? Colors.white : const Color(0xFF616161)),
           weight: FontWeight.w500,
         ),

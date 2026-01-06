@@ -13,16 +13,22 @@ class EligibilityWidget extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Container(
       width: 1.sw,
       padding: EdgeInsets.symmetric(horizontal: 19.w, vertical: 14.h),
       decoration: BoxDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: appColors.offWhite, width: 1),
+        border: Border.all(
+          color: colorScheme.surfaceContainerHighest,
+          width: 1,
+        ),
         boxShadow: [
           BoxShadow(
-            color: appColors.shadowColor,
+            color: colorScheme.primary.withValues(alpha: 0.08),
             blurRadius: 50,
             offset: Offset(10, 20),
           ),
@@ -33,7 +39,7 @@ class EligibilityWidget extends StatelessWidget {
         children: [
           CText(
             title,
-            color: appColors.textPrimary.withValues(alpha: 0.8),
+            color: colorScheme.onSurface.withValues(alpha: 0.8),
             size: 16.sp,
             weight: FontWeight.w600,
           ),

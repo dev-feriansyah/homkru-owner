@@ -22,12 +22,15 @@ class TaskCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Container(
       margin: EdgeInsets.only(bottom: 16.sp),
       width: 1.sw,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(color: const Color(0x333B70B9), width: 1.w),
         boxShadow: [
@@ -49,7 +52,7 @@ class TaskCard extends StatelessWidget {
                 width: 1.sw * 0.5,
                 child: CText(
                   title,
-                  color: appColors.textPrimary,
+                  color: colorScheme.onSurface,
                   size: 14.sp,
                   weight: FontWeight.w600,
                   overflow: TextOverflow.ellipsis,
@@ -86,7 +89,7 @@ class TaskCard extends StatelessWidget {
               SizedBox(height: 5.sp),
               CText(
                 time,
-                color: appColors.primaryColor,
+                color: colorScheme.primary,
                 size: 12.sp,
                 weight: FontWeight.w600,
               ),

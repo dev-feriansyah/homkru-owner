@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class AuthCustomTextField extends StatelessWidget {
   const AuthCustomTextField({
@@ -17,14 +16,16 @@ class AuthCustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
-      cursorColor: appColors.lightGrey,
+      cursorColor: colorScheme.outline,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(
-          color: appColors.lightGrey,
+          color: colorScheme.outline,
           fontSize: 14,
           fontWeight: FontWeight.w400,
         ),
@@ -35,15 +36,15 @@ class AuthCustomTextField extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.veryLightGrey),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
         ),
       ),
       validator: validator,

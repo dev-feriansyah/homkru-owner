@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:homekru_owner/core/constants/image_constant.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -23,12 +22,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return AppBar(
       forceMaterialTransparency: true,
       // shadowColor: appTheme.white,
       backgroundColor: Colors.red,
       toolbarHeight: toolbarHeight ?? 80,
-      foregroundColor: appColors.white,
+      foregroundColor: colorScheme.onPrimary,
 
       elevation: 0,
       // leading: Padding(
@@ -44,7 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           title,
           size: 20,
           weight: FontWeight.bold,
-          color: appColors.white,
+          color: colorScheme.onPrimary,
         ),
       ),
       centerTitle: true,

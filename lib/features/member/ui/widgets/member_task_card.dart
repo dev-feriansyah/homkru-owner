@@ -24,18 +24,24 @@ class MemberTaskCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Container(
       width: 1.sw,
       padding: EdgeInsets.symmetric(horizontal: 19.w, vertical: 15.h),
       decoration: ShapeDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: appColors.offWhite),
+          side: BorderSide(
+            width: 1,
+            color: colorScheme.surfaceContainerHighest,
+          ),
           borderRadius: BorderRadius.circular(15),
         ),
         shadows: [
           BoxShadow(
-            color: appColors.shadowColor,
+            color: colorScheme.primary.withValues(alpha: 0.08),
             blurRadius: 50,
             offset: const Offset(10, 20),
           ),
@@ -50,7 +56,7 @@ class MemberTaskCard extends StatelessWidget {
             children: [
               CText(
                 title,
-                color: appColors.textPrimary,
+                color: colorScheme.onSurface,
                 size: 16.sp,
                 weight: FontWeight.w600,
               ),
@@ -92,11 +98,11 @@ class MemberTaskCard extends StatelessWidget {
               onTap: onRemind,
               child: CText(
                 'Remind >',
-                color: appColors.primaryColor,
+                color: colorScheme.primary,
                 size: 14.sp,
                 weight: FontWeight.w500,
                 decoration: TextDecoration.underline,
-                decorationColor: appColors.primaryColor,
+                decorationColor: colorScheme.primary,
               ),
             ),
         ],

@@ -12,9 +12,11 @@ class HomeSetupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: const CustomCommonAppBar(title: 'Home Setup'),
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 16.h),
         children: [
@@ -29,7 +31,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appColors.primaryColor,
+                    backgroundColor: colorScheme.primary,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -57,7 +59,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appColors.primaryColor,
+                    backgroundColor: colorScheme.primary,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -85,7 +87,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appColors.primaryColor,
+                    backgroundColor: colorScheme.primary,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -114,7 +116,7 @@ class HomeSetupScreen extends StatelessWidget {
                     content: Text(
                       'Room "${result['roomName']}" added successfully!',
                     ),
-                    backgroundColor: appColors.primaryColor,
+                    backgroundColor: colorScheme.primary,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.r),
@@ -148,6 +150,7 @@ class _Section extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -160,7 +163,7 @@ class _Section extends StatelessWidget {
                   title,
                   size: 18.sp,
                   weight: FontWeight.w500,
-                  color: appColors.textPrimary,
+                  color: colorScheme.onSurface,
                 ),
               ),
               InkWell(
@@ -169,7 +172,7 @@ class _Section extends StatelessWidget {
                   width: 28,
                   height: 28,
                   decoration: BoxDecoration(
-                    color: appColors.primaryColor,
+                    color: colorScheme.primary,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.add, color: Colors.white, size: 18),
@@ -203,6 +206,8 @@ class _RoomItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return
     // Container(
     // decoration: BoxDecoration(
@@ -243,7 +248,7 @@ class _RoomItem extends StatelessWidget {
             title,
             size: 14.sp,
             weight: FontWeight.w500,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
         ),
         vGap(2.h),

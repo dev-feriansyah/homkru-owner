@@ -55,33 +55,6 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
     },
   ];
 
-  final List<Map<String, dynamic>> _contactOptions = [
-    {
-      'title': 'Live Chat',
-      'subtitle': 'Get instant help from our support team',
-      'icon': Icons.chat,
-      'color': appColors.primaryColor,
-    },
-    {
-      'title': 'Email Support',
-      'subtitle': 'support@homekru.com',
-      'icon': Icons.email,
-      'color': appColors.brightGreen,
-    },
-    {
-      'title': 'Phone Support',
-      'subtitle': '+1 (555) 123-4567',
-      'icon': Icons.phone,
-      'color': appColors.orange,
-    },
-    {
-      'title': 'Video Call',
-      'subtitle': 'Schedule a video consultation',
-      'icon': Icons.video_call,
-      'color': appColors.amber,
-    },
-  ];
-
   @override
   void dispose() {
     _searchController.dispose();
@@ -90,8 +63,10 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: const CustomCommonAppBar(title: "Help & Support"),
       body: Stack(
         children: [
@@ -133,6 +108,8 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   Widget _buildSearchBar() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -154,7 +131,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             "How can we help you?",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           TextField(
@@ -170,15 +147,15 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
               prefixIcon: Icon(Icons.search, color: appColors.grey),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appColors.veryLightGrey),
+                borderSide: BorderSide(color: colorScheme.outlineVariant),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appColors.veryLightGrey),
+                borderSide: BorderSide(color: colorScheme.outlineVariant),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.r),
-                borderSide: BorderSide(color: appColors.primaryColor),
+                borderSide: BorderSide(color: colorScheme.primary),
               ),
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 12.w,
@@ -192,6 +169,8 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   Widget _buildQuickActions() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -213,7 +192,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             "Quick Actions",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           Row(
@@ -222,7 +201,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                 child: _buildQuickActionItem(
                   "User Guide",
                   Icons.book,
-                  appColors.primaryColor,
+                  colorScheme.primary,
                 ),
               ),
               SizedBox(width: 12.w),
@@ -230,7 +209,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                 child: _buildQuickActionItem(
                   "Tutorials",
                   Icons.play_circle,
-                  appColors.brightGreen,
+                  appColors.successColor,
                 ),
               ),
             ],
@@ -242,7 +221,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                 child: _buildQuickActionItem(
                   "Video Help",
                   Icons.video_library,
-                  appColors.orange,
+                  appColors.orangeDark,
                 ),
               ),
               SizedBox(width: 12.w),
@@ -250,7 +229,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                 child: _buildQuickActionItem(
                   "Report Bug",
                   Icons.bug_report,
-                  appColors.darkRed,
+                  colorScheme.error,
                 ),
               ),
             ],
@@ -291,6 +270,36 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   Widget _buildContactOptions() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
+    final List<Map<String, dynamic>> contactOptions = [
+      {
+        'title': 'Live Chat',
+        'subtitle': 'Get instant help from our support team',
+        'icon': Icons.chat,
+        'color': colorScheme.primary,
+      },
+      {
+        'title': 'Email Support',
+        'subtitle': 'support@homekru.com',
+        'icon': Icons.email,
+        'color': appColors.successColor,
+      },
+      {
+        'title': 'Phone Support',
+        'subtitle': '+1 (555) 123-4567',
+        'icon': Icons.phone,
+        'color': appColors.orangeDark,
+      },
+      {
+        'title': 'Video Call',
+        'subtitle': 'Schedule a video consultation',
+        'icon': Icons.video_call,
+        'color': appColors.amber,
+      },
+    ];
+
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -312,16 +321,18 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             "Contact Support",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
-          ..._contactOptions.map((option) => _buildContactOption(option)),
+          ...contactOptions.map((option) => _buildContactOption(option)),
         ],
       ),
     );
   }
 
   Widget _buildContactOption(Map<String, dynamic> option) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       margin: EdgeInsets.only(bottom: 12.h),
       child: Material(
@@ -334,7 +345,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
           child: Container(
             padding: EdgeInsets.all(16.w),
             decoration: BoxDecoration(
-              color: appColors.veryLightGrey.withValues(alpha: 0.3),
+              color: colorScheme.outlineVariant.withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(8.r),
             ),
             child: Row(
@@ -360,7 +371,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
                         option['title'],
                         size: 14.sp,
                         weight: FontWeight.w600,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                       SizedBox(height: 2.h),
                       CText(
@@ -385,6 +396,8 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   Widget _buildFAQSection() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     final filteredFAQs =
         _searchQuery.isEmpty
             ? _faqItems
@@ -418,7 +431,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             "Frequently Asked Questions",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           if (filteredFAQs.isEmpty)
@@ -440,10 +453,12 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   Widget _buildFAQItem(Map<String, dynamic> faq) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       margin: EdgeInsets.only(bottom: 12.h),
       decoration: BoxDecoration(
-        color: appColors.veryLightGrey.withValues(alpha: 0.3),
+        color: colorScheme.outlineVariant.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: ExpansionTile(
@@ -451,18 +466,18 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
           faq['question'],
           size: 14.sp,
           weight: FontWeight.w600,
-          color: appColors.textPrimary,
+          color: colorScheme.onSurface,
         ),
         subtitle: Padding(
           padding: EdgeInsets.only(top: 4.h),
           child: CText(
             faq['category'],
             size: 12.sp,
-            color: appColors.primaryColor,
+            color: colorScheme.primary,
             weight: FontWeight.w500,
           ),
         ),
-        iconColor: appColors.primaryColor,
+        iconColor: colorScheme.primary,
         collapsedIconColor: appColors.grey,
         children: [
           Padding(
@@ -470,7 +485,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             child: CText(
               faq['answer'],
               size: 13.sp,
-              color: appColors.textPrimary,
+              color: colorScheme.onSurface,
             ),
           ),
         ],
@@ -496,6 +511,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   void _showComingSoonDialog(String feature) {
+    final colorScheme = Theme.of(context).colorScheme;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -507,12 +523,12 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             "Coming Soon",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           content: CText(
             "$feature feature will be available soon. Please use other contact methods for now.",
             size: 14.sp,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           actions: [
             TextButton(
@@ -520,7 +536,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
               child: CText(
                 "OK",
                 size: 14.sp,
-                color: appColors.primaryColor,
+                color: colorScheme.primary,
                 weight: FontWeight.w600,
               ),
             ),
@@ -531,6 +547,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   void _showEmailDialog() {
+    final colorScheme = Theme.of(context).colorScheme;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -542,7 +559,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             "Email Support",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -550,13 +567,13 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
               CText(
                 "Send us an email at:",
                 size: 14.sp,
-                color: appColors.textPrimary,
+                color: colorScheme.onSurface,
               ),
               SizedBox(height: 8.h),
               CText(
                 "support@homekru.com",
                 size: 16.sp,
-                color: appColors.primaryColor,
+                color: colorScheme.primary,
                 weight: FontWeight.w600,
               ),
             ],
@@ -567,7 +584,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
               child: CText(
                 "OK",
                 size: 14.sp,
-                color: appColors.primaryColor,
+                color: colorScheme.primary,
                 weight: FontWeight.w600,
               ),
             ),
@@ -578,6 +595,8 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
   }
 
   void _showPhoneDialog() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -589,17 +608,17 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
             "Phone Support",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CText("Call us at:", size: 14.sp, color: appColors.textPrimary),
+              CText("Call us at:", size: 14.sp, color: colorScheme.onSurface),
               SizedBox(height: 8.h),
               CText(
                 "+1 (555) 123-4567",
                 size: 16.sp,
-                color: appColors.primaryColor,
+                color: colorScheme.primary,
                 weight: FontWeight.w600,
               ),
               SizedBox(height: 8.h),
@@ -612,7 +631,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
               child: CText(
                 "OK",
                 size: 14.sp,
-                color: appColors.primaryColor,
+                color: colorScheme.primary,
                 weight: FontWeight.w600,
               ),
             ),

@@ -13,8 +13,11 @@ void showEditDialog(BuildContext context) {
     context: context,
     barrierDismissible: false,
     builder: (context) {
+      final colorScheme = Theme.of(context).colorScheme;
+      final appColors = context.appColors;
+
       return Dialog(
-        backgroundColor: appColors.white,
+        backgroundColor: colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         insetPadding: const EdgeInsets.symmetric(horizontal: 24),
         child: Padding(
@@ -30,7 +33,7 @@ void showEditDialog(BuildContext context) {
                   const Spacer(), // pushes "Edit" to the center
                   CText(
                     "Edit",
-                    color: appColors.textPrimary,
+                    color: colorScheme.onSurface,
                     size: 18.sp,
                     weight: FontWeight.w600,
                   ),
@@ -41,13 +44,13 @@ void showEditDialog(BuildContext context) {
                       height: 25.w,
                       width: 25.w,
                       decoration: BoxDecoration(
-                        color: appColors.lightBlueTwo,
+                        color: colorScheme.surfaceContainerHighest,
                         shape: BoxShape.circle,
                       ),
                       child: Center(
                         child: Icon(
                           Icons.close,
-                          color: appColors.primaryColor,
+                          color: colorScheme.primary,
                           size: 18,
                         ),
                       ),
@@ -65,14 +68,17 @@ void showEditDialog(BuildContext context) {
                   vertical: 0,
                 ),
                 decoration: ShapeDecoration(
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: appColors.offWhite),
+                    side: BorderSide(
+                      width: 1,
+                      color: colorScheme.surfaceContainerHighest,
+                    ),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   shadows: [
                     BoxShadow(
-                      color: appColors.shadowColor,
+                      color: colorScheme.shadow.withValues(alpha: 0.08),
                       blurRadius: 50,
                       offset: const Offset(10, 20),
                       spreadRadius: 0,
@@ -91,7 +97,7 @@ void showEditDialog(BuildContext context) {
                     const Spacer(),
                     Icon(
                       Icons.cloud_upload_outlined,
-                      color: appColors.lightGrey,
+                      color: colorScheme.onSurfaceVariant,
                     ),
                   ],
                 ),
@@ -111,7 +117,7 @@ void showEditDialog(BuildContext context) {
                 selectedValue: "Live-in",
                 hintText: "Live-in",
                 items: ["Live-in", "Non Live-in"],
-                borderColor: appColors.offWhite,
+                borderColor: colorScheme.surfaceContainerHighest,
                 onChanged: (val) {
                   Log.d(val);
                 },

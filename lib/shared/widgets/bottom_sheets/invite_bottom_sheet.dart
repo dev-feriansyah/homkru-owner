@@ -23,6 +23,9 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -59,7 +62,7 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
             size: 20.sp,
             weight: FontWeight.w600,
             textAlign: TextAlign.center,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
         ),
         vGap(20.h),
@@ -125,10 +128,12 @@ class _InviteBottomSheetState extends State<InviteBottomSheet> {
 
 /// Call this function from anywhere
 void showInviteBottomSheet(BuildContext context) {
+  final colorScheme = Theme.of(context).colorScheme;
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.white,
+    backgroundColor: colorScheme.surface,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
     ),

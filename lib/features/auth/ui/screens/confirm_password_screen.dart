@@ -83,11 +83,14 @@ class ConfirmPasswordScreen extends HookWidget {
                               ),
                               SizedBox(height: 10),
                               Center(
-                                child: CText(
-                                  "Re-enter your new password to confirm.",
-                                  color: appColors.grey,
-                                  weight: FontWeight.w300,
-                                  size: 16,
+                                child: Builder(
+                                  builder:
+                                      (context) => CText(
+                                        "Re-enter your new password to confirm.",
+                                        color: context.appColors.grey,
+                                        weight: FontWeight.w300,
+                                        size: 16,
+                                      ),
                                 ),
                               ),
                               SizedBox(height: 30),
@@ -116,31 +119,39 @@ class ConfirmPasswordScreen extends HookWidget {
                                 hintText: "Enter your confirm password",
                               ),
                               SizedBox(height: 30),
-                              CustomElevatedButton(
-                                onPressed: () {
-                                  if (formKey.currentState!.validate()) {
-                                    // NavigatorService.pushNamedAndRemoveUntil(
-                                    //   AppRoutes.loginScreen,
-                                    // );
-                                    AppNavigator.goNamed(AppRoutes.login);
-                                  } else {}
-                                },
-                                text: "Update Password",
-                                buttonTextStyle: TextStyle(
-                                  color: appColors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                buttonStyle: ButtonStyle(
-                                  backgroundColor: WidgetStateProperty.all(
-                                    appColors.primaryColor,
-                                  ),
-                                  shape: WidgetStateProperty.all(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
+                              Builder(
+                                builder: (context) {
+                                  final colorScheme =
+                                      Theme.of(context).colorScheme;
+                                  return CustomElevatedButton(
+                                    onPressed: () {
+                                      if (formKey.currentState!.validate()) {
+                                        // NavigatorService.pushNamedAndRemoveUntil(
+                                        //   AppRoutes.loginScreen,
+                                        // );
+                                        AppNavigator.goNamed(AppRoutes.login);
+                                      } else {}
+                                    },
+                                    text: "Update Password",
+                                    buttonTextStyle: TextStyle(
+                                      color: colorScheme.surface,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                  ),
-                                ),
+                                    buttonStyle: ButtonStyle(
+                                      backgroundColor: WidgetStateProperty.all(
+                                        colorScheme.primary,
+                                      ),
+                                      shape: WidgetStateProperty.all(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            15,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
                               SizedBox(height: 20),
                             ],

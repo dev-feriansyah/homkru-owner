@@ -18,6 +18,8 @@ class ProfileScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     final selectedImage = useState<File?>(null);
 
     final emailController = useTextEditingController(
@@ -47,7 +49,7 @@ class ProfileScreen extends HookWidget {
     }
 
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       body: Stack(
         children: [
           bottomWaveWidget(),
@@ -88,14 +90,14 @@ class ProfileScreen extends HookWidget {
                               },
                               child: Icon(
                                 Icons.arrow_back_ios_new,
-                                color: appColors.white,
+                                color: colorScheme.surface,
                                 size: 20,
                               ),
                             ),
                             CText(
                               "Profile",
                               size: 18,
-                              color: appColors.white,
+                              color: colorScheme.surface,
                               weight: FontWeight.bold,
                               fontFamily: "PoppinsMedium",
                             ),
@@ -121,7 +123,9 @@ class ProfileScreen extends HookWidget {
                                     fit: BoxFit.cover,
                                   ),
                                   shape: BoxShape.circle,
-                                  border: Border.all(color: appColors.white),
+                                  border: Border.all(
+                                    color: colorScheme.surface,
+                                  ),
                                 ),
                               ),
                             ),
@@ -154,7 +158,7 @@ class ProfileScreen extends HookWidget {
                         CText(
                           "Maria Johnson",
                           size: 16,
-                          color: appColors.white,
+                          color: colorScheme.surface,
                           weight: FontWeight.bold,
                           fontFamily: "PoppinsMedium",
                         ),
@@ -162,7 +166,7 @@ class ProfileScreen extends HookWidget {
                         CText(
                           "Homeowner",
                           size: 14,
-                          color: appColors.offWhite,
+                          color: colorScheme.surfaceContainerHighest,
                           weight: FontWeight.bold,
                         ),
                       ],
@@ -185,15 +189,19 @@ class ProfileScreen extends HookWidget {
                           ],
                         ),
                         SizedBox(height: 20),
-                        buildTextField("email", emailController),
+                        buildTextField(context, "email", emailController),
                         SizedBox(height: 20),
-                        buildTextField("phone", phoneController),
+                        buildTextField(context, "phone", phoneController),
                         SizedBox(height: 20),
-                        buildTextField("address", addressController),
+                        buildTextField(context, "address", addressController),
                         SizedBox(height: 20),
-                        buildTextField("houseHoldName", householdController),
+                        buildTextField(
+                          context,
+                          "houseHoldName",
+                          householdController,
+                        ),
                         SizedBox(height: 20),
-                        buildTextField("plan", planController),
+                        buildTextField(context, "plan", planController),
                         vGap(35.h),
                         CustomElevatedButton(
                           text: 'Updates Profile',
@@ -212,7 +220,13 @@ class ProfileScreen extends HookWidget {
     );
   }
 
-  Widget buildTextField(String label, TextEditingController controller) {
+  Widget buildTextField(
+    BuildContext context,
+    String label,
+    TextEditingController controller,
+  ) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return TextFormField(
       controller: controller,
       readOnly: false,
@@ -224,18 +238,18 @@ class ProfileScreen extends HookWidget {
       decoration: InputDecoration(
         // label  label,
         filled: true,
-        fillColor: appColors.white,
+        fillColor: colorScheme.surface,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.offWhite),
+          borderSide: BorderSide(color: colorScheme.surfaceContainerHighest),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.offWhite),
+          borderSide: BorderSide(color: colorScheme.surfaceContainerHighest),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: appColors.offWhite),
+          borderSide: BorderSide(color: colorScheme.surfaceContainerHighest),
         ),
       ),
     );
@@ -246,6 +260,8 @@ class ProfileScreen extends HookWidget {
     required VoidCallback onPickCamera,
     required VoidCallback onPickGallery,
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
@@ -280,12 +296,13 @@ class ProfileScreen extends HookWidget {
                       "Select Profile Photo",
                       size: 18,
                       weight: FontWeight.bold,
-                      color: appColors.textPrimary,
+                      color: colorScheme.onSurface,
                     ),
                     SizedBox(height: 20),
 
                     // Camera option
                     _buildImagePickerOption(
+                      context,
                       icon: Icons.camera_alt,
                       title: "Take Photo",
                       subtitle: "Use camera to take a new photo",
@@ -299,6 +316,7 @@ class ProfileScreen extends HookWidget {
 
                     // Gallery option
                     _buildImagePickerOption(
+                      context,
                       icon: Icons.photo_library,
                       title: "Choose from Gallery",
                       subtitle: "Select photo from your gallery",
@@ -339,35 +357,38 @@ class ProfileScreen extends HookWidget {
     );
   }
 
-  Widget _buildImagePickerOption({
+  Widget _buildImagePickerOption(
+    BuildContext context, {
     required IconData icon,
     required String title,
     required String subtitle,
     required VoidCallback onTap,
     Color? iconColor,
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: appColors.veryLightGrey.withValues(alpha: 0.3),
+          color: colorScheme.outlineVariant.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: appColors.veryLightGrey),
+          border: Border.all(color: colorScheme.outlineVariant),
         ),
         child: Row(
           children: [
             Container(
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: (iconColor ?? appColors.primaryColor).withValues(
+                color: (iconColor ?? colorScheme.primary).withValues(
                   alpha: 0.1,
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
                 icon,
-                color: iconColor ?? appColors.primaryColor,
+                color: iconColor ?? colorScheme.primary,
                 size: 24,
               ),
             ),
@@ -380,7 +401,7 @@ class ProfileScreen extends HookWidget {
                     title,
                     size: 16,
                     weight: FontWeight.w600,
-                    color: appColors.textPrimary,
+                    color: colorScheme.onSurface,
                   ),
                   SizedBox(height: 4),
                   CText(subtitle, size: 12, color: appColors.grey),

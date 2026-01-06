@@ -20,8 +20,11 @@ class CoownerListScreen extends StatefulWidget {
 class _CoownerListScreenState extends State<CoownerListScreen> {
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: "Co-owners"),
 
       body: Stack(
@@ -73,7 +76,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                           margin: EdgeInsets.only(bottom: 20.h),
                           width: 1.sw,
                           decoration: BoxDecoration(
-                            color: appColors.white,
+                            color: colorScheme.surface,
                             borderRadius: BorderRadius.circular(15.r),
                             // border: Border.all(
                             //   color: appTheme.offWhite,
@@ -81,7 +84,9 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                             // ),
                             boxShadow: [
                               BoxShadow(
-                                color: appColors.shadowColor,
+                                color: colorScheme.primary.withValues(
+                                  alpha: 0.08,
+                                ),
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
                               ),
@@ -105,7 +110,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                                 child: Icon(
                                   Ionicons.settings_outline,
                                   size: 24.sp,
-                                  color: appColors.textPrimary,
+                                  color: colorScheme.onSurface,
                                 ),
                               ),
                             ],
@@ -135,11 +140,11 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                             padding: EdgeInsets.all(12.w),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15.r),
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                             ),
                             child: Icon(
                               Icons.add,
-                              color: appColors.white,
+                              color: colorScheme.surface,
                               size: 25.sp,
                             ),
                           ),
@@ -159,6 +164,8 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
   }
 
   void _showCoOwnerSettingsDialog(BuildContext context, int index) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     bool accessTask = false;
     bool accessActionItems = false;
     bool accessCheckInOut = false;
@@ -174,7 +181,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                     "Co-owner Settings",
                     size: 18.sp,
                     weight: FontWeight.w600,
-                    color: appColors.textPrimary,
+                    color: colorScheme.onSurface,
                   ),
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -184,7 +191,7 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                         "Access given for",
                         size: 16.sp,
                         weight: FontWeight.w500,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                       SizedBox(height: 12.h),
                       _buildCheckbox(
@@ -236,13 +243,13 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
                               "Co-owner settings updated successfully!",
                               color: Colors.white,
                             ),
-                            backgroundColor: appColors.primaryColor,
+                            backgroundColor: colorScheme.primary,
                           ),
                         );
                       },
                       child: CText(
                         "Save",
-                        color: appColors.primaryColor,
+                        color: colorScheme.primary,
                         weight: FontWeight.w600,
                       ),
                     ),
@@ -257,6 +264,8 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
     required ValueChanged<bool?> onChanged,
     required String text,
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 6.h),
       child: Row(
@@ -266,13 +275,13 @@ class _CoownerListScreenState extends State<CoownerListScreen> {
             height: 24.w,
             width: 24.w,
             child: Checkbox(
-              checkColor: appColors.white,
-              activeColor: appColors.primaryColor,
+              checkColor: colorScheme.surface,
+              activeColor: colorScheme.primary,
               value: value,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4.r),
               ),
-              side: BorderSide(color: appColors.lightGrey),
+              side: BorderSide(color: appColors.textSecondary),
               onChanged: onChanged,
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 
 class AddFab extends StatelessWidget {
   final void Function()? onPressed;
@@ -8,13 +7,15 @@ class AddFab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return FloatingActionButton(
       onPressed: onPressed,
-      backgroundColor: appColors.primaryColor,
+      backgroundColor: colorScheme.primary,
       elevation: 4,
-      shape: CircleBorder(side: BorderSide(color: appColors.white, width: 1)),
+      shape: CircleBorder(side: BorderSide(color: colorScheme.onPrimary, width: 1)),
       child: Center(
-        child: Icon(Icons.add_rounded, color: appColors.white, size: 44),
+        child: Icon(Icons.add_rounded, color: colorScheme.onPrimary, size: 44),
       ),
     );
   }

@@ -11,6 +11,9 @@ class NoteDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       child: Padding(
@@ -38,7 +41,7 @@ class NoteDialog extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: appColors.lightBlue,
+                      color: colorScheme.surfaceContainerHighest,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(Icons.close, size: 18),

@@ -36,8 +36,11 @@ class _NotificationScreenState extends State<NotificationScreen>
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: "Notification"),
 
       body: Stack(
@@ -59,9 +62,9 @@ class _NotificationScreenState extends State<NotificationScreen>
                 TabBar(
                   indicatorSize: TabBarIndicatorSize.tab,
                   controller: _tabController,
-                  indicatorColor: appColors.primaryColor,
+                  indicatorColor: colorScheme.primary,
                   indicatorWeight: 1,
-                  labelColor: appColors.primaryColor,
+                  labelColor: colorScheme.primary,
                   unselectedLabelColor: appColors.grey,
                   // labelPadding: EdgeInsets.symmetric(),
                   labelStyle: TextStyle(
@@ -95,6 +98,7 @@ class _NotificationScreenState extends State<NotificationScreen>
   }
 
   Widget _buildAllNotifications() {
+    final colorScheme = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
@@ -105,7 +109,7 @@ class _NotificationScreenState extends State<NotificationScreen>
             "Today",
             size: 18,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 20),
 
@@ -118,7 +122,7 @@ class _NotificationScreenState extends State<NotificationScreen>
             time: "10m ago",
             hasBadge: true,
             badgeCount: 1,
-            border: Border.all(color: appColors.primaryColor),
+            border: Border.all(color: colorScheme.primary),
           ),
           _buildNotificationCard(
             avatarType: "task",
@@ -128,7 +132,7 @@ class _NotificationScreenState extends State<NotificationScreen>
             time: "10m ago",
             hasBadge: true,
             badgeCount: 1,
-            border: Border.all(color: appColors.primaryColor),
+            border: Border.all(color: colorScheme.primary),
           ),
 
           SizedBox(height: 30),
@@ -138,7 +142,7 @@ class _NotificationScreenState extends State<NotificationScreen>
             "Yesterday",
             size: 18,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 20),
 
@@ -192,6 +196,7 @@ class _NotificationScreenState extends State<NotificationScreen>
   }
 
   Widget _buildUnreadNotifications() {
+    final colorScheme = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
@@ -201,7 +206,7 @@ class _NotificationScreenState extends State<NotificationScreen>
             "Unread Notifications",
             size: 18,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 20),
 
@@ -214,7 +219,7 @@ class _NotificationScreenState extends State<NotificationScreen>
             time: "10m ago",
             hasBadge: true,
             badgeCount: 1,
-            border: Border.all(color: appColors.primaryColor),
+            border: Border.all(color: colorScheme.primary),
           ),
           _buildNotificationCard(
             avatarType: "task",
@@ -224,7 +229,7 @@ class _NotificationScreenState extends State<NotificationScreen>
             time: "10m ago",
             hasBadge: true,
             badgeCount: 1,
-            border: Border.all(color: appColors.primaryColor),
+            border: Border.all(color: colorScheme.primary),
           ),
           const SizedBox(height: 16),
         ],
@@ -243,11 +248,13 @@ class _NotificationScreenState extends State<NotificationScreen>
     int badgeCount = 0,
     bool hasRemindButton = false,
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       decoration: BoxDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(30),
         border: border,
       ),
@@ -275,7 +282,7 @@ class _NotificationScreenState extends State<NotificationScreen>
                             name,
                             size: 14,
                             weight: FontWeight.w600,
-                            color: appColors.textPrimary,
+                            color: colorScheme.onSurface,
                           ),
                           SizedBox(height: 2),
                           CText(
@@ -305,7 +312,7 @@ class _NotificationScreenState extends State<NotificationScreen>
                             width: 20,
                             height: 20,
                             decoration: BoxDecoration(
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                               shape: BoxShape.circle,
                             ),
                             child: Center(
@@ -345,9 +352,9 @@ class _NotificationScreenState extends State<NotificationScreen>
                           "Remind >",
                           size: 12,
                           weight: FontWeight.w600,
-                          color: appColors.primaryColor,
+                          color: colorScheme.primary,
                           decoration: TextDecoration.underline,
-                          decorationColor: appColors.primaryColor,
+                          decorationColor: colorScheme.primary,
                         ),
                       ),
                     ],
@@ -362,6 +369,7 @@ class _NotificationScreenState extends State<NotificationScreen>
   }
 
   Widget _buildAvatar(String type) {
+    final colorScheme = Theme.of(context).colorScheme;
     switch (type) {
       case "task":
         return Container(
@@ -422,11 +430,11 @@ class _NotificationScreenState extends State<NotificationScreen>
           height: 50,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: appColors.veryLightGrey,
+            color: colorScheme.outlineVariant,
           ),
           child: Icon(
             Icons.notifications,
-            color: appColors.primaryColor,
+            color: colorScheme.primary,
             size: 24,
           ),
         );
@@ -434,6 +442,7 @@ class _NotificationScreenState extends State<NotificationScreen>
   }
 
   void showReminderPopup(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     String selectedValue = '5 minutes';
     final List<String> reminderOptions = [
       '5 minutes',
@@ -452,7 +461,7 @@ class _NotificationScreenState extends State<NotificationScreen>
               child: Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
@@ -476,10 +485,10 @@ class _NotificationScreenState extends State<NotificationScreen>
                           },
                           child: CircleAvatar(
                             radius: 16,
-                            backgroundColor: appColors.lightBlueTwo,
+                            backgroundColor: colorScheme.secondaryContainer,
                             child: Icon(
                               Icons.close,
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                             ),
                           ),
                         ),
@@ -507,7 +516,7 @@ class _NotificationScreenState extends State<NotificationScreen>
                             hintText: "Send reminder in every",
                             hintStyle: TextStyle(
                               fontSize: 13,
-                              color: appColors.black,
+                              color: colorScheme.onSurface,
                             ),
                             contentPadding: EdgeInsets.symmetric(vertical: 12),
                           ),

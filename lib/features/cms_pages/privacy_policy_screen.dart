@@ -10,8 +10,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: "Privacy Policy"),
       body: Stack(
         children: [
@@ -20,7 +23,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
             padding: EdgeInsets.all(20.w),
             child: Container(
               decoration: BoxDecoration(
-                color: appColors.white,
+                color: colorScheme.surface,
                 borderRadius: BorderRadius.circular(20.r),
                 boxShadow: [
                   BoxShadow(
@@ -39,7 +42,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                       "Privacy Policy",
                       size: 24.sp,
                       weight: FontWeight.bold,
-                      color: appColors.primaryColor,
+                      color: colorScheme.primary,
                     ),
                     SizedBox(height: 8.h),
                     CText(
@@ -98,7 +101,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(
-                        color: appColors.lightBlue.withValues(alpha: 0.3),
+                        color: colorScheme.primaryContainer.withValues(
+                          alpha: 0.3,
+                        ),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: Column(
@@ -108,7 +113,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                             "Contact Us",
                             size: 16.sp,
                             weight: FontWeight.bold,
-                            color: appColors.primaryColor,
+                            color: colorScheme.primary,
                           ),
                           SizedBox(height: 8.h),
                           CText(
@@ -136,21 +141,27 @@ class PrivacyPolicyScreen extends StatelessWidget {
   }
 
   Widget _buildSection(String title, String content) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 20.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CText(
-            title,
-            size: 18.sp,
-            weight: FontWeight.bold,
-            color: appColors.primaryColor,
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        final appColors = context.appColors;
+        return Padding(
+          padding: EdgeInsets.only(bottom: 20.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CText(
+                title,
+                size: 18.sp,
+                weight: FontWeight.bold,
+                color: colorScheme.primary,
+              ),
+              SizedBox(height: 8.h),
+              CText(content, size: 14.sp, color: appColors.grey, height: 1.5),
+            ],
           ),
-          SizedBox(height: 8.h),
-          CText(content, size: 14.sp, color: appColors.grey, height: 1.5),
-        ],
-      ),
+        );
+      },
     );
   }
 }

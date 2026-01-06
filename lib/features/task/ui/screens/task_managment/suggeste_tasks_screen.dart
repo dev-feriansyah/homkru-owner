@@ -23,6 +23,8 @@ class SuggestedTasksScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     final selectedRoom = useState<String>('Kitchen');
 
     return Stack(
@@ -44,7 +46,7 @@ class SuggestedTasksScreen extends HookWidget {
               _buildAssignToSection(),
               vGap(16.h),
               CustomDropdownWidget(
-                borderColor: appColors.offWhite,
+                borderColor: colorScheme.surfaceContainerHighest,
                 items: [
                   "Bedroom",
                   "Kitchen",
@@ -73,92 +75,98 @@ class SuggestedTasksScreen extends HookWidget {
 
   Widget _buildAssignToSection() {
     final currentAssignee = useState('James Miller');
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CText(
-          'Helper',
-          size: 18.sp,
-          weight: FontWeight.w600,
-          color: appColors.textPrimary,
-        ),
-        vGap(16.h),
-        CustomAssignDropdown(
-          borderColor: appColors.offWhite,
-          items: assignees,
-          hintText: "Select Assignee",
-          selectedValue: currentAssignee.value,
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CText(
+              'Helper',
+              size: 18.sp,
+              weight: FontWeight.w600,
+              color: colorScheme.onSurface,
+            ),
+            vGap(16.h),
+            CustomAssignDropdown(
+              borderColor: colorScheme.surfaceContainerHighest,
+              items: assignees,
+              hintText: "Select Assignee",
+              selectedValue: currentAssignee.value,
 
-          onChanged: (value) {
-            if (value != null) {
-              currentAssignee.value = value;
-            }
-          },
-        ),
+              onChanged: (value) {
+                if (value != null) {
+                  currentAssignee.value = value;
+                }
+              },
+            ),
 
-        // GestureDetector(
-        //   onTap: () => _showAssigneeBottomSheet(provider),
-        //   child: Container(
-        //     width: double.infinity,
-        //     padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-        //     decoration: ShapeDecoration(
-        //       color: appTheme.white,
-        //       shape: RoundedRectangleBorder(
-        //         side: BorderSide(width: 0, color: appTheme.white),
-        //         borderRadius: BorderRadius.circular(15),
-        //       ),
+            // GestureDetector(
+            //   onTap: () => _showAssigneeBottomSheet(provider),
+            //   child: Container(
+            //     width: double.infinity,
+            //     padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+            //     decoration: ShapeDecoration(
+            //       color: appTheme.white,
+            //       shape: RoundedRectangleBorder(
+            //         side: BorderSide(width: 0, color: appTheme.white),
+            //         borderRadius: BorderRadius.circular(15),
+            //       ),
 
-        //       shadows: [
-        //         BoxShadow(
-        //           color: Colors.black.withValues(alpha: 0.05),
-        //           blurRadius: 8,
-        //           offset: const Offset(0, 2),
-        //         ),
-        //       ],
-        //     ),
+            //       shadows: [
+            //         BoxShadow(
+            //           color: Colors.black.withValues(alpha: 0.05),
+            //           blurRadius: 8,
+            //           offset: const Offset(0, 2),
+            //         ),
+            //       ],
+            //     ),
 
-        //     // ),
-        //     child: Row(
-        //       children: [
-        //         Container(
-        //           width: 32.w,
-        //           height: 32.h,
-        //           decoration: BoxDecoration(
-        //             color: appTheme.blueAccentCustom.withValues(alpha: 0.2),
-        //             shape: BoxShape.circle,
-        //           ),
-        //           child: Center(
-        //             child: CText(
-        //               'KC',
-        //               size: 16.sp,
-        //               weight: FontWeight.w600,
-        //               color: appTheme.blueAccentCustom,
-        //             ),
-        //           ),
-        //         ),
-        //         SizedBox(width: 12.w),
-        //         Expanded(
-        //           child: CText(
-        //             provider.currentAssignee,
-        //             size: 16.sp,
-        //             weight: FontWeight.w500,
-        //             color: appTheme.textPrimary,
-        //           ),
-        //         ),
-        //         Icon(
-        //           Icons.keyboard_arrow_down,
-        //           color: appTheme.grey,
-        //           size: 20.sp,
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-      ],
+            //     // ),
+            //     child: Row(
+            //       children: [
+            //         Container(
+            //           width: 32.w,
+            //           height: 32.h,
+            //           decoration: BoxDecoration(
+            //             color: appTheme.blueAccentCustom.withValues(alpha: 0.2),
+            //             shape: BoxShape.circle,
+            //           ),
+            //           child: Center(
+            //             child: CText(
+            //               'KC',
+            //               size: 16.sp,
+            //               weight: FontWeight.w600,
+            //               color: appTheme.blueAccentCustom,
+            //             ),
+            //           ),
+            //         ),
+            //         SizedBox(width: 12.w),
+            //         Expanded(
+            //           child: CText(
+            //             provider.currentAssignee,
+            //             size: 16.sp,
+            //             weight: FontWeight.w500,
+            //             color: appTheme.textPrimary,
+            //           ),
+            //         ),
+            //         Icon(
+            //           Icons.keyboard_arrow_down,
+            //           color: appTheme.grey,
+            //           size: 20.sp,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+          ],
+        );
+      },
     );
   }
 
   Widget _buildSuggestedTasksSection(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -180,12 +188,12 @@ class SuggestedTasksScreen extends HookWidget {
                 width: 44.w,
                 height: 44.h,
                 decoration: BoxDecoration(
-                  color: appColors.blueAccentCustom,
+                  color: colorScheme.secondary,
                   borderRadius: BorderRadius.circular(15.r),
                 ),
                 child: Icon(
                   Icons.add_rounded,
-                  color: appColors.white,
+                  color: colorScheme.surface,
                   size: 24.sp,
                 ),
               ),
@@ -205,58 +213,64 @@ class SuggestedTasksScreen extends HookWidget {
   }
 
   Widget _buildSuggestedTaskItem(int index, Map<String, dynamic> task) {
-    return Column(
-      children: [
-        Row(
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        final appColors = context.appColors;
+        return Column(
           children: [
-            // hGap(12.w),
-            Expanded(
-              child: CText(
-                task['title'],
-                size: 16.sp,
-                weight: FontWeight.w500,
-                color: appColors.grey,
-              ),
-            ),
-            GestureDetector(
-              onTap: () => {},
-              child: Container(
-                width: 20.w,
-                height: 20.h,
-                decoration: BoxDecoration(
-                  // color:
-                  //     task['isSelected']
-                  //         ? appTheme.blueAccentCustom
-                  //         : Colors.white,
-                  border: Border.all(
-                    color:
-                        task['isSelected']
-                            ? appColors.blueAccentCustom
-                            : Colors.grey[400]!,
-                    width: 1,
+            Row(
+              children: [
+                // hGap(12.w),
+                Expanded(
+                  child: CText(
+                    task['title'],
+                    size: 16.sp,
+                    weight: FontWeight.w500,
+                    color: appColors.grey,
                   ),
-                  borderRadius: BorderRadius.circular(6.r),
                 ),
-                child:
-                    task['isSelected']
-                        ? Padding(
-                          padding: EdgeInsets.all(3.5.w),
-                          child: Image.asset(
-                            ImageConstant.blueCheck,
-                            width: 12.w,
-                            height: 12.h,
-                          ),
-                        )
-                        : null,
-              ),
-            ),
+                GestureDetector(
+                  onTap: () => {},
+                  child: Container(
+                    width: 20.w,
+                    height: 20.h,
+                    decoration: BoxDecoration(
+                      // color:
+                      //     task['isSelected']
+                      //         ? appTheme.blueAccentCustom
+                      //         : Colors.white,
+                      border: Border.all(
+                        color:
+                            task['isSelected']
+                                ? colorScheme.secondary
+                                : Colors.grey[400]!,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(6.r),
+                    ),
+                    child:
+                        task['isSelected']
+                            ? Padding(
+                              padding: EdgeInsets.all(3.5.w),
+                              child: Image.asset(
+                                ImageConstant.blueCheck,
+                                width: 12.w,
+                                height: 12.h,
+                              ),
+                            )
+                            : null,
+                  ),
+                ),
 
-            hGap(40.w),
+                hGap(40.w),
+              ],
+            ),
+            vGap(12.h),
+            _buildRequirePhotoSection(),
           ],
-        ),
-        vGap(12.h),
-        _buildRequirePhotoSection(),
-      ],
+        );
+      },
     );
   }
 
@@ -296,81 +310,91 @@ class SuggestedTasksScreen extends HookWidget {
   }
 
   Widget _buildRequirePhotoSection() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CText(
-          'Require Photo',
-          size: 15.sp,
-          weight: FontWeight.w600,
-          color: appColors.grey,
-        ),
-        hGap(10.w),
-        const Spacer(),
-        CustomToggleSwitch(
-          initialValue: true,
-          onChanged: (val) {
-            Log.d(val);
-          },
-        ),
-        hGap(40.w),
-      ],
+    return Builder(
+      builder: (context) {
+        final appColors = context.appColors;
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CText(
+              'Require Photo',
+              size: 15.sp,
+              weight: FontWeight.w600,
+              color: appColors.grey,
+            ),
+            hGap(10.w),
+            const Spacer(),
+            CustomToggleSwitch(
+              initialValue: true,
+              onChanged: (val) {
+                Log.d(val);
+              },
+            ),
+            hGap(40.w),
+          ],
+        );
+      },
     );
   }
 
   Widget _buildActionButtons() {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () => {},
-          //  _assignTask(provider),
-          child: Container(
-            height: 50.h,
-            width: double.infinity,
-            // padding: EdgeInsets.symmetric(vertical: 12.h),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15.r),
-              border: Border.all(color: appColors.blueAccentCustom),
-            ),
-            child: Center(
-              child: CText(
-                'Assign Task',
-                size: 18.sp,
-                weight: FontWeight.w600,
-                color: appColors.blueAccentCustom,
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Column(
+          children: [
+            GestureDetector(
+              onTap: () => {},
+              //  _assignTask(provider),
+              child: Container(
+                height: 50.h,
+                width: double.infinity,
+                // padding: EdgeInsets.symmetric(vertical: 12.h),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15.r),
+                  border: Border.all(color: colorScheme.secondary),
+                ),
+                child: Center(
+                  child: CText(
+                    'Assign Task',
+                    size: 18.sp,
+                    weight: FontWeight.w600,
+                    color: colorScheme.secondary,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        vGap(16.h),
-        GestureDetector(
-          onTap: () => {},
+            vGap(16.h),
+            GestureDetector(
+              onTap: () => {},
 
-          child: Container(
-            width: double.infinity,
-            height: 50.h,
-            // padding: EdgeInsets.symmetric(vertical: 12.h),
-            decoration: BoxDecoration(
-              color: appColors.blueAccentCustom,
-              borderRadius: BorderRadius.circular(15.r),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.add, color: Colors.white, size: 20.sp),
-                hGap(5.w),
-                CText(
-                  'Add More Task',
-                  size: 18.sp,
-                  weight: FontWeight.w600,
-                  color: Colors.white,
+              child: Container(
+                width: double.infinity,
+                height: 50.h,
+                // padding: EdgeInsets.symmetric(vertical: 12.h),
+                decoration: BoxDecoration(
+                  color: colorScheme.secondary,
+                  borderRadius: BorderRadius.circular(15.r),
                 ),
-              ],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.add, color: Colors.white, size: 20.sp),
+                    hGap(5.w),
+                    CText(
+                      'Add More Task',
+                      size: 18.sp,
+                      weight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 

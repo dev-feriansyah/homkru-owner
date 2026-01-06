@@ -20,8 +20,11 @@ class HelperListScreen extends StatefulWidget {
 class _HelperListScreenState extends State<HelperListScreen> {
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomCommonAppBar(title: "Helper"),
 
       body: Stack(
@@ -72,7 +75,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                           margin: EdgeInsets.only(bottom: 20.h),
                           width: 1.sw,
                           decoration: BoxDecoration(
-                            color: appColors.white,
+                            color: colorScheme.surface,
                             borderRadius: BorderRadius.circular(15.r),
                             // border: Border.all(
                             //   color: appTheme.offWhite,
@@ -80,7 +83,9 @@ class _HelperListScreenState extends State<HelperListScreen> {
                             // ),
                             boxShadow: [
                               BoxShadow(
-                                color: appColors.shadowColor,
+                                color: colorScheme.primary.withValues(
+                                  alpha: 0.08,
+                                ),
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
                               ),
@@ -110,7 +115,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 child: Icon(
                                   Ionicons.settings_outline,
                                   size: 24.sp,
-                                  color: appColors.textPrimary,
+                                  color: colorScheme.onSurface,
                                 ),
                               ),
                             ],
@@ -139,11 +144,11 @@ class _HelperListScreenState extends State<HelperListScreen> {
                             padding: EdgeInsets.all(12.w),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15.r),
-                              color: appColors.primaryColor,
+                              color: colorScheme.primary,
                             ),
                             child: Icon(
                               Icons.add,
-                              color: appColors.white,
+                              color: colorScheme.surface,
                               size: 25.sp,
                             ),
                           ),
@@ -163,6 +168,8 @@ class _HelperListScreenState extends State<HelperListScreen> {
   }
 
   void _showHelperSettingsDialog(BuildContext context, int index) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     final nameController = TextEditingController(
       text: "Helper Name ${index + 1}",
     );
@@ -189,7 +196,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: appColors.shadowColor,
+                        color: colorScheme.primary.withValues(alpha: 0.08),
                         blurRadius: 20,
                         offset: const Offset(0, -5),
                       ),
@@ -213,7 +220,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 height: 4.h,
                                 margin: EdgeInsets.only(bottom: 20.h),
                                 decoration: BoxDecoration(
-                                  color: appColors.lightGrey,
+                                  color: appColors.textSecondary,
                                   borderRadius: BorderRadius.circular(2.r),
                                 ),
                               ),
@@ -227,14 +234,14 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                   "Helper Settings",
                                   size: 20.sp,
                                   weight: FontWeight.w600,
-                                  color: appColors.textPrimary,
+                                  color: colorScheme.onSurface,
                                 ),
                                 GestureDetector(
                                   onTap: () => Navigator.of(context).pop(),
                                   child: Container(
                                     padding: EdgeInsets.all(8.w),
                                     decoration: BoxDecoration(
-                                      color: appColors.lightGrey.withValues(
+                                      color: appColors.textSecondary.withValues(
                                         alpha: 0.3,
                                       ),
                                       borderRadius: BorderRadius.circular(8.r),
@@ -255,17 +262,21 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Helper Name",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appColors.textPrimary,
+                              color: colorScheme.onSurface,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appColors.white,
+                                color: colorScheme.surface,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appColors.offWhite),
+                                border: Border.all(
+                                  color: colorScheme.surfaceContainerHighest,
+                                ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appColors.shadowColor,
+                                    color: colorScheme.primary.withValues(
+                                      alpha: 0.08,
+                                    ),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -275,7 +286,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 controller: nameController,
                                 style: TextStyle(
                                   fontSize: 16.sp,
-                                  color: appColors.textPrimary,
+                                  color: colorScheme.onSurface,
                                   fontWeight: FontWeight.w400,
                                 ),
                                 decoration: InputDecoration(
@@ -299,17 +310,21 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Phone Number",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appColors.textPrimary,
+                              color: colorScheme.onSurface,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appColors.white,
+                                color: colorScheme.surface,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appColors.offWhite),
+                                border: Border.all(
+                                  color: colorScheme.surfaceContainerHighest,
+                                ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appColors.shadowColor,
+                                    color: colorScheme.primary.withValues(
+                                      alpha: 0.08,
+                                    ),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -320,7 +335,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                 keyboardType: TextInputType.phone,
                                 style: TextStyle(
                                   fontSize: 16.sp,
-                                  color: appColors.textPrimary,
+                                  color: colorScheme.onSurface,
                                   fontWeight: FontWeight.w400,
                                 ),
                                 decoration: InputDecoration(
@@ -344,17 +359,21 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Role",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appColors.textPrimary,
+                              color: colorScheme.onSurface,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appColors.white,
+                                color: colorScheme.surface,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appColors.offWhite),
+                                border: Border.all(
+                                  color: colorScheme.surfaceContainerHighest,
+                                ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appColors.shadowColor,
+                                    color: colorScheme.primary.withValues(
+                                      alpha: 0.08,
+                                    ),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -382,7 +401,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                             child: CText(
                                               role,
                                               size: 16.sp,
-                                              color: appColors.textPrimary,
+                                              color: colorScheme.onSurface,
                                             ),
                                           ),
                                         )
@@ -399,17 +418,21 @@ class _HelperListScreenState extends State<HelperListScreen> {
                               "Live-in Status",
                               size: 16.sp,
                               weight: FontWeight.w500,
-                              color: appColors.textPrimary,
+                              color: colorScheme.onSurface,
                             ),
                             SizedBox(height: 8.h),
                             Container(
                               decoration: BoxDecoration(
-                                color: appColors.white,
+                                color: colorScheme.surface,
                                 borderRadius: BorderRadius.circular(12.r),
-                                border: Border.all(color: appColors.offWhite),
+                                border: Border.all(
+                                  color: colorScheme.surfaceContainerHighest,
+                                ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: appColors.shadowColor,
+                                    color: colorScheme.primary.withValues(
+                                      alpha: 0.08,
+                                    ),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -437,7 +460,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                             child: CText(
                                               status,
                                               size: 16.sp,
-                                              color: appColors.textPrimary,
+                                              color: colorScheme.onSurface,
                                             ),
                                           ),
                                         )
@@ -453,7 +476,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                             Container(
                               padding: EdgeInsets.all(12.w),
                               decoration: BoxDecoration(
-                                color: appColors.lightBlue.withValues(
+                                color: colorScheme.primaryContainer.withValues(
                                   alpha: 0.3,
                                 ),
                                 borderRadius: BorderRadius.circular(8.r),
@@ -507,8 +530,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                             color: Colors.white,
                                             size: 14.sp,
                                           ),
-                                          backgroundColor:
-                                              appColors.primaryColor,
+                                          backgroundColor: colorScheme.primary,
                                           behavior: SnackBarBehavior.floating,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(
@@ -519,7 +541,7 @@ class _HelperListScreenState extends State<HelperListScreen> {
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: appColors.primaryColor,
+                                      backgroundColor: colorScheme.primary,
                                       padding: EdgeInsets.symmetric(
                                         vertical: 12.h,
                                       ),

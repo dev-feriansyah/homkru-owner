@@ -25,6 +25,8 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       backgroundColor: Color(0xFFEEF3F9),
       appBar: CustomAppBar(title: "Clean Kitchen"),
@@ -38,7 +40,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
               CText(
                 AppStrings.taskDetail,
-                color: appColors.textPrimary,
+                color: colorScheme.onSurface,
                 size: 18.sp,
                 weight: FontWeight.w500,
               ),
@@ -59,7 +61,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
               CText(
                 AppStrings.action,
-                color: appColors.textPrimary,
+                color: colorScheme.onSurface,
                 size: 18.sp,
                 weight: FontWeight.w500,
               ),
@@ -85,63 +87,70 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
   // Task Approval Section for Completed Tasks
   Widget _buildTaskApprovalSection() {
-    return Container(
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(
-          color: appColors.primaryColor.withValues(alpha: 0.2),
-          width: 1,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CText(
-            "Task Completion Approval",
-            color: appColors.textPrimary,
-            size: 16.sp,
-            weight: FontWeight.w600,
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        final appColors = context.appColors;
+
+        return Container(
+          padding: EdgeInsets.all(16.w),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12.r),
+            border: Border.all(
+              color: colorScheme.primary.withValues(alpha: 0.2),
+              width: 1,
+            ),
           ),
-          SizedBox(height: 8.h),
-          CText(
-            "This task has been completed and requires your approval.",
-            color: appColors.textSecondary,
-            size: 14.sp,
-          ),
-          SizedBox(height: 16.h),
-
-          // Task Proof Image Section
-          _buildTaskProofImage(),
-
-          vGap(18),
-
-          Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: CustomElevatedButton(
-                  text: AppStrings.approve,
-                  onPressed: _approveTaskCompletion,
-                ),
+              CText(
+                "Task Completion Approval",
+                color: colorScheme.onSurface,
+                size: 16.sp,
+                weight: FontWeight.w600,
               ),
-              SizedBox(width: 12.w),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    // color: Colors.red,
-                    borderRadius: BorderRadius.circular(8.r),
+              SizedBox(height: 8.h),
+              CText(
+                "This task has been completed and requires your approval.",
+                color: appColors.textSecondary,
+                size: 14.sp,
+              ),
+              SizedBox(height: 16.h),
+
+              // Task Proof Image Section
+              _buildTaskProofImage(),
+
+              vGap(18),
+
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomElevatedButton(
+                      text: AppStrings.approve,
+                      onPressed: _approveTaskCompletion,
+                    ),
                   ),
-                  child: CustomElevatedButton(
-                    text: AppStrings.reject,
-                    onPressed: _rejectTaskCompletion,
+                  SizedBox(width: 12.w),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        // color: Colors.red,
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                      child: CustomElevatedButton(
+                        text: AppStrings.reject,
+                        onPressed: _rejectTaskCompletion,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
@@ -153,13 +162,13 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
           (context) => AlertDialog(
             title: CText(
               "Approve Task",
-              color: appColors.textPrimary,
+              color: Theme.of(context).colorScheme.onSurface,
               size: 18.sp,
               weight: FontWeight.w600,
             ),
             content: CText(
               "Are you sure you want to approve this task completion?",
-              color: appColors.textSecondary,
+              color: context.appColors.textSecondary,
               size: 14.sp,
             ),
             actions: [
@@ -167,7 +176,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 onPressed: () => Navigator.pop(context),
                 child: CText(
                   "Cancel",
-                  color: appColors.textSecondary,
+                  color: context.appColors.textSecondary,
                   size: 14.sp,
                 ),
               ),
@@ -201,13 +210,13 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
           (context) => AlertDialog(
             title: CText(
               "Reject Task",
-              color: appColors.textPrimary,
+              color: Theme.of(context).colorScheme.onSurface,
               size: 18.sp,
               weight: FontWeight.w600,
             ),
             content: CText(
               "Are you sure you want to reject this task completion?",
-              color: appColors.textSecondary,
+              color: context.appColors.textSecondary,
               size: 14.sp,
             ),
             actions: [
@@ -215,7 +224,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 onPressed: () => Navigator.pop(context),
                 child: CText(
                   "Cancel",
-                  color: appColors.textSecondary,
+                  color: context.appColors.textSecondary,
                   size: 14.sp,
                 ),
               ),
@@ -243,76 +252,82 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
   // Task Proof Image Section
   Widget _buildTaskProofImage() {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.r),
-        border: Border.all(
-          color: appColors.grey.withValues(alpha: 0.3),
-          width: 1,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Image Header
-          Container(
-            padding: EdgeInsets.all(12.w),
-            decoration: BoxDecoration(
-              color: appColors.lightBlue.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8.r),
-                topRight: Radius.circular(8.r),
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.image, color: appColors.primaryColor, size: 20.sp),
-                SizedBox(width: 8.w),
-                CText(
-                  "Task Proof Image",
-                  color: appColors.textPrimary,
-                  size: 14.sp,
-                  weight: FontWeight.w600,
-                ),
-                Spacer(),
-                CText(
-                  "Tap to view full size",
-                  color: appColors.textSecondary,
-                  size: 12.sp,
-                ),
-              ],
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        final appColors = context.appColors;
+        return Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.r),
+            border: Border.all(
+              color: appColors.grey.withValues(alpha: 0.3),
+              width: 1,
             ),
           ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Image Header
+              Container(
+                padding: EdgeInsets.all(12.w),
+                decoration: BoxDecoration(
+                  color: colorScheme.primaryContainer.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8.r),
+                    topRight: Radius.circular(8.r),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(Icons.image, color: colorScheme.primary, size: 20.sp),
+                    SizedBox(width: 8.w),
+                    CText(
+                      "Task Proof Image",
+                      color: colorScheme.onSurface,
+                      size: 14.sp,
+                      weight: FontWeight.w600,
+                    ),
+                    Spacer(),
+                    CText(
+                      "Tap to view full size",
+                      color: appColors.textSecondary,
+                      size: 12.sp,
+                    ),
+                  ],
+                ),
+              ),
 
-          // Image Display
-          GestureDetector(
-            onTap: _showFullSizeImage,
-            child: Container(
-              width: double.infinity,
-              height: 200.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(8.r),
-                  bottomRight: Radius.circular(8.r),
+              // Image Display
+              GestureDetector(
+                onTap: _showFullSizeImage,
+                child: Container(
+                  width: double.infinity,
+                  height: 200.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(8.r),
+                      bottomRight: Radius.circular(8.r),
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(8.r),
+                      bottomRight: Radius.circular(8.r),
+                    ),
+                    child: CustomImageView(
+                      imagePath:
+                          ImageConstant
+                              .cleanKitchen, // Mock image - replace with actual task proof
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(8.r),
-                  bottomRight: Radius.circular(8.r),
-                ),
-                child: CustomImageView(
-                  imagePath:
-                      ImageConstant
-                          .cleanKitchen, // Mock image - replace with actual task proof
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 

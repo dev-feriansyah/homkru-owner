@@ -26,11 +26,14 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return SafeArea(
       child: Container(
         // padding: EdgeInsets.all(20.w),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: colorScheme.surface,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.r),
             topRight: Radius.circular(20.r),
@@ -78,7 +81,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                         "Add Room",
                         size: 20.sp,
                         weight: FontWeight.w600,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                     ),
                     SizedBox(height: 20.h),
@@ -88,7 +91,7 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                       "Room name",
                       size: 18.sp,
                       weight: FontWeight.w600,
-                      color: appColors.textPrimary,
+                      color: colorScheme.onSurface,
                     ),
                     vGap(2.h),
 
@@ -108,12 +111,14 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                         vertical: 12.h,
                       ),
                       decoration: BoxDecoration(
-                        color: appColors.white,
+                        color: colorScheme.surface,
                         borderRadius: BorderRadius.circular(15.r),
-                        border: Border.all(color: appColors.offWhite),
+                        border: Border.all(
+                          color: colorScheme.surfaceContainerHighest,
+                        ),
                         boxShadow: [
                           BoxShadow(
-                            color: appColors.offWhite,
+                            color: colorScheme.surfaceContainerHighest,
                             blurRadius: 10.r,
                             offset: const Offset(0, 1),
                           ),
@@ -163,14 +168,14 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                                 decoration: BoxDecoration(
                                   color:
                                       isSelected
-                                          ? appColors.blueAccentCustom
+                                          ? colorScheme.primary
                                           : Colors.transparent,
                                   borderRadius: BorderRadius.circular(9.r),
                                   border: Border.all(
                                     color:
                                         isSelected
-                                            ? appColors.blueAccentCustom
-                                            : appColors.blueAccentCustom,
+                                            ? colorScheme.primary
+                                            : colorScheme.primary,
                                     width: 1.0,
                                   ),
                                 ),
@@ -179,8 +184,8 @@ class _AddRoomBottomSheetState extends State<AddRoomBottomSheet> {
                                   size: 14.sp,
                                   color:
                                       isSelected
-                                          ? appColors.white
-                                          : appColors.blueAccentCustom,
+                                          ? colorScheme.onPrimary
+                                          : colorScheme.primary,
                                   weight: FontWeight.w500,
                                 ),
                               ),

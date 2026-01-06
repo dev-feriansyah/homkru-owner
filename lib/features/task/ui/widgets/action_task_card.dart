@@ -24,16 +24,19 @@ class ActionTaskCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Container(
       margin: EdgeInsets.only(bottom: 16.h),
       width: 1.sw,
       decoration: BoxDecoration(
-        color: appColors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(15.r),
-        border: Border.all(color: appColors.offWhite),
+        border: Border.all(color: colorScheme.surfaceContainerHighest),
         boxShadow: [
           BoxShadow(
-            color: appColors.primaryColor.withValues(alpha: 0.08),
+            color: colorScheme.primary.withValues(alpha: 0.08),
             blurRadius: 50.r,
             offset: Offset(10.w, 20.h),
           ),
@@ -52,12 +55,12 @@ class ActionTaskCard extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(8.r),
                   decoration: BoxDecoration(
-                    color: appColors.lightBlueTwo,
+                    color: colorScheme.secondaryContainer,
                     shape: BoxShape.circle,
                   ),
                   child: CText(
                     task.initials,
-                    color: appColors.primaryColor,
+                    color: colorScheme.primary,
                     size: 11.sp,
                     weight: FontWeight.w700,
                   ),
@@ -71,7 +74,7 @@ class ActionTaskCard extends StatelessWidget {
                     children: [
                       CText(
                         task.title,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                         size: 16.sp,
                         weight: FontWeight.w500,
                         height: 1.38,
@@ -97,7 +100,7 @@ class ActionTaskCard extends StatelessWidget {
                       if (hasExtraInfo) ...[
                         vGap(16.h),
 
-                        Divider(color: appColors.veryLightGrey, height: 1.h),
+                        Divider(color: colorScheme.outlineVariant, height: 1.h),
                         Padding(
                           padding: EdgeInsets.only(
                             left: 14.w,
@@ -134,7 +137,7 @@ class ActionTaskCard extends StatelessWidget {
             child: Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: _buildActionButtons(),
+                children: _buildActionButtons(context),
               ),
             ),
           ),
@@ -145,39 +148,46 @@ class ActionTaskCard extends StatelessWidget {
 
   Widget _buildInfoRow(String label, String value) {
     if (value.isEmpty) return SizedBox.shrink();
-    return Padding(
-      padding: EdgeInsets.only(bottom: 4.h),
-      child: RichText(
-        text: TextSpan(
-          style: TextStyle(
-            color: appColors.grey,
-            fontSize: 14.sp,
-            fontFamily: 'Poppins',
-            height: 1.29,
+    return Builder(
+      builder: (context) {
+        final appColors = context.appColors;
+        return Padding(
+          padding: EdgeInsets.only(bottom: 4.h),
+          child: RichText(
+            text: TextSpan(
+              style: TextStyle(
+                color: appColors.grey,
+                fontSize: 14.sp,
+                fontFamily: 'Poppins',
+                height: 1.29,
+              ),
+              children: [
+                TextSpan(
+                  text: "$label: ",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: appColors.grey,
+                  ),
+                ),
+                TextSpan(
+                  text: value,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: appColors.grey,
+                  ),
+                ),
+              ],
+            ),
           ),
-          children: [
-            TextSpan(
-              text: "$label: ",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: appColors.grey,
-              ),
-            ),
-            TextSpan(
-              text: value,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: appColors.grey,
-              ),
-            ),
-          ],
-        ),
-      ),
+        );
+      },
     );
   }
 
-  List<Widget> _buildActionButtons() {
+  List<Widget> _buildActionButtons(BuildContext context) {
     List<Widget> buttons = [];
+    final appColors = context.appColors;
+    final colorScheme = Theme.of(context).colorScheme;
 
     switch (task.actionType) {
       case ActionType.taskProof:
@@ -192,14 +202,14 @@ class ActionTaskCard extends StatelessWidget {
           _buildActionChip(
             AppStrings.reject,
             appColors.lightPink.withValues(alpha: 0.3),
-            appColors.darkRed,
+            colorScheme.error,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appColors.lightBlue.withValues(alpha: 0.6),
-            appColors.primaryColor,
+            colorScheme.primaryContainer.withValues(alpha: 0.6),
+            colorScheme.primary,
             width: 108.w,
             onTap: onViewDetails,
           ),
@@ -218,14 +228,14 @@ class ActionTaskCard extends StatelessWidget {
           _buildActionChip(
             AppStrings.reject,
             appColors.lightPink.withValues(alpha: 0.3),
-            appColors.darkRed,
+            colorScheme.error,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appColors.lightBlue.withValues(alpha: 0.6),
-            appColors.primaryColor,
+            colorScheme.primaryContainer.withValues(alpha: 0.6),
+            colorScheme.primary,
             width: 108.w,
             onTap: onViewDetails,
           ),
@@ -244,14 +254,14 @@ class ActionTaskCard extends StatelessWidget {
           _buildActionChip(
             AppStrings.reject,
             appColors.lightPink.withValues(alpha: 0.3),
-            appColors.darkRed,
+            colorScheme.error,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appColors.lightBlue.withValues(alpha: 0.6),
-            appColors.primaryColor,
+            colorScheme.primaryContainer.withValues(alpha: 0.6),
+            colorScheme.primary,
             width: 108.w,
             onTap: onViewDetails,
           ),
@@ -270,14 +280,14 @@ class ActionTaskCard extends StatelessWidget {
           _buildActionChip(
             AppStrings.reject,
             appColors.lightPink.withValues(alpha: 0.3),
-            appColors.darkRed,
+            colorScheme.error,
             onTap: onReject,
           ),
           hGap(6),
           _buildActionChip(
             AppStrings.viewDetails,
-            appColors.lightBlue.withValues(alpha: 0.6),
-            appColors.primaryColor,
+            colorScheme.primaryContainer.withValues(alpha: 0.6),
+            colorScheme.primary,
             width: 108.w,
             onTap: onViewDetails,
           ),

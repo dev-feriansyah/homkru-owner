@@ -23,8 +23,11 @@ class _ReportsScreenState extends State<ReportsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: const CustomCommonAppBar(title: "Reports"),
       body: Stack(
         children: [
@@ -64,7 +67,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Period:",
                         size: 16.sp,
                         weight: FontWeight.w600,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                       DropdownButton<String>(
                         value: _selectedPeriod,
@@ -76,7 +79,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                                 child: CText(
                                   period,
                                   size: 14.sp,
-                                  color: appColors.textPrimary,
+                                  color: colorScheme.onSurface,
                                 ),
                               );
                             }).toList(),
@@ -99,7 +102,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Total Tasks",
                         "156",
                         Icons.task_alt,
-                        appColors.primaryColor,
+                        colorScheme.primary,
                       ),
                     ),
                     SizedBox(width: 12.w),
@@ -108,7 +111,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Completed",
                         "142",
                         Icons.check_circle,
-                        appColors.brightGreen,
+                        appColors.successColor,
                       ),
                     ),
                   ],
@@ -121,7 +124,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         "Pending",
                         "14",
                         Icons.pending,
-                        appColors.orange,
+                        appColors.orangeDark,
                       ),
                     ),
                     SizedBox(width: 12.w),
@@ -158,6 +161,8 @@ class _ReportsScreenState extends State<ReportsScreen> {
     IconData icon,
     Color color,
   ) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
@@ -199,7 +204,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
             value,
             size: 24.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 4.h),
           CText(
@@ -214,6 +219,8 @@ class _ReportsScreenState extends State<ReportsScreen> {
   }
 
   Widget _buildChartSection() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -235,7 +242,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
             "Performance Overview",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
           SizedBox(
@@ -255,6 +262,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
   }
 
   Widget _buildDetailedReports() {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -262,7 +270,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
           "Detailed Reports",
           size: 18.sp,
           weight: FontWeight.bold,
-          color: appColors.textPrimary,
+          color: colorScheme.onSurface,
         ),
         SizedBox(height: 16.h),
         _buildReportItem(
@@ -290,23 +298,25 @@ class _ReportsScreenState extends State<ReportsScreen> {
   }
 
   Widget _buildReportItem(String title, String subtitle, IconData icon) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       margin: EdgeInsets.only(bottom: 12.h),
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: appColors.veryLightGrey),
+        border: Border.all(color: colorScheme.outlineVariant),
       ),
       child: Row(
         children: [
           Container(
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
-              color: appColors.primaryColor.withValues(alpha: 0.1),
+              color: colorScheme.primary.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8.r),
             ),
-            child: Icon(icon, color: appColors.primaryColor, size: 20.sp),
+            child: Icon(icon, color: colorScheme.primary, size: 20.sp),
           ),
           SizedBox(width: 12.w),
           Expanded(
@@ -317,7 +327,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                   title,
                   size: 14.sp,
                   weight: FontWeight.w600,
-                  color: appColors.textPrimary,
+                  color: colorScheme.onSurface,
                 ),
                 SizedBox(height: 4.h),
                 CText(subtitle, size: 12.sp, color: appColors.grey),

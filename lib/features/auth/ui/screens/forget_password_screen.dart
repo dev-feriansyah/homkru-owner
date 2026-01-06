@@ -18,6 +18,9 @@ class ForgetPasswordScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     final formKey = useMemoized(() => GlobalKey<FormState>());
     final emailController = useTextEditingController();
 
@@ -132,13 +135,13 @@ class ForgetPasswordScreen extends HookWidget {
                                 },
                                 text: "Send OTP",
                                 buttonTextStyle: TextStyle(
-                                  color: appColors.white,
+                                  color: colorScheme.surface,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 buttonStyle: ButtonStyle(
                                   backgroundColor: WidgetStateProperty.all(
-                                    appColors.primaryColor,
+                                    colorScheme.primary,
                                   ),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(

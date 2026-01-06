@@ -12,6 +12,8 @@ class HouseholdStatsDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
       child: Column(
@@ -21,12 +23,12 @@ class HouseholdStatsDashboard extends StatelessWidget {
             "Household Stats",
             size: 18.sp,
             weight: FontWeight.bold,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
           SizedBox(height: 16.h),
 
           // Large Tasks Completed Card
-          _buildTasksCompletedCard(),
+          _buildTasksCompletedCard(context),
           SizedBox(height: 16.h),
 
           // Two row cards
@@ -34,6 +36,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
             children: [
               Expanded(
                 child: _buildCircularProgressCard(
+                  context,
                   "74%",
                   "Tasks Completed on time",
                   0.74,
@@ -42,6 +45,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
               SizedBox(width: 12.w),
               Expanded(
                 child: _buildCircularProgressCard(
+                  context,
                   "45%",
                   "Redo Requests Over Total Tasks",
                   0.45,
@@ -55,13 +59,14 @@ class HouseholdStatsDashboard extends StatelessWidget {
             children: [
               Expanded(
                 child: _buildCircularProgressCard(
+                  context,
                   "89%",
                   "On-Time Check-ins",
                   0.89,
                 ),
               ),
               SizedBox(width: 12.w),
-              Expanded(child: _buildTaskDistributionCard()),
+              Expanded(child: _buildTaskDistributionCard(context)),
             ],
           ),
         ],
@@ -69,7 +74,9 @@ class HouseholdStatsDashboard extends StatelessWidget {
     );
   }
 
-  Widget _buildTasksCompletedCard() {
+  Widget _buildTasksCompletedCard(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -90,7 +97,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
             width: 4.w,
             height: 60.h,
             decoration: BoxDecoration(
-              color: Color(0xFF83E888),
+              color: appColors.successLight,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(16.r),
                 bottomRight: Radius.circular(16.r),
@@ -114,13 +121,13 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               "320",
                               size: 22.sp,
                               weight: FontWeight.w600,
-                              color: appColors.textPrimary,
+                              color: colorScheme.onSurface,
                             ),
                             SizedBox(height: 4.h),
                             CText(
                               "Tasks completed",
                               size: 16.sp,
-                              color: appColors.textPrimary,
+                              color: colorScheme.onSurface,
                               weight: FontWeight.w500,
                             ),
                           ],
@@ -130,14 +137,14 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         options: CircularDottedBorderOptions(
                           dashPattern: [8, 5],
                           strokeWidth: 2,
-                          color: appColors.primaryColor,
+                          color: colorScheme.primary,
                           padding: EdgeInsets.all(0),
                         ),
                         child: Container(
                           width: 50.w,
                           height: 50.h,
                           decoration: BoxDecoration(
-                            color: appColors.lightBlueTwo,
+                            color: colorScheme.secondaryContainer,
                             shape: BoxShape.circle,
                             // border: Border.all(
                             //   color: appTheme.primaryColor.withValues(alpha: 0.3),
@@ -165,7 +172,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                       CText(
                         "100% Complete",
                         size: 10.sp,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                         weight: FontWeight.w500,
                       ),
                       CText(
@@ -180,7 +187,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                   Container(
                     height: 8.h,
                     decoration: BoxDecoration(
-                      color: appColors.veryLightGrey,
+                      color: colorScheme.outlineVariant,
                       borderRadius: BorderRadius.circular(4.r),
                     ),
                     child: FractionallySizedBox(
@@ -188,7 +195,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                       widthFactor: 1.0,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: appColors.primaryColor,
+                          color: colorScheme.primary,
                           borderRadius: BorderRadius.circular(4.r),
                         ),
                       ),
@@ -204,10 +211,13 @@ class HouseholdStatsDashboard extends StatelessWidget {
   }
 
   Widget _buildCircularProgressCard(
+    BuildContext context,
     String percentage,
     String title,
     double progress,
   ) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 16.h),
       decoration: BoxDecoration(
@@ -256,7 +266,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               height: 60.h,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: appColors.veryLightGrey,
+                                color: colorScheme.outlineVariant,
                               ),
                             ),
                             // Progress arc
@@ -264,7 +274,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               size: Size(60.w, 60.h),
                               painter: CircularProgressPainter(
                                 progress: progress,
-                                color: appColors.primaryColor,
+                                color: colorScheme.primary,
                                 strokeWidth: 6,
                               ),
                             ),
@@ -289,7 +299,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               percentage,
                               size: 24.sp,
                               weight: FontWeight.bold,
-                              color: appColors.textPrimary,
+                              color: colorScheme.onSurface,
                             ),
                             SizedBox(height: 4.h),
                           ],
@@ -306,7 +316,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         title,
                         size: 14.sp,
                         weight: FontWeight.bold,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                     ],
                   ),
@@ -319,7 +329,9 @@ class HouseholdStatsDashboard extends StatelessWidget {
     );
   }
 
-  Widget _buildTaskDistributionCard() {
+  Widget _buildTaskDistributionCard(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Container(
       padding: EdgeInsetsDirectional.symmetric(vertical: 16),
       decoration: BoxDecoration(
@@ -369,7 +381,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               height: 60.h,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: appColors.veryLightGrey,
+                                color: colorScheme.outlineVariant,
                               ),
                             ),
                             // Donut chart with multiple segments
@@ -377,14 +389,11 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               size: Size(60.w, 60.h),
                               painter: MultiSegmentDonutPainter(
                                 segments: [
-                                  {
-                                    'value': 0.6,
-                                    'color': appColors.primaryColor,
-                                  },
+                                  {'value': 0.6, 'color': colorScheme.primary},
                                   {'value': 0.25, 'color': appColors.grey},
                                   {
                                     'value': 0.15,
-                                    'color': appColors.veryLightGrey,
+                                    'color': colorScheme.outlineVariant,
                                   },
                                 ],
                                 strokeWidth: 8,
@@ -395,7 +404,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                               child: CText(
                                 "60%\nRina",
                                 size: 8.sp,
-                                color: appColors.textPrimary,
+                                color: colorScheme.onSurface,
                                 weight: FontWeight.w600,
                                 textAlign: TextAlign.center,
                               ),
@@ -408,9 +417,17 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            _buildLegendItem("Rina", appColors.primaryColor),
-                            _buildLegendItem("Budi", appColors.grey),
-                            _buildLegendItem("Siti", appColors.veryLightGrey),
+                            _buildLegendItem(
+                              context,
+                              "Rina",
+                              colorScheme.primary,
+                            ),
+                            _buildLegendItem(context, "Budi", appColors.grey),
+                            _buildLegendItem(
+                              context,
+                              "Siti",
+                              colorScheme.outlineVariant,
+                            ),
                           ],
                         ),
                       ),
@@ -425,7 +442,7 @@ class HouseholdStatsDashboard extends StatelessWidget {
                         "Task Distribution",
                         size: 14.sp,
                         weight: FontWeight.bold,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                       SizedBox(height: 4.h),
                       CText(
@@ -445,7 +462,8 @@ class HouseholdStatsDashboard extends StatelessWidget {
     );
   }
 
-  Widget _buildLegendItem(String name, Color color) {
+  Widget _buildLegendItem(BuildContext context, String name, Color color) {
+    final appColors = context.appColors;
     return Padding(
       padding: EdgeInsets.only(bottom: 4.h),
       child: Row(

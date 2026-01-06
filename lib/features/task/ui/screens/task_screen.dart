@@ -69,7 +69,7 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
       SnackBar(
         content: Text(filterMessage),
         duration: Duration(seconds: 2),
-        backgroundColor: appColors.primaryColor,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }
@@ -77,8 +77,11 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
   // 🔹 Build Method ===================================
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: CustomAppBar(
         title: 'All Task',
         toolbarHeight: 130.h,
@@ -89,19 +92,19 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
             height: 40.h,
             margin: EdgeInsets.only(bottom: 16.h),
             decoration: BoxDecoration(
-              color: appColors.blueAccentCustom,
+              color: colorScheme.secondary,
               // borderRadius: BorderRadius.circular(8.r),
             ),
             child: TabBar(
               controller: _tabController,
               indicator: BoxDecoration(
                 border: Border(
-                  bottom: BorderSide(color: appColors.white, width: 1.0),
+                  bottom: BorderSide(color: colorScheme.surface, width: 1.0),
                 ),
               ),
               indicatorSize: TabBarIndicatorSize.tab,
               dividerColor: Colors.transparent,
-              labelColor: appColors.white,
+              labelColor: colorScheme.surface,
               unselectedLabelColor: appColors.mintGreen,
               labelStyle: TextStyle(
                 fontSize: 14.sp,
@@ -134,220 +137,235 @@ class _TaskScreenState extends State<TaskScreen> with TickerProviderStateMixin {
 
   // All Tasks Tab
   Widget _buildTaskTab() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        children: [
-          Row(
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
             children: [
-              CText(
-                'All Tasks',
-                size: 18.sp,
-                weight: FontWeight.w600,
-                color: appColors.textPrimary,
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: _showFilterBottomSheet,
-                child: Container(
-                  width: 80.w,
-                  padding: EdgeInsets.symmetric(vertical: 4.sp),
-                  decoration: ShapeDecoration(
-                    color: appColors.white.withValues(alpha: 0.10),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1.w,
-                        color: appColors.primaryColor.withValues(alpha: 0.5),
+              Row(
+                children: [
+                  CText(
+                    'All Tasks',
+                    size: 18.sp,
+                    weight: FontWeight.w600,
+                    color: colorScheme.onSurface,
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: _showFilterBottomSheet,
+                    child: Container(
+                      width: 80.w,
+                      padding: EdgeInsets.symmetric(vertical: 4.sp),
+                      decoration: ShapeDecoration(
+                        color: colorScheme.surface.withValues(alpha: 0.10),
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 1.w,
+                            color: colorScheme.primary.withValues(alpha: 0.5),
+                          ),
+                          borderRadius: BorderRadius.circular(9.r),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(9.r),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 10.w,
+                        children: [
+                          Icon(
+                            Icons.filter_list,
+                            color: colorScheme.primary,
+                            size: 14.sp,
+                          ),
+                          CText(
+                            'Filter',
+                            size: 14.sp,
+                            weight: FontWeight.w500,
+                            color: colorScheme.primary,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 10.w,
-                    children: [
-                      Icon(
-                        Icons.filter_list,
-                        color: appColors.primaryColor,
-                        size: 14.sp,
+                ],
+              ),
+              SizedBox(height: 16.sp),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () => AppNavigator.pushNamed(AppRoutes.taskDetail),
+                      child: TaskCard(
+                        title: "Kitchen Cleaning",
+                        description: "Clean countertops, floor, and appliances",
+                        assignedTo: "Sarah Johnson",
+                        time: "10:00 AM",
+                        status: _getTaskStatus(index),
                       ),
-                      CText(
-                        'Filter',
-                        size: 14.sp,
-                        weight: FontWeight.w500,
-                        color: appColors.primaryColor,
-                      ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
               ),
             ],
           ),
-          SizedBox(height: 16.sp),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () => AppNavigator.pushNamed(AppRoutes.taskDetail),
-                  child: TaskCard(
-                    title: "Kitchen Cleaning",
-                    description: "Clean countertops, floor, and appliances",
-                    assignedTo: "Sarah Johnson",
-                    time: "10:00 AM",
-                    status: _getTaskStatus(index),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 
   // Upcoming Tasks Tab
   Widget _buildUpcomingTab() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        children: [
-          Row(
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
             children: [
-              CText(
-                'Upcoming Tasks',
-                size: 18.sp,
-                weight: FontWeight.w600,
-                color: appColors.textPrimary,
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: _showFilterBottomSheet,
-                child: Container(
-                  width: 80.w,
-                  padding: EdgeInsets.symmetric(vertical: 4.sp),
-                  decoration: ShapeDecoration(
-                    color: appColors.white.withValues(alpha: 0.10),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1.w,
-                        color: appColors.primaryColor.withValues(alpha: 0.5),
+              Row(
+                children: [
+                  CText(
+                    'Upcoming Tasks',
+                    size: 18.sp,
+                    weight: FontWeight.w600,
+                    color: colorScheme.onSurface,
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: _showFilterBottomSheet,
+                    child: Container(
+                      width: 80.w,
+                      padding: EdgeInsets.symmetric(vertical: 4.sp),
+                      decoration: ShapeDecoration(
+                        color: colorScheme.surface.withValues(alpha: 0.10),
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 1.w,
+                            color: colorScheme.primary.withValues(alpha: 0.5),
+                          ),
+                          borderRadius: BorderRadius.circular(9.r),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(9.r),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 10.w,
+                        children: [
+                          Icon(
+                            Icons.filter_list,
+                            color: colorScheme.primary,
+                            size: 14.sp,
+                          ),
+                          CText(
+                            'Filter',
+                            size: 14.sp,
+                            weight: FontWeight.w500,
+                            color: colorScheme.primary,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 10.w,
-                    children: [
-                      Icon(
-                        Icons.filter_list,
-                        color: appColors.primaryColor,
-                        size: 14.sp,
-                      ),
-                      CText(
-                        'Filter',
-                        size: 14.sp,
-                        weight: FontWeight.w500,
-                        color: appColors.primaryColor,
-                      ),
-                    ],
-                  ),
+                ],
+              ),
+              SizedBox(height: 16.sp),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return TaskCard(
+                      title: "Upcoming Task ${index + 1}",
+                      description: "This is an upcoming task description",
+                      assignedTo: "John Doe",
+                      time: "2:00 PM",
+                      status: AppStrings.pending,
+                    );
+                  },
                 ),
               ),
             ],
           ),
-          SizedBox(height: 16.sp),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return TaskCard(
-                  title: "Upcoming Task ${index + 1}",
-                  description: "This is an upcoming task description",
-                  assignedTo: "John Doe",
-                  time: "2:00 PM",
-                  status: AppStrings.pending,
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 
   // Completed Tasks Tab
   Widget _buildCompletedTab() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        children: [
-          Row(
+    return Builder(
+      builder: (context) {
+        final colorScheme = Theme.of(context).colorScheme;
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
             children: [
-              CText(
-                'Completed Tasks',
-                size: 18.sp,
-                weight: FontWeight.w600,
-                color: appColors.textPrimary,
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: _showFilterBottomSheet,
-                child: Container(
-                  width: 80.w,
-                  padding: EdgeInsets.symmetric(vertical: 4.sp),
-                  decoration: ShapeDecoration(
-                    color: appColors.white.withValues(alpha: 0.10),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1.w,
-                        color: appColors.primaryColor.withValues(alpha: 0.5),
+              Row(
+                children: [
+                  CText(
+                    'Completed Tasks',
+                    size: 18.sp,
+                    weight: FontWeight.w600,
+                    color: colorScheme.onSurface,
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: _showFilterBottomSheet,
+                    child: Container(
+                      width: 80.w,
+                      padding: EdgeInsets.symmetric(vertical: 4.sp),
+                      decoration: ShapeDecoration(
+                        color: colorScheme.surface.withValues(alpha: 0.10),
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 1.w,
+                            color: colorScheme.primary.withValues(alpha: 0.5),
+                          ),
+                          borderRadius: BorderRadius.circular(9.r),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(9.r),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 10.w,
+                        children: [
+                          Icon(
+                            Icons.filter_list,
+                            color: colorScheme.primary,
+                            size: 14.sp,
+                          ),
+                          CText(
+                            'Filter',
+                            size: 14.sp,
+                            weight: FontWeight.w500,
+                            color: colorScheme.primary,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 10.w,
-                    children: [
-                      Icon(
-                        Icons.filter_list,
-                        color: appColors.primaryColor,
-                        size: 14.sp,
-                      ),
-                      CText(
-                        'Filter',
-                        size: 14.sp,
-                        weight: FontWeight.w500,
-                        color: appColors.primaryColor,
-                      ),
-                    ],
-                  ),
+                ],
+              ),
+              SizedBox(height: 16.sp),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 7,
+                  itemBuilder: (context, index) {
+                    return TaskCard(
+                      title: "Completed Task ${index + 1}",
+                      description: "This task has been completed successfully",
+                      assignedTo: "Jane Smith",
+                      time: "9:00 AM",
+                      status: AppStrings.complete,
+                    );
+                  },
                 ),
               ),
             ],
           ),
-          SizedBox(height: 16.sp),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 7,
-              itemBuilder: (context, index) {
-                return TaskCard(
-                  title: "Completed Task ${index + 1}",
-                  description: "This task has been completed successfully",
-                  assignedTo: "Jane Smith",
-                  time: "9:00 AM",
-                  status: AppStrings.complete,
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 

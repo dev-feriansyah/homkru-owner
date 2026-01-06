@@ -6,7 +6,6 @@ import 'package:homekru_owner/shared/domain/value_objects/user_role.dart';
 import 'package:homekru_owner/shared/utils/common_utils.dart';
 import 'package:homekru_owner/features/settings/settings_screen.dart';
 import 'package:homekru_owner/core/routes/app_navigator.dart';
-import 'package:homekru_owner/core/theme/app_colors.dart';
 import 'package:homekru_owner/shared/widgets/custom_app_bar.dart';
 import 'package:homekru_owner/shared/widgets/custom_text.dart';
 import 'package:homekru_owner/shared/widgets/custom_elevated_button.dart';
@@ -17,6 +16,8 @@ class AddHelperScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
@@ -29,7 +30,7 @@ class AddHelperScreen extends HookWidget {
     }
 
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: const CustomCommonAppBar(title: "Add Helper"),
       body: Stack(
         children: [

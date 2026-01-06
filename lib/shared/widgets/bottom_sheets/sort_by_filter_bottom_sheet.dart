@@ -22,6 +22,9 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -58,7 +61,7 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
             size: 20.sp,
             weight: FontWeight.w600,
             textAlign: TextAlign.center,
-            color: appColors.textPrimary,
+            color: colorScheme.onSurface,
           ),
         ),
         vGap(20.h),
@@ -118,7 +121,7 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
           },
           child: CText(
             "Clear",
-            color: appColors.primaryColor,
+            color: colorScheme.primary,
             weight: FontWeight.w500,
             size: 14.sp,
           ),
@@ -132,10 +135,12 @@ class _SortByFilterBottomSheetState extends State<SortByFilterBottomSheet> {
 
 /// Call this function from anywhere
 void showSortByFilterBottomSheet(BuildContext context) {
+  final colorScheme = Theme.of(context).colorScheme;
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.white,
+    backgroundColor: colorScheme.surface,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
     ),

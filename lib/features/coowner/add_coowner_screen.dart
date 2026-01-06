@@ -33,8 +33,10 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: appColors.lightBlue,
+      backgroundColor: colorScheme.primaryContainer,
       appBar: const CustomCommonAppBar(title: "Add Co-owner"),
       body: Stack(
         children: [
@@ -107,7 +109,7 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
                         'Access given for',
                         size: 18.sp,
                         weight: FontWeight.w500,
-                        color: appColors.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                       vGap(6.h),
                       _buildCheckbox(
@@ -160,6 +162,8 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
     required ValueChanged<bool?> onChanged,
     required String text,
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final appColors = context.appColors;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 6.h),
       child: Row(
@@ -169,13 +173,13 @@ class _AddCoOwnerScreenState extends State<AddCoOwnerScreen> {
             height: 24.w,
             width: 24.w,
             child: Checkbox(
-              checkColor: appColors.white,
-              activeColor: appColors.primaryColor,
+              checkColor: colorScheme.surface,
+              activeColor: colorScheme.primary,
               value: value,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4.r),
               ),
-              side: BorderSide(color: appColors.lightGrey),
+              side: BorderSide(color: appColors.textSecondary),
               onChanged: onChanged,
             ),
           ),

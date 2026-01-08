@@ -8,12 +8,12 @@ android.apply {
     productFlavors {
         create("dev") {
             dimension = "flavor-type"
-            applicationId = "com.example.homekru_owner_dev"
+            applicationId = "com.homekru.owner.dev"
             resValue(type = "string", name = "app_name", value = "Homekru Owner Dev")
         }
         create("prod") {
             dimension = "flavor-type"
-            applicationId = "com.example.homekru_owner"
+            applicationId = "com.homekru.owner"
             resValue(type = "string", name = "app_name", value = "Homekru Owner")
         }
     }

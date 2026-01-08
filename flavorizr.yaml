@@ -4,13 +4,13 @@ flavors:
     app:
       name: 'Homekru Owner Dev'
     android:
-      applicationId: 'com.example.homekru_owner_dev'
+      applicationId: 'com.homekru.owner.dev'
     ios:
-      bundleId: 'com.example.homekru_owner_dev'
+      bundleId: 'com.homekru.owner.dev'
   prod:
     app:
       name: 'Homekru Owner'
     android:
-      applicationId: 'com.example.homekru_owner'
+      applicationId: 'com.homekru.owner'
     ios:
-      bundleId: 'com.example.homekru_owner'
+      bundleId: 'com.homekru.owner'
